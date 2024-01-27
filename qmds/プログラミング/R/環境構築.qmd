@@ -1,0 +1,149 @@
+---
+title: R環境構築
+abstract: Rstudio + renvを利用した環境構築
+date: 01-24-2024
+date-modified: 01-24-2024
+categories:
+    - R
+    - 開発環境
+order: 1
+---
+
+※このページのOSは以下とする。
+```
+OS: {{< var os >}}
+```
+
+# Rにおける環境構築
+Rの環境構築は`RStudio`を、パッケージ管理は`renv`を使うのがメジャーである。この記事でもこれらを使用した開発環境構築を行う。
+
+- RStudio: RのIDE、プロジェクト作成から対話モードによるプログラミングまで全てこれ一つで賄える: [公式リンク](https://posit.co/products/open-source/rstudio/)
+    - WSL2環境なので、デスクトップ版ではなく`RStudio Server`を使用する。
+- renv: パッケージ管理を行うことができるパッケージ: [公式リンク](https://rstudio.github.io/renv/index.html)
+
+# RStudio Server, renvのインストール
+
+あらかじめ`apt`をアップデートしておく。
+
+```shell
+sudo apt update
+sudo apt upgrade
+```
+
+## RStudio Server
+1. Rのインストール
+
+```shell
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+sudo apt install --no-install-recommends r-base
+```
+
+以下コマンドを実行。バージョン情報がでればOK
+
+```shell
+R --version
+```
+
+2. RStudio Serverのインストール
+
+```
+wget https://rstudio.org/download/latest/stable/server/bionic/rstudio-server-latest-amd64.deb
+sudo apt install gdebi
+sudo gdebi rstudio-server-latest-amd64.deb
+```
+
+以下コマンドを実行。コマンド一覧がでればOK。
+
+```shell
+rstudio-server
+```
+
+## renvのインストール
+1. Rを起動する
+
+```shell
+R
+```
+
+2. Rの標準関数`install.packages`で`renv`をインストール
+
+```R
+install.packages("renv")
+```
+
+ライブラリがインポートできるか確認
+
+```R
+library(renv)
+```
+
+3. Rを終了する
+
+```R
+q()
+```
+
+# Rstudio Serverの起動
+1. WSLでRstudio Serverを起動する
+
+```shell
+sudo rstudio-server start
+```
+
+※Rstudio Serverを終了する場合は以下のコマンドを実行する
+
+```shell
+sudo rstudio-server stop
+```
+
+2. ブラウザからアクセス
+
+[こちらのリンク](http://localhost:8787/)を開く
+
+3. ユーザー名とパスワードを入力
+
+ブラウザの認証情報を入力するとRStudioの画面がでてきて、使えるようになる。
+
+# 開発環境構築
+
+## プロジェクトの作成
+1. Rstudio Serverの右上の`Project: (~)`をクリックし、`New Project...`を選択する
+2. 「New Project Wizard」から、プロジェクトを作成するディレクトりを選択する
+    1. 新しいディレクトリに作成する場合には`New Directory`を選択する、その後画面でプロジェクト名と作成する階層を指定する
+    2. 元々あるディレクトりに作成する場合には`Exising Directory`を選択し、ディレクトリの場所を指定する
+3. `Create Project`をクリック
+
+作成後、`<プロジェクト名>.Rproj`というファイルが作成される。これにプロジェクトの情報が保存されていく。
+
+## renvの初期設定
+Rコンソール上で行う。
+
+1. `renv`のインポートする
+
+```R
+library(renv)
+```
+
+2. renvの初期起動を行う
+
+```R
+renv::init()
+```
+
+`renv`ディレクトリと`renv.lock`というファイルが作成される。これらのファイルにRのパッケージ情報が記録されていく。
+
+## renvによるパッケージ管理
+上記の初期設定を行った後は、通常通りにパッケージのインストールや削除を行ってよい。その後、新しくインポートやバージョン更新してパッケージについて、以下のコマンドで`renv`の情報を更新する必要がある。
+
+```R
+renv::snapshot()
+```
+
+基本的には、作業がひと段落したときに上記のコマンドを実行するようにしておけば良い。
+
+別のPCでパッケージ情報を再構築する際には以下のコマンドを実行する。
+
+```R
+renv::restore()
+```

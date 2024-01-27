@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-01-21">
+
+<title>BiostatMoon - DOT言語</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../images/profile.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="index.qmd" class="navbar-brand navbar-brand-logo">
+    <img src="../../../images/profile.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="index.qmd">
+    <span class="navbar-title">BiostatMoon</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../qmds/index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">ホーム</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmds/記事一覧.html" rel="" target="">
+ <span class="menu-text">記事一覧</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmds/管理者.html" rel="" target="">
+ <span class="menu-text">管理者</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmds/実行環境.html" rel="" target="">
+ <span class="menu-text">実行環境</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmds/お問い合わせ.html" rel="" target="">
+ <span class="menu-text">お問い合わせ</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+    <a href="" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item">プログラミング</li><li class="breadcrumb-item"><a href="../../../qmds/プログラミング/その他/anaconda.html">その他</a></li><li class="breadcrumb-item"><a href="../../../qmds/プログラミング/その他/dot.html">DOT言語</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../qmds/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ホーム</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/記事一覧.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">記事一覧</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/管理者.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">管理者</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/実行環境.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">実行環境</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/お問い合わせ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">お問い合わせ</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">プログラミング</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/プログラミング/python/環境構築.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python環境構築</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/プログラミング/python/基礎.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python基礎</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">R</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/プログラミング/R/環境構築.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R環境構築</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">その他</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/プログラミング/その他/anaconda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anaconda</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/プログラミング/その他/dot.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">DOT言語</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">生物統計学</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/生物統計学/確率論.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論基礎</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/生物統計学/確率分布.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率分布</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text">臨床研究</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/臨床研究/リサーチクエスチョン.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">リサーチクエスチョン</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/臨床研究/研究デザイン.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">研究デザイン</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#dot言語とは" id="toc-dot言語とは" class="nav-link active" data-scroll-target="#dot言語とは">Dot言語とは</a></li>
+  <li><a href="#基礎" id="toc-基礎" class="nav-link" data-scroll-target="#基礎">基礎</a>
+  <ul class="collapse">
+  <li><a href="#グラフ" id="toc-グラフ" class="nav-link" data-scroll-target="#グラフ">グラフ</a></li>
+  <li><a href="#ノード" id="toc-ノード" class="nav-link" data-scroll-target="#ノード">ノード</a></li>
+  <li><a href="#エッジ" id="toc-エッジ" class="nav-link" data-scroll-target="#エッジ">エッジ</a></li>
+  <li><a href="#ランク" id="toc-ランク" class="nav-link" data-scroll-target="#ランク">ランク</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">DOT言語</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">DOT</div>
+    <div class="quarto-category">グラフィックス</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-01-21</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2024-01-21</p>
+    </div>
+  </div>
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    ネットワーク系のグラフが書けるDOT言語
+  </div>
+</div>
+
+</header>
+
+<section id="dot言語とは" class="level1 page-columns page-full">
+<h1>Dot言語とは</h1>
+<p>DOT言語は、オープンソースのグラフ視覚化ソフトウェアである<a href="https://www.graphviz.org/">Graphviz</a>を定義するための抽象的文法である。抽象的とはあるが、非常に簡潔な記述でネットワークグラフを描画することができる。</p>
+<ul>
+<li><a href="https://www.graphviz.org/doc/info/lang.html">公式リンク</a></li>
+<li><a href="http://magjac.com/graphviz-visual-editor/">Graphviz Visual Editor</a>: こちらでインタラクティブに練習することができる</li>
+</ul>
+<p>この記事では <a href="#fig-sample">Figure&nbsp;1</a> のような簡単なデータフローが書けるようなレベルを目指す。<br>
+※なお、Quartoでの使用を前提とするためGraphvizのインストール等は扱わない。詳しくは<a href="https://www.graphviz.org/download/">こちら</a>を参照。</p>
+<div class="cell page-columns page-full">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-sample" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full">
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 322.62 282.40" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 278.4)">
+<title>
+G
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-278.4 318.62,-278.4 318.62,4 -4,4"></polygon> <!-- population --> <g id="node1" class="node">
+<title>
+population
+</title>
+<polygon fill="none" stroke="black" points="124.56,-274.2 48.22,-274.2 48.22,-233 124.56,-233 124.56,-274.2"></polygon> <text text-anchor="start" x="56.06" y="-257.8" font-family="Times,serif" font-size="14.00">Population</text> <text text-anchor="start" x="69.22" y="-241" font-family="Times,serif" font-size="14.00">(N=n)</text> </g> <!-- consent --> <g id="node2" class="node">
+<title>
+consent
+</title>
+<polygon fill="none" stroke="black" points="123.99,-196.6 48.79,-196.6 48.79,-155.4 123.99,-155.4 123.99,-196.6"></polygon> <text text-anchor="start" x="56.84" y="-180.2" font-family="Times,serif" font-size="14.00">Consented</text> <text text-anchor="start" x="69.22" y="-163.4" font-family="Times,serif" font-size="14.00">(N=n)</text> </g> <!-- population&#45;&gt;consent --> <g id="edge1" class="edge">
+<title>
+population-&gt;consent
+</title>
+<path fill="none" stroke="black" d="M86.39,-232.8C86.39,-232.8 86.39,-202.85 86.39,-202.85"></path> <polygon fill="black" stroke="black" points="88.49,-202.85 86.39,-196.85 84.29,-202.85 88.49,-202.85"></polygon> </g> <!-- exclude_consent --> <g id="node3" class="node">
+<title>
+exclude_consent
+</title>
+<polygon fill="none" stroke="black" points="262.55,-274.2 182.23,-274.2 182.23,-233 262.55,-233 262.55,-274.2"></polygon> <text text-anchor="start" x="190.31" y="-257.8" font-family="Times,serif" font-size="14.00">not consent</text> <text text-anchor="start" x="205.22" y="-241" font-family="Times,serif" font-size="14.00">(N=n)</text> </g> <!-- population&#45;&gt;exclude_consent --> <g id="edge3" class="edge">
+<title>
+population-&gt;exclude_consent
+</title>
+<path fill="none" stroke="black" d="M124.64,-253C124.64,-253 176.06,-253 176.06,-253"></path> <polygon fill="black" stroke="black" points="176.06,-255.1 182.06,-253 176.06,-250.9 176.06,-255.1"></polygon> </g> <!-- analyze --> <g id="node4" class="node">
+<title>
+analyze
+</title>
+<polygon fill="none" stroke="black" points="118.89,-119 53.89,-119 53.89,-77.8 118.89,-77.8 118.89,-119"></polygon> <text text-anchor="start" x="61.89" y="-102.6" font-family="Times,serif" font-size="14.00">Analysis</text> <text text-anchor="start" x="69.22" y="-85.8" font-family="Times,serif" font-size="14.00">(N=n)</text> </g> <!-- consent&#45;&gt;analyze --> <g id="edge2" class="edge">
+<title>
+consent-&gt;analyze
+</title>
+<path fill="none" stroke="black" d="M86.39,-155.2C86.39,-155.2 86.39,-125.25 86.39,-125.25"></path> <polygon fill="black" stroke="black" points="88.49,-125.25 86.39,-119.25 84.29,-125.25 88.49,-125.25"></polygon> </g> <!-- exclude_analyze --> <g id="node5" class="node">
+<title>
+exclude_analyze
+</title>
+<polygon fill="none" stroke="black" points="314.85,-196.6 181.93,-196.6 181.93,-155.4 314.85,-155.4 314.85,-196.6"></polygon> <text text-anchor="start" x="190.16" y="-180.2" font-family="Times,serif" font-size="14.00">don’t get ECG signal</text> <text text-anchor="start" x="231.22" y="-163.4" font-family="Times,serif" font-size="14.00">(N=n)</text> </g> <!-- consent&#45;&gt;exclude_analyze --> <g id="edge4" class="edge">
+<title>
+consent-&gt;exclude_analyze
+</title>
+<path fill="none" stroke="black" d="M123.96,-176C123.96,-176 176.12,-176 176.12,-176"></path> <polygon fill="black" stroke="black" points="176.12,-178.1 182.12,-176 176.12,-173.9 176.12,-178.1"></polygon> </g> <!-- control --> <g id="node6" class="node">
+<title>
+control
+</title>
+<polygon fill="none" stroke="black" points="58.67,-41.4 0.11,-41.4 0.11,-0.2 58.67,-0.2 58.67,-41.4"></polygon> <text text-anchor="start" x="8" y="-25" font-family="Times,serif" font-size="14.00">Control</text> <text text-anchor="start" x="12.22" y="-8.2" font-family="Times,serif" font-size="14.00">(N=n)</text> </g> <!-- analyze&#45;&gt;control --> <g id="edge5" class="edge">
+<title>
+analyze-&gt;control
+</title>
+<path fill="none" stroke="black" d="M53.75,-98C38.66,-98 24.03,-98 24.03,-98 24.03,-98 24.03,-47.49 24.03,-47.49"></path> <polygon fill="black" stroke="black" points="26.13,-47.49 24.03,-41.49 21.93,-47.49 26.13,-47.49"></polygon> </g> <!-- vhd --> <g id="node7" class="node">
+<title>
+vhd
+</title>
+<polygon fill="none" stroke="black" points="170.39,-41.4 116.39,-41.4 116.39,-0.2 170.39,-0.2 170.39,-41.4"></polygon> <text text-anchor="start" x="128.22" y="-25" font-family="Times,serif" font-size="14.00">VHD</text> <text text-anchor="start" x="126.22" y="-8.2" font-family="Times,serif" font-size="14.00">(N=n)</text> </g> <!-- analyze&#45;&gt;vhd --> <g id="edge6" class="edge">
+<title>
+analyze-&gt;vhd
+</title>
+<path fill="none" stroke="black" d="M119.12,-98C133.67,-98 147.56,-98 147.56,-98 147.56,-98 147.56,-47.49 147.56,-47.49"></path> <polygon fill="black" stroke="black" points="149.66,-47.49 147.56,-41.49 145.46,-47.49 149.66,-47.49"></polygon> </g> </g>
+</svg>
+</div>
+<figcaption class="figure-caption margin-caption">Figure&nbsp;1: 臨床研究でよく見られるデータフロー</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="基礎" class="level1">
+<h1>基礎</h1>
+<section id="グラフ" class="level2">
+<h2 class="anchored" data-anchor-id="グラフ">グラフ</h2>
+<p>一枚のグラフを作成するためにまず<code>graph</code>を定義する。<br>
+有向グラフを記述する際には<code>dirgraph</code>とする。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb1-1"><a href="#cb1-1"></a><span class="va">graph</span> <span class="va">G</span><span class="ot">{}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>グラフの属性を設定するには、<code>graph [~]</code>とする。</p>
+<div class="cell" data-fig-height="50px">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="672" height="50" viewbox="0.00 0.00 110.30 32.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.8)">
+<title>
+G
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28.8 106.3,-28.8 106.3,4 -4,4"></polygon> <text text-anchor="middle" x="51.15" y="-8.2" font-family="Times,serif" font-size="14.00">add graph label</text> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb2-1"><a href="#cb2-1"></a><span class="va">graph</span> <span class="va">G</span><span class="ot">{</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">    </span><span class="va">graph</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"add graph label"</span><span class="ot">]</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ノード" class="level2">
+<h2 class="anchored" data-anchor-id="ノード">ノード</h2>
+<p><code>graph</code>内に変数を入力数することでノードを作成できる。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb3-1"><a href="#cb3-1"></a><span class="va">graph</span> <span class="va">G</span><span class="ot">{</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co">    </span><span class="va">a</span><span class="co"> </span><span class="va">b</span><span class="co"> </span><span class="va">c</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-fig-height="100px">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="672" height="100" viewbox="0.00 0.00 206.00 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>
+G
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 202,-40 202,4 -4,4"></polygon> <!-- a --> <g id="node1" class="node">
+<title>
+a
+</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">a</text> </g> <!-- b --> <g id="node2" class="node">
+<title>
+b
+</title>
+<ellipse fill="none" stroke="black" cx="99" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">b</text> </g> <!-- c --> <g id="node3" class="node">
+<title>
+c
+</title>
+<ellipse fill="none" stroke="black" cx="171" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00">c</text> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<p>変数の後に属性を入力することで、形や色を変えることができる。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb4-1"><a href="#cb4-1"></a><span class="va">graph</span> <span class="va">G</span> <span class="ot">{</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">    </span><span class="va">a</span><span class="co"> </span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">    </span><span class="va">b</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="ot">]</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">    </span><span class="va">c</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="ot">=</span><span class="va">red</span><span class="ot">]</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-fig-height="100px">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="672" height="100" viewbox="0.00 0.00 206.00 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>
+G
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 202,-40 202,4 -4,4"></polygon> <!-- a --> <g id="node1" class="node">
+<title>
+a
+</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">a</text> </g> <!-- b --> <g id="node2" class="node">
+<title>
+b
+</title>
+<polygon fill="none" stroke="black" points="126,-36 72,-36 72,0 126,0 126,-36"></polygon> <text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">b</text> </g> <!-- c --> <g id="node3" class="node">
+<title>
+c
+</title>
+<ellipse fill="none" stroke="red" cx="171" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00">c</text> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<p><code>node [~]</code>とすることでその後のノードの設定を一括変更することができる。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb5-1"><a href="#cb5-1"></a><span class="va">graph</span> <span class="va">G</span> <span class="ot">{</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co"> </span><span class="at">color</span><span class="ot">=</span><span class="va">red</span><span class="ot">]</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">    </span><span class="va">a</span><span class="co"> </span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">    </span><span class="va">b</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">    </span><span class="va">c</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-fig-height="100px">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="672" height="100" viewbox="0.00 0.00 206.00 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>
+G
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 202,-40 202,4 -4,4"></polygon> <!-- a --> <g id="node1" class="node">
+<title>
+a
+</title>
+<polygon fill="none" stroke="red" points="54,-36 0,-36 0,0 54,0 54,-36"></polygon> <text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">a</text> </g> <!-- b --> <g id="node2" class="node">
+<title>
+b
+</title>
+<polygon fill="none" stroke="red" points="126,-36 72,-36 72,0 126,0 126,-36"></polygon> <text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">b</text> </g> <!-- c --> <g id="node3" class="node">
+<title>
+c
+</title>
+<polygon fill="none" stroke="red" points="198,-36 144,-36 144,0 198,0 198,-36"></polygon> <text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00">c</text> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<p>ノード内の文字を変更するには、<code>label</code>属性を使用する。マークダウンの関数もいくつか使える。(日本語の場合はみ出す場合があるので注意)</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb6-1"><a href="#cb6-1"></a><span class="va">graph</span> <span class="va">G</span> <span class="ot">{</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">    </span><span class="va">a</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"example A"</span><span class="ot">]</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">    </span><span class="va">b</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="co">&lt;</span><span class="va">example</span><span class="co"> </span><span class="va">B</span><span class="co">&lt;</span><span class="va">BR</span><span class="co">/&gt;</span><span class="va">hogehoge</span><span class="co">&gt;</span><span class="ot">]</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">    </span><span class="va">c</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="co">&lt;&lt;</span><span class="va">B</span><span class="co">&gt;</span><span class="va">example</span><span class="co"> </span><span class="va">c</span><span class="co">&lt;/</span><span class="va">B</span><span class="co">&gt;&gt;</span><span class="ot">]</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-fig-height="100px">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="672" height="100" viewbox="0.00 0.00 362.20 66.83" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 62.83)">
+<title>
+G
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-62.83 358.2,-62.83 358.2,4 -4,4"></polygon> <!-- a --> <g id="node1" class="node">
+<title>
+a
+</title>
+<ellipse fill="none" stroke="black" cx="53.13" cy="-29.42" rx="53.27" ry="18"></ellipse> <text text-anchor="middle" x="53.13" y="-25.22" font-family="Times,serif" font-size="14.00">example A</text> </g> <!-- b --> <g id="node2" class="node">
+<title>
+b
+</title>
+<ellipse fill="none" stroke="black" cx="178.13" cy="-29.42" rx="53.85" ry="29.33"></ellipse> <text text-anchor="start" x="148.01" y="-33.62" font-family="Times,serif" font-size="14.00">example B</text> <text text-anchor="start" x="150.92" y="-16.82" font-family="Times,serif" font-size="14.00">hogehoge</text> </g> <!-- c --> <g id="node3" class="node">
+<title>
+c
+</title>
+<ellipse fill="none" stroke="black" cx="302.13" cy="-29.42" rx="52.13" ry="18"></ellipse> <text text-anchor="start" x="272.4" y="-26.22" font-family="Times,serif" font-weight="bold" font-size="14.00">example c</text> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="エッジ" class="level2">
+<h2 class="anchored" data-anchor-id="エッジ">エッジ</h2>
+<p><code>graph</code>の場合、変数を<code>--</code>で結ぶことでノード間のエッジを記述することができる。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb7-1"><a href="#cb7-1"></a><span class="va">graph</span> <span class="va">G</span> <span class="ot">{</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">    </span><span class="va">a</span><span class="co"> </span><span class="va">b</span><span class="co"> </span><span class="va">c</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">    </span><span class="va">a</span><span class="co"> -- </span><span class="va">b</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-fig-height="200px">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="672" height="200" viewbox="0.00 0.00 134.00 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>
+G
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 130,-112 130,4 -4,4"></polygon> <!-- a --> <g id="node1" class="node">
+<title>
+a
+</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-90" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00">a</text> </g> <!-- b --> <g id="node2" class="node">
+<title>
+b
+</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">b</text> </g> <!-- a&#45;&#45;b --> <g id="edge1" class="edge">
+<title>
+a–b
+</title>
+<path fill="none" stroke="black" d="M27,-71.7C27,-60.85 27,-46.92 27,-36.1"></path> </g> <!-- c --> <g id="node3" class="node">
+<title>
+c
+</title>
+<ellipse fill="none" stroke="black" cx="99" cy="-90" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00">c</text> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<p><code>digraph</code>の場合、<code>--</code>の代わり<code>-&gt;</code>を使用する。</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">digraph</span> <span class="va">G</span> <span class="ot">{</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">    </span><span class="va">a</span><span class="co"> </span><span class="va">b</span><span class="co"> </span><span class="va">c</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">    </span><span class="va">a</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">b</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-fig-height="200px">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="672" height="200" viewbox="0.00 0.00 134.00 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>
+G
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 130,-112 130,4 -4,4"></polygon> <!-- a --> <g id="node1" class="node">
+<title>
+a
+</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-90" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00">a</text> </g> <!-- b --> <g id="node2" class="node">
+<title>
+b
+</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">b</text> </g> <!-- a&#45;&gt;b --> <g id="edge1" class="edge">
+<title>
+a-&gt;b
+</title>
+<path fill="none" stroke="black" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"></path> <polygon fill="black" stroke="black" points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"></polygon> </g> <!-- c --> <g id="node3" class="node">
+<title>
+c
+</title>
+<ellipse fill="none" stroke="black" cx="99" cy="-90" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00">c</text> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<p>エッジも、ノード同様に属性をつけることができる。</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb9-1"><a href="#cb9-1"></a><span class="va">graph</span> <span class="va">G</span> <span class="ot">{</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">    </span><span class="va">a</span><span class="co"> </span><span class="va">b</span><span class="co"> </span><span class="va">c</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">    </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="ot">=</span><span class="va">blue</span><span class="ot">]</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">    </span><span class="va">a</span><span class="co"> -- </span><span class="va">b</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">    </span><span class="va">a</span><span class="co"> -- </span><span class="va">c</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"edge to c"</span><span class="ot">]</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-fig-height="200px">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="672" height="200" viewbox="0.00 0.00 142.53 132.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 128.8)">
+<title>
+G
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-128.8 138.53,-128.8 138.53,4 -4,4"></polygon> <!-- a --> <g id="node1" class="node">
+<title>
+a
+</title>
+<ellipse fill="none" stroke="black" cx="63" cy="-106.8" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="63" y="-102.6" font-family="Times,serif" font-size="14.00">a</text> </g> <!-- b --> <g id="node2" class="node">
+<title>
+b
+</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">b</text> </g> <!-- a&#45;&#45;b --> <g id="edge1" class="edge">
+<title>
+a–b
+</title>
+<path fill="none" stroke="blue" d="M56.06,-89.06C49.68,-73.69 40.29,-51.04 33.92,-35.68"></path> </g> <!-- c --> <g id="node3" class="node">
+<title>
+c
+</title>
+<ellipse fill="none" stroke="black" cx="99" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">c</text> </g> <!-- a&#45;&#45;c --> <g id="edge2" class="edge">
+<title>
+a–c
+</title>
+<path fill="none" stroke="blue" d="M69.94,-89.06C76.32,-73.69 85.71,-51.04 92.08,-35.68"></path> <text text-anchor="middle" x="109.27" y="-58.2" font-family="Times,serif" font-size="14.00">edge to c</text> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ランク" class="level2">
+<h2 class="anchored" data-anchor-id="ランク">ランク</h2>
+<p><code>rank</code>によって、ノードの位置階層を定義することができる。(<code>max</code>が一番下で、<code>min</code>が一番上となる)<br>
+同じ階層に置くには<code>same</code>を使う。</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb10-1"><a href="#cb10-1"></a><span class="va">graph</span> <span class="va">G</span> <span class="ot">{</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co">    </span><span class="va">a</span><span class="co"> </span><span class="va">b</span><span class="co"> </span><span class="va">c</span><span class="co"> </span><span class="va">d</span><span class="co"> </span><span class="va">e</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">    </span><span class="va">a</span><span class="co"> -- </span><span class="va">b</span><span class="co"> -- </span><span class="va">c</span><span class="co"> -- </span><span class="va">d</span><span class="co"> -- </span><span class="va">e</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">    </span><span class="ot">{</span><span class="at">rank</span><span class="ot">=</span><span class="va">same</span><span class="ot">;</span><span class="co"> </span><span class="va">a</span><span class="co"> </span><span class="va">d</span><span class="ot">}</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">    </span><span class="ot">{</span><span class="at">rank</span><span class="ot">=</span><span class="va">min</span><span class="ot">;</span><span class="co"> </span><span class="va">b</span><span class="ot">}</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">    </span><span class="ot">{</span><span class="at">rank</span><span class="ot">=</span><span class="va">max</span><span class="ot">;</span><span class="co"> </span><span class="va">c</span><span class="co"> </span><span class="va">e</span><span class="ot">}</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-fig-height="300px">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="672" height="300" viewbox="0.00 0.00 189.00 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<title>
+G
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-184 185,-184 185,4 -4,4"></polygon> <!-- a --> <g id="node1" class="node">
+<title>
+a
+</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-90" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00">a</text> </g> <!-- b --> <g id="node2" class="node">
+<title>
+b
+</title>
+<ellipse fill="none" stroke="black" cx="54" cy="-162" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="54" y="-157.8" font-family="Times,serif" font-size="14.00">b</text> </g> <!-- a&#45;&#45;b --> <g id="edge1" class="edge">
+<title>
+a–b
+</title>
+<path fill="none" stroke="black" d="M33.54,-107.96C37.81,-119.03 43.36,-133.41 47.6,-144.41"></path> </g> <!-- c --> <g id="node3" class="node">
+<title>
+c
+</title>
+<ellipse fill="none" stroke="black" cx="82" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="82" y="-13.8" font-family="Times,serif" font-size="14.00">c</text> </g> <!-- b&#45;&#45;c --> <g id="edge2" class="edge">
+<title>
+b–c
+</title>
+<path fill="none" stroke="black" d="M57.38,-143.87C62.76,-116.58 73.22,-63.52 78.61,-36.19"></path> </g> <!-- d --> <g id="node4" class="node">
+<title>
+d
+</title>
+<ellipse fill="none" stroke="black" cx="145" cy="-90" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="145" y="-85.8" font-family="Times,serif" font-size="14.00">d</text> </g> <!-- c&#45;&#45;d --> <g id="edge3" class="edge">
+<title>
+c–d
+</title>
+<path fill="none" stroke="black" d="M95.34,-33.82C106.03,-45.7 120.95,-62.28 131.64,-74.15"></path> </g> <!-- e --> <g id="node5" class="node">
+<title>
+e
+</title>
+<ellipse fill="none" stroke="black" cx="154" cy="-18" rx="27" ry="18"></ellipse> <text text-anchor="middle" x="154" y="-13.8" font-family="Times,serif" font-size="14.00">e</text> </g> <!-- d&#45;&#45;e --> <g id="edge4" class="edge">
+<title>
+d–e
+</title>
+<path fill="none" stroke="black" d="M147.18,-72.05C148.57,-61.21 150.38,-47.18 151.78,-36.28"></path> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<p>これらを全て使うことで、<a href="#fig-sample">Figure&nbsp;1</a> が描画できる。(以下コード例)</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">digraph</span> <span class="va">G</span><span class="ot">{</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="co">    </span><span class="va">graph</span><span class="co"> </span><span class="ot">[</span><span class="va">splines</span><span class="ot">=</span><span class="va">ortho</span><span class="co"> </span><span class="at">nodesep</span><span class="ot">=</span><span class="co">.</span><span class="dv">8</span><span class="ot">]</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="ot">]</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co">    </span><span class="va">population</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="co">&lt;</span><span class="va">Population</span><span class="co">&lt;</span><span class="va">BR</span><span class="co">/&gt;</span><span class="ot">(</span><span class="va">N</span><span class="ot">=</span><span class="va">n</span><span class="ot">)</span><span class="co">&gt;</span><span class="ot">]</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="co">    </span><span class="va">consent</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="co">&lt;</span><span class="va">Consented</span><span class="co">&lt;</span><span class="va">BR</span><span class="co">/&gt;</span><span class="ot">(</span><span class="va">N</span><span class="ot">=</span><span class="va">n</span><span class="ot">)</span><span class="co">&gt;</span><span class="ot">]</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co">    </span><span class="va">exclude_consent</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="co">&lt;</span><span class="va">not</span><span class="co"> </span><span class="va">consent</span><span class="co">&lt;</span><span class="va">BR</span><span class="co">/&gt;</span><span class="ot">(</span><span class="va">N</span><span class="ot">=</span><span class="va">n</span><span class="ot">)</span><span class="co">&gt;</span><span class="ot">]</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="co">    </span><span class="va">analyze</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="co">&lt;</span><span class="va">Analysis</span><span class="co">&lt;</span><span class="va">BR</span><span class="co">/&gt;</span><span class="ot">(</span><span class="va">N</span><span class="ot">=</span><span class="va">n</span><span class="ot">)</span><span class="co">&gt;</span><span class="ot">]</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="co">    </span><span class="va">exclude_analyze</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="co">&lt;</span><span class="va">don</span><span class="co">'</span><span class="va">t</span><span class="co"> </span><span class="va">get</span><span class="co"> </span><span class="va">ECG</span><span class="co"> </span><span class="va">signal</span><span class="co">&lt;</span><span class="va">BR</span><span class="co">/&gt;</span><span class="ot">(</span><span class="va">N</span><span class="ot">=</span><span class="va">n</span><span class="ot">)</span><span class="co">&gt;</span><span class="ot">]</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a><span class="co">    </span><span class="va">control</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="co">&lt;</span><span class="va">Control</span><span class="co">&lt;</span><span class="va">BR</span><span class="co">/&gt;</span><span class="ot">(</span><span class="va">N</span><span class="ot">=</span><span class="va">n</span><span class="ot">)</span><span class="co">&gt;</span><span class="ot">]</span></span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="co">    </span><span class="va">vhd</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="co">&lt;</span><span class="va">VHD</span><span class="co">&lt;</span><span class="va">BR</span><span class="co">/&gt;</span><span class="ot">(</span><span class="va">N</span><span class="ot">=</span><span class="va">n</span><span class="ot">)</span><span class="co">&gt;</span><span class="ot">]</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a></span>
+<span id="cb11-13"><a href="#cb11-13"></a><span class="co">    </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">arrowsize</span><span class="ot">=</span><span class="co">.</span><span class="dv">6</span><span class="ot">]</span></span>
+<span id="cb11-14"><a href="#cb11-14"></a></span>
+<span id="cb11-15"><a href="#cb11-15"></a><span class="co">    </span><span class="va">population</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">consent</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">analyze</span></span>
+<span id="cb11-16"><a href="#cb11-16"></a><span class="co">    </span><span class="va">population</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">exclude_consent</span></span>
+<span id="cb11-17"><a href="#cb11-17"></a><span class="co">    </span><span class="va">consent</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">exclude_analyze</span></span>
+<span id="cb11-18"><a href="#cb11-18"></a><span class="co">    </span><span class="va">analyze</span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">control</span></span>
+<span id="cb11-19"><a href="#cb11-19"></a><span class="co">    </span><span class="va">analyze</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">vhd</span></span>
+<span id="cb11-20"><a href="#cb11-20"></a></span>
+<span id="cb11-21"><a href="#cb11-21"></a><span class="co">    </span><span class="ot">{</span><span class="at">rank</span><span class="ot">=</span><span class="va">same</span><span class="ot">;</span><span class="co"> </span><span class="va">population</span><span class="co"> </span><span class="va">exclude_consent</span><span class="ot">}</span></span>
+<span id="cb11-22"><a href="#cb11-22"></a><span class="co">    </span><span class="ot">{</span><span class="at">rank</span><span class="ot">=</span><span class="va">same</span><span class="ot">;</span><span class="co"> </span><span class="va">consent</span><span class="co"> </span><span class="va">exclude_analyze</span><span class="ot">}</span></span>
+<span id="cb11-23"><a href="#cb11-23"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div>CC BY 4.0 DEED</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Handle positioning of the toggle
+      window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Copyright 2024, 優月</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

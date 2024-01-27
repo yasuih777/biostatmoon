@@ -1,0 +1,27 @@
+---
+title: 実行環境
+abstract: このウェブサイトを構成する環境について
+date: 01-21-2024
+order: 3
+---
+
+# OS
+```
+OS: {{< var os >}}
+```
+
+# Quarto
+
+```
+Quarto version: {{< var quarto_version >}}
+```
+
+# Python
+
+
+```{python}
+#| echo: false
+import platform
+
+print(platform.python_version())
+```

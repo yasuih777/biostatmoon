@@ -1,0 +1,133 @@
+---
+title: リサーチクエスチョン
+abstract: リサーチクエスチョンの立て方
+date: 01-25-2024
+date-modified: 01-27-2024
+categories:
+    - 臨床研究
+order: 1
+---
+
+# リサーチクエスチョン
+**リサーチクエスチョン**とは研究によって明らかにしたい問いである。疑問の種類も様々 @fig-research-question だが、リサーチクエスチョンは疑問をどんどん掘り下げていってネットや文献で調べてもすぐに分からないものが候補となる。リサーチクエスチョンが明確であると、適切な研究デザインや統計解析を選択でき良い考察を得やすい。加えて、仮説にまで落とし込むことで論証までの道筋が明確になる他、結論を仮説通りだったか否かの二元論で述べることができるので主張がしやすくなるという大きな利点がある。また、p-hackingなどの統計不正を防ぐ効果もある。
+
+```{dot}
+//| label: fig-research-question
+//| fig-cap: "リサーチクエスチョンの立ち位置"
+//| fig-height: 250px
+
+graph G{
+    subgraph {
+        cluster=true;
+        label="Clinical question"
+
+        subgraph {
+            cluster=true;
+            label="Background question"
+
+            hidden [shape="none" label=""]
+        }
+
+        subgraph {
+            cluster=true;
+            label="Foreground question"
+
+            research [shape="" label=<Research question>]
+        }
+    }
+}
+```
+
+
+::: {.callout-note}
+## リサーチクエスチョンに関連する疑問
+
+- 臨床上の疑問を**クリニカルクエスチョン**という。クリニカルクエスチョンは以下の2つに分類できる @fig-question
+    - 基本的な知識や用語、概念等に関する疑問(**背景疑問**)
+    - それらの知識や概念を結び付けることによって生まれる疑問(**前景疑問**)
+
+```{dot}
+//| label: fig-question
+//| fig-cap: "背景疑問(B)と前景疑問(F)の関係性: 臨床医学に対する知識が背景疑問として一つ一つのノードとして表現でき、それらを結合するエッジが前景疑問となる"
+//| fig-height: 250px
+
+graph G{
+    graph [layout="neato"]
+
+    node [shape="circle" label="B"]
+    a b c d e f g
+
+    edge [label="F"]
+
+    a -- c
+    b -- c
+    c -- d
+    e -- f
+}
+```
+
+:::
+
+::: {.callout-tip}
+## Example
+
+- 日常的な運動は心疾患の予防に寄与するか
+    - 仮説: 運動をすることで、心疾患の予防が期待できる
+- サウナは心疾患リスクの要因となるか
+    - 仮説: サウナに日常的に入る人は心疾患のリスクが高い
+
+:::
+
+# リサーチクエスチョンの定性化
+
+よいリサーチクエスチョンを立てるために、様々な定性化が為されている。
+
+## FINER
+よいリサーチクエスチョンかを自己評価するために以下5項目の頭文字をとった**FINGER** @tbl-finer が用いられる。これらを満たさないリサーチクエスチョンは解明するのに適さないということがいえる。
+
+|  |  |
+| --- | --- |
+| **F**easibility | 実現可能性 |
+| **I**nteresting | 興味深さ |
+| **N**ovel | 新規性 |
+| **E**thical | 倫理性 |
+| **R**elevant | 必要性 |
+
+: FINGER {#tbl-finer}
+
+## PICO
+リサーチクエスチョンを要素ごとに分解し、研究デザインや解析方法の立案に役立てるフレームワークとして**PICO(PECO)** @tbl-pico がある(場合によって、要素が追加されたり減らされたりする)。一般的に介入研究ときはPICE、観察研究のときはPICOが用いられる。PICO(PECO)を明確にしていくことで、既存の研究成果等のリサーチが容易になる。
+
+|  |  |
+| --- | --- |
+| **P**opulation | 参加者 |
+| **I**ntervention | 介入 |
+| **E**xposure | 曝露 |
+| **C**ontrol | 対象 |
+| **O**utcome | アウトカム・結果 |
+| **T**ime | 調査機関 |
+
+: PICO(T), PECO(T) {#tbl-pico}
+
+# リサーチクエスチョンと研究プロセスの関係性
+リサーチクエスチョンを立てた後、FINERおよびPICOでクエスチョンの定性評価を行った後に適切な研究プロセス @fig-process 経由することで最終的な結果をより良いものにすることができる。
+
+```{dot}
+//| label: fig-process
+//| fig-cap: 適切な研究プロセス
+//| fig-height: 400px
+
+digraph G {
+    graph [splines=ortho]
+
+    node [shape="box"]
+    clinical_ques [label="Clinical question"]
+    research_ques [label="Research question"]
+    research_des [label="Research desgin"]
+    data_analysis [label="Data analysis"]
+    consensus [label="Consensus"]
+
+    clinical_ques -> research_ques -> research_des -> data_analysis -> consensus
+    consensus -> data_analysis -> research_des -> research_ques -> clinical_ques [style="dashed"]
+}
+```

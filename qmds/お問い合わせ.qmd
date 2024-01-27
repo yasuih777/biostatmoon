@@ -1,0 +1,16 @@
+---
+title: "お問い合わせ"
+abstract: お問い合わせページ
+date: 01-21-2024
+date-modified: 01-21-2024
+order: 4
+---
+
+# お問い合わせについて
+
+## $\mathbb{X}$
+[$\mathbb{X}$(旧Twitter)](https://twitter.com/yugetsubiostat)からDMをお願いします。（もし宜しければフォローもお願いします。）
+
+## Google form
+※Google accountにログインしている方に制限させていただいています。
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSem2QMdQ1S3Di1HaxUwVARaWRQsiluNgrcogm3sxbru3ehGaw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>

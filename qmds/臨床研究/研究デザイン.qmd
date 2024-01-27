@@ -1,0 +1,80 @@
+---
+title: 研究デザイン
+abstract: リサーチクエスチョンを解明するための研究の型
+order: 2
+draft: true
+---
+
+# 研究デザイン
+**研究デザイン**とは、データの集め方や解析方法を構造化した大まかな型である。リサーチクエスチョンの解明には適切な研究デザインの選択が必須である。研究デザインには色々あるが、全体像は @fig-desgin-map のようになる。
+
+```{dot}
+//| label: fig-desgin-map
+//| fig-cap: 研究デザインの全体像
+
+graph G {
+    node [shape="box"]
+    all [label="All study"]
+    descriptive [label="Descriptive study"]
+    qualitative [label="qualitative research"]
+    quantitative [label="quantitative research"]
+    analytical [label="Analytical study"]
+    interventional [label="Interventional study"]
+    random [label="Randomized clinical trial"]
+    non_random [label="Non-randomized clinical trial"]
+    observational [label="Observational study"]
+    cross [label="Cross-sectional study"]
+    case [label="Case control study"]
+    cohort [label="Cohort study"]
+    review [label="Systematic review"]
+
+    all -- descriptive [headport=n, tailport=w]
+    all -- analytical [headport=n, tailport=s]
+    all -- review [headport=n, tailport=e]
+    descriptive -- qualitative [headport=n, tailport=w]
+    descriptive -- quantitative [headport=n, tailport=e]
+    analytical -- interventional [headport=n, tailport=w]
+    analytical -- observational [headport=n, tailport=e]
+    interventional -- {random non_random} [headport=e, tailport=s]
+    observational -- {cross case cohort} [headport=e, tailport=s]
+
+    random -- non_random [color="white"]
+    cross -- case -- cohort [color="white"]
+}
+```
+
+## 記述研究
+
+### 量的研究
+
+### 質的研究
+
+## 分析的研究
+
+### 介入研究
+
+#### ランダム化臨床試験
+
+#### 非ランダム化臨床試験
+
+### 観察研究
+
+#### 横断研究
+
+#### ケースコントロール研究
+
+#### コホート研究
+
+## システマティックレビュー
+
+# 研究デザインとリサーチクエスチョンの対応
+[リサーチクエスチョン](%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%81%E3%83%A7%E3%83%B3.qmd)と適切な研究デザインの対応は @tbl-list のようにまとめられる。
+
+| リサーチクエスチョン | 記述研究 | 介入研究 | 横断研究 | ケースコントロール研究 | コホート研究 |
+| --------- | :---: | :---: | :---: | :----: | :---: |
+| 病気や診察の調査 | 〇 |  |  |  |  |
+| 要因とアウトカムの関係性調査 |  | 〇 | 〇 | 〇 |  |
+| 治療・予防の効果量評価 |  |  | 〇 |  | 〇 |
+| 診断の評価や新治療法の確立 |  | 〇 | 〇 |  | 〇 |
+
+: リサーチクエスチョンと研究デザインの対応 {#tbl-list .bordered .striped}

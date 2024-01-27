@@ -1,0 +1,63 @@
+---
+title: 記事一覧
+abstract: このサイト内の記事一覧
+date: 01-21-2024
+order: 1
+listing:
+  - id: clinical_research
+    contents: 臨床研究/*.qmd
+    type: table
+    categories: true
+    fields: [date, title, abstract, categories]
+    sort: "order"
+  - id: biostatistic
+    contents: 生物統計学/*.qmd
+    type: table
+    categories: true
+    fields: [date, title, abstract, categories]
+    sort: "order"
+  - id: r
+    contents: プログラミング/R/*.qmd
+    type: table
+    categories: true
+    fields: [date, title, abstract, categories]
+    sort: "order"
+  - id: python
+    contents: プログラミング/python/*.qmd
+    type: table
+    categories: true
+    fields: [date, title, abstract, categories]
+    sort: "order"
+  - id: programming_other
+    contents: プログラミング/その他/*.qmd
+    type: table
+    categories: true
+    fields: [date, title, abstract, categories]
+    sort: "order"
+---
+
+# 臨床研究
+::: {#clinical_research}
+:::
+
+# 生物統計学
+::: {#biostatistic}
+:::
+
+# データサイエンス
+
+追加予定
+
+# プログラミング
+
+## R
+::: {#r}
+:::
+
+## Python
+::: {#python}
+:::
+
+## その他
+::: {#programming_other}
+:::

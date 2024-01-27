@@ -1,0 +1,338 @@
+---
+title: 確率論基礎
+abstract: 統計学を扱う上での基礎となる確率論
+date: 01-24-2024
+date-modified: 01-26-2024
+categories:
+    - 確率統計
+order: 1
+---
+
+# 事象と確率
+
+## 事象
+考察の材料とするための実験または観測を**試行**という。試行によって得られる個々の結果を**標本点(または基本事象、単純事象、根元事元)**という。標本点はいつも同じ値を取るのではなく、偶発的要因の影響を受けて揺らぎがある。この揺らぎを全て包含した標本点全体の集合を**標本空間**$\Omega = \{ \omega_{1}, \omega_{2}, \cdots \}$という。
+
+::: {.callout-tip}
+## Example
+サイコロを振る試行における標本空間は次のようになる
+
+$$
+\Omega = \{ 1, 2, 3, 4, 5, 6 \}
+$$
+
+:::
+
+今、試行の中で期待したい観測のみを抽出したいとする。これは標本空間の部分集合として表現でき、**事象**$e \subset \Omega$と呼ぶ。標本点$\omega$が事象$e$に含まれる($\omega \in e$)とき、事象$e$が生起したという。事象全体の集合を**事象空間**$\mathcal{E}$と呼ぶ。
+
+- 事象には基本的な集合演算(和集合、積集合、補集合)を適応することができる
+- 特殊な事象として、標本空間を事象とした**全事象**$\Omega$と、標本点を一つももたない**空事象**$\varnothing$がある
+- $e_{1} \cap e_{2} = \varnothing$のとき、事象$e_{1}$と事象$e_{2}$は**互いに排反**という
+- 事象空間の要素数は$2^{|\Omega|}$である
+
+::: {.callout-tip}
+## Example
+サイコロから偶数が出る事象$e_{odd}$は次のようになる
+
+$$
+e_{odd} = \{ 2, 4, 6 \}
+$$
+
+:::
+
+## 確率
+標本点は偶発的要因により揺らぎをもって試行から生成されるとした。この試行を独立に十分な数$n$だけ行い、事象$e$が生起した回数を$r$とする。このとき @eq-prob を満たすような定数$p$の存在が(経験的に)確かであるとき、事象$e$を**確率事象**、$p = P(e)$を確率事象$e$の**確率**という。また、この写像$P: \mathcal{E} \rightarrow [0, 1]$を**確率測度**という。標本空間$\Omega$、事象空間$\mathcal{E}$、確率測度$P$の三つ組$(\Omega, \mathcal{E}, P)$を**確率空間**と呼び、この空間をもって各種の確率理論を展開することができる。
+
+$$
+p = \lim_{n \rightarrow \infty} \frac{r}{n}
+$${#eq-prob}
+
+確率事象、確率は**コルモゴロフの定理**に従う。
+
+::: {.callout-note}
+## コルモゴロフの定理
+
+1. $e_{1}, e_{2}, e_{3}, \cdots$が確率事象であるとき以下も全て確率事象である
+
+$$
+\begin{split}
+&e_{1} \cap e_{2} \cap e_{3} \cap \cdots \\
+&e_{1} \cup e_{2} \cup e_{3} \cup \cdots \\
+&e_{1}^{c}, e_{2}^{c}, e_{3}^{c}, \cdots \\
+\end{split}
+$$
+
+2. 確率事象$e_{1}, \Omega, \varnothing$に対して以下が成立する
+
+$$
+\begin{split}
+&0 \leqq P(e_{1}) \leqq 1 \\
+&P(\Omega) = 1 \\
+&P(\varnothing) = 0 \\
+\end{split}
+$$
+
+3. 確率事象$e_{1}, e_{2}, e_{3}, \cdots$は各々互いに素であるとき、以下が成立する
+
+$$
+P(e_{1} \cup e_{2} \cup e_{3} \cup \cdots) = P(e_{1}) + P(e_{2}) + P(e_{3}) + \cdots
+$$
+
+:::
+
+## 条件付き確率
+$e_{1}, e_{2}$が確率事象で、$P(e_{2}) \neq 0$のとき、 @eq-condition で定義される$P(e_{1}|e_{2})$を$e_{2}$の条件の元での事象$e_{1}$の**(条件付き)確率**という。
+
+$$
+P(e_{1} | e_{2}) = \frac{P(e_{1} \cap e_{2})}{P(e_{2})}
+$${#eq-condition}
+
+## 事象の独立
+$e_{1}, e_{2}$が確率事象で、@eq-independence でが成り立つとき、$e_{1}, e_{2}$は互いに**独立**という。
+
+$$
+P(e_{1} \cap e_{2}) = P(e_{1}) P(e_{2})
+$${#eq-independence}
+
+## ベイズの定理
+@eq-bayes が$i = 1, 2, \cdots, n$に対して成り立つことを**ベイズの定理**という。
+
+$$
+\begin{split}
+&e_{j} \cap e_{k} = \varnothing \ (j \neq k) \ かつ \ \Omega = e_{1} \cup e_{2} \cup \cdots \cup e_{n} \\
+&\Rightarrow P(e_{i} | D) = \frac{P(e_{i})P(D | e_{i})}{\sum_{j=1}^{n} P(e_{j})P(D | e_{j})}
+\end{split}
+$${#eq-bayes}
+
+# 確率変数・確率分布
+
+## 確率変数
+@eq-variable で定義される写像$X$を**確率変数**と呼ぶ($\mathcal{B}$はボレル代数)。確率変数によって標本空間と事象空間を接合できる @fig-variable ため、ある試行から様々な事象や確率測度を展開することができる。また、この場合の確率測度$P$は$P(X^{-1}(b))$で定義され、「確率変数$X$は確率分布$P$に従う$(X \sim P)$」という。主要な確率分布は[別ページ](%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83.qmd)で扱う。
+
+$$
+X: \Omega \rightarrow \mathbb{R}, \exists X^{-1}(b) \in \mathcal{E} \ \mbox{for any} \ b \in \mathcal{B}
+$${#eq-variable}
+
+```{dot}
+//| label: fig-variable
+//| fig-cap: 確率変数のイメージ
+//| fig-height: 300px
+
+digraph G{
+    graph [rankdir=LR]
+
+    borel [shape="underline" label="Borel algebra"]
+
+    subgraph probability_space{
+        cluster=true
+        label="Probability space"
+
+        sample [shape="cylinder" label="Sample space"]
+
+        node [shape="box"]
+        event [label="Event space"]
+        probability [label="Probability measure"]
+    }
+
+    edge [arrowsize=.6]
+
+    sample -> event [style="dashed"]
+    event -> probability
+    sample -> borel [label="X"]
+    borel -> event [label="Inverse X"]
+}
+```
+
+::: {.callout-tip}
+## Example
+サイコロ二個同時に振る試行について、次のような確率変数を考えることができる。
+
+- 出た目の総和
+- 偶数の目が出るサイコロの数
+- {サイコロAの目 / サイコロBの目}の値
+
+:::
+
+また、確率変数は離散的なものと連続的なものの二つに分類することができる。次項で扱う。
+
+## 確率分布
+
+確率変数$X$がとりうる値が高々可算個、即ち$x_{1}, x_{2}, \cdots, x_{n} \ (i \neq j \Rightarrow x_{i} \neq x_{j})$の場合、$X$は**離散的確率変数**である。  
+また、@eq-prob-discrete で定義される$f(x_{i})$を**確率分布**という。
+
+$$
+P(X = x_{i}) = f(X_{i})
+$${#eq-prob-discrete}
+
+::: {.callout-note}
+## 確率分布の性質
+
+- $f(X_{i}) \geqq 0 \ (i = 1, 2, \cdots)$
+- $\sum_{\mathbb{i}} f(x_{i}) = 1$
+- $P(X \in \mathcal{B}) = \sum_{x_{i} \in \mathcal{B}} f(x_{i})$
+
+:::
+
+## 確率密度関数
+離散的でない確率変数$X$を**連続的確率変数**と呼び、@eq-prob-continue で定義される$f(x)$を**確率密度関数**と呼ぶ。
+
+$$
+P(X \in \mathcal{B}) = \int_{\mathcal{B}} f(X)
+$${#eq-prob-continue}
+
+この確率密度関数においては、確率素分$f(x) dx$に対して$P(x \leqq X < x + dx) = f(x) dx$が成り立つ。  
+
+::: {.callout-note}
+## 確率密度関数の性質
+
+- $P(X = x) = \int^{x}_{x} f(u) du = 0$
+- $f(x) \geqq 0$
+- $\int^{\infty}_{- \infty} f(u) du = 1$
+- $E \subset \mathcal{B}$に対して、$P(X \in E) = \int_{E} f(u) du$
+
+:::
+
+以降では連続的確率変数の定義を中心に扱うが、離散的確率変数の場合でもほぼ同等のことがいえる。
+
+## 分布関数
+確率変数$X$、実数$$xに対して @eq-dist-function を**分布関数**と呼ぶ。分布関数は様々な理論を展開するのによく用いられる。
+
+$$
+P(X \leqq x) = F(x)
+$${#eq-dist-function}
+
+::: {.callout-note}
+## 分布関数の性質
+
+- 単調非減少関数
+- $\forall a, b \in \mathbb{R}, P(a < X \leqq b) = F(b) - F(a)$
+- $F(- \infty) = 0, F(\infty) = 1$
+- 右連続
+- $F(x) = \int^{x}_{- \infty} f(u) fu$
+
+:::
+
+# 多次元の確率変数・分布
+
+## 同時分布
+複数の事象$e_{1}, e_{2}$が同時に生起する($e_{1} \cap e_{2}$)確率を**同時確率**という。これの確率変数$X, Y$に対応する関数$f(x, y)$ @eq-prob-joint を**同時確率密度関数**(離散の場合は**同時確率分布**)と呼ぶ。
+
+$$
+P((X, Y) \in \mathcal{E} \times \mathcal{E}) = \int_{X} \int_{Y} f(x, y) dy dx
+$${#eq-prob-joint}
+
+特に、$[x_{1}, x_{2}] \times [y_{1}, y_{2}] \subset \mathcal{E} \times \mathcal{E}$の場合、以下が成立する。
+
+$$
+P(x_{1} \leqq X \leqq x_{2}, y_{1} \leqq Y \leqq y_{2}) = \int^{x_{2}}_{x_{1}} \int^{y_{2}}_{y_{1}} f(x, y) dy dx
+$$
+
+## 周辺化
+確率変数$X, Y$に対して、同時確率密度関数$f(x, y)$のとりうる$Y$を総和することを「$Y$について$f(x, y)$を**周辺化**する」という @eq-prob-marginal 。このとき周辺化された確率密度関数$f(x)$を**周辺確率密度関数**と呼ぶ。
+
+$$
+f(x) = \int_{Y} f(x, y) dy
+$${#eq-prob-marginal}
+
+## 条件付き分布
+@eq-prob-condition を「条件$Y = y$の元での$X$の**条件付き確率密度関数**」という。
+
+$$
+f(x | y) = \frac{f(x, y)}{f(y)}
+$${#eq-prob-condition}
+
+## 確率変数の独立
+独立な事象$e_{1}, e_{2}$に対する確率変数$X_{1}, X_{2}$が @eq-prob-independence を満たすとき、$X_{1}, X_{2}$は**独立**であるという。
+
+$$
+f(x, y) = f(x) f(y)
+$${#eq-prob-independence}
+
+@eq-prob-condition より、独立な$X_{1}, X_{2}$に対しては以下が成立する。
+
+$$
+f(x | y) = f(x)
+$$
+
+# 記述統計量
+
+## 平均値
+確率変数$X$の代表的、中心的な値としてよく用いられる**平均値(期待値)**$E(X)$は @eq-mean で定義される。
+
+$$
+E(X) = \int^{\infty}_{- \infty} x f(x) dx
+$${#eq-mean}
+
+::: {.callout-note}
+## 平均値の性質
+
+- $E(X_{1}, X_{2}, \cdots, X_{n}) = \sum^{n}_{i = 1} E(X_{i})$
+- $a, b$が定数のとき、$E(a X + b) = a E(X) + b$
+- $X, Y$が独立のとき、$E(X Y) = E(X) E(Y)$
+- $\phi(X) \sim P$なる関数$\phi$について、$E(\phi(X)) = \int^{\infty}_{- \infty} \phi(x) f(x) dx$
+
+:::
+
+また、$Y = y$なる条件の元でのXの**条件付き平均値**は @eq-mean-condition で定義される。
+
+$$
+E(X | Y = y) = \frac{1}{f(y)} \int^{\infty}_{- \infty} x f(x, y) dx
+$${#eq-mean-condition}
+
+## 分散
+確率変数$X$のばらつきを表す値としてよく用いられる**分散**$V(X)$は @eq-var で定義される。ただし、$\mu = E(X)$とした。
+
+$$
+V(X) = \int^{\infty}_{- \infty} (x -\mu)^{2} f(x) dx
+$${#eq-var}
+
+::: {.callout-note}
+## 分散の性質
+
+- $a, b$が定数のとき、$V(a X + b) = a^{2} V(X)$
+- $V(X) = E(X^{2}) - E(X)^{2}$
+
+:::
+
+また、$\sqrt{V(X)}$を**標準偏差**と呼ぶ。
+
+## 共分散・相関係数
+二つの確率変数$X, Y$間の相関関係の強さを表す値としてよく用いられる**(ピアソンの)相関係数**$R(X, Y)$は @eq-relation で定義される。このときの$C(X, Y)$は**共分散**という。ただし、$\mu_{x} = E(X), \mu_{y} = E(Y), \sigma_{x} = \sqrt{V(X)}, \sigma_{y} = \sqrt{V(Y)}$とした。
+
+$$
+\begin{split}
+&C(X, Y) = E((X - \mu_{x})(Y - \mu_{y})) \\
+&R(X, Y) = \frac{C(X, Y)}{\sigma_{x} \sigma_{y}}
+\end{split}
+$${#eq-relation}
+
+::: {.callout-note}
+## 共分散・相関係数の性質
+
+- $C(X, Y) = E(XY) - E(X) E(Y)$
+- $X, Y$が独立のとき、$C(X, Y) = R(X, Y) = 0$
+- $V(X_{1} + V_{2} + \cdots + X_{n}) = \sum^{n}_{i = 1} V(X_{i}) + 2 \sum_{i < j} C(X_{i}, X_{j})$
+    - 特に$X_{1} + V_{2} + \cdots + X_{n}$が独立のときは、$V(X_{1} + V_{2} + \cdots + X_{n}) = \sum^{n}_{i = 1} V(X_{i})$
+- $|R(X, Y)| \leqq 1$
+    - 特に$R(X, Y) = \pm 1 \Rightarrow \frac{X - E(X)}{\sqrt{V(X)}} \mp \frac{Y - E(Y)}{\sqrt{V(Y)}} = 0$(複合同順)
+
+:::
+
+相関係数には大まかに以下の意味がある。
+
+- 1に近いほど、「$X$が大きいならば$Y$も大きい」
+- -1に近いほど、「$X$が大きいならば$Y$は小さい」
+
+これらの傾向をカットオフで分割し、 @tbl-relation のように考察することができる。ただし、このカットオフは一般的な例であることに注意する。
+
+| 相関係数 | 考察 |
+| :---: | --- |
+| $-1 \leqq x \leqq -0.7$ | 負の強相関 |
+| $-0.7 \leqq x \leqq -0.4$ | 負の相関 |
+| $-0.4 \leqq x \leqq -0.2$ | 負の弱相関 |
+| $-0.2 \leqq x \leqq 0.2$ | 無相関 |
+| $0.2 \leqq x \leqq 0.4$ | 正の弱相関 |
+| $0.4 \leqq x \leqq 0.7$ | 正の相関 |
+| $0.7 \leqq x \leqq 1$ | 正の強相関 |
+
+: 相関係数から得られる考察 {#tbl-relation}

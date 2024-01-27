@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-01-22">
+
+<title>BiostatMoon - Python基礎</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../images/profile.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="index.qmd" class="navbar-brand navbar-brand-logo">
+    <img src="../../../images/profile.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="index.qmd">
+    <span class="navbar-title">BiostatMoon</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../qmds/index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">ホーム</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmds/記事一覧.html" rel="" target="">
+ <span class="menu-text">記事一覧</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmds/管理者.html" rel="" target="">
+ <span class="menu-text">管理者</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmds/実行環境.html" rel="" target="">
+ <span class="menu-text">実行環境</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmds/お問い合わせ.html" rel="" target="">
+ <span class="menu-text">お問い合わせ</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+    <a href="" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item">プログラミング</li><li class="breadcrumb-item"><a href="../../../qmds/プログラミング/python/環境構築.html">Python</a></li><li class="breadcrumb-item"><a href="../../../qmds/プログラミング/python/基礎.html">Python基礎</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../qmds/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ホーム</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/記事一覧.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">記事一覧</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/管理者.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">管理者</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/実行環境.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">実行環境</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/お問い合わせ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">お問い合わせ</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">プログラミング</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/プログラミング/python/環境構築.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python環境構築</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/プログラミング/python/基礎.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Python基礎</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">R</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/プログラミング/R/環境構築.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R環境構築</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">その他</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/プログラミング/その他/anaconda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anaconda</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/プログラミング/その他/dot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DOT言語</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">生物統計学</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/生物統計学/確率論.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率論基礎</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/生物統計学/確率分布.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">確率分布</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text">臨床研究</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/臨床研究/リサーチクエスチョン.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">リサーチクエスチョン</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../qmds/臨床研究/研究デザイン.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">研究デザイン</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#演算" id="toc-演算" class="nav-link active" data-scroll-target="#演算">演算</a>
+  <ul class="collapse">
+  <li><a href="#代入" id="toc-代入" class="nav-link" data-scroll-target="#代入">代入</a></li>
+  <li><a href="#数値計算" id="toc-数値計算" class="nav-link" data-scroll-target="#数値計算">数値計算</a></li>
+  <li><a href="#論理式" id="toc-論理式" class="nav-link" data-scroll-target="#論理式">論理式</a></li>
+  <li><a href="#文字列" id="toc-文字列" class="nav-link" data-scroll-target="#文字列">文字列</a>
+  <ul class="collapse">
+  <li><a href="#インデックススライス" id="toc-インデックススライス" class="nav-link" data-scroll-target="#インデックススライス">インデックス・スライス</a></li>
+  <li><a href="#結合" id="toc-結合" class="nav-link" data-scroll-target="#結合">結合</a></li>
+  <li><a href="#f-string" id="toc-f-string" class="nav-link" data-scroll-target="#f-string">f-string</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#オブジェクト" id="toc-オブジェクト" class="nav-link" data-scroll-target="#オブジェクト">オブジェクト</a>
+  <ul class="collapse">
+  <li><a href="#tuple" id="toc-tuple" class="nav-link" data-scroll-target="#tuple">tuple</a></li>
+  <li><a href="#list" id="toc-list" class="nav-link" data-scroll-target="#list">list</a></li>
+  <li><a href="#dict" id="toc-dict" class="nav-link" data-scroll-target="#dict">dict</a></li>
+  <li><a href="#set" id="toc-set" class="nav-link" data-scroll-target="#set">set</a></li>
+  </ul></li>
+  <li><a href="#アルゴリズム" id="toc-アルゴリズム" class="nav-link" data-scroll-target="#アルゴリズム">アルゴリズム</a>
+  <ul class="collapse">
+  <li><a href="#反復処理" id="toc-反復処理" class="nav-link" data-scroll-target="#反復処理">反復処理</a>
+  <ul class="collapse">
+  <li><a href="#for" id="toc-for" class="nav-link" data-scroll-target="#for">for</a></li>
+  <li><a href="#while" id="toc-while" class="nav-link" data-scroll-target="#while">while</a></li>
+  <li><a href="#反復処理の関数" id="toc-反復処理の関数" class="nav-link" data-scroll-target="#反復処理の関数">反復処理の関数</a></li>
+  </ul></li>
+  <li><a href="#条件分岐" id="toc-条件分岐" class="nav-link" data-scroll-target="#条件分岐">条件分岐</a>
+  <ul class="collapse">
+  <li><a href="#if-else" id="toc-if-else" class="nav-link" data-scroll-target="#if-else">if-else</a></li>
+  <li><a href="#assert" id="toc-assert" class="nav-link" data-scroll-target="#assert">assert</a></li>
+  </ul></li>
+  <li><a href="#例外処理" id="toc-例外処理" class="nav-link" data-scroll-target="#例外処理">例外処理</a>
+  <ul class="collapse">
+  <li><a href="#try-except" id="toc-try-except" class="nav-link" data-scroll-target="#try-except">try-except</a></li>
+  <li><a href="#raise" id="toc-raise" class="nav-link" data-scroll-target="#raise">raise</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#関数" id="toc-関数" class="nav-link" data-scroll-target="#関数">関数</a>
+  <ul class="collapse">
+  <li><a href="#モジュールのインポート" id="toc-モジュールのインポート" class="nav-link" data-scroll-target="#モジュールのインポート">モジュールのインポート</a></li>
+  <li><a href="#def" id="toc-def" class="nav-link" data-scroll-target="#def">def</a></li>
+  </ul></li>
+  <li><a href="#クラス" id="toc-クラス" class="nav-link" data-scroll-target="#クラス">クラス</a>
+  <ul class="collapse">
+  <li><a href="#クラスの基本文法" id="toc-クラスの基本文法" class="nav-link" data-scroll-target="#クラスの基本文法">クラスの基本文法</a></li>
+  <li><a href="#継承" id="toc-継承" class="nav-link" data-scroll-target="#継承">継承</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Python基礎</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Python</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-01-22</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2024-01-24</p>
+    </div>
+  </div>
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    Pythonの基礎文法
+  </div>
+</div>
+
+</header>
+
+<p>参考: <a href="https://docs.python.org/ja/3/tutorial/">公式チュートリアル</a></p>
+<section id="演算" class="level1">
+<h1>演算</h1>
+<section id="代入" class="level2">
+<h2 class="anchored" data-anchor-id="代入">代入</h2>
+<p>変数に値を代入するには<code>=</code>を使う。</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2"></a>b <span class="op">=</span> <span class="dv">2</span></span>
+<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3"></a></span>
+<span id="annotated-cell-1-4"><a href="#annotated-cell-1-4"></a><span class="bu">print</span>(a, b)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="1,2">変数の代入</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5 2</code></pre>
+</div>
+</div>
+</section>
+<section id="数値計算" class="level2">
+<h2 class="anchored" data-anchor-id="数値計算">数値計算</h2>
+<p>以下の演算子 <a href="#tbl-calc">Table&nbsp;1</a> が使用可能</p>
+<div id="tbl-calc" class="anchored">
+<table class="table">
+<caption>Table&nbsp;1: Pythonの標準演算子</caption>
+<thead>
+<tr class="header">
+<th>演算子</th>
+<th>処理</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>+</code></td>
+<td>加算</td>
+</tr>
+<tr class="even">
+<td><code>-</code></td>
+<td>減算</td>
+</tr>
+<tr class="odd">
+<td><code>*</code></td>
+<td>積算</td>
+</tr>
+<tr class="even">
+<td><code>/</code></td>
+<td>除算</td>
+</tr>
+<tr class="odd">
+<td><code>%</code></td>
+<td>除算の余り</td>
+</tr>
+<tr class="even">
+<td><code>**</code></td>
+<td>累乗</td>
+</tr>
+<tr class="odd">
+<td><code>//</code></td>
+<td>切り捨て除算</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1"></a><span class="bu">print</span>(a <span class="op">+</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2">2</button><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2"></a><span class="bu">print</span>(a <span class="op">-</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3">3</button><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3"></a><span class="bu">print</span>(a <span class="op">*</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4">4</button><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4"></a><span class="bu">print</span>(a <span class="op">/</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="5">5</button><span id="annotated-cell-2-5" class="code-annotation-target"><a href="#annotated-cell-2-5"></a><span class="bu">print</span>(a <span class="op">%</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="6">6</button><span id="annotated-cell-2-6" class="code-annotation-target"><a href="#annotated-cell-2-6"></a><span class="bu">print</span>(a <span class="op">**</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="7">7</button><span id="annotated-cell-2-7" class="code-annotation-target"><a href="#annotated-cell-2-7"></a><span class="bu">print</span>(a <span class="op">//</span> b)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-annotation="1" data-code-lines="1">加算</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-annotation="2" data-code-lines="2">減算</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-annotation="3" data-code-lines="3">積算</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-annotation="4" data-code-lines="4">除算</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-annotation="5" data-code-lines="5">除算の余り</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-annotation="6" data-code-lines="6">累乗</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-annotation="7" data-code-lines="7">切り捨て除算</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>7
+3
+10
+2.5
+1
+25
+2</code></pre>
+</div>
+</div>
+</section>
+<section id="論理式" class="level2">
+<h2 class="anchored" data-anchor-id="論理式">論理式</h2>
+<p>以下の論理演算子 <a href="#tbl-bool">Table&nbsp;2</a> が使用可能</p>
+<div id="tbl-bool" class="anchored">
+<table class="table">
+<caption>Table&nbsp;2: Pythonの標準演算子</caption>
+<thead>
+<tr class="header">
+<th>演算子</th>
+<th>処理</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>等しい</td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>異なる</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>より大きい</td>
+</tr>
+<tr class="even">
+<td><code>&gt;=</code></td>
+<td>以上</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;</code></td>
+<td>より小さい</td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>以下</td>
+</tr>
+<tr class="odd">
+<td><code>is</code></td>
+<td>等しい(主に<code>None</code>の判別に使用)</td>
+</tr>
+<tr class="even">
+<td><code>is not</code></td>
+<td>異なる(主に<code>None</code>の判別に使用)</td>
+</tr>
+<tr class="odd">
+<td><code>in</code></td>
+<td>含まれる</td>
+</tr>
+<tr class="even">
+<td><code>not in</code></td>
+<td>含まれない</td>
+</tr>
+<tr class="odd">
+<td><code>and</code></td>
+<td>論理積</td>
+</tr>
+<tr class="even">
+<td><code>or</code></td>
+<td>論理和</td>
+</tr>
+<tr class="odd">
+<td><code>not</code></td>
+<td>論理式の否定</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1">1</button><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1"></a><span class="bu">print</span>(a <span class="op">==</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2">2</button><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2"></a><span class="bu">print</span>(a <span class="op">!=</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="3">3</button><span id="annotated-cell-3-3" class="code-annotation-target"><a href="#annotated-cell-3-3"></a><span class="bu">print</span>(a <span class="op">&gt;</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="4">4</button><span id="annotated-cell-3-4" class="code-annotation-target"><a href="#annotated-cell-3-4"></a><span class="bu">print</span>(a <span class="op">&gt;=</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="5">5</button><span id="annotated-cell-3-5" class="code-annotation-target"><a href="#annotated-cell-3-5"></a><span class="bu">print</span>(a <span class="op">&lt;</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="6">6</button><span id="annotated-cell-3-6" class="code-annotation-target"><a href="#annotated-cell-3-6"></a><span class="bu">print</span>(a <span class="op">&lt;=</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="7">7</button><span id="annotated-cell-3-7" class="code-annotation-target"><a href="#annotated-cell-3-7"></a><span class="bu">print</span>(a <span class="kw">is</span> <span class="va">None</span>)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="8">8</button><span id="annotated-cell-3-8" class="code-annotation-target"><a href="#annotated-cell-3-8"></a><span class="bu">print</span>(a <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="9">9</button><span id="annotated-cell-3-9" class="code-annotation-target"><a href="#annotated-cell-3-9"></a><span class="bu">print</span>(a <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="10">10</button><span id="annotated-cell-3-10" class="code-annotation-target"><a href="#annotated-cell-3-10"></a><span class="bu">print</span>(a <span class="kw">not</span> <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="11">11</button><span id="annotated-cell-3-11" class="code-annotation-target"><a href="#annotated-cell-3-11"></a><span class="bu">print</span>(a <span class="op">==</span> b <span class="kw">and</span> a <span class="op">&gt;</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="12">12</button><span id="annotated-cell-3-12" class="code-annotation-target"><a href="#annotated-cell-3-12"></a><span class="bu">print</span>(a <span class="op">==</span> b <span class="kw">or</span> a <span class="op">&gt;</span> b)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="13">13</button><span id="annotated-cell-3-13" class="code-annotation-target"><a href="#annotated-cell-3-13"></a><span class="bu">print</span>(<span class="kw">not</span> a <span class="op">==</span> b )</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="1" data-code-lines="1">等しい</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="2" data-code-lines="2">異なる</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="3" data-code-lines="3">より大きい</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="4" data-code-lines="4">以上</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="5" data-code-lines="5">より小さい</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="6" data-code-lines="6">以下</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="7" data-code-lines="7">等しい(主に<code>None</code>の判別に使用)</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="8">8</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="8" data-code-lines="8">異なる(主に<code>None</code>の判別に使用)</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="9">9</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="9" data-code-lines="9">含まれる</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="10">10</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="10" data-code-lines="10">含まれない</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="11">11</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="11" data-code-lines="11">論理積</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="12">12</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="12" data-code-lines="12">論理和</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="13">13</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-annotation="13" data-code-lines="13">論理式の否定</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False
+True
+True
+True
+False
+False
+False
+True
+False
+True
+False
+True
+True</code></pre>
+</div>
+</div>
+</section>
+<section id="文字列" class="level2">
+<h2 class="anchored" data-anchor-id="文字列">文字列</h2>
+<p>文字列は<code>""</code>で文字を挟むことで定義可能</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1">1</button><span id="annotated-cell-4-1" class="code-annotation-target"><a href="#annotated-cell-4-1"></a>text <span class="op">=</span> <span class="st">"Hello python world!!"</span></span>
+<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2"></a></span>
+<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3"></a><span class="bu">print</span>(text)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-annotation="1" data-code-lines="1">文字列の代入</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello python world!!</code></pre>
+</div>
+</div>
+<section id="インデックススライス" class="level3">
+<h3 class="anchored" data-anchor-id="インデックススライス">インデックス・スライス</h3>
+<p><code>[]</code>の中に整数値n(インデックス)を入れることで左からn番目の文字を取り出すことができる。</p>
+<ul>
+<li>数字の始まりは0であることに注意</li>
+<li><code>0: 3</code>などの範囲(スライス)を指定することでその間の番号の文字列をまとめてとることができる</li>
+<li>右からのn番目の文字をとる場合は<code>-n</code>とする(こっちは数字の始まりは1)</li>
+</ul>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1">1</button><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1"></a><span class="bu">print</span>(text[<span class="dv">0</span>])</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2">2</button><span id="annotated-cell-5-2" class="code-annotation-target"><a href="#annotated-cell-5-2"></a><span class="bu">print</span>(text[<span class="dv">0</span>: <span class="dv">5</span>])</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="3">3</button><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3"></a><span class="bu">print</span>(text[<span class="op">-</span><span class="dv">1</span>])</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-annotation="1" data-code-lines="1">インデックスでの指定</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-annotation="2" data-code-lines="2">スライスでの指定</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-annotation="3" data-code-lines="3">右順でのインデックス指定</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>H
+Hello
+!</code></pre>
+</div>
+</div>
+</section>
+<section id="結合" class="level3">
+<h3 class="anchored" data-anchor-id="結合">結合</h3>
+<p>文字列は<code>+</code>演算子で結合できる</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="bu">print</span>(text <span class="op">+</span> <span class="st">" Nice to meet you."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello python world!! Nice to meet you.</code></pre>
+</div>
+</div>
+</section>
+<section id="f-string" class="level3">
+<h3 class="anchored" data-anchor-id="f-string">f-string</h3>
+<p><code>f""</code>とすることで、括弧内に変数を入れることができる。文字列の生成でよく使うので覚えておくと良い。</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>text<span class="sc">}</span><span class="ss"> I've been learning Python for </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss"> years."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello python world!! I've been learning Python for 5 years.</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="オブジェクト" class="level1">
+<h1>オブジェクト</h1>
+<p>Pythonではデータをオブジェクトに格納できる。オブジェクトの種類は <a href="#tbl-object">Table&nbsp;3</a> のようなものがある。オブジェクト内の要素も文字列と同様にインデックスとスライスで抽出することができる。</p>
+<p>※ ここではPythonの標準機能のものに限定する</p>
+<div id="tbl-object" class="anchored">
+<table class="table">
+<caption>Table&nbsp;3: Pythonでデータを格納できる標準オブジェクト</caption>
+<thead>
+<tr class="header">
+<th>オブジェクト</th>
+<th>特徴</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>tuple</td>
+<td>複数の値を持つことができる。要素の変更ができない</td>
+</tr>
+<tr class="even">
+<td>list</td>
+<td>複数の値を持つことができる。要素の変更ができる</td>
+</tr>
+<tr class="odd">
+<td>dict</td>
+<td>key, valueを対応付けて格納ができる</td>
+</tr>
+<tr class="even">
+<td>set</td>
+<td>インデックスの順番を考慮しない。また要素が重複しない。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="tuple" class="level2">
+<h2 class="anchored" data-anchor-id="tuple">tuple</h2>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1">1</button><span id="annotated-cell-8-1" class="code-annotation-target"><a href="#annotated-cell-8-1"></a>t <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="annotated-cell-8-2"><a href="#annotated-cell-8-2"></a><span class="bu">print</span>(t)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2">2</button><span id="annotated-cell-8-3" class="code-annotation-target"><a href="#annotated-cell-8-3"></a><span class="bu">print</span>(t[<span class="dv">1</span>])</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3">3</button><span id="annotated-cell-8-4" class="code-annotation-target"><a href="#annotated-cell-8-4"></a><span class="bu">print</span>(t[<span class="dv">1</span>: <span class="dv">4</span>])</span>
+<span id="annotated-cell-8-5"><a href="#annotated-cell-8-5"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="4">4</button><span id="annotated-cell-8-6" class="code-annotation-target"><a href="#annotated-cell-8-6"></a>t[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">6</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-annotation="1" data-code-lines="1">()で囲うことでtupleの代入</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-annotation="2" data-code-lines="3">インデックス抽出</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-annotation="3" data-code-lines="4">スライス抽出</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-annotation="4" data-code-lines="6">tupleの要素は変更不可(エラーとなる)</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1, 2, 3, 4, 5)
+2
+(2, 3, 4)</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>TypeError: 'tuple' object does not support item assignment</code></pre>
+</div>
+</div>
+</section>
+<section id="list" class="level2">
+<h2 class="anchored" data-anchor-id="list">list</h2>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="annotated-cell-9"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1">1</button><span id="annotated-cell-9-1" class="code-annotation-target"><a href="#annotated-cell-9-1"></a>l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="annotated-cell-9-2"><a href="#annotated-cell-9-2"></a><span class="bu">print</span>(l)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="2">2</button><span id="annotated-cell-9-3" class="code-annotation-target"><a href="#annotated-cell-9-3"></a><span class="bu">print</span>(l[<span class="dv">1</span>])</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="3">3</button><span id="annotated-cell-9-4" class="code-annotation-target"><a href="#annotated-cell-9-4"></a><span class="bu">print</span>(l[<span class="dv">1</span>: <span class="dv">4</span>])</span>
+<span id="annotated-cell-9-5"><a href="#annotated-cell-9-5"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="4">4</button><span id="annotated-cell-9-6" class="code-annotation-target"><a href="#annotated-cell-9-6"></a>l[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">6</span></span>
+<span id="annotated-cell-9-7"><a href="#annotated-cell-9-7"></a><span class="bu">print</span>(l)</span>
+<span id="annotated-cell-9-8"><a href="#annotated-cell-9-8"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="5">5</button><span id="annotated-cell-9-9" class="code-annotation-target"><a href="#annotated-cell-9-9"></a>l.append(<span class="dv">7</span>)</span>
+<span id="annotated-cell-9-10"><a href="#annotated-cell-9-10"></a><span class="bu">print</span>(l)</span>
+<span id="annotated-cell-9-11"><a href="#annotated-cell-9-11"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="6">6</button><span id="annotated-cell-9-12" class="code-annotation-target"><a href="#annotated-cell-9-12"></a>l.extend([<span class="dv">8</span>, <span class="dv">9</span>])</span>
+<span id="annotated-cell-9-13"><a href="#annotated-cell-9-13"></a><span class="bu">print</span>(l)</span>
+<span id="annotated-cell-9-14"><a href="#annotated-cell-9-14"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="7">7</button><span id="annotated-cell-9-15" class="code-annotation-target"><a href="#annotated-cell-9-15"></a>l.insert(<span class="dv">0</span>, <span class="dv">10</span>)</span>
+<span id="annotated-cell-9-16"><a href="#annotated-cell-9-16"></a><span class="bu">print</span>(l)</span>
+<span id="annotated-cell-9-17"><a href="#annotated-cell-9-17"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="8">8</button><span id="annotated-cell-9-18" class="code-annotation-target"><a href="#annotated-cell-9-18"></a>l.pop(<span class="dv">0</span>)</span>
+<span id="annotated-cell-9-19"><a href="#annotated-cell-9-19"></a><span class="bu">print</span>(l)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-9" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-annotation="1" data-code-lines="1">[]で囲うことでlistの代入</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-annotation="2" data-code-lines="3">インデックス抽出</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-annotation="3" data-code-lines="4">スライス抽出</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-annotation="4" data-code-lines="6">listの要素は変更可能</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-annotation="5" data-code-lines="9">末尾に要素一つを追加</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-annotation="6" data-code-lines="12">末尾に要素複数を追加</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-annotation="7" data-code-lines="15">特定の位置に要素を追加</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="8">8</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-annotation="8" data-code-lines="18">特定の位置の要素を削除</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1, 2, 3, 4, 5]
+2
+[2, 3, 4]
+[6, 2, 3, 4, 5]
+[6, 2, 3, 4, 5, 7]
+[6, 2, 3, 4, 5, 7, 8, 9]
+[10, 6, 2, 3, 4, 5, 7, 8, 9]
+[6, 2, 3, 4, 5, 7, 8, 9]</code></pre>
+</div>
+</div>
+</section>
+<section id="dict" class="level2">
+<h2 class="anchored" data-anchor-id="dict">dict</h2>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="annotated-cell-10"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-10" data-target-annotation="1">1</button><span id="annotated-cell-10-1" class="code-annotation-target"><a href="#annotated-cell-10-1"></a>d <span class="op">=</span> {<span class="st">"a"</span>: <span class="dv">0</span>, <span class="st">"b"</span>: <span class="dv">1</span>, <span class="st">"c"</span>: <span class="dv">2</span>}</span>
+<span id="annotated-cell-10-2"><a href="#annotated-cell-10-2"></a><span class="bu">print</span>(d)</span>
+<span id="annotated-cell-10-3"><a href="#annotated-cell-10-3"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-10" data-target-annotation="2">2</button><span id="annotated-cell-10-4" class="code-annotation-target"><a href="#annotated-cell-10-4"></a>d[<span class="st">"a"</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="annotated-cell-10-5"><a href="#annotated-cell-10-5"></a><span class="bu">print</span>(d)</span>
+<span id="annotated-cell-10-6"><a href="#annotated-cell-10-6"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-10" data-target-annotation="3">3</button><span id="annotated-cell-10-7" class="code-annotation-target"><a href="#annotated-cell-10-7"></a>d[<span class="st">"d"</span>] <span class="op">=</span> <span class="dv">3</span></span>
+<span id="annotated-cell-10-8"><a href="#annotated-cell-10-8"></a><span class="bu">print</span>(d)</span>
+<span id="annotated-cell-10-9"><a href="#annotated-cell-10-9"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-10" data-target-annotation="4">4</button><span id="annotated-cell-10-10" class="code-annotation-target"><a href="#annotated-cell-10-10"></a><span class="kw">del</span> d[<span class="st">"d"</span>]</span>
+<span id="annotated-cell-10-11"><a href="#annotated-cell-10-11"></a><span class="bu">print</span>(d)</span>
+<span id="annotated-cell-10-12"><a href="#annotated-cell-10-12"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-10" data-target-annotation="5">5</button><span id="annotated-cell-10-13" class="code-annotation-target"><a href="#annotated-cell-10-13"></a><span class="bu">print</span>(<span class="bu">list</span>(d.keys()))</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-10" data-target-annotation="6">6</button><span id="annotated-cell-10-14" class="code-annotation-target"><a href="#annotated-cell-10-14"></a><span class="bu">print</span>(<span class="bu">list</span>(d.values()))</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-10" data-target-annotation="7">7</button><span id="annotated-cell-10-15" class="code-annotation-target"><a href="#annotated-cell-10-15"></a><span class="bu">print</span>(<span class="bu">list</span>(d.items()))</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-10" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-10" data-code-annotation="1" data-code-lines="1">{}内に<code>key: value</code>の組を入力しdictの代入</span>
+</dd>
+<dt data-target-cell="annotated-cell-10" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-10" data-code-annotation="2" data-code-lines="4">keyのvalueを変更</span>
+</dd>
+<dt data-target-cell="annotated-cell-10" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-10" data-code-annotation="3" data-code-lines="7">keyとvalueの組を追加</span>
+</dd>
+<dt data-target-cell="annotated-cell-10" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-10" data-code-annotation="4" data-code-lines="10">keyとvalueの組を削除</span>
+</dd>
+<dt data-target-cell="annotated-cell-10" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-10" data-code-annotation="5" data-code-lines="13">dictからkeyをlistで取得</span>
+</dd>
+<dt data-target-cell="annotated-cell-10" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-10" data-code-annotation="6" data-code-lines="14">dictからvalueをlistで取得</span>
+</dd>
+<dt data-target-cell="annotated-cell-10" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-cell="annotated-cell-10" data-code-annotation="7" data-code-lines="15">dictからkey, value両方をlistで取得</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'a': 0, 'b': 1, 'c': 2}
+{'a': 1, 'b': 1, 'c': 2}
+{'a': 1, 'b': 1, 'c': 2, 'd': 3}
+{'a': 1, 'b': 1, 'c': 2}
+['a', 'b', 'c']
+[1, 1, 2]
+[('a', 1), ('b', 1), ('c', 2)]</code></pre>
+</div>
+</div>
+</section>
+<section id="set" class="level2">
+<h2 class="anchored" data-anchor-id="set">set</h2>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="annotated-cell-11"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="1">1</button><span id="annotated-cell-11-1" class="code-annotation-target"><a href="#annotated-cell-11-1"></a>s1 <span class="op">=</span> {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
+<span id="annotated-cell-11-2"><a href="#annotated-cell-11-2"></a>s2 <span class="op">=</span> {<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>}</span>
+<span id="annotated-cell-11-3"><a href="#annotated-cell-11-3"></a><span class="bu">print</span>(s1, s2)</span>
+<span id="annotated-cell-11-4"><a href="#annotated-cell-11-4"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="2">2</button><span id="annotated-cell-11-5" class="code-annotation-target"><a href="#annotated-cell-11-5"></a>s1.add(<span class="dv">5</span>)</span>
+<span id="annotated-cell-11-6"><a href="#annotated-cell-11-6"></a><span class="bu">print</span>(s1)</span>
+<span id="annotated-cell-11-7"><a href="#annotated-cell-11-7"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="3">3</button><span id="annotated-cell-11-8" class="code-annotation-target"><a href="#annotated-cell-11-8"></a>s1.remove(<span class="dv">5</span>)</span>
+<span id="annotated-cell-11-9"><a href="#annotated-cell-11-9"></a><span class="bu">print</span>(s1)</span>
+<span id="annotated-cell-11-10"><a href="#annotated-cell-11-10"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="4">4</button><span id="annotated-cell-11-11" class="code-annotation-target"><a href="#annotated-cell-11-11"></a><span class="bu">print</span>(s1 <span class="op">|</span> s2)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="5">5</button><span id="annotated-cell-11-12" class="code-annotation-target"><a href="#annotated-cell-11-12"></a><span class="bu">print</span>(s1 <span class="op">-</span> s2)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="6">6</button><span id="annotated-cell-11-13" class="code-annotation-target"><a href="#annotated-cell-11-13"></a><span class="bu">print</span>(s1 <span class="op">&amp;</span> s2)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="7">7</button><span id="annotated-cell-11-14" class="code-annotation-target"><a href="#annotated-cell-11-14"></a><span class="bu">print</span>(s1 <span class="op">^</span> s2)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-11" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-11" data-code-annotation="1" data-code-lines="1,2">{}で囲うことでsetの代入、同じ要素は含まれない</span>
+</dd>
+<dt data-target-cell="annotated-cell-11" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-11" data-code-annotation="2" data-code-lines="5">要素の追加</span>
+</dd>
+<dt data-target-cell="annotated-cell-11" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-11" data-code-annotation="3" data-code-lines="8">要素の削除</span>
+</dd>
+<dt data-target-cell="annotated-cell-11" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-11" data-code-annotation="4" data-code-lines="11">和集合</span>
+</dd>
+<dt data-target-cell="annotated-cell-11" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-11" data-code-annotation="5" data-code-lines="12">差集合</span>
+</dd>
+<dt data-target-cell="annotated-cell-11" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-11" data-code-annotation="6" data-code-lines="13">積集合</span>
+</dd>
+<dt data-target-cell="annotated-cell-11" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-cell="annotated-cell-11" data-code-annotation="7" data-code-lines="14">排他的論理和</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{0, 1, 2, 3} {0, 2, 4, 6, 8}
+{0, 1, 2, 3, 5}
+{0, 1, 2, 3}
+{0, 1, 2, 3, 4, 6, 8}
+{1, 3}
+{0, 2}
+{1, 3, 4, 6, 8}</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="アルゴリズム" class="level1">
+<h1>アルゴリズム</h1>
+<section id="反復処理" class="level2">
+<h2 class="anchored" data-anchor-id="反復処理">反復処理</h2>
+<section id="for" class="level3">
+<h3 class="anchored" data-anchor-id="for">for</h3>
+<p><code>for xxx in iterator</code>の後にインデントを揃えて記述したコードを反復することができる。</p>
+<ul>
+<li><code>iterator</code>の部分に反復する対象のオブジェクトを指定する、反復処理は<code>iterator</code>内の要素全てに対して行われる</li>
+<li><code>xxx</code>の部分に<code>iterator</code>から抽出された要素が代入される</li>
+</ul>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="annotated-cell-12"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="1">1</button><span id="annotated-cell-12-1" class="code-annotation-target"><a href="#annotated-cell-12-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="2">2</button><span id="annotated-cell-12-2" class="code-annotation-target"><a href="#annotated-cell-12-2"></a>    c <span class="op">=</span> a <span class="op">+</span> i</span>
+<span id="annotated-cell-12-3"><a href="#annotated-cell-12-3"></a>    <span class="bu">print</span>(i, c)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-12" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-12" data-code-annotation="1" data-code-lines="1"><code>for</code>の定義</span>
+</dd>
+<dt data-target-cell="annotated-cell-12" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-12" data-code-annotation="2" data-code-lines="2,3">反復される処理</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0 5
+1 6
+2 7
+3 8
+4 9</code></pre>
+</div>
+</div>
+</section>
+<section id="while" class="level3">
+<h3 class="anchored" data-anchor-id="while">while</h3>
+<p><code>while booling</code>の後にインデントを揃えて記述したコードを反復することができる。</p>
+<ul>
+<li><code>booling</code>は条件式、この条件を満たすまで処理が反復される(条件を満たなさい場合は永遠に処理が反復されるため要注意)</li>
+</ul>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="annotated-cell-13"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-13-1"><a href="#annotated-cell-13-1"></a>c <span class="op">=</span> <span class="dv">5</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="1">1</button><span id="annotated-cell-13-2" class="code-annotation-target"><a href="#annotated-cell-13-2"></a><span class="cf">while</span> c <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="2">2</button><span id="annotated-cell-13-3" class="code-annotation-target"><a href="#annotated-cell-13-3"></a>    <span class="bu">print</span>(c)</span>
+<span id="annotated-cell-13-4"><a href="#annotated-cell-13-4"></a>    c <span class="op">-=</span> <span class="dv">1</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-13" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-13" data-code-annotation="1" data-code-lines="2"><code>while</code>の定義</span>
+</dd>
+<dt data-target-cell="annotated-cell-13" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-13" data-code-annotation="2" data-code-lines="3,4">反復される処理</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5
+4
+3
+2
+1</code></pre>
+</div>
+</div>
+</section>
+<section id="反復処理の関数" class="level3">
+<h3 class="anchored" data-anchor-id="反復処理の関数">反復処理の関数</h3>
+<p>イテレーターを拡張できる関数</p>
+<ul>
+<li><code>zip</code>: 複数のイテレーターから同時に要素を抽出する</li>
+<li><code>enumerate</code>: 要素と同時にインデックス番号を取得する</li>
+</ul>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="annotated-cell-14"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-14-1"><a href="#annotated-cell-14-1"></a>iter1 <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>]</span>
+<span id="annotated-cell-14-2"><a href="#annotated-cell-14-2"></a>iter2 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>]</span>
+<span id="annotated-cell-14-3"><a href="#annotated-cell-14-3"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-14" data-target-annotation="1">1</button><span id="annotated-cell-14-4" class="code-annotation-target"><a href="#annotated-cell-14-4"></a><span class="cf">for</span> i1, i2 <span class="kw">in</span> <span class="bu">zip</span>(iter1, iter2):</span>
+<span id="annotated-cell-14-5"><a href="#annotated-cell-14-5"></a>    <span class="bu">print</span>(i1, i2)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-14" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-14" data-code-annotation="1" data-code-lines="4"><code>zip</code>の例</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0 1
+2 3
+4 5
+6 7
+8 9</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="annotated-cell-15"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="1">1</button><span id="annotated-cell-15-1" class="code-annotation-target"><a href="#annotated-cell-15-1"></a><span class="cf">for</span> idx ,i1 <span class="kw">in</span> <span class="bu">enumerate</span>(iter1):</span>
+<span id="annotated-cell-15-2"><a href="#annotated-cell-15-2"></a>    <span class="bu">print</span>(idx, i1)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-15" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-15" data-code-annotation="1" data-code-lines="1"><code>enumerate</code>の例</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0 0
+1 2
+2 4
+3 6
+4 8</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="条件分岐" class="level2">
+<h2 class="anchored" data-anchor-id="条件分岐">条件分岐</h2>
+<section id="if-else" class="level3">
+<h3 class="anchored" data-anchor-id="if-else">if-else</h3>
+<p><code>if xxx</code>の後にインデントを揃えてコ―ドを記述することで、条件式<code>xxx</code>を満たす場合のみ処理を行うことができる。他に追加で条件分岐を行う場合には<code>elif yyy:</code>とする、これら全ての条件を満たさない処理は<code>else:</code>の後に記述する。</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="annotated-cell-16"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1">1</button><span id="annotated-cell-16-1" class="code-annotation-target"><a href="#annotated-cell-16-1"></a><span class="cf">if</span> a <span class="op">&lt;</span> <span class="dv">2</span>:</span>
+<span id="annotated-cell-16-2"><a href="#annotated-cell-16-2"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss"> is under than 2"</span>)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="2">2</button><span id="annotated-cell-16-3" class="code-annotation-target"><a href="#annotated-cell-16-3"></a><span class="cf">elif</span> a <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="annotated-cell-16-4"><a href="#annotated-cell-16-4"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss"> is negative value"</span>)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="3">3</button><span id="annotated-cell-16-5" class="code-annotation-target"><a href="#annotated-cell-16-5"></a><span class="cf">else</span>:</span>
+<span id="annotated-cell-16-6"><a href="#annotated-cell-16-6"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss"> is over than 2"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-16" data-code-annotation="1" data-code-lines="1">条件式1を満たす</span>
+</dd>
+<dt data-target-cell="annotated-cell-16" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-16" data-code-annotation="2" data-code-lines="3">条件式1を満たさないかつ条件式2を満たす</span>
+</dd>
+<dt data-target-cell="annotated-cell-16" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-16" data-code-annotation="3" data-code-lines="5">条件式1、条件式2両方を満たす</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5 is over than 2</code></pre>
+</div>
+</div>
+</section>
+<section id="assert" class="level3">
+<h3 class="anchored" data-anchor-id="assert">assert</h3>
+<p><code>assert</code>は条件を満たさない場合、エラーとして処理が止まる。テストコードをよく使う。</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="annotated-cell-17"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-17" data-target-annotation="1">1</button><span id="annotated-cell-17-1" class="code-annotation-target"><a href="#annotated-cell-17-1"></a><span class="cf">assert</span> a <span class="op">==</span> <span class="dv">5</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-17" data-target-annotation="2">2</button><span id="annotated-cell-17-2" class="code-annotation-target"><a href="#annotated-cell-17-2"></a><span class="cf">assert</span> a <span class="kw">is</span> <span class="va">None</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-17" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-17" data-code-annotation="1" data-code-lines="1">条件式が真の場合は何も起こらない</span>
+</dd>
+<dt data-target-cell="annotated-cell-17" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-17" data-code-annotation="2" data-code-lines="2">条件式が偽の場合はエラー</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>AssertionError: </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="例外処理" class="level2">
+<h2 class="anchored" data-anchor-id="例外処理">例外処理</h2>
+<section id="try-except" class="level3">
+<h3 class="anchored" data-anchor-id="try-except">try-except</h3>
+<p><code>try:</code>の後の処理がエラーとなるかチェックされる。もしエラーがない場合はそのまま処理が実行されるが、エラーとなる場合はそこの処理以降のコードは実行されず、<code>except:</code>の後の処理が実行される。</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="annotated-cell-18"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="1">1</button><span id="annotated-cell-18-1" class="code-annotation-target"><a href="#annotated-cell-18-1"></a><span class="cf">try</span>:</span>
+<span id="annotated-cell-18-2"><a href="#annotated-cell-18-2"></a>    <span class="bu">print</span>(<span class="ss">f"check </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-18-3"><a href="#annotated-cell-18-3"></a>    <span class="cf">assert</span> a <span class="kw">is</span> <span class="va">None</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="2">2</button><span id="annotated-cell-18-4" class="code-annotation-target"><a href="#annotated-cell-18-4"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss"> is None"</span>)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="3">3</button><span id="annotated-cell-18-5" class="code-annotation-target"><a href="#annotated-cell-18-5"></a><span class="cf">except</span>:</span>
+<span id="annotated-cell-18-6"><a href="#annotated-cell-18-6"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss"> is not None"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-18" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-18" data-code-annotation="1" data-code-lines="1,2,3"><code>try</code>の後の処理がエラーとなるかどうかで分岐する</span>
+</dd>
+<dt data-target-cell="annotated-cell-18" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-18" data-code-annotation="2" data-code-lines="4">エラーとなる場合、ここは実行されない</span>
+</dd>
+<dt data-target-cell="annotated-cell-18" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-18" data-code-annotation="3" data-code-lines="5,6">エラーとなる場合のみ実行される</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>check 5
+5 is not None</code></pre>
+</div>
+</div>
+</section>
+<section id="raise" class="level3">
+<h3 class="anchored" data-anchor-id="raise">raise</h3>
+<p><code>raise xxx</code>とすることで処理がエラーとなるパターンを自分で設定できる。<code>xxx</code>には組み込み例外関数を入力する。基本的にif-elseと同時に使い、dataclass等でパラメータの入力を制限するときに多用する。</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(a, <span class="bu">str</span>):</span>
+<span id="cb22-2"><a href="#cb22-2"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss"> is not string"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: 5 is not string</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="関数" class="level1">
+<h1>関数</h1>
+<section id="モジュールのインポート" class="level2">
+<h2 class="anchored" data-anchor-id="モジュールのインポート">モジュールのインポート</h2>
+<p>Pythonはライブラリが充実しており、多くの関数を<code>import</code>するだけで使うことができる。</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="annotated-cell-20"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-20" data-target-annotation="1">1</button><span id="annotated-cell-20-1" class="code-annotation-target"><a href="#annotated-cell-20-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="annotated-cell-20-2"><a href="#annotated-cell-20-2"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-20" data-target-annotation="2">2</button><span id="annotated-cell-20-3" class="code-annotation-target"><a href="#annotated-cell-20-3"></a>ndarray <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="annotated-cell-20-4"><a href="#annotated-cell-20-4"></a><span class="bu">print</span>(ndarray)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-20" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-20" data-code-annotation="1" data-code-lines="1">モジュールのインポート</span>
+</dd>
+<dt data-target-cell="annotated-cell-20" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-20" data-code-annotation="2" data-code-lines="3">モジュール内関数の使用例</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0 1 2 3]</code></pre>
+</div>
+</div>
+</section>
+<section id="def" class="level2">
+<h2 class="anchored" data-anchor-id="def">def</h2>
+<p>よく使う処理は<code>def</code>で関数化できる。関数には引数、戻り値を設定することができる。</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="annotated-cell-21"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-21-1"><a href="#annotated-cell-21-1"></a><span class="kw">def</span> add_function(</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="1">1</button><span id="annotated-cell-21-2" class="code-annotation-target"><a href="#annotated-cell-21-2"></a>    a, b <span class="op">=</span> <span class="dv">0</span></span>
+<span id="annotated-cell-21-3"><a href="#annotated-cell-21-3"></a>):</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="2">2</button><span id="annotated-cell-21-4" class="code-annotation-target"><a href="#annotated-cell-21-4"></a>    c <span class="op">=</span> a <span class="op">+</span> b</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="3">3</button><span id="annotated-cell-21-5" class="code-annotation-target"><a href="#annotated-cell-21-5"></a>    <span class="cf">return</span> c</span>
+<span id="annotated-cell-21-6"><a href="#annotated-cell-21-6"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="4">4</button><span id="annotated-cell-21-7" class="code-annotation-target"><a href="#annotated-cell-21-7"></a><span class="bu">print</span>(add_function(<span class="dv">2</span>, <span class="dv">4</span>))</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="5">5</button><span id="annotated-cell-21-8" class="code-annotation-target"><a href="#annotated-cell-21-8"></a><span class="bu">print</span>(add_function(<span class="dv">3</span>))</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="6">6</button><span id="annotated-cell-21-9" class="code-annotation-target"><a href="#annotated-cell-21-9"></a><span class="bu">print</span>(add_function(b<span class="op">=</span><span class="dv">3</span>))</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-21" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-21" data-code-annotation="1" data-code-lines="2">関数内で入力を受け付ける引数の設定、ここでのbのように初期値を設定することもできる</span>
+</dd>
+<dt data-target-cell="annotated-cell-21" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-21" data-code-annotation="2" data-code-lines="4">関数内の処理</span>
+</dd>
+<dt data-target-cell="annotated-cell-21" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-21" data-code-annotation="3" data-code-lines="5"><code>return</code>の後の変数が関数の戻り値となる、複数個設定することも可能。設定しない場合は戻り値のない関数とできる</span>
+</dd>
+<dt data-target-cell="annotated-cell-21" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-21" data-code-annotation="4" data-code-lines="7">定義した関数の名前を実行するだけで関数内の処理が実行できる</span>
+</dd>
+<dt data-target-cell="annotated-cell-21" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-21" data-code-annotation="5" data-code-lines="8">初期値を設定した引数は省略可能、その場合は初期値が使われる</span>
+</dd>
+<dt data-target-cell="annotated-cell-21" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-21" data-code-annotation="6" data-code-lines="9">初期値を設定していない引数を省略した場合にはエラーとなる</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>6
+3</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>TypeError: add_function() missing 1 required positional argument: 'a'</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="クラス" class="level1">
+<h1>クラス</h1>
+<section id="クラスの基本文法" class="level2">
+<h2 class="anchored" data-anchor-id="クラスの基本文法">クラスの基本文法</h2>
+<p>Pythonでは<strong>クラス</strong>によって関数や(インスタンス)変数等をまとめてオブジェクト化することができる。次のようにしてクラスを定義することができる。</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="annotated-cell-22"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="1">1</button><span id="annotated-cell-22-1" class="code-annotation-target"><a href="#annotated-cell-22-1"></a><span class="kw">class</span> HelloRobot:</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="2">2</button><span id="annotated-cell-22-2" class="code-annotation-target"><a href="#annotated-cell-22-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, age <span class="op">=</span> <span class="dv">10</span>):</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="3">3</button><span id="annotated-cell-22-3" class="code-annotation-target"><a href="#annotated-cell-22-3"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="annotated-cell-22-4"><a href="#annotated-cell-22-4"></a>        <span class="va">self</span>.age <span class="op">=</span> age</span>
+<span id="annotated-cell-22-5"><a href="#annotated-cell-22-5"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="4">4</button><span id="annotated-cell-22-6" class="code-annotation-target"><a href="#annotated-cell-22-6"></a>    <span class="kw">def</span> greeting(<span class="va">self</span>, lang <span class="op">=</span> <span class="st">"english"</span>):</span>
+<span id="annotated-cell-22-7"><a href="#annotated-cell-22-7"></a>        <span class="cf">if</span> lang <span class="op">==</span> <span class="st">"english"</span>:</span>
+<span id="annotated-cell-22-8"><a href="#annotated-cell-22-8"></a>            <span class="bu">print</span>(<span class="ss">f"Hello! My name is </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">, and age is </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>age<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-22-9"><a href="#annotated-cell-22-9"></a>        <span class="cf">elif</span> lang <span class="op">==</span> <span class="st">"japanese"</span>:</span>
+<span id="annotated-cell-22-10"><a href="#annotated-cell-22-10"></a>            <span class="bu">print</span>(<span class="ss">f"こんにちは！私の名前は</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">です。年齢は</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>age<span class="sc">}</span><span class="ss">歳です。"</span>)</span>
+<span id="annotated-cell-22-11"><a href="#annotated-cell-22-11"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="5">5</button><span id="annotated-cell-22-12" class="code-annotation-target"><a href="#annotated-cell-22-12"></a>robot <span class="op">=</span> HelloRobot(<span class="st">"Robot"</span>)</span>
+<span id="annotated-cell-22-13"><a href="#annotated-cell-22-13"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="6">6</button><span id="annotated-cell-22-14" class="code-annotation-target"><a href="#annotated-cell-22-14"></a><span class="bu">print</span>(robot.name)</span>
+<span id="annotated-cell-22-15"><a href="#annotated-cell-22-15"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="7">7</button><span id="annotated-cell-22-16" class="code-annotation-target"><a href="#annotated-cell-22-16"></a>robot.greeting()</span>
+<span id="annotated-cell-22-17"><a href="#annotated-cell-22-17"></a>robot.greeting(<span class="st">"japanese"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-22" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-annotation="1" data-code-lines="1">クラスの定義</span>
+</dd>
+<dt data-target-cell="annotated-cell-22" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-annotation="2" data-code-lines="2"><code>__init__</code>関数を作成することで、クラスの立ち上げ時、自動的にスクリプトを実行できる</span>
+</dd>
+<dt data-target-cell="annotated-cell-22" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-annotation="3" data-code-lines="3,4">インスタンス変数の定義、クラス内では<code>self.~</code>としてアクセスする</span>
+</dd>
+<dt data-target-cell="annotated-cell-22" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-annotation="4" data-code-lines="6,7,8,9,10">クラス内での関数を定義できる</span>
+</dd>
+<dt data-target-cell="annotated-cell-22" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-annotation="5" data-code-lines="12">クラスインスタンスの立ち上げ</span>
+</dd>
+<dt data-target-cell="annotated-cell-22" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-annotation="6" data-code-lines="14">メイン文でのインスタンス変数の抽出</span>
+</dd>
+<dt data-target-cell="annotated-cell-22" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-annotation="7" data-code-lines="16,17">クラス内の関数の実行</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Robot
+Hello! My name is Robot, and age is 10
+こんにちは！私の名前はRobotです。年齢は10歳です。</code></pre>
+</div>
+</div>
+</section>
+<section id="継承" class="level2">
+<h2 class="anchored" data-anchor-id="継承">継承</h2>
+<p>定義済のクラスのオブジェクトを別クラスに継承することができる。<code>Pytorch</code>で深層学習を行う際には必須の技術である。</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="annotated-cell-23"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-23" data-target-annotation="1">1</button><span id="annotated-cell-23-1" class="code-annotation-target"><a href="#annotated-cell-23-1"></a><span class="kw">class</span> SuperHelloRobot(HelloRobot):</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-23" data-target-annotation="2">2</button><span id="annotated-cell-23-2" class="code-annotation-target"><a href="#annotated-cell-23-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, your_name, age<span class="op">=</span><span class="dv">10</span>):</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-23" data-target-annotation="3">3</button><span id="annotated-cell-23-3" class="code-annotation-target"><a href="#annotated-cell-23-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, age)</span>
+<span id="annotated-cell-23-4"><a href="#annotated-cell-23-4"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-23" data-target-annotation="4">4</button><span id="annotated-cell-23-5" class="code-annotation-target"><a href="#annotated-cell-23-5"></a>        <span class="va">self</span>.your_name <span class="op">=</span> your_name</span>
+<span id="annotated-cell-23-6"><a href="#annotated-cell-23-6"></a>    </span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-23" data-target-annotation="5">5</button><span id="annotated-cell-23-7" class="code-annotation-target"><a href="#annotated-cell-23-7"></a>    <span class="kw">def</span> farewell(<span class="va">self</span>):</span>
+<span id="annotated-cell-23-8"><a href="#annotated-cell-23-8"></a>        <span class="bu">print</span>(<span class="ss">f"ByeBye </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>your_name<span class="sc">}</span><span class="ss">!!"</span>)</span>
+<span id="annotated-cell-23-9"><a href="#annotated-cell-23-9"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-23" data-target-annotation="6">6</button><span id="annotated-cell-23-10" class="code-annotation-target"><a href="#annotated-cell-23-10"></a>robot <span class="op">=</span> SuperHelloRobot(<span class="st">"Super Robot"</span>, <span class="st">"Yugestu"</span>)</span>
+<span id="annotated-cell-23-11"><a href="#annotated-cell-23-11"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-23" data-target-annotation="7">7</button><span id="annotated-cell-23-12" class="code-annotation-target"><a href="#annotated-cell-23-12"></a><span class="bu">print</span>(robot.age)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-23" data-target-annotation="8">8</button><span id="annotated-cell-23-13" class="code-annotation-target"><a href="#annotated-cell-23-13"></a><span class="bu">print</span>(robot.your_name)</span>
+<span id="annotated-cell-23-14"><a href="#annotated-cell-23-14"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-23" data-target-annotation="9">9</button><span id="annotated-cell-23-15" class="code-annotation-target"><a href="#annotated-cell-23-15"></a>robot.greeting()</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-23" data-target-annotation="10">10</button><span id="annotated-cell-23-16" class="code-annotation-target"><a href="#annotated-cell-23-16"></a>robot.farewell()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-23" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-23" data-code-annotation="1" data-code-lines="1">継承する場合はクラス名の後の括弧内に継承元のクラス名を入力する</span>
+</dd>
+<dt data-target-cell="annotated-cell-23" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-23" data-code-annotation="2" data-code-lines="2"><code>__init__</code>関数は新しく作成する</span>
+</dd>
+<dt data-target-cell="annotated-cell-23" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-23" data-code-annotation="3" data-code-lines="3">継承元クラスのインスタンス立ち上げを<code>super()</code>で行う</span>
+</dd>
+<dt data-target-cell="annotated-cell-23" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-23" data-code-annotation="4" data-code-lines="5">継承先クラスのインスタンス変数を新たに定義できる</span>
+</dd>
+<dt data-target-cell="annotated-cell-23" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-23" data-code-annotation="5" data-code-lines="7,8">継承先クラスの新たな関数</span>
+</dd>
+<dt data-target-cell="annotated-cell-23" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-23" data-code-annotation="6" data-code-lines="10">クラスインスタンスの立ち上げ</span>
+</dd>
+<dt data-target-cell="annotated-cell-23" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-cell="annotated-cell-23" data-code-annotation="7" data-code-lines="12">継承元クラスのインスタンス変数を抽出可能</span>
+</dd>
+<dt data-target-cell="annotated-cell-23" data-target-annotation="8">8</dt>
+<dd>
+<span data-code-cell="annotated-cell-23" data-code-annotation="8" data-code-lines="13">継承先クラスのインスタンス変数を抽出</span>
+</dd>
+<dt data-target-cell="annotated-cell-23" data-target-annotation="9">9</dt>
+<dd>
+<span data-code-cell="annotated-cell-23" data-code-annotation="9" data-code-lines="15">継承元クラスの関数を使用可能</span>
+</dd>
+<dt data-target-cell="annotated-cell-23" data-target-annotation="10">10</dt>
+<dd>
+<span data-code-cell="annotated-cell-23" data-code-annotation="10" data-code-lines="16">継承先クラスの関数を使用</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>10
+Yugestu
+Hello! My name is Super Robot, and age is 10
+ByeBye Yugestu!!</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div>CC BY 4.0 DEED</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Handle positioning of the toggle
+      window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Copyright 2024, 優月</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

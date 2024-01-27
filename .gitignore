@@ -1,0 +1,13 @@
+# Quarto
+/.quarto/
+/_freeze/
+/_extensions/
+
+# R
+/.Rproj.user/
+
+# Python
+/.venv/
+
+# hidden directory
+src

@@ -1,0 +1,276 @@
+---
+title: DOT言語
+abstract: ネットワーク系のグラフが書けるDOT言語
+date: 01-21-2024
+date-modified: 01-21-2024
+categories:
+    - DOT
+    - グラフィックス
+order: 3
+---
+
+# Dot言語とは
+DOT言語は、オープンソースのグラフ視覚化ソフトウェアである[Graphviz](https://www.graphviz.org/)を定義するための抽象的文法である。抽象的とはあるが、非常に簡潔な記述でネットワークグラフを描画することができる。
+
+- [公式リンク](https://www.graphviz.org/doc/info/lang.html)
+- [Graphviz Visual Editor](http://magjac.com/graphviz-visual-editor/): こちらでインタラクティブに練習することができる
+
+この記事では @fig-sample のような簡単なデータフローが書けるようなレベルを目指す。  
+※なお、Quartoでの使用を前提とするためGraphvizのインストール等は扱わない。詳しくは[こちら](https://www.graphviz.org/download/)を参照。
+
+```{dot}
+//| label: fig-sample
+//| fig-cap: 臨床研究でよく見られるデータフロー
+
+digraph G{
+    graph [splines=ortho nodesep=.8]
+
+    node [shape=box]
+    population [label=<Population<BR/>(N=n)>]
+    consent [label=<Consented<BR/>(N=n)>]
+    exclude_consent [label=<not consent<BR/>(N=n)>]
+    analyze [label=<Analysis<BR/>(N=n)>]
+    exclude_analyze [label=<don't get ECG signal<BR/>(N=n)>]
+    control [label=<Control<BR/>(N=n)>]
+    vhd [label=<VHD<BR/>(N=n)>]
+
+    edge [arrowsize=.6]
+
+    population -> consent -> analyze
+    population -> exclude_consent
+    consent -> exclude_analyze
+    analyze-> control
+    analyze -> vhd
+
+    {rank=same; population exclude_consent}
+    {rank=same; consent exclude_analyze}
+}
+```
+
+# 基礎
+
+## グラフ
+一枚のグラフを作成するためにまず`graph`を定義する。  
+有向グラフを記述する際には`dirgraph`とする。
+
+```dot
+graph G{}
+```
+
+グラフの属性を設定するには、`graph [~]`とする。
+
+```{dot}
+//| fig-height: 50px
+
+graph G{
+    graph [label="add graph label"]
+}
+```
+
+```dot
+graph G{
+    graph [label="add graph label"]
+}
+```
+
+## ノード
+`graph`内に変数を入力数することでノードを作成できる。
+
+```dot
+graph G{
+    a b c
+}
+```
+
+```{dot}
+//| fig-height: 100px
+
+graph G{
+    a b c
+}
+```
+
+変数の後に属性を入力することで、形や色を変えることができる。
+
+```dot
+graph G {
+    a 
+    b [shape=box]
+    c [color=red]
+}
+```
+
+```{dot}
+//| fig-height: 100px
+
+graph G {
+    a 
+    b [shape=box]
+    c [color=red]
+}
+```
+
+`node [~]`とすることでその後のノードの設定を一括変更することができる。
+
+```dot
+graph G {
+    node [shape=box color=red]
+    a 
+    b
+    c
+}
+```
+
+```{dot}
+//| fig-height: 100px
+
+graph G {
+    node [shape=box color=red]
+    a 
+    b
+    c
+}
+```
+
+ノード内の文字を変更するには、`label`属性を使用する。マークダウンの関数もいくつか使える。(日本語の場合はみ出す場合があるので注意)
+
+```dot
+graph G {
+    a [label="example A"]
+    b [label=<example B<BR/>hogehoge>]
+    c [label=<<B>example c</B>>]
+}
+```
+
+```{dot}
+//| fig-height: 100px
+
+graph G {
+    a [label="example A"]
+    b [label=<example B<BR/>hogehoge>]
+    c [label=<<B>example c</B>>]
+}
+```
+
+## エッジ
+`graph`の場合、変数を`--`で結ぶことでノード間のエッジを記述することができる。
+
+```dot
+graph G {
+    a b c
+
+    a -- b
+}
+```
+
+```{dot}
+//| fig-height: 200px
+
+graph G {
+    a b c
+
+    a -- b
+}
+```
+
+`digraph`の場合、`--`の代わり`->`を使用する。
+
+```dot
+digraph G {
+    a b c
+
+    a -> b
+}
+```
+
+```{dot}
+//| fig-height: 200px
+
+digraph G {
+    a b c
+
+    a -> b
+}
+```
+
+エッジも、ノード同様に属性をつけることができる。
+
+```dot
+graph G {
+    a b c
+
+    edge [color=blue]
+    a -- b
+    a -- c [label="edge to c"]
+}
+```
+
+```{dot}
+//| fig-height: 200px
+
+graph G {
+    a b c
+
+    edge [color=blue]
+    a -- b
+    a -- c [label="edge to c"]
+}
+```
+
+## ランク
+`rank`によって、ノードの位置階層を定義することができる。(`max`が一番下で、`min`が一番上となる)  
+同じ階層に置くには`same`を使う。
+
+```dot
+graph G {
+    a b c d e
+
+    a -- b -- c -- d -- e
+
+    {rank=same; a d}
+    {rank=min; b}
+    {rank=max; c e}
+}
+```
+
+```{dot}
+//| fig-height: 300px
+
+graph G {
+    a b c d e
+
+    a -- b -- c -- d -- e
+
+    {rank=same; a d}
+    {rank=min; b}
+    {rank=max; c e}
+}
+```
+
+これらを全て使うことで、@fig-sample が描画できる。(以下コード例)
+
+```dot
+digraph G{
+    graph [splines=ortho nodesep=.8]
+
+    node [shape=box]
+    population [label=<Population<BR/>(N=n)>]
+    consent [label=<Consented<BR/>(N=n)>]
+    exclude_consent [label=<not consent<BR/>(N=n)>]
+    analyze [label=<Analysis<BR/>(N=n)>]
+    exclude_analyze [label=<don't get ECG signal<BR/>(N=n)>]
+    control [label=<Control<BR/>(N=n)>]
+    vhd [label=<VHD<BR/>(N=n)>]
+
+    edge [arrowsize=.6]
+
+    population -> consent -> analyze
+    population -> exclude_consent
+    consent -> exclude_analyze
+    analyze-> control
+    analyze -> vhd
+
+    {rank=same; population exclude_consent}
+    {rank=same; consent exclude_analyze}
+}
+```

@@ -1,0 +1,498 @@
+---
+title: Python基礎
+abstract: Pythonの基礎文法
+date: 01-22-2024
+date-modified: 01-24-2024
+categories:
+    - Python
+order: 2
+execute: 
+  error: true
+code-fold: false
+---
+
+参考: [公式チュートリアル](https://docs.python.org/ja/3/tutorial/)
+
+# 演算
+
+## 代入
+変数に値を代入するには`=`を使う。
+
+```{python}
+a = 5 # <1>
+b = 2 # <1>
+
+print(a, b)
+```
+
+1. 変数の代入
+
+## 数値計算
+
+以下の演算子 @tbl-calc が使用可能
+
+| 演算子 | 処理 |
+| --- | --- |
+| `+` | 加算 |
+| `-` | 減算 |
+| `*` | 積算 |
+| `/` | 除算 |
+| `%` | 除算の余り |
+| `**` | 累乗 |
+| `//` | 切り捨て除算 |
+
+: Pythonの標準演算子 {#tbl-calc}
+
+```{python}
+print(a + b) # <1>
+print(a - b) # <2>
+print(a * b) # <3>
+print(a / b) # <4>
+print(a % b) # <5>
+print(a ** b) # <6>
+print(a // b) # <7>
+```
+
+1. 加算
+2. 減算
+3. 積算
+4. 除算
+5. 除算の余り
+6. 累乗
+7. 切り捨て除算
+
+## 論理式
+
+以下の論理演算子 @tbl-bool が使用可能
+
+| 演算子 | 処理 |
+| --- | --- |
+| `==` | 等しい |
+| `!=` | 異なる |
+| `>` | より大きい |
+| `>=` | 以上 |
+| `<` | より小さい |
+| `<=` | 以下 |
+| `is` | 等しい(主に`None`の判別に使用) |
+| `is not` | 異なる(主に`None`の判別に使用) |
+| `in` | 含まれる |
+| `not in` | 含まれない |
+| `and` | 論理積 |
+| `or` | 論理和 |
+| `not` | 論理式の否定 |
+
+: Pythonの標準演算子 {#tbl-bool}
+
+```{python}
+print(a == b) # <1>
+print(a != b) # <2>
+print(a > b) # <3>
+print(a >= b) # <4>
+print(a < b) # <5>
+print(a <= b) # <6>
+print(a is None) # <7>
+print(a is not None) # <8>
+print(a in [1, 2, 3]) # <9>
+print(a not in [1, 2, 3]) # <10>
+print(a == b and a > b) # <11>
+print(a == b or a > b) # <12>
+print(not a == b ) # <13>
+```
+
+1. 等しい
+2. 異なる
+3. より大きい
+4. 以上
+5. より小さい
+6. 以下
+7. 等しい(主に`None`の判別に使用)
+8. 異なる(主に`None`の判別に使用)
+9. 含まれる
+10. 含まれない
+11. 論理積
+12. 論理和
+13. 論理式の否定
+
+## 文字列
+
+文字列は`""`で文字を挟むことで定義可能
+```{python}
+text = "Hello python world!!" # <1>
+
+print(text)
+```
+
+1. 文字列の代入
+
+### インデックス・スライス
+`[]`の中に整数値n(インデックス)を入れることで左からn番目の文字を取り出すことができる。
+
+- 数字の始まりは0であることに注意
+- `0: 3`などの範囲(スライス)を指定することでその間の番号の文字列をまとめてとることができる
+- 右からのn番目の文字をとる場合は`-n`とする(こっちは数字の始まりは1)
+
+```{python}
+print(text[0]) # <1>
+print(text[0: 5]) # <2>
+print(text[-1]) # <3>
+```
+
+1. インデックスでの指定
+2. スライスでの指定
+3. 右順でのインデックス指定
+
+### 結合
+文字列は`+`演算子で結合できる
+
+```{python}
+print(text + " Nice to meet you.")
+```
+
+### f-string
+`f""`とすることで、括弧内に変数を入れることができる。文字列の生成でよく使うので覚えておくと良い。
+
+
+```{python}
+print(f"{text} I've been learning Python for {a} years.")
+```
+
+# オブジェクト
+Pythonではデータをオブジェクトに格納できる。オブジェクトの種類は @tbl-object のようなものがある。オブジェクト内の要素も文字列と同様にインデックスとスライスで抽出することができる。
+
+※ ここではPythonの標準機能のものに限定する
+
+| オブジェクト | 特徴 |
+| --- | --- |
+| tuple | 複数の値を持つことができる。要素の変更ができない |
+| list | 複数の値を持つことができる。要素の変更ができる |
+| dict | key, valueを対応付けて格納ができる |
+| set | インデックスの順番を考慮しない。また要素が重複しない。 |
+
+: Pythonでデータを格納できる標準オブジェクト {#tbl-object}
+
+## tuple
+
+```{python}
+t = (1, 2, 3, 4, 5) # <1>
+print(t)
+print(t[1]) # <2>
+print(t[1: 4]) # <3>
+
+t[0] = 6 # <4>
+```
+
+1. ()で囲うことでtupleの代入
+2. インデックス抽出
+3. スライス抽出
+4. tupleの要素は変更不可(エラーとなる)
+
+## list
+
+```{python}
+l = [1, 2, 3, 4, 5] # <1>
+print(l)
+print(l[1]) # <2>
+print(l[1: 4]) # <3>
+
+l[0] = 6 # <4>
+print(l)
+
+l.append(7) # <5>
+print(l)
+
+l.extend([8, 9]) # <6>
+print(l)
+
+l.insert(0, 10) # <7>
+print(l)
+
+l.pop(0) # <8>
+print(l)
+```
+
+1. []で囲うことでlistの代入
+2. インデックス抽出
+3. スライス抽出
+4. listの要素は変更可能
+5. 末尾に要素一つを追加
+6. 末尾に要素複数を追加
+7. 特定の位置に要素を追加
+8. 特定の位置の要素を削除
+
+## dict
+
+```{python}
+d = {"a": 0, "b": 1, "c": 2} # <1>
+print(d)
+
+d["a"] = 1 # <2>
+print(d)
+
+d["d"] = 3 # <3>
+print(d)
+
+del d["d"] # <4>
+print(d)
+
+print(list(d.keys())) # <5>
+print(list(d.values())) # <6>
+print(list(d.items())) # <7>
+```
+
+1. {}内に`key: value`の組を入力しdictの代入
+2. keyのvalueを変更
+3. keyとvalueの組を追加
+4. keyとvalueの組を削除
+5. dictからkeyをlistで取得
+6. dictからvalueをlistで取得
+7. dictからkey, value両方をlistで取得
+
+## set
+
+```{python}
+s1 = {0, 1, 2, 2, 3} # <1>
+s2 = {0, 2, 4, 6, 8} # <1>
+print(s1, s2)
+
+s1.add(5) # <2>
+print(s1)
+
+s1.remove(5) # <3>
+print(s1)
+
+print(s1 | s2) # <4>
+print(s1 - s2) # <5>
+print(s1 & s2) # <6>
+print(s1 ^ s2) # <7>
+```
+
+1. {}で囲うことでsetの代入、同じ要素は含まれない
+2. 要素の追加
+3. 要素の削除
+4. 和集合
+5. 差集合
+6. 積集合
+7. 排他的論理和
+
+# アルゴリズム
+
+## 反復処理
+
+### for
+`for xxx in iterator`の後にインデントを揃えて記述したコードを反復することができる。
+
+- `iterator`の部分に反復する対象のオブジェクトを指定する、反復処理は`iterator`内の要素全てに対して行われる
+- `xxx`の部分に`iterator`から抽出された要素が代入される
+
+```{python}
+for i in range(5): # <1>
+    c = a + i # <2>
+    print(i, c)  # <2>
+```
+
+1. `for`の定義
+2. 反復される処理
+
+### while
+
+`while booling`の後にインデントを揃えて記述したコードを反復することができる。
+
+- `booling`は条件式、この条件を満たすまで処理が反復される(条件を満たなさい場合は永遠に処理が反復されるため要注意)
+
+```{python}
+c = 5
+while c > 0: # <1>
+    print(c)  # <2>
+    c -= 1    # <2>
+```
+
+1. `while`の定義
+2. 反復される処理
+
+### 反復処理の関数
+イテレーターを拡張できる関数
+
+- `zip`: 複数のイテレーターから同時に要素を抽出する
+- `enumerate`: 要素と同時にインデックス番号を取得する
+
+```{python}
+iter1 = [0, 2, 4, 6, 8]
+iter2 = [1, 3, 5, 7, 9]
+
+for i1, i2 in zip(iter1, iter2): # <1>
+    print(i1, i2)
+```
+
+1. `zip`の例
+
+```{python}
+for idx ,i1 in enumerate(iter1): # <1>
+    print(idx, i1)
+```
+
+1. `enumerate`の例
+
+## 条件分岐
+
+### if-else
+
+`if xxx`の後にインデントを揃えてコ―ドを記述することで、条件式`xxx`を満たす場合のみ処理を行うことができる。他に追加で条件分岐を行う場合には`elif yyy:`とする、これら全ての条件を満たさない処理は`else:`の後に記述する。
+
+```{python}
+if a < 2: # <1>
+    print(f"{a} is under than 2")
+elif a < 0: # <2>
+    print(f"{a} is negative value")
+else: # <3>
+    print(f"{a} is over than 2")
+```
+
+1. 条件式1を満たす
+2. 条件式1を満たさないかつ条件式2を満たす
+3. 条件式1、条件式2両方を満たす
+
+### assert
+
+`assert`は条件を満たさない場合、エラーとして処理が止まる。テストコードをよく使う。
+
+```{python}
+assert a == 5 # <1>
+assert a is None # <2>
+```
+
+1. 条件式が真の場合は何も起こらない
+2. 条件式が偽の場合はエラー
+
+## 例外処理
+
+### try-except
+`try:`の後の処理がエラーとなるかチェックされる。もしエラーがない場合はそのまま処理が実行されるが、エラーとなる場合はそこの処理以降のコードは実行されず、`except:`の後の処理が実行される。
+
+```{python}
+try: # <1>
+    print(f"check {a}") # <1>
+    assert a is None # <1>
+    print(f"{a} is None") # <2>
+except: # <3>
+    print(f"{a} is not None") # <3>
+```
+
+1. `try`の後の処理がエラーとなるかどうかで分岐する
+2. エラーとなる場合、ここは実行されない
+3. エラーとなる場合のみ実行される
+
+### raise
+
+`raise xxx`とすることで処理がエラーとなるパターンを自分で設定できる。`xxx`には組み込み例外関数を入力する。基本的にif-elseと同時に使い、dataclass等でパラメータの入力を制限するときに多用する。
+
+```{python}
+if not isinstance(a, str):
+    raise ValueError(f"{a} is not string")
+```
+
+# 関数
+
+## モジュールのインポート
+
+Pythonはライブラリが充実しており、多くの関数を`import`するだけで使うことができる。
+
+```{python}
+import numpy as np # <1>
+
+ndarray = np.array([0, 1, 2, 3]) # <2>
+print(ndarray)
+```
+
+1. モジュールのインポート
+2. モジュール内関数の使用例
+
+## def
+
+よく使う処理は`def`で関数化できる。関数には引数、戻り値を設定することができる。
+
+```{python}
+def add_function(
+    a, b = 0 # <1>
+):
+    c = a + b # <2>
+    return c # <3>
+
+print(add_function(2, 4)) # <4>
+print(add_function(3)) # <5>
+print(add_function(b=3)) # <6>
+```
+
+1. 関数内で入力を受け付ける引数の設定、ここでのbのように初期値を設定することもできる
+2. 関数内の処理
+3. `return`の後の変数が関数の戻り値となる、複数個設定することも可能。設定しない場合は戻り値のない関数とできる
+4. 定義した関数の名前を実行するだけで関数内の処理が実行できる
+5. 初期値を設定した引数は省略可能、その場合は初期値が使われる
+6. 初期値を設定していない引数を省略した場合にはエラーとなる
+
+# クラス
+
+## クラスの基本文法
+
+Pythonでは**クラス**によって関数や(インスタンス)変数等をまとめてオブジェクト化することができる。次のようにしてクラスを定義することができる。
+
+```{python}
+class HelloRobot: # <1>
+    def __init__(self, name, age = 10): # <2>
+        self.name = name # <3>
+        self.age = age   # <3>
+
+    def greeting(self, lang = "english"): # <4>
+        if lang == "english": # <4>
+            print(f"Hello! My name is {self.name}, and age is {self.age}") # <4>
+        elif lang == "japanese": # <4>
+            print(f"こんにちは！私の名前は{self.name}です。年齢は{self.age}歳です。") # <4>
+
+robot = HelloRobot("Robot") # <5>
+
+print(robot.name) # <6>
+
+robot.greeting() # <7>
+robot.greeting("japanese") # <7>
+```
+
+1. クラスの定義
+2. `__init__`関数を作成することで、クラスの立ち上げ時、自動的にスクリプトを実行できる
+3. インスタンス変数の定義、クラス内では`self.~`としてアクセスする
+4. クラス内での関数を定義できる
+5. クラスインスタンスの立ち上げ
+6. メイン文でのインスタンス変数の抽出
+7. クラス内の関数の実行
+
+## 継承
+
+定義済のクラスのオブジェクトを別クラスに継承することができる。`Pytorch`で深層学習を行う際には必須の技術である。
+
+```{python}
+class SuperHelloRobot(HelloRobot): # <1>
+    def __init__(self, name, your_name, age=10): # <2>
+        super().__init__(name, age) # <3>
+
+        self.your_name = your_name # <4>
+    
+    def farewell(self):  # <5>
+        print(f"ByeBye {self.your_name}!!") # <5>
+
+robot = SuperHelloRobot("Super Robot", "Yugestu")  # <6>
+
+print(robot.age) # <7>
+print(robot.your_name) # <8>
+
+robot.greeting() # <9>
+robot.farewell() # <10>
+```
+
+1. 継承する場合はクラス名の後の括弧内に継承元のクラス名を入力する
+2. `__init__`関数は新しく作成する
+3. 継承元クラスのインスタンス立ち上げを`super()`で行う
+4. 継承先クラスのインスタンス変数を新たに定義できる
+5. 継承先クラスの新たな関数
+6. クラスインスタンスの立ち上げ
+7. 継承元クラスのインスタンス変数を抽出可能
+8. 継承先クラスのインスタンス変数を抽出
+9. 継承元クラスの関数を使用可能
+10. 継承先クラスの関数を使用

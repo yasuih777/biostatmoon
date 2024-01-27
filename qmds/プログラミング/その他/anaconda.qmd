@@ -1,0 +1,202 @@
+---
+title: Anaconda
+abstract: minicondaによるデータ分析の環境構築
+date: 01-21-2024
+date-modified: 01-26-2024
+categories:
+    - R
+    - Python
+    - 開発環境
+order: 1
+---
+
+※このページのOSは以下とする。
+```
+OS: {{< var os >}}
+```
+
+# Anacondaとは
+Anacondaはデータサイエンスをはじめとする科学技術計算のためのプラットフォームである。これを利用することでPythonやRの実行環境を素早く作成し、分析やレポート作成に注力することができる。が[後述の理由](#anacondaのネガティブ要素)により特に初学者がこのプラットフォームを使うことはバグの温床になりかねないため推奨しない。ちなみに筆者は数年前からNGS解析環境の構築以外で使用していない。
+
+- [公式リンク](https://www.anaconda.com/)
+
+## Anacondaのポジティブ要素
+- 素早くPythonまたはRの実行環境(仮想環境)を作成できる
+- PythonとRの実行環境を同時に管理することができる
+- 上記の理由から、特にNGS解析の環境構築に強みがある(ほぼ専用のチャネルもある)
+- (よく知らないけど)CI/CDができるらしい
+
+## Anacondaのネガティブ要素
+- 条件付きで商用利用となる。個人利用は無料、[利用規約](https://legal.anaconda.com/policies/en/#terms-of-service)はこちら。
+- OSが異なる場合は構築環境を完全にトレースすることができない
+- Pythonのライブラリ管理の面で、`pip`と`conda`を混合してしまうとエラーの原因になる
+- AnacondaでなくともPython, R共に実行環境を管理することは可能
+    - [Pythonの構築例](../python/%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89.qmd)
+    - [Rの構築例](../R/%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89.qmd)
+
+# Minicondaのインストール
+Anacondaは商用利用となる可能性があるため、Minicondaをインストール + conda-forgeチャネルで運用できるようにする。これにより商用利用の範囲を回避し、無料で使うことができる。MinicondaはAnacondaより最初にインストールされるパッケージやツールが少ないが、基本的な使用感は変わらない。
+
+## Minicondaをインストール
+Minicondaのインストーラーをインストールし、`bash`で実行する
+
+```shell
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+rm Miniconda3-latest-Linux-x86_64.sh
+```
+
+- インストーラーの実行中に以下のようなリクエストがでるので、`yes`を選択する(でないと面倒なことに…)
+
+```
+Do you wish the installer to initialize Miniconda3
+by running conda init? [yes|no]
+```
+
+- インストール終了後は一度ターミナルを再起動する
+
+Minicondaがインストールできていることの確認。コマンドのヘルプがでればOK
+
+```shell
+conda -h
+```
+
+## チャネルを`conda-forge`に変更
+condaで管理するレポジトリはデフォルトで商用利用の範囲である`default`になっているので、これを変更する
+
+```shell
+conda config --add channels conda-forge
+conda config --remove channels defaults
+```
+
+チャネルの変更を確認。`conda-forge`のみになっていればOK
+
+```shell
+conda config --get channels
+```
+
+# Minicondaによる環境構築
+[ユーザーガイド](https://conda.io/projects/conda/en/latest/user-guide/index.html)はこちら
+
+## 環境の作成
+`conda`による環境の管理として、プロジェクトごとにPython(R)のバージョンやパッケージ・ライブラリを変えることができる。この、環境を仮想環境という。これにより、コードを沢山書いているうちにライブラリが増えて依存関係が壊れたり、過去に書いたコードが動かなくなったりなどの技術的負債を緩和することができる。環境の作成には以下のコマンドを実行する。
+
+- `env_name`には環境の名前を入力する
+- `list_of_packages`には環境作成時にインストールするパッケージを入力する
+
+```shell
+conda create -n env_name list_of_packages
+```
+
+作成済の環境は以下で確認できる。現在アクティブなものに(*)が付く
+
+```shell
+conda info --envs
+```
+
+※作成済の環境を削除するには以下のようにする。
+
+```shell
+conda env remove --name env_name
+```
+
+## 仮想環境のアクティブ化
+以下のコマンドで仮想環境をアクティベートできる。
+
+```shell
+conda activate env_name
+```
+
+アクティベートした仮想環境は以下のコマンドで終了できる。
+
+```shell
+conda deactivate
+```
+
+## パッケージのインストール
+必要なパッケージのインストールは以下のコマンドで行う。
+
+- パッケージのバージョンを指定する場合は`packages_name==x.x.x`のようにする
+- Pythonのバージョンも同様に変更可能(`python==x.x.x`)
+
+```shell
+conda install -c conda-forge packages_name
+```
+
+## パッケージのアンインストール
+パッケージのアンインストールは以下のコマンドで行う。
+
+```shell
+conda uninstall packages_name
+```
+
+## 環境の保存・再構築
+`conda`の環境を他のPCで使えるようにするために、YAMLまたはTXTに必要な情報を書きだす。
+
+### YAMLの場合
+プラットフォームとライブラリの依存性を保存
+
+環境のエクスポート
+
+```shell
+conda env export env_name>environment.yml
+```
+
+環境のインストール
+
+```shell
+conda env create -n env_name --file environment.yml
+```
+
+### TXTの場合
+プラットフォームとライブラリ、さらにチャネル情報も加えて依存性を保存
+
+環境のエクスポート
+
+```shell
+conda list --explicit>environment.txt
+```
+
+環境のインストール
+
+```shell
+conda create -n env_name --file environment.txt
+```
+
+# Tips
+
+## R環境の構築
+Miniconda + Rの構築例があまりなく苦労するかもしれないが、[ユーザーガイド](https://docs.anaconda.com/free/anaconda/packages/using-r-language/)の手順に則るのが確実。  
+なお、チャネルは`conda-forge`より`r`の方が充実しているのでそちらを使うと良い。
+
+## Mamba
+MambaはcondaパッケージマネージャーのC++での再実装である。これにより様々な処理が効率化され、早く動く。特にパッケージのインストールが並列化によりサクサク動くようになる。([Github](https://github.com/mamba-org/mamba))
+
+### インストール
+`conda`からインストール可能
+
+```shell
+conda install -c conda-forge mamba
+```
+
+### 使い方
+`conda`を`mamba`に置き換えるだけでよい
+
+```shell
+mamba create -n env_name list_of_packages
+mamba install -c conda-forge list_of_packages
+```
+
+## Minicondaのアンインストール
+Minicondaのアンインストールは適切にやらないとキャッシュ等が残って次にインストールするときにかなり苦労する。が、WSLではターミナルから簡単に削除できる。
+
+```shell
+rm -rf ~/miniconda
+rm -rf ~/.condarc ~/.conda ~/.continuum
+```
+
+`~/.bash_profile`を編集して、MinicondaのPATHを削除する
+
+```shell
+vi ~/.bash_profile
+```

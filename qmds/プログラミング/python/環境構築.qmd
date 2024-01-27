@@ -1,0 +1,145 @@
+---
+title: Python環境構築
+abstract: pyenv + poetryを利用した環境構築
+date: 01-21-2024
+date-modified: 01-21-2024
+categories:
+    - Python
+    - 開発環境
+order: 1
+---
+
+※このページのOSは以下とする。
+```
+OS: {{< var os >}}
+```
+
+# Pythonにおける環境構築
+Pythonの開発環境構築として方法は色々あるが、ここでは`pyenv + poetry`を使用する。
+
+- pyenv: Pythonのバージョンを管理するツール: [公式リンク](https://github.com/pyenv/pyenv)
+- poetry: Pythonのライブラリを管理するプラットフォーム: [公式リンク](https://python-poetry.org/)
+
+※蛇足だが、別の方法としてAnacondaによる開発構築は[こちら](../%E3%81%9D%E3%81%AE%E4%BB%96/anaconda.qmd)
+
+# pyenv・poetryのインストール
+
+あらかじめ`apt`をアップデートしておく。
+
+```shell
+sudo apt update
+sudo apt upgrade
+```
+
+## pyenv
+1. pyenvの依存関係をインストール
+
+```shell
+sudo apt install libssl-dev libffi-dev libncurses5-dev zlib1g zlib1g-dev libreadline-dev libbz2-dev libsqlite3-dev make gcc
+```
+2. pyenvのインストール
+
+```shell
+curl https://pyenv.run | bash
+```
+
+3. PATH環境変数の設定
+
+```shell
+echo '' >> ~/.bashrc
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+```
+
+WSL再起動後、以下コマンドを実行。バージョン情報がでればOK
+
+```shell
+pyenv --version
+```
+
+## poetry
+
+1. poetryのインストール
+
+```shell
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+```shell
+poetry --version
+```
+
+2. 仮想環境作成先の指定
+
+以下のコマンドにより、プロジェクトのディレクトリ配下で仮想環境`.venv`が作成されるように設定する。
+
+```shell
+poetry config virtualenvs.in-project true
+```
+
+# 開発環境構築
+pyenv + poetryでの開発環境管理はディレクトリ単位で行う。
+
+## プロジェクトの作成
+poetryからプロジェクトを作成する
+
+1. 新しいディレクトリで作成する
+
+```shell
+poetry new project_name
+```
+
+2. 元々あるディレクトりに作成する
+
+```shell
+poetry init
+```
+
+プロジェクト作成後は`pyproject.toml`というファイルができる。これにPythonの開発環境に関するあらゆる情報が記録されていく。
+
+## Pythonバージョンの変更
+pyenvでプロジェクト内でのPythonバージョンを変更する。対象のバージョンがpyenvにない場合はまずインストールする
+
+```shell
+# Pythonのインストール
+pyenv install x.x.x
+# プロジェクトディレクトリ内での変更
+pyenv local x.x.x
+```
+
+## 仮想環境のアクティブ化
+
+```shell
+poetry shell
+```
+
+アクティベートした仮想環境は以下のコマンドで終了できる。
+
+```shell
+exit
+```
+
+## ライブラリのインストール
+poetryで必要なライブラリをインストールする
+
+- パッケージのバージョンを指定する場合は`packages_name==x.x.x`のようにする
+
+```shell
+poetry add packages_name
+```
+
+## ライブラリのアンインストール
+
+```shell
+poetry remove packages_name
+```
+
+## 開発環境のインストール
+poetryで構築した環境は`pyproject.toml`に全て自動で保存されていく。これを別のPCで使うには以下のコマンドを実行する。
+
+- pyenv, poetry加えてPythonのバージョンは改めて準備する必要がある
+
+```shell
+poetry install
+```
