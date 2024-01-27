@@ -10,6 +10,7 @@ about:
     links: 
       - icon: github
         text: Github
+        href: https://github.com/yasuih777/biostatmoon
       - icon: twitter
         text: $\mathbb{X}$(旧Twitter)
         href: https://twitter.com/yugetsubiostat

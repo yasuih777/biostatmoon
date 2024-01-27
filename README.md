@@ -1,5 +1,5 @@
 # 目的
-このレポジトリでは、「[Biostatmoon](https://yasuih777.github.io/qmds/)」の運用のためのコードを格納しています。
+このレポジトリでは、「[BiostatMoon](https://yasuih777.github.io/biostatmoon/qmds/)」の運用のためのコードを格納しています。
 
 # 開発環境
 [Makefile](./Makefile)の`install ~`を実行すれば必要な環境をそろえることができます。
