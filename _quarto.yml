@@ -27,8 +27,10 @@ website:
       - qmds/実行環境.qmd
       - qmds/お問い合わせ.qmd
     tools:
+      - icon: github
+        href: https://github.com/yasuih777/biostatmoon
       - icon: twitter
-        herf: https://twitter.com/yugetsubiostat
+        href: https://twitter.com/yugetsubiostat
   sidebar:
     - title: ページリンク
       style: "docked"
