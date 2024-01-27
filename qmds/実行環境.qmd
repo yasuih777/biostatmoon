@@ -3,7 +3,17 @@ title: 実行環境
 abstract: このウェブサイトを構成する環境について
 date: 01-21-2024
 order: 3
+execute: 
+  freeze: false
 ---
+
+```{r}
+#| echo: false
+
+library("reticulate")
+
+use_python("./.venv/bin/python")
+```
 
 # OS
 ```
@@ -16,11 +26,20 @@ OS: {{< var os >}}
 Quarto version: {{< var quarto_version >}}
 ```
 
-# Python
+# R
+```{r}
+#| echo: false
 
+library("sessioninfo")
+
+platform_info()
+```
+
+# Python
 
 ```{python}
 #| echo: false
+
 import platform
 
 print(platform.python_version())
