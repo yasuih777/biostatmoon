@@ -13,6 +13,15 @@ execute:
 website: 
   title: BiostatMoon
   favicon: images/profile.png
+  twitter-card:
+    title: "BiostatMoon"
+    description: "Study biostatistics related math, programming and clinical research"
+    card-style: summary
+    image: images/profile.png
+  open-graph:
+    title: "BiostatMoon"
+    description: "Study biostatistics related math, programming and clinical research"
+    image: images/profile.png
   image: images/profile.png
   search:
     location: navbar
