@@ -3,6 +3,28 @@ QUARTO_VERSION = 1.3.450
 PYSCRIPT_DIR = src
 CLI_SCRIPT = cli.py
 
+# R script
+.PHONY: install_r
+install_r: # install R
+	wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc \
+	| sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+	sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+	sudo apt install --no-install-recommends r-base
+
+.PHONY: install_rstudio
+install_rstudio: # install RStudio server
+	wget https://rstudio.org/download/latest/stable/server/bionic/rstudio-server-latest-amd64.deb
+	sudo apt install gdebi
+	sudo gdebi rstudio-server-latest-amd64.deb
+
+.PHONY: start_rstudio
+start_rstudio: # start RStudio server
+	sudo rstudio-server start
+
+.PHONY: stop_rstudio
+stop_rstudio: # start RStudio server
+	sudo rstudio-server stop
+
 # Python script
 .PHONY: install_pyenv
 install_pyenv: # install python version maneger tool
