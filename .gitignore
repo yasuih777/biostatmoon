@@ -5,6 +5,8 @@
 
 # R
 /.Rproj.user/
+.RData
+.Rhistory
 
 # Python
 /.venv/
