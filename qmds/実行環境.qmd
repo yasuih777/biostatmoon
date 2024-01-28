@@ -2,7 +2,7 @@
 title: 実行環境
 abstract: このウェブサイトを構成する環境について
 date: 01-21-2024
-order: 3
+order: 4
 execute: 
   freeze: false
 ---

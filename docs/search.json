@@ -245,6 +245,69 @@
     "text": "Minicondaのアンインストール\nMinicondaのアンインストールは適切にやらないとキャッシュ等が残って次にインストールするときにかなり苦労する。が、WSLではターミナルから簡単に削除できる。\nrm -rf ~/miniconda\nrm -rf ~/.condarc ~/.conda ~/.continuum\n~/.bash_profileを編集して、MinicondaのPATHを削除する\nvi ~/.bash_profile"
   },
   {
+    "objectID": "qmds/ツール/統計的仮説検定シミュレーター.html",
+    "href": "qmds/ツール/統計的仮説検定シミュレーター.html",
+    "title": "統計的仮説検定シミュレーター",
+    "section": "",
+    "text": "※streamlit.appを使用しています。\n\n読み込んでいます…\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
+  },
+  {
+    "objectID": "qmds/お問い合わせ.html",
+    "href": "qmds/お問い合わせ.html",
+    "title": "お問い合わせ",
+    "section": "",
+    "text": "\\(\\mathbb{X}\\)(旧Twitter)からDMをお願いします。（もし宜しければフォローもお願いします。）\n\n\n\n※Google accountにログインしている方に制限させていただいています。 読み込んでいます…"
+  },
+  {
+    "objectID": "qmds/お問い合わせ.html#mathbbx",
+    "href": "qmds/お問い合わせ.html#mathbbx",
+    "title": "お問い合わせ",
+    "section": "",
+    "text": "\\(\\mathbb{X}\\)(旧Twitter)からDMをお願いします。（もし宜しければフォローもお願いします。）"
+  },
+  {
+    "objectID": "qmds/お問い合わせ.html#google-form",
+    "href": "qmds/お問い合わせ.html#google-form",
+    "title": "お問い合わせ",
+    "section": "",
+    "text": "※Google accountにログインしている方に制限させていただいています。 読み込んでいます…"
+  },
+  {
+    "objectID": "qmds/管理者.html",
+    "href": "qmds/管理者.html",
+    "title": "管理者",
+    "section": "",
+    "text": "経歴\n\n熊本県で生まれ育つ\n国立大学の数学科を卒業\n\n解析学(微分積分学)を中心に数学理論を学ぶ\n\n国立大学院の生命科学専攻を修了\n\nWetな手法でエピジェネティクスと初期発生に関する研究を行う\n定量化の方法としては画像解析系の技術を多く学ぶ\n\n受託分析会社でデータサイエンティストとして勤務\n\nデータ利活用を目的としたコンサルテーションを担当\nBIエンジニアリング, AIエンジニアリング, データ基盤作成, データ分析業を幅広く学ぶ\nプロジェクトリーダーを経験\n\n医療系ベンチャー企業のAIエンジニアとして勤務 ← Now\n\n医療機器に組み込む疾患予測モデルの構築\n社内データ基盤の整備\n臨床研究におけるデータ解析を担当\n\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
+  },
+  {
+    "objectID": "qmds/index.html",
+    "href": "qmds/index.html",
+    "title": "ホーム",
+    "section": "",
+    "text": "管理者(優月)が生物統計(+その他の技術諸々)について学んだことを書いていきます。レベル感としては、統計家が適切な判断によってデータ分析ができるようになることを目標としています。\n\n記事一覧: 書いたコンテンツをまとめています。左のサイドバーでもリスティングしています。\n管理者: 管理者である優月の紹介ページです。\n実行環境: このサイトを構成している環境を書いています。(メインエンジンはQuarto使っています)\nお問い合わせ: お問い合わせがございましたらこちらからよろしくお願い致します。"
+  },
+  {
+    "objectID": "qmds/index.html#ブログ内のコンテンツ",
+    "href": "qmds/index.html#ブログ内のコンテンツ",
+    "title": "ホーム",
+    "section": "ブログ内のコンテンツ",
+    "text": "ブログ内のコンテンツ\n本サイトにおける各エントリの文章や画像などのコンテンツはクリエイティブ・コモンズ・ライセンスを適応します。"
+  },
+  {
+    "objectID": "qmds/index.html#ブログ内サンプルコードのライセンス",
+    "href": "qmds/index.html#ブログ内サンプルコードのライセンス",
+    "title": "ホーム",
+    "section": "ブログ内サンプルコードのライセンス",
+    "text": "ブログ内サンプルコードのライセンス\nブログ内で書いているコードに関しては例外的にMIT Licenceを適応します。\n\n\n\n\n\n\nMIT License\n\n\n\n\n\nCopyright 2024 優月\n以下に定める条件に従い、本ソフトウェアおよび関連文書のファイル（以下「ソフトウェア」）の複製を取得するすべての人に対し、ソフトウェアを無制限に扱うことを無償で許可します。これには、ソフトウェアの複製を使用、複写、変更、結合、掲載、頒布、サブライセンス、および/または販売する権利、およびソフトウェアを提供する相手に同じことを許可する権利も無制限に含まれます。\n上記の著作権表示および本許諾表示を、ソフトウェアのすべての複製または重要な部分に記載するものとします。\nソフトウェアは「現状のまま」で、明示であるか暗黙であるかを問わず、何らの保証もなく提供されます。ここでいう保証とは、商品性、特定の目的への適合性、および権利非侵害についての保証も含みますが、それに限定されるものではありません。 作者または著作権者は、契約行為、不法行為、またはそれ以外であろうと、ソフトウェアに起因または関連し、あるいはソフトウェアの使用またはその他の扱いによって生じる一切の請求、損害、その他の義務について何らの責任も負わないものとします。"
+  },
+  {
+    "objectID": "qmds/ツール一覧.html",
+    "href": "qmds/ツール一覧.html",
+    "title": "ツール一覧",
+    "section": "",
+    "text": "統計的仮説検定シミュレーター\n\n\n\n確率統計\n\n\n\n\n2024-01-28\n\n\n\n\n\n\nabstract\n\n\n統計的仮説検定をサンプルデータからシミュレーション\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to topReuseCC BY 4.0 DEED"
+  },
+  {
     "objectID": "qmds/生物統計学/確率論.html",
     "href": "qmds/生物統計学/確率論.html",
     "title": "確率論基礎",
@@ -362,55 +425,6 @@
     "title": "確率論基礎",
     "section": "共分散・相関係数",
     "text": "共分散・相関係数\n二つの確率変数\\(X, Y\\)間の相関関係の強さを表す値としてよく用いられる(ピアソンの)相関係数\\(R(X, Y)\\)は Equation 16 で定義される。このときの\\(C(X, Y)\\)は共分散という。ただし、\\(\\mu_{x} = E(X), \\mu_{y} = E(Y), \\sigma_{x} = \\sqrt{V(X)}, \\sigma_{y} = \\sqrt{V(Y)}\\)とした。\n\\[\n\\begin{split}\n&C(X, Y) = E((X - \\mu_{x})(Y - \\mu_{y})) \\\\\n&R(X, Y) = \\frac{C(X, Y)}{\\sigma_{x} \\sigma_{y}}\n\\end{split}\n\\tag{16}\\]\n\n\n\n\n\n\n共分散・相関係数の性質\n\n\n\n\n\\(C(X, Y) = E(XY) - E(X) E(Y)\\)\n\\(X, Y\\)が独立のとき、\\(C(X, Y) = R(X, Y) = 0\\)\n\\(V(X_{1} + V_{2} + \\cdots + X_{n}) = \\sum^{n}_{i = 1} V(X_{i}) + 2 \\sum_{i &lt; j} C(X_{i}, X_{j})\\)\n\n特に\\(X_{1} + V_{2} + \\cdots + X_{n}\\)が独立のときは、\\(V(X_{1} + V_{2} + \\cdots + X_{n}) = \\sum^{n}_{i = 1} V(X_{i})\\)\n\n\\(|R(X, Y)| \\leqq 1\\)\n\n特に\\(R(X, Y) = \\pm 1 \\Rightarrow \\frac{X - E(X)}{\\sqrt{V(X)}} \\mp \\frac{Y - E(Y)}{\\sqrt{V(Y)}} = 0\\)(複合同順)\n\n\n\n\n相関係数には大まかに以下の意味がある。\n\n1に近いほど、「\\(X\\)が大きいならば\\(Y\\)も大きい」\n-1に近いほど、「\\(X\\)が大きいならば\\(Y\\)は小さい」\n\nこれらの傾向をカットオフで分割し、 Table 1 のように考察することができる。ただし、このカットオフは一般的な例であることに注意する。\n\n\nTable 1: 相関係数から得られる考察\n\n\n相関係数\n考察\n\n\n\n\n\\(-1 \\leqq x \\leqq -0.7\\)\n負の強相関\n\n\n\\(-0.7 \\leqq x \\leqq -0.4\\)\n負の相関\n\n\n\\(-0.4 \\leqq x \\leqq -0.2\\)\n負の弱相関\n\n\n\\(-0.2 \\leqq x \\leqq 0.2\\)\n無相関\n\n\n\\(0.2 \\leqq x \\leqq 0.4\\)\n正の弱相関\n\n\n\\(0.4 \\leqq x \\leqq 0.7\\)\n正の相関\n\n\n\\(0.7 \\leqq x \\leqq 1\\)\n正の強相関"
-  },
-  {
-    "objectID": "qmds/お問い合わせ.html",
-    "href": "qmds/お問い合わせ.html",
-    "title": "お問い合わせ",
-    "section": "",
-    "text": "\\(\\mathbb{X}\\)(旧Twitter)からDMをお願いします。（もし宜しければフォローもお願いします。）\n\n\n\n※Google accountにログインしている方に制限させていただいています。 読み込んでいます…"
-  },
-  {
-    "objectID": "qmds/お問い合わせ.html#mathbbx",
-    "href": "qmds/お問い合わせ.html#mathbbx",
-    "title": "お問い合わせ",
-    "section": "",
-    "text": "\\(\\mathbb{X}\\)(旧Twitter)からDMをお願いします。（もし宜しければフォローもお願いします。）"
-  },
-  {
-    "objectID": "qmds/お問い合わせ.html#google-form",
-    "href": "qmds/お問い合わせ.html#google-form",
-    "title": "お問い合わせ",
-    "section": "",
-    "text": "※Google accountにログインしている方に制限させていただいています。 読み込んでいます…"
-  },
-  {
-    "objectID": "qmds/管理者.html",
-    "href": "qmds/管理者.html",
-    "title": "管理者",
-    "section": "",
-    "text": "経歴\n\n熊本県で生まれ育つ\n国立大学の数学科を卒業\n\n解析学(微分積分学)を中心に数学理論を学ぶ\n\n国立大学院の生命科学専攻を修了\n\nWetな手法でエピジェネティクスと初期発生に関する研究を行う\n定量化の方法としては画像解析系の技術を多く学ぶ\n\n受託分析会社でデータサイエンティストとして勤務\n\nデータ利活用を目的としたコンサルテーションを担当\nBIエンジニアリング, AIエンジニアリング, データ基盤作成, データ分析業を幅広く学ぶ\nプロジェクトリーダーを経験\n\n医療系ベンチャー企業のAIエンジニアとして勤務 ← Now\n\n医療機器に組み込む疾患予測モデルの構築\n社内データ基盤の整備\n臨床研究におけるデータ解析を担当\n\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
-  },
-  {
-    "objectID": "qmds/index.html",
-    "href": "qmds/index.html",
-    "title": "ホーム",
-    "section": "",
-    "text": "管理者(優月)が生物統計(+その他の技術諸々)について学んだことを書いていきます。レベル感としては、統計家が適切な判断によってデータ分析ができるようになることを目標としています。\n\n記事一覧: 書いたコンテンツをまとめています。左のサイドバーでもリスティングしています。\n管理者: 管理者である優月の紹介ページです。\n実行環境: このサイトを構成している環境を書いています。(メインエンジンはQuarto使っています)\nお問い合わせ: お問い合わせがございましたらこちらからよろしくお願い致します。"
-  },
-  {
-    "objectID": "qmds/index.html#ブログ内のコンテンツ",
-    "href": "qmds/index.html#ブログ内のコンテンツ",
-    "title": "ホーム",
-    "section": "ブログ内のコンテンツ",
-    "text": "ブログ内のコンテンツ\n本サイトにおける各エントリの文章や画像などのコンテンツはクリエイティブ・コモンズ・ライセンスを適応します。"
-  },
-  {
-    "objectID": "qmds/index.html#ブログ内サンプルコードのライセンス",
-    "href": "qmds/index.html#ブログ内サンプルコードのライセンス",
-    "title": "ホーム",
-    "section": "ブログ内サンプルコードのライセンス",
-    "text": "ブログ内サンプルコードのライセンス\nブログ内で書いているコードに関しては例外的にMIT Licenceを適応します。\n\n\n\n\n\n\nMIT License\n\n\n\n\n\nCopyright 2024 優月\n以下に定める条件に従い、本ソフトウェアおよび関連文書のファイル（以下「ソフトウェア」）の複製を取得するすべての人に対し、ソフトウェアを無制限に扱うことを無償で許可します。これには、ソフトウェアの複製を使用、複写、変更、結合、掲載、頒布、サブライセンス、および/または販売する権利、およびソフトウェアを提供する相手に同じことを許可する権利も無制限に含まれます。\n上記の著作権表示および本許諾表示を、ソフトウェアのすべての複製または重要な部分に記載するものとします。\nソフトウェアは「現状のまま」で、明示であるか暗黙であるかを問わず、何らの保証もなく提供されます。ここでいう保証とは、商品性、特定の目的への適合性、および権利非侵害についての保証も含みますが、それに限定されるものではありません。 作者または著作権者は、契約行為、不法行為、またはそれ以外であろうと、ソフトウェアに起因または関連し、あるいはソフトウェアの使用またはその他の扱いによって生じる一切の請求、損害、その他の義務について何らの責任も負わないものとします。"
   },
   {
     "objectID": "qmds/記事一覧.html",
@@ -564,6 +578,6 @@
     "href": "qmds/実行環境.html",
     "title": "実行環境",
     "section": "",
-    "text": "OS\nOS: Windows11 WSL, Ubuntu 22.4\n\n\nQuarto\nQuarto version: 1.3.450\n\n\nR\n\n\n setting  value\n version  R version 4.3.2 (2023-10-31)\n os       Ubuntu 22.04.3 LTS\n system   x86_64, linux-gnu\n ui       X11\n language (EN)\n collate  C.UTF-8\n ctype    C.UTF-8\n tz       Asia/Tokyo\n date     2024-01-27\n pandoc   3.1.1 @ /opt/quarto/bin/tools/ (via rmarkdown)\n\n\n\n\nPython\n\n\n3.10.13\n\n\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
+    "text": "OS\nOS: Windows11 WSL, Ubuntu 22.4\n\n\nQuarto\nQuarto version: 1.3.450\n\n\nR\n\n\n setting  value\n version  R version 4.3.2 (2023-10-31)\n os       Ubuntu 22.04.3 LTS\n system   x86_64, linux-gnu\n ui       X11\n language (EN)\n collate  C.UTF-8\n ctype    C.UTF-8\n tz       Asia/Tokyo\n date     2024-01-28\n pandoc   3.1.1 @ /opt/quarto/bin/tools/ (via rmarkdown)\n\n\n\n\nPython\n\n\n3.10.13\n\n\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
   }
 ]

@@ -1,0 +1,12 @@
+---
+title: ツール一覧
+abstract: このサイト内のツール一覧
+date: 01-28-2024
+order: 2
+listing:
+  contents: ツール/*.qmd
+  type: grid
+  categories: true
+  fields: [date, title, abstract, categories]
+  sort: "order"
+---

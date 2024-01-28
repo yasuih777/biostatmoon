@@ -32,6 +32,7 @@ website:
     left: 
       - qmds/index.qmd
       - qmds/記事一覧.qmd
+      - qmds/ツール一覧.qmd
       - qmds/管理者.qmd
       - qmds/実行環境.qmd
       - qmds/お問い合わせ.qmd

@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/qmds/ツール一覧.html",
+    "items": [
+      "/qmds/ツール/統計的仮説検定シミュレーター.html"
+    ]
+  },
+  {
     "listing": "/qmds/記事一覧.html",
     "items": [
       "/qmds/臨床研究/リサーチクエスチョン.html",

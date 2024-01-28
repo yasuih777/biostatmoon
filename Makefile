@@ -51,10 +51,6 @@ build_python:
 	python -m pip install --upgrade pip
 	poetry install
 
-.PHONY: run_cli
-run_cli:
-	poetry run python ${CLI_SCRIPT}
-
 .PHONY: format
 format:
 	poetry run black ${CLI_SCRIPT}
