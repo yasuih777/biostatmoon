@@ -3,7 +3,7 @@ title: 管理者
 abstract: 管理者について
 date: 01-21-2024
 date-modified: 01-21-2024
-order: 2
+order: 3
 about:
     template: solana
     image: ../images/profile.png
