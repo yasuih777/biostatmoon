@@ -8,12 +8,13 @@ categories:
 order: 1
 ---
 
-※[streamlit.app](https://simulationsignificanttest-c8twxxh3xmemx9pjkcyeiq.streamlit.app)を使用しています。
+- [streamlit.app](https://simulationsignificanttest-c8twxxh3xmemx9pjkcyeiq.streamlit.app)を使用しています。
+- PCでの使用を推奨します。
 
 <iframe
-    src="https://simulationsignificanttest-c8twxxh3xmemx9pjkcyeiq.streamlit.app/?embed=true"
+    src="https://simulationsignificanttest-c8twxxh3xmemx9pjkcyeiq.streamlit.app/?embed=true&embed_options=show_toolbar"
     width="100%"
-    height="1800"
+    height="1900"
     frameborder="0"
     marginheight="0"
     marginwidth="0"
