@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-01-28">
+<meta name="dcterms.date" content="2024-02-02">
 
 <title>BiostatMoon - 確率分布</title>
 <style>
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -72,6 +106,8 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="BiostatMoon">
@@ -84,7 +120,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -356,15 +392,12 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   <li><a href="#ベータ分布" id="toc-ベータ分布" class="nav-link" data-scroll-target="#ベータ分布">ベータ分布</a></li>
   <li><a href="#対数正規分布" id="toc-対数正規分布" class="nav-link" data-scroll-target="#対数正規分布">対数正規分布</a></li>
   </ul></li>
-  <li><a href="#多変量分布" id="toc-多変量分布" class="nav-link" data-scroll-target="#多変量分布">多変量分布</a>
-  <ul class="collapse">
-  <li><a href="#多変量正規分布" id="toc-多変量正規分布" class="nav-link" data-scroll-target="#多変量正規分布">多変量正規分布</a></li>
-  </ul></li>
+  <li><a href="#分布の平均値分散" id="toc-分布の平均値分散" class="nav-link" data-scroll-target="#分布の平均値分散">分布の平均値・分散</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -382,14 +415,14 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-28</p>
+      <p class="date">2024-02-02</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-01-28</p>
+      <p class="date-modified">2024-02-02</p>
     </div>
   </div>
     
@@ -404,47 +437,503 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 
 </header>
 
-<p>Draftです…</p>
-<section id="離散分布" class="level1">
+<div class="cell">
+
+</div>
+<section id="離散分布" class="level1 page-columns page-full">
 <h1>離散分布</h1>
-<section id="超幾何分布" class="level2">
+<p>離散的な確率変数が従う分布</p>
+<section id="超幾何分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="超幾何分布">超幾何分布</h2>
+<p>A or Bからなる<span class="math inline">\(N\)</span>個の集団を考える。A, Bの個数はそれぞれ<span class="math inline">\(M\)</span>, <span class="math inline">\(N - M\)</span>とする。この集団から<span class="math inline">\(n\)</span>個取り出したとき、Aの個数が<span class="math inline">\(k\)</span>個となる確率は <a href="#eq-hypergeometric">Equation&nbsp;1</a> で与えられる。この確率分布を<strong>超幾何分布</strong> <a href="#fig-hyper">Figure&nbsp;1</a> という。資源調査などでよく用いられる。</p>
+<p><span id="eq-hypergeometric"><span class="math display">\[
+f(X=x; N, M, n) = \frac{_{M}C_{x} \cdot _{N - M}C_{n - x}}{_{N}C_{n}} \ (x = \max(0, n -(N - M)), \cdots, \min(n, M))
+\tag{1}\]</span></span></p>
+<div class="cell page-columns page-full">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>M <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="cf">for</span> (m <span class="cf">in</span> M){</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-8"><a href="#cb1-8"></a>        <span class="at">x =</span> x,</span>
+<span id="cb1-9"><a href="#cb1-9"></a>        <span class="at">y =</span> <span class="fu">dhyper</span>(x, m, N <span class="sc">-</span> m, <span class="fu">max</span>(x)),</span>
+<span id="cb1-10"><a href="#cb1-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s, %s)"</span>, N, m, <span class="fu">max</span>(x))</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    )</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb1-13"><a href="#cb1-13"></a>}</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; N, M, n)"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div id="fig-hyper" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="確率分布_files/figure-html/fig-hyper-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption margin-caption">Figure&nbsp;1: 超幾何分布</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="二項分布" class="level2">
+<section id="二項分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="二項分布">二項分布</h2>
+<p>A or Bが観測できる試行を考える。A, Bが生起する確率をそれぞれ<span class="math inline">\(p, (1 - p)\)</span>とする。この試行を独立に<span class="math inline">\(n\)</span>回繰り返す(これを<strong>ベルヌーイ試行</strong>と呼ぶ)。Aが<span class="math inline">\(x\)</span>回生起する確率は <a href="#eq-bionormial">Equation&nbsp;2</a> で与えられる。この確率分布を<strong>二項分布</strong> <a href="#fig-bionorm">Figure&nbsp;2</a> という。二項分布はコイン投げのような単純な試行で使われる。<br>
+また、<span class="math inline">\(n = 1\)</span>のときは<strong>ベルヌーイ分布</strong>と呼ぶ。</p>
+<p><span id="eq-bionormial"><span class="math display">\[
+f(X=x; n, p) = _{n}C_{x} p^{x} (1 - p)^{n - x}
+\tag{2}\]</span></span></p>
+<div class="cell page-columns page-full">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>n <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">/</span> <span class="dv">6</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="cf">for</span> (prob <span class="cf">in</span> p){</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb2-8"><a href="#cb2-8"></a>        <span class="at">x =</span> x,</span>
+<span id="cb2-9"><a href="#cb2-9"></a>        <span class="at">y =</span> <span class="fu">dbinom</span>(x, n, prob),</span>
+<span id="cb2-10"><a href="#cb2-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, n, prob)</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    )</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb2-13"><a href="#cb2-13"></a>}</span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; n, p)"</span>)</span>
+<span id="cb2-18"><a href="#cb2-18"></a></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div id="fig-bionorm" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="確率分布_files/figure-html/fig-bionorm-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption margin-caption">Figure&nbsp;2: 二項分布</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="ポアソン分布" class="level2">
+<section id="ポアソン分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="ポアソン分布">ポアソン分布</h2>
+<p>二項分布の<span class="math inline">\(n\)</span>を大きくし、<span class="math inline">\(p\)</span>を0に近づけた事象を考える。このように、大量の観察の中で中々生起しない現象は交通事故件数や不良品件数などが当てはまる。今、<span class="math inline">\(\lambda \fallingdotseq n p\)</span>としたときに<span class="math inline">\(x\)</span>回生起する確率は <a href="#eq-poisson">Equation&nbsp;3</a> で与えられる。この確率分布を<strong>ポアソン分布</strong> <a href="#fig-poisson">Figure&nbsp;3</a> という。</p>
+<p><span id="eq-poisson"><span class="math display">\[
+f(X=x; \lambda) = \frac{\lambda^{x} e^{- \lambda}}{x!}
+\tag{3}\]</span></span></p>
+<div class="cell page-columns page-full">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>lambda <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="cf">for</span> (l <span class="cf">in</span> lambda){</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-7"><a href="#cb3-7"></a>        <span class="at">x =</span> x,</span>
+<span id="cb3-8"><a href="#cb3-8"></a>        <span class="at">y =</span> <span class="fu">dpois</span>(x, l),</span>
+<span id="cb3-9"><a href="#cb3-9"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s)"</span>, l)</span>
+<span id="cb3-10"><a href="#cb3-10"></a>    )</span>
+<span id="cb3-11"><a href="#cb3-11"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb3-12"><a href="#cb3-12"></a>}</span>
+<span id="cb3-13"><a href="#cb3-13"></a></span>
+<span id="cb3-14"><a href="#cb3-14"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; lambda)"</span>)</span>
+<span id="cb3-17"><a href="#cb3-17"></a></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div id="fig-poisson" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="確率分布_files/figure-html/fig-poisson-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption margin-caption">Figure&nbsp;3: ポアソン分布</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="負の二項分布" class="level2">
+<section id="負の二項分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="負の二項分布">負の二項分布</h2>
+<p>生起する確率が<span class="math inline">\(p\)</span>であるベルヌーイ試行を繰り返すとき、<span class="math inline">\(k\)</span>回目の生起を得るまでの失敗回数<span class="math inline">\(x\)</span>は <a href="#eq-negative">Equation&nbsp;4</a> で与えられる。この確率分布を<strong>負の二項分布(パスカル分布)</strong> <a href="#fig-negative">Figure&nbsp;4</a> という。負の二項分布は待ち時間を表現するのに用いられる。<br>
+また、<span class="math inline">\(k = 1\)</span>のときは <strong>幾何分布</strong>と呼ぶ。</p>
+<p><span id="eq-negative"><span class="math display">\[
+f(X=x; p, k) = _{k + x - 1}C_{x} p^{k} (1 - p)^{x}
+\tag{4}\]</span></span></p>
+<div class="cell page-columns page-full">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>k <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>p <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="cf">for</span> (i <span class="cf">in</span> k){</span>
+<span id="cb4-7"><a href="#cb4-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb4-8"><a href="#cb4-8"></a>        <span class="at">x =</span> x,</span>
+<span id="cb4-9"><a href="#cb4-9"></a>        <span class="at">y =</span> <span class="fu">dnbinom</span>(x, i, p),</span>
+<span id="cb4-10"><a href="#cb4-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, p, i)</span>
+<span id="cb4-11"><a href="#cb4-11"></a>    )</span>
+<span id="cb4-12"><a href="#cb4-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb4-13"><a href="#cb4-13"></a>}</span>
+<span id="cb4-14"><a href="#cb4-14"></a></span>
+<span id="cb4-15"><a href="#cb4-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; p, k)"</span>)</span>
+<span id="cb4-18"><a href="#cb4-18"></a></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div id="fig-negative" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="確率分布_files/figure-html/fig-negative-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption margin-caption">Figure&nbsp;4: 負の二項分布</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="連続分布" class="level1">
+<section id="連続分布" class="level1 page-columns page-full">
 <h1>連続分布</h1>
+<p>連続的な確率変数が従う分布</p>
 <section id="正規分布" class="level2">
 <h2 class="anchored" data-anchor-id="正規分布">正規分布</h2>
+<p>自然界では左右非対称かつつりがね型の分布をとる現象が多く存在する。これはある代表値<span class="math inline">\(\mu\)</span>から、ばらつきを表す量<span class="math inline">\(\sigma^{2}\)</span>に応じた誤差の分だけ離れた観測を集めることで生成される。このような分布を<strong>正規分布</strong><span class="math inline">\(N(\mu, \sigma^{2})\)</span> <a href="#fig-norm">Figure&nbsp;5</a> といい、確率密度関数は <a href="#eq-norm">Equation&nbsp;5</a> である。<br>
+正規分布はあらゆる統計理論に関わっている最重要分布である。</p>
+<p><span id="eq-norm"><span class="math display">\[
+f(X=x; \mu, \sigma^{2}) = \frac{1}{\sqrt{2 \pi \sigma^{2}}} \exp{\left( \frac{- (x - \mu)^{2}}{2 \sigma^{2}} \right)}
+\tag{5}\]</span></span></p>
+<div id="fig-norm" class="quarto-layout-panel" data-fig-height="3">
+<p></p><figcaption>Figure&nbsp;5: 正規分布</figcaption><p></p>
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>sigma <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="cf">for</span> (m <span class="cf">in</span> mu){</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb5-8"><a href="#cb5-8"></a>        <span class="at">x =</span> x,</span>
+<span id="cb5-9"><a href="#cb5-9"></a>        <span class="at">y =</span> <span class="fu">dnorm</span>(x, m, sigma[<span class="dv">1</span>]),</span>
+<span id="cb5-10"><a href="#cb5-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, m, sigma[<span class="dv">1</span>])</span>
+<span id="cb5-11"><a href="#cb5-11"></a>    )</span>
+<span id="cb5-12"><a href="#cb5-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb5-13"><a href="#cb5-13"></a>}</span>
+<span id="cb5-14"><a href="#cb5-14"></a></span>
+<span id="cb5-15"><a href="#cb5-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; mu, sigma^2)"</span>)</span>
+<span id="cb5-18"><a href="#cb5-18"></a></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="確率分布_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="cf">for</span> (s <span class="cf">in</span> sigma){</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb6-4"><a href="#cb6-4"></a>        <span class="at">x =</span> x,</span>
+<span id="cb6-5"><a href="#cb6-5"></a>        <span class="at">y =</span> <span class="fu">dnorm</span>(x, mu[<span class="dv">3</span>], s),</span>
+<span id="cb6-6"><a href="#cb6-6"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, mu[<span class="dv">3</span>], s)</span>
+<span id="cb6-7"><a href="#cb6-7"></a>    )</span>
+<span id="cb6-8"><a href="#cb6-8"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb6-9"><a href="#cb6-9"></a>}</span>
+<span id="cb6-10"><a href="#cb6-10"></a></span>
+<span id="cb6-11"><a href="#cb6-11"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; mu, sigma^2)"</span>)</span>
+<span id="cb6-14"><a href="#cb6-14"></a></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="確率分布_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</div>
+</div>
+</div>
+</figure>
+</div>
 </section>
-<section id="ガンマ分布" class="level2">
+<section id="ガンマ分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="ガンマ分布">ガンマ分布</h2>
+<p>負の二項分布を連続化した分布を<strong>ガンマ分布</strong> <a href="#fig-gamma">Figure&nbsp;6</a> と呼ぶ。ガンマ分布はある期間<span class="math inline">\(\beta\)</span>ごとに1回生起する現象が<span class="math inline">\(\alpha\)</span>回起きるまでの期間<span class="math inline">\(x\)</span>の確率を表現することができる。確率密度関数は <a href="#eq-gamma">Equation&nbsp;6</a> である(<span class="math inline">\(\Gamma\)</span>はガンマ関数)。ガンマ分布はベイズ統計においても頻出の分布である。<br>
+また、<span class="math inline">\(\alpha = 1\)</span>の場合は<strong>指数分布</strong>と呼び、確率密度関数は<span class="math inline">\(f(x; \beta) = \beta e^{- \frac{x}{\beta}}\)</span>となる。</p>
+<p><span id="eq-gamma"><span class="math display">\[
+f(X=x; \alpha, \beta) =
+\begin{equation}
+\left\{ \,
+    \begin{aligned}
+    &amp;\frac{\beta^{\alpha}}{\Gamma(\alpha)} x^{\alpha - 1} e^{- \frac{x}{\beta}} \ &amp;(x \geqq 0) \\
+    &amp;0 \ &amp;(x &lt; 0)
+    \end{aligned}
+\right.
+\end{equation}
+\tag{6}\]</span></span></p>
+<div class="cell page-columns page-full">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>alpha <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>, <span class="fl">2.5</span>, <span class="dv">3</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>beta <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="cf">for</span> (a <span class="cf">in</span> alpha){</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb7-8"><a href="#cb7-8"></a>        <span class="at">x =</span> x,</span>
+<span id="cb7-9"><a href="#cb7-9"></a>        <span class="at">y =</span> <span class="fu">dgamma</span>(x, a, beta),</span>
+<span id="cb7-10"><a href="#cb7-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, a, beta)</span>
+<span id="cb7-11"><a href="#cb7-11"></a>    )</span>
+<span id="cb7-12"><a href="#cb7-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb7-13"><a href="#cb7-13"></a>}</span>
+<span id="cb7-14"><a href="#cb7-14"></a></span>
+<span id="cb7-15"><a href="#cb7-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; alpha, beta)"</span>)</span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div id="fig-gamma" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="確率分布_files/figure-html/fig-gamma-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption margin-caption">Figure&nbsp;6: ガンマ分布</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="一様分布" class="level2">
+<section id="一様分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="一様分布">一様分布</h2>
+<p>ある区間<span class="math inline">\([a, b]\)</span>で、全ての事象が生起する確率が等しい分布を<strong>一様分布</strong> <a href="#fig-uniform">Figure&nbsp;7</a> という。確率密度関数は <a href="#eq-uniform">Equation&nbsp;7</a> である。離散型でも同様の分布があり、両方で乱数生成の場面でよく用いられる。</p>
+<p><span id="eq-uniform"><span class="math display">\[
+f(X=x; a, b) =
+\begin{equation}
+\left\{ \,
+    \begin{aligned}
+    &amp;\frac{1}{b - a} \ &amp;(a \leqq x \leqq b) \\
+    &amp;0 \ &amp;(x &lt; a, x &gt; b)
+    \end{aligned}
+\right.
+\end{equation}
+\tag{7}\]</span></span></p>
+<div class="cell page-columns page-full">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="cf">for</span> (k <span class="cf">in</span> b){</span>
+<span id="cb8-7"><a href="#cb8-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb8-8"><a href="#cb8-8"></a>        <span class="at">x =</span> x,</span>
+<span id="cb8-9"><a href="#cb8-9"></a>        <span class="at">y =</span> <span class="fu">dunif</span>(x, a, k),</span>
+<span id="cb8-10"><a href="#cb8-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, a, k)</span>
+<span id="cb8-11"><a href="#cb8-11"></a>    )</span>
+<span id="cb8-12"><a href="#cb8-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb8-13"><a href="#cb8-13"></a>}</span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-15"><a href="#cb8-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; a, b)"</span>)</span>
+<span id="cb8-18"><a href="#cb8-18"></a></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div id="fig-uniform" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="確率分布_files/figure-html/fig-uniform-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption margin-caption">Figure&nbsp;7: 一様分布</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="ベータ分布" class="level2">
+<section id="ベータ分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="ベータ分布">ベータ分布</h2>
+<p>二項分布に従う確率変数について、実際の観測に基づいて母数<span class="math inline">\(x = p\)</span>を得るとする。A, Bが生起する回数をそれぞれ<span class="math inline">\(\alpha, \beta\)</span>したときに、その数が少ない場合は得られる<span class="math inline">\(x\)</span>は偶然と考えるが、多い場合は確信をもって<span class="math inline">\(x\)</span>を得られる。この<span class="math inline">\(x\)</span>が従う分布を<strong>ベータ分布</strong> <a href="#fig-beta">Figure&nbsp;8</a> という。確率密度関数は <a href="#eq-beta">Equation&nbsp;8</a> である(<span class="math inline">\(B\)</span>はベータ関数)。ベータ分布はベイズ統計でよく用いられる。<br>
+また、<span class="math inline">\(\alpha = 1, \beta = 1\)</span>のときは区間<span class="math inline">\([0, 1]\)</span>の一様分布となる。</p>
+<p><span id="eq-beta"><span class="math display">\[
+f(X=x; \alpha, \beta) =
+\begin{equation}
+\left\{ \,
+    \begin{aligned}
+    &amp;\frac{x^{\alpha - 1} (1 - x)^{\beta - 1}}{B(\alpha, \beta)} \ &amp;(0 \leqq x \leqq 1) \\
+    &amp;0 \ &amp;(x &lt; 0, x &gt; 1)
+    \end{aligned}
+\right.
+\end{equation}
+\tag{8}\]</span></span></p>
+<div class="cell page-columns page-full">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>alpha <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>beta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>)</span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>){</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb9-8"><a href="#cb9-8"></a>        <span class="at">x =</span> x,</span>
+<span id="cb9-9"><a href="#cb9-9"></a>        <span class="at">y =</span> <span class="fu">dbeta</span>(x, alpha[i], beta[i]),</span>
+<span id="cb9-10"><a href="#cb9-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, alpha[i], beta[i])</span>
+<span id="cb9-11"><a href="#cb9-11"></a>    )</span>
+<span id="cb9-12"><a href="#cb9-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb9-13"><a href="#cb9-13"></a>}</span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; alpha, beta)"</span>)</span>
+<span id="cb9-18"><a href="#cb9-18"></a></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div id="fig-beta" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="確率分布_files/figure-html/fig-beta-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption margin-caption">Figure&nbsp;8: ベータ分布</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="対数正規分布" class="level2">
+<section id="対数正規分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="対数正規分布">対数正規分布</h2>
+<p>自然界でみられる現象が従う分布として正規分布を対数変換したものがある。これは、観測値に下限はあるが、上限は明確にないような現象でよくみられる（例えば、血液検査など）。これは<strong>対数正規分布</strong> <a href="#fig-lognorm">Figure&nbsp;9</a> といい、確率密度関数は <a href="#eq-lognorm">Equation&nbsp;9</a> である。</p>
+<p><span id="eq-lognorm"><span class="math display">\[
+f(X=x; \mu, \sigma^{2}) =
+\begin{equation}
+\left\{ \,
+    \begin{aligned}
+    &amp;\frac{1}{\sqrt{2 \pi \sigma^{2}} x} \exp{\left( \frac{- (\log{x} - \mu)^{2}}{2 \sigma^{2}} \right)} \ &amp;(x \geqq 0) \\
+    &amp;0 \ &amp;(x &lt; 0)
+    \end{aligned}
+\right.
+\end{equation}
+\tag{9}\]</span></span></p>
+<div class="cell page-columns page-full">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a>sigma <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="cf">for</span> (m <span class="cf">in</span> mu){</span>
+<span id="cb10-7"><a href="#cb10-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb10-8"><a href="#cb10-8"></a>        <span class="at">x =</span> x,</span>
+<span id="cb10-9"><a href="#cb10-9"></a>        <span class="at">y =</span> <span class="fu">dlnorm</span>(x, m, sigma),</span>
+<span id="cb10-10"><a href="#cb10-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, m, sigma)</span>
+<span id="cb10-11"><a href="#cb10-11"></a>    )</span>
+<span id="cb10-12"><a href="#cb10-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb10-13"><a href="#cb10-13"></a>}</span>
+<span id="cb10-14"><a href="#cb10-14"></a></span>
+<span id="cb10-15"><a href="#cb10-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb10-17"><a href="#cb10-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; mu, sigma^2)"</span>)</span>
+<span id="cb10-18"><a href="#cb10-18"></a></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div id="fig-lognorm" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="確率分布_files/figure-html/fig-lognorm-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption margin-caption">Figure&nbsp;9: 対数正規分布</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="多変量分布" class="level1">
-<h1>多変量分布</h1>
-<section id="多変量正規分布" class="level2">
-<h2 class="anchored" data-anchor-id="多変量正規分布">多変量正規分布</h2>
+<section id="分布の平均値分散" class="level1">
+<h1>分布の平均値・分散</h1>
+<p>上記で記載した確率分布の平均値および分散は <a href="#tbl-value">Table&nbsp;1</a> のようになる。</p>
+<div id="tbl-value" class="anchored">
+<table class="table">
+<caption>Table&nbsp;1: 主要な分布の平均値・分散</caption>
+<thead>
+<tr class="header">
+<th>確率分布</th>
+<th>母数</th>
+<th>平均値</th>
+<th>分散</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="#超幾何分布">超幾何分布</a></td>
+<td><span class="math inline">\(N, M, n\)</span></td>
+<td><span class="math inline">\(n \cdot \frac{M}{N}\)</span></td>
+<td><span class="math inline">\(n \cdot \frac{M (N - M)}{N^{2}} \cdot \frac{N - n}{N - 1}\)</span></td>
+</tr>
+<tr class="even">
+<td><a href="#二項分布">二項分布</a></td>
+<td><span class="math inline">\(n, p\)</span></td>
+<td><span class="math inline">\(n p\)</span></td>
+<td><span class="math inline">\(n p (1 - p)\)</span></td>
+</tr>
+<tr class="odd">
+<td><a href="#ポアソン分布">ポアソン分布</a></td>
+<td><span class="math inline">\(\lambda\)</span></td>
+<td><span class="math inline">\(\lambda\)</span></td>
+<td><span class="math inline">\(\lambda\)</span></td>
+</tr>
+<tr class="even">
+<td><a href="#負の二項分布">負の二項分布</a></td>
+<td><span class="math inline">\(p, k\)</span></td>
+<td><span class="math inline">\(\frac{k (1 - p)}{p}\)</span></td>
+<td><span class="math inline">\(\frac{k (1 - p)}{p^{2}}\)</span></td>
+</tr>
+<tr class="odd">
+<td><a href="#正規分布">正規分布</a></td>
+<td><span class="math inline">\(\mu, \sigma^{2}\)</span></td>
+<td><span class="math inline">\(\mu\)</span></td>
+<td><span class="math inline">\(\sigma^{2}\)</span></td>
+</tr>
+<tr class="even">
+<td><a href="#ガンマ分布">ガンマ分布</a></td>
+<td><span class="math inline">\(\alpha, \beta\)</span></td>
+<td><span class="math inline">\(\alpha \beta\)</span></td>
+<td><span class="math inline">\(\alpha \beta^{2}\)</span></td>
+</tr>
+<tr class="odd">
+<td><a href="#一様分布">一様分布</a></td>
+<td><span class="math inline">\(a, b\)</span></td>
+<td><span class="math inline">\(\frac{a + b}{2}\)</span></td>
+<td><span class="math inline">\(\frac{(b - a)^{2}}{12}\)</span></td>
+</tr>
+<tr class="even">
+<td><a href="#ベータ分布">ベータ分布</a></td>
+<td><span class="math inline">\(\alpha, \beta\)</span></td>
+<td><span class="math inline">\(\frac{\alpha}{\alpha + \beta}\)</span></td>
+<td><span class="math inline">\(\frac{\alpha \beta}{(\alpha + \beta)^{2} (\alpha + \beta + 1)}\)</span></td>
+</tr>
+<tr class="odd">
+<td><a href="#対数正規分布">対数正規分布</a></td>
+<td><span class="math inline">\(\mu, \sigma^{2}\)</span></td>
+<td><span class="math inline">\(\exp(\mu + \frac{\sigma^{2}}{2})\)</span></td>
+<td><span class="math inline">\(\exp(2 \mu + 2 \sigma^{2}) - \exp(2 \mu + \sigma^{2})\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div>CC BY 4.0 DEED</div></div></section></div></main> <!-- /main -->

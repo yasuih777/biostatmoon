@@ -1,36 +1,393 @@
 ---
 title: 確率分布
 abstract: 頻出の確率分布
+date: 02-02-2024
+date-modified: 02-02-2024
 categories:
     - 確率統計
 order: 2
 draft: true
 ---
 
-Draftです…
+```{r}
+#| echo: false
+
+rm(list = ls())
+
+library("tibble")
+library("ggplot2")
+```
 
 # 離散分布
+離散的な確率変数が従う分布
 
 ## 超幾何分布
+A or Bからなる$N$個の集団を考える。A, Bの個数はそれぞれ$M$, $N - M$とする。この集団から$n$個取り出したとき、Aの個数が$k$個となる確率は @eq-hypergeometric で与えられる。この確率分布を**超幾何分布** @fig-hyper という。資源調査などでよく用いられる。
+
+$$
+f(X=x; N, M, n) = \frac{_{M}C_{x} \cdot _{N - M}C_{n - x}}{_{N}C_{n}} \ (x = \max(0, n -(N - M)), \cdots, \min(n, M))
+$${#eq-hypergeometric}
+
+
+```{r}
+#| label: fig-hyper
+#| fig-cap: "超幾何分布"
+#| fig-height: 3
+
+x <- c(0:5)
+N <- 10
+M <- c(3, 5, 7)
+
+data <- tibble()
+for (m in M){
+    sub_data <- tibble(
+        x = x,
+        y = dhyper(x, m, N - m, max(x)),
+        f = sprintf("f(X; %s, %s, %s)", N, m, max(x))
+    )
+    data <- rbind(data, sub_data)
+}
+
+g <- ggplot(data, aes(x = x, y = y, color = f)) +
+    geom_line() +
+    labs(y = "f(X=x; N, M, n)")
+
+plot(g)
+```
 
 ## 二項分布
+A or Bが観測できる試行を考える。A, Bが生起する確率をそれぞれ$p, (1 - p)$とする。この試行を独立に$n$回繰り返す(これを**ベルヌーイ試行**と呼ぶ)。Aが$x$回生起する確率は @eq-bionormial で与えられる。この確率分布を**二項分布** @fig-bionorm という。二項分布はコイン投げのような単純な試行で使われる。  
+また、$n = 1$のときは**ベルヌーイ分布**と呼ぶ。
+
+$$
+f(X=x; n, p) = _{n}C_{x} p^{x} (1 - p)^{n - x}
+$${#eq-bionormial}
+
+```{r}
+#| label: fig-bionorm
+#| fig-cap: "二項分布"
+#| fig-height: 3
+
+x <- c(0:6)
+n <- 6
+p <- c(1:5) / 6
+
+data <- tibble()
+for (prob in p){
+    sub_data <- tibble(
+        x = x,
+        y = dbinom(x, n, prob),
+        f = sprintf("f(X; %s, %s)", n, prob)
+    )
+    data <- rbind(data, sub_data)
+}
+
+g <- ggplot(data, aes(x = x, y = y, color = f)) +
+    geom_line() +
+    labs(y = "f(X=x; n, p)")
+
+plot(g)
+```
 
 ## ポアソン分布
+二項分布の$n$を大きくし、$p$を0に近づけた事象を考える。このように、大量の観察の中で中々生起しない現象は交通事故件数や不良品件数などが当てはまる。今、$\lambda \fallingdotseq n p$としたときに$x$回生起する確率は @eq-poisson で与えられる。この確率分布を**ポアソン分布** @fig-poisson という。
+
+$$
+f(X=x; \lambda) = \frac{\lambda^{x} e^{- \lambda}}{x!}
+$${#eq-poisson}
+
+```{r}
+#| label: fig-poisson
+#| fig-cap: "ポアソン分布"
+#| fig-height: 3
+
+x <- c(0:10)
+lambda <- c(0, 1, 2, 3, 4, 5)
+
+data <- tibble()
+for (l in lambda){
+    sub_data <- tibble(
+        x = x,
+        y = dpois(x, l),
+        f = sprintf("f(X; %s)", l)
+    )
+    data <- rbind(data, sub_data)
+}
+
+g <- ggplot(data, aes(x = x, y = y, color = f)) +
+    geom_line() +
+    labs(y = "f(X=x; lambda)")
+
+plot(g)
+```
 
 ## 負の二項分布
+生起する確率が$p$であるベルヌーイ試行を繰り返すとき、$k$回目の生起を得るまでの失敗回数$x$は @eq-negative で与えられる。この確率分布を**負の二項分布(パスカル分布)** @fig-negative という。負の二項分布は待ち時間を表現するのに用いられる。  
+また、$k = 1$のときは **幾何分布**と呼ぶ。
+
+$$
+f(X=x; p, k) = _{k + x - 1}C_{x} p^{k} (1 - p)^{x}
+$${#eq-negative}
+
+```{r}
+#| label: fig-negative
+#| fig-cap: "負の二項分布"
+#| fig-height: 3
+
+x <- c(0:10)
+k <- c(1, 2, 3, 4)
+p <- 1 / 2
+
+data <- tibble()
+for (i in k){
+    sub_data <- tibble(
+        x = x,
+        y = dnbinom(x, i, p),
+        f = sprintf("f(X; %s, %s)", p, i)
+    )
+    data <- rbind(data, sub_data)
+}
+
+g <- ggplot(data, aes(x = x, y = y, color = f)) +
+    geom_line() +
+    labs(y = "f(X=x; p, k)")
+
+plot(g)
+```
 
 # 連続分布
+連続的な確率変数が従う分布
 
 ## 正規分布
+自然界では左右非対称かつつりがね型の分布をとる現象が多く存在する。これはある代表値$\mu$から、ばらつきを表す量$\sigma^{2}$に応じた誤差の分だけ離れた観測を集めることで生成される。このような分布を**正規分布**$N(\mu, \sigma^{2})$ @fig-norm といい、確率密度関数は @eq-norm である。  
+正規分布はあらゆる統計理論に関わっている最重要分布である。
+
+$$
+f(X=x; \mu, \sigma^{2}) = \frac{1}{\sqrt{2 \pi \sigma^{2}}} \exp{\left( \frac{- (x - \mu)^{2}}{2 \sigma^{2}} \right)}
+$${#eq-norm}
+
+::: {#fig-norm fig-cap="正規分布" fig-height=3 layout-ncol=2}
+```{r}
+x <- seq(-5, 5, by = 0.01)
+mu <- c(-2, -1, 0, 1, 2)
+sigma <- c(1, 2, 3, 4)
+
+data <- tibble()
+for (m in mu){
+    sub_data <- tibble(
+        x = x,
+        y = dnorm(x, m, sigma[1]),
+        f = sprintf("f(X; %s, %s)", m, sigma[1])
+    )
+    data <- rbind(data, sub_data)
+}
+
+g <- ggplot(data, aes(x = x, y = y, color = f)) +
+    geom_line() +
+    labs(y = "f(X=x; mu, sigma^2)")
+
+plot(g)
+```
+
+```{r}
+data <- tibble()
+for (s in sigma){
+    sub_data <- tibble(
+        x = x,
+        y = dnorm(x, mu[3], s),
+        f = sprintf("f(X; %s, %s)", mu[3], s)
+    )
+    data <- rbind(data, sub_data)
+}
+
+g <- ggplot(data, aes(x = x, y = y, color = f)) +
+    geom_line() +
+    labs(y = "f(X=x; mu, sigma^2)")
+
+plot(g)
+```
+
+:::
 
 ## ガンマ分布
+負の二項分布を連続化した分布を**ガンマ分布** @fig-gamma と呼ぶ。ガンマ分布はある期間$\beta$ごとに1回生起する現象が$\alpha$回起きるまでの期間$x$の確率を表現することができる。確率密度関数は @eq-gamma である($\Gamma$はガンマ関数)。ガンマ分布はベイズ統計においても頻出の分布である。  
+また、$\alpha = 1$の場合は**指数分布**と呼び、確率密度関数は$f(x; \beta) = \beta e^{- \frac{x}{\beta}}$となる。
+
+$$
+f(X=x; \alpha, \beta) =
+\begin{equation}
+\left\{ \,
+    \begin{aligned}
+    &\frac{\beta^{\alpha}}{\Gamma(\alpha)} x^{\alpha - 1} e^{- \frac{x}{\beta}} \ &(x \geqq 0) \\
+    &0 \ &(x < 0)
+    \end{aligned}
+\right.
+\end{equation}
+$${#eq-gamma}
+
+```{r}
+#| label: fig-gamma
+#| fig-cap: "ガンマ分布"
+#| fig-height: 3
+
+x <- seq(0, 5, by = 0.01)
+alpha <- c(1, 1.5, 2, 2.5, 3)
+beta <- 2
+
+data <- tibble()
+for (a in alpha){
+    sub_data <- tibble(
+        x = x,
+        y = dgamma(x, a, beta),
+        f = sprintf("f(X; %s, %s)", a, beta)
+    )
+    data <- rbind(data, sub_data)
+}
+
+g <- ggplot(data, aes(x = x, y = y, color = f)) +
+    geom_line() +
+    labs(y = "f(X=x; alpha, beta)")
+
+plot(g)
+```
 
 ## 一様分布
+ある区間$[a, b]$で、全ての事象が生起する確率が等しい分布を**一様分布** @fig-uniform という。確率密度関数は @eq-uniform である。離散型でも同様の分布があり、両方で乱数生成の場面でよく用いられる。
+
+$$
+f(X=x; a, b) =
+\begin{equation}
+\left\{ \,
+    \begin{aligned}
+    &\frac{1}{b - a} \ &(a \leqq x \leqq b) \\
+    &0 \ &(x < a, x > b)
+    \end{aligned}
+\right.
+\end{equation}
+$${#eq-uniform}
+
+```{r}
+#| label: fig-uniform
+#| fig-cap: "一様分布"
+#| fig-height: 3
+
+x <- seq(0, 6, by = 0.01)
+a <- 1
+b <- c(2, 3, 4, 5)
+
+data <- tibble()
+for (k in b){
+    sub_data <- tibble(
+        x = x,
+        y = dunif(x, a, k),
+        f = sprintf("f(X; %s, %s)", a, k)
+    )
+    data <- rbind(data, sub_data)
+}
+
+g <- ggplot(data, aes(x = x, y = y, color = f)) +
+    geom_line() +
+    labs(y = "f(X=x; a, b)")
+
+plot(g)
+```
 
 ## ベータ分布
+二項分布に従う確率変数について、実際の観測に基づいて母数$x = p$を得るとする。A, Bが生起する回数をそれぞれ$\alpha, \beta$したときに、その数が少ない場合は得られる$x$は偶然と考えるが、多い場合は確信をもって$x$を得られる。この$x$が従う分布を**ベータ分布** @fig-beta という。確率密度関数は @eq-beta である($B$はベータ関数)。ベータ分布はベイズ統計でよく用いられる。  
+また、$\alpha = 1, \beta = 1$のときは区間$[0, 1]$の一様分布となる。
+
+$$
+f(X=x; \alpha, \beta) =
+\begin{equation}
+\left\{ \,
+    \begin{aligned}
+    &\frac{x^{\alpha - 1} (1 - x)^{\beta - 1}}{B(\alpha, \beta)} \ &(0 \leqq x \leqq 1) \\
+    &0 \ &(x < 0, x > 1)
+    \end{aligned}
+\right.
+\end{equation}
+$${#eq-beta}
+
+```{r}
+#| label: fig-beta
+#| fig-cap: "ベータ分布"
+#| fig-height: 3
+
+x <- seq(0, 1, by = 0.01)
+alpha <- c(2, 3, 4, 5, 6)
+beta <- c(3, 5, 7, 9, 11)
+
+data <- tibble()
+for (i in 1:5){
+    sub_data <- tibble(
+        x = x,
+        y = dbeta(x, alpha[i], beta[i]),
+        f = sprintf("f(X; %s, %s)", alpha[i], beta[i])
+    )
+    data <- rbind(data, sub_data)
+}
+
+g <- ggplot(data, aes(x = x, y = y, color = f)) +
+    geom_line() +
+    labs(y = "f(X=x; alpha, beta)")
+
+plot(g)
+```
 
 ## 対数正規分布
+自然界でみられる現象が従う分布として正規分布を対数変換したものがある。これは、観測値に下限はあるが、上限は明確にないような現象でよくみられる（例えば、血液検査など）。これは**対数正規分布** @fig-lognorm といい、確率密度関数は @eq-lognorm である。
 
-# 多変量分布
+$$
+f(X=x; \mu, \sigma^{2}) =
+\begin{equation}
+\left\{ \,
+    \begin{aligned}
+    &\frac{1}{\sqrt{2 \pi \sigma^{2}} x} \exp{\left( \frac{- (\log{x} - \mu)^{2}}{2 \sigma^{2}} \right)} \ &(x \geqq 0) \\
+    &0 \ &(x < 0)
+    \end{aligned}
+\right.
+\end{equation}
+$${#eq-lognorm}
 
-## 多変量正規分布
+```{r}
+#| label: fig-lognorm
+#| fig-cap: "対数正規分布"
+#| fig-height: 3
+
+x <- seq(0, 20, by = 0.01)
+mu <- c(1, 2, 3, 4)
+sigma <- 1
+
+data <- tibble()
+for (m in mu){
+    sub_data <- tibble(
+        x = x,
+        y = dlnorm(x, m, sigma),
+        f = sprintf("f(X; %s, %s)", m, sigma)
+    )
+    data <- rbind(data, sub_data)
+}
+
+g <- ggplot(data, aes(x = x, y = y, color = f)) +
+    geom_line() +
+    labs(y = "f(X=x; mu, sigma^2)")
+
+plot(g)
+```
+
+# 分布の平均値・分散
+上記で記載した確率分布の平均値および分散は @tbl-value のようになる。 
+
+| 確率分布 | 母数 | 平均値 | 分散 |
+| --- | --- | --- | --- |
+| [超幾何分布](#超幾何分布) | $N, M, n$ | $n \cdot \frac{M}{N}$ | $n \cdot \frac{M (N - M)}{N^{2}} \cdot \frac{N - n}{N - 1}$ |
+| [二項分布](#二項分布) | $n, p$ | $n p$ | $n p (1 - p)$ |
+| [ポアソン分布](#ポアソン分布) | $\lambda$ | $\lambda$ | $\lambda$ |
+| [負の二項分布](#負の二項分布) | $p, k$ | $\frac{k (1 - p)}{p}$ | $\frac{k (1 - p)}{p^{2}}$ |
+| [正規分布](#正規分布) | $\mu, \sigma^{2}$ | $\mu$ | $\sigma^{2}$ |
+| [ガンマ分布](#ガンマ分布) | $\alpha, \beta$ | $\alpha \beta$ | $\alpha \beta^{2}$ |
+| [一様分布](#一様分布) | $a, b$ | $\frac{a + b}{2}$ | $\frac{(b - a)^{2}}{12}$ |
+| [ベータ分布](#ベータ分布) | $\alpha, \beta$ | $\frac{\alpha}{\alpha + \beta}$ | $\frac{\alpha \beta}{(\alpha + \beta)^{2} (\alpha + \beta + 1)}$ |
+| [対数正規分布](#対数正規分布) | $\mu, \sigma^{2}$ | $\exp(\mu + \frac{\sigma^{2}}{2})$ | $\exp(2 \mu + 2 \sigma^{2}) - \exp(2 \mu + \sigma^{2})$ |
+
+: 主要な分布の平均値・分散 {#tbl-value}
