@@ -6,7 +6,6 @@ date-modified: 02-02-2024
 categories:
     - 確率統計
 order: 2
-draft: true
 ---
 
 ```{r}
