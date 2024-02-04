@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-01-24">
+<meta name="dcterms.date" content="2024-02-04">
 
-<title>BiostatMoon - 確率論基礎</title>
+<title>BiostatMoon - 推定</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -143,7 +143,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../../qmds/生物統計学/確率論.html">生物統計学</a></li><li class="breadcrumb-item"><a href="../../qmds/生物統計学/確率論.html">確率論基礎</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../../qmds/生物統計学/確率論.html">生物統計学</a></li><li class="breadcrumb-item"><a href="../../qmds/生物統計学/推定.html">推定</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -296,7 +296,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmds/生物統計学/確率論.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../qmds/生物統計学/確率論.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">確率論基礎</span></a>
   </div>
 </li>
@@ -308,7 +308,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmds/生物統計学/推定.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmds/生物統計学/推定.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">推定</span></a>
   </div>
 </li>
@@ -349,33 +349,23 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#事象と確率" id="toc-事象と確率" class="nav-link active" data-scroll-target="#事象と確率">事象と確率</a>
+  <li><a href="#標本抽出" id="toc-標本抽出" class="nav-link active" data-scroll-target="#標本抽出">標本抽出</a>
   <ul class="collapse">
-  <li><a href="#事象" id="toc-事象" class="nav-link" data-scroll-target="#事象">事象</a></li>
-  <li><a href="#確率" id="toc-確率" class="nav-link" data-scroll-target="#確率">確率</a></li>
-  <li><a href="#条件付き確率" id="toc-条件付き確率" class="nav-link" data-scroll-target="#条件付き確率">条件付き確率</a></li>
-  <li><a href="#事象の独立" id="toc-事象の独立" class="nav-link" data-scroll-target="#事象の独立">事象の独立</a></li>
-  <li><a href="#ベイズの定理" id="toc-ベイズの定理" class="nav-link" data-scroll-target="#ベイズの定理">ベイズの定理</a></li>
+  <li><a href="#母集団標本" id="toc-母集団標本" class="nav-link" data-scroll-target="#母集団標本">母集団・標本</a></li>
+  <li><a href="#抽出方法" id="toc-抽出方法" class="nav-link" data-scroll-target="#抽出方法">抽出方法</a></li>
+  <li><a href="#母集団分布標本分布" id="toc-母集団分布標本分布" class="nav-link" data-scroll-target="#母集団分布標本分布">母集団分布・標本分布</a></li>
+  <li><a href="#パラメトリックノンパラメトリック" id="toc-パラメトリックノンパラメトリック" class="nav-link" data-scroll-target="#パラメトリックノンパラメトリック">パラメトリック・ノンパラメトリック</a></li>
   </ul></li>
-  <li><a href="#確率変数確率分布" id="toc-確率変数確率分布" class="nav-link" data-scroll-target="#確率変数確率分布">確率変数・確率分布</a>
+  <li><a href="#母数統計量" id="toc-母数統計量" class="nav-link" data-scroll-target="#母数統計量">母数・統計量</a>
   <ul class="collapse">
-  <li><a href="#確率変数" id="toc-確率変数" class="nav-link" data-scroll-target="#確率変数">確率変数</a></li>
-  <li><a href="#確率分布" id="toc-確率分布" class="nav-link" data-scroll-target="#確率分布">確率分布</a></li>
-  <li><a href="#確率密度関数" id="toc-確率密度関数" class="nav-link" data-scroll-target="#確率密度関数">確率密度関数</a></li>
-  <li><a href="#分布関数" id="toc-分布関数" class="nav-link" data-scroll-target="#分布関数">分布関数</a></li>
+  <li><a href="#母数" id="toc-母数" class="nav-link" data-scroll-target="#母数">母数</a></li>
+  <li><a href="#統計量" id="toc-統計量" class="nav-link" data-scroll-target="#統計量">統計量</a></li>
+  <li><a href="#標本平均標本分散" id="toc-標本平均標本分散" class="nav-link" data-scroll-target="#標本平均標本分散">標本平均・標本分散</a></li>
   </ul></li>
-  <li><a href="#多次元の確率変数分布" id="toc-多次元の確率変数分布" class="nav-link" data-scroll-target="#多次元の確率変数分布">多次元の確率変数・分布</a>
+  <li><a href="#推定" id="toc-推定" class="nav-link" data-scroll-target="#推定">推定</a>
   <ul class="collapse">
-  <li><a href="#同時分布" id="toc-同時分布" class="nav-link" data-scroll-target="#同時分布">同時分布</a></li>
-  <li><a href="#周辺化" id="toc-周辺化" class="nav-link" data-scroll-target="#周辺化">周辺化</a></li>
-  <li><a href="#条件付き分布" id="toc-条件付き分布" class="nav-link" data-scroll-target="#条件付き分布">条件付き分布</a></li>
-  <li><a href="#確率変数の独立" id="toc-確率変数の独立" class="nav-link" data-scroll-target="#確率変数の独立">確率変数の独立</a></li>
-  </ul></li>
-  <li><a href="#記述統計量" id="toc-記述統計量" class="nav-link" data-scroll-target="#記述統計量">記述統計量</a>
-  <ul class="collapse">
-  <li><a href="#平均値" id="toc-平均値" class="nav-link" data-scroll-target="#平均値">平均値</a></li>
-  <li><a href="#分散" id="toc-分散" class="nav-link" data-scroll-target="#分散">分散</a></li>
-  <li><a href="#共分散相関係数" id="toc-共分散相関係数" class="nav-link" data-scroll-target="#共分散相関係数">共分散・相関係数</a></li>
+  <li><a href="#点推定" id="toc-点推定" class="nav-link" data-scroll-target="#点推定">点推定</a></li>
+  <li><a href="#区間推定" id="toc-区間推定" class="nav-link" data-scroll-target="#区間推定">区間推定</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -385,7 +375,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">確率論基礎</h1>
+<h1 class="title">推定</h1>
   <div class="quarto-categories">
     <div class="quarto-category">確率統計</div>
   </div>
@@ -399,14 +389,14 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-24</p>
+      <p class="date">2024-02-04</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-01-26</p>
+      <p class="date-modified">2024-02-04</p>
     </div>
   </div>
     
@@ -415,216 +405,185 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <div>
   <div class="abstract">
     <div class="abstract-title">Abstract</div>
-    統計学を扱う上での基礎となる確率論
+    統計学の中心である母数の推定
   </div>
 </div>
 
 </header>
 
-<section id="事象と確率" class="level1">
-<h1>事象と確率</h1>
-<section id="事象" class="level2">
-<h2 class="anchored" data-anchor-id="事象">事象</h2>
-<p>考察の材料とするための実験または観測を<strong>試行</strong>という。試行によって得られる個々の結果を<strong>標本点(または基本事象、単純事象、根元事元)</strong>という。標本点はいつも同じ値を取るのではなく、偶発的要因の影響を受けて揺らぎがある。この揺らぎを全て包含した標本点全体の集合を<strong>標本空間</strong><span class="math inline">\(\Omega = \{ \omega_{1}, \omega_{2}, \cdots \}\)</span>という。</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Example
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>サイコロを振る試行における標本空間は次のようになる</p>
-<p><span class="math display">\[
-\Omega = \{ 1, 2, 3, 4, 5, 6 \}
-\]</span></p>
-</div>
-</div>
-<p>今、試行の中で期待したい観測のみを抽出したいとする。これは標本空間の部分集合として表現でき、<strong>事象</strong><span class="math inline">\(e \subset \Omega\)</span>と呼ぶ。標本点<span class="math inline">\(\omega\)</span>が事象<span class="math inline">\(e\)</span>に含まれる(<span class="math inline">\(\omega \in e\)</span>)とき、事象<span class="math inline">\(e\)</span>が生起したという。事象全体の集合を<strong>事象空間</strong><span class="math inline">\(\mathcal{E}\)</span>と呼ぶ。</p>
+<section id="標本抽出" class="level1 page-columns page-full">
+<h1>標本抽出</h1>
+<section id="母集団標本" class="level2">
+<h2 class="anchored" data-anchor-id="母集団標本">母集団・標本</h2>
+<p>解析対象として考慮する集団全体を<strong>母集団</strong>という。しかし、母集団が非常に多くの要素を含む、個々の観測のコストが高い、未来の事象も対象に含むなど母集団全体を解析することが困難な場合が多い。このようなとき母集団の一部を選択し、それらを解析し、母集団の特性を推測するということを行う。これを<strong>統計的推測</strong> <a href="#fig-estimate">Figure&nbsp;1</a> と呼ぶ。また、このようにして母集団の一部として選ばれた要素を<strong>標本</strong>、選び出すことを<strong>標本抽出(抽出)</strong>と呼ぶ。<br>
+※母集団全体を標本として調査することを<strong>全数調査(悉皆調査)</strong>という。</p>
+</section>
+<section id="抽出方法" class="level2">
+<h2 class="anchored" data-anchor-id="抽出方法">抽出方法</h2>
+<p>標本抽出の方法として大きく以下の二つがある。母集団の要素数が十分に大きい場合はほとんど差がない。</p>
 <ul>
-<li>事象には基本的な集合演算(和集合、積集合、補集合)を適応することができる</li>
-<li>特殊な事象として、標本空間を事象とした<strong>全事象</strong><span class="math inline">\(\Omega\)</span>と、標本点を一つももたない<strong>空事象</strong><span class="math inline">\(\varnothing\)</span>がある</li>
-<li><span class="math inline">\(e_{1} \cap e_{2} = \varnothing\)</span>のとき、事象<span class="math inline">\(e_{1}\)</span>と事象<span class="math inline">\(e_{2}\)</span>は<strong>互いに排反</strong>という</li>
-<li>事象空間の要素数は<span class="math inline">\(2^{|\Omega|}\)</span>である</li>
+<li><strong>復元抽出</strong>: 抽出した標本を再び母集団に戻す方法</li>
+<li><strong>非復元抽出</strong>: 一度抽出した標本を母集団に戻さない方法
+<ul>
+<li>普段の実験や観測ではこちらが行われる</li>
+</ul></li>
 </ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>また、標本の選び方として以下の二つがある。エピデンスレベルが高いのは無作為抽出だが、一方で有意抽出の方が低コストで調査を行えるというメリデメがある。</p>
+<ul>
+<li><strong>無作為抽出</strong>: 標本をランダムに選択し、抽出</li>
+<li><strong>有意抽出</strong>: 標本を恣意的に選択し、抽出</li>
+</ul>
+</section>
+<section id="母集団分布標本分布" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="母集団分布標本分布">母集団分布・標本分布</h2>
+<p>統計理論において解析の対象となるのは母集団の特性である。ここでいう特性とは、母集団がもつ分布(<strong>母集団分布</strong>)である。標本はこの母集団分布に基づいて取り出されることになるので、標本<span class="math inline">\(x_{1}, x_{2}, \cdots, x_{n}\)</span>は互いに独立で、母集団分布<span class="math inline">\(P\)</span>に従う。<br>
+ここで抽出した標本の数<span class="math inline">\(n\)</span>を<strong>サンプルサイズ</strong>と呼ぶ。</p>
+<div class="cell page-columns page-full" data-fig-height="250px">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-estimate" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full">
+<div>
+<svg width="672" height="250" viewbox="0.00 0.00 346.00 189.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 185.6)">
+<title>
+G
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-185.6 342,-185.6 342,4 -4,4"></polygon> <g id="clust1" class="cluster">
+<title>
+cluster_population
+</title>
+<polygon fill="none" stroke="black" points="8,-8 8,-173.6 152,-173.6 152,-8 8,-8"></polygon> <text text-anchor="middle" x="80" y="-157" font-family="Times,serif" font-size="14.00">Population distribution</text> </g> <g id="clust2" class="cluster">
+<title>
+cluster_sample
+</title>
+</g> <!-- population --> <g id="node1" class="node">
+<title>
+population
+</title>
+<ellipse fill="none" stroke="black" cx="80" cy="-122.8" rx="52.77" ry="18"></ellipse> <text text-anchor="middle" x="80" y="-118.6" font-family="Times,serif" font-size="14.00">Population</text> </g> <!-- sample --> <g id="node3" class="node">
+<title>
+sample
+</title>
+<path fill="none" stroke="black" d="M305.99,-137.53C305.99,-139.33 293,-140.8 277,-140.8 261,-140.8 248.01,-139.33 248.01,-137.53 248.01,-137.53 248.01,-108.07 248.01,-108.07 248.01,-106.27 261,-104.8 277,-104.8 293,-104.8 305.99,-106.27 305.99,-108.07 305.99,-108.07 305.99,-137.53 305.99,-137.53"></path> <path fill="none" stroke="black" d="M305.99,-137.53C305.99,-135.72 293,-134.25 277,-134.25 261,-134.25 248.01,-135.72 248.01,-137.53"></path> <text text-anchor="middle" x="277" y="-118.6" font-family="Times,serif" font-size="14.00">Sample</text> </g> <!-- population&#45;&gt;sample --> <g id="edge1" class="edge">
+<title>
+population-&gt;sample
+</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M133.05,-122.8C166.08,-122.8 207.84,-122.8 237.87,-122.8"></path> <polygon fill="black" stroke="black" points="237.96,-126.3 247.96,-122.8 237.96,-119.3 237.96,-126.3"></polygon> <text text-anchor="middle" x="190.44" y="-130" font-family="Times,serif" font-size="14.00">sampling</text> </g> <!-- parameter --> <g id="node2" class="node">
+<title>
+parameter
+</title>
+<polygon fill="none" stroke="transparent" points="129.25,-52 56.75,-52 56.75,-16 129.25,-16 129.25,-52"></polygon> <polyline fill="none" stroke="black" points="56.75,-16 129.25,-16 "></polyline> <text text-anchor="middle" x="93" y="-29.8" font-family="Times,serif" font-size="14.00">Parameter</text> </g> <!-- estimate --> <g id="node4" class="node">
+<title>
+estimate
+</title>
+<polygon fill="none" stroke="black" points="309.49,-52 244.51,-52 244.51,-16 309.49,-16 309.49,-52"></polygon> <text text-anchor="middle" x="277" y="-29.8" font-family="Times,serif" font-size="14.00">Estimate</text> </g> <!-- sample&#45;&gt;estimate --> <g id="edge2" class="edge">
+<title>
+sample-&gt;estimate
+</title>
+<path fill="none" stroke="black" d="M277,-104.65C277,-92.52 277,-76.02 277,-62.12"></path> <polygon fill="black" stroke="black" points="280.5,-62.11 277,-52.11 273.5,-62.11 280.5,-62.11"></polygon> <text text-anchor="middle" x="299.55" y="-74.2" font-family="Times,serif" font-size="14.00">analysis</text> </g> <!-- estimate&#45;&gt;parameter --> <g id="edge3" class="edge">
+<title>
+estimate-&gt;parameter
+</title>
+<path fill="none" stroke="black" d="M244.42,-34C215.31,-34 172.33,-34 139.59,-34"></path> <polygon fill="black" stroke="black" points="139.35,-30.5 129.35,-34 139.35,-37.5 139.35,-30.5"></polygon> <text text-anchor="middle" x="186.94" y="-41.2" font-family="Times,serif" font-size="14.00">inference</text> </g> </g>
+</svg>
 </div>
-<div class="callout-title-container flex-fill">
-Example
+<figcaption class="figure-caption margin-caption">Figure&nbsp;1: 統計的推測</figcaption>
+</figure>
 </div>
-</div>
-<div class="callout-body-container callout-body">
-<p>サイコロから偶数が出る事象<span class="math inline">\(e_{odd}\)</span>は次のようになる</p>
-<p><span class="math display">\[
-e_{odd} = \{ 2, 4, 6 \}
-\]</span></p>
 </div>
 </div>
 </section>
-<section id="確率" class="level2">
-<h2 class="anchored" data-anchor-id="確率">確率</h2>
-<p>標本点は偶発的要因により揺らぎをもって試行から生成されるとした。この試行を独立に十分な数<span class="math inline">\(n\)</span>だけ行い、事象<span class="math inline">\(e\)</span>が生起した回数を<span class="math inline">\(r\)</span>とする。このとき <a href="#eq-prob">Equation&nbsp;1</a> を満たすような定数<span class="math inline">\(p\)</span>の存在が(経験的に)確かであるとき、事象<span class="math inline">\(e\)</span>を<strong>確率事象</strong>、<span class="math inline">\(p = P(e)\)</span>を確率事象<span class="math inline">\(e\)</span>の<strong>確率</strong>という。また、この写像<span class="math inline">\(P: \mathcal{E} \rightarrow [0, 1]\)</span>を<strong>確率測度</strong>という。標本空間<span class="math inline">\(\Omega\)</span>、事象空間<span class="math inline">\(\mathcal{E}\)</span>、確率測度<span class="math inline">\(P\)</span>の三つ組<span class="math inline">\((\Omega, \mathcal{E}, P)\)</span>を<strong>確率空間</strong>と呼び、この空間をもって各種の確率理論を展開することができる。</p>
-<p><span id="eq-prob"><span class="math display">\[
-p = \lim_{n \rightarrow \infty} \frac{r}{n}
+<section id="パラメトリックノンパラメトリック" class="level2">
+<h2 class="anchored" data-anchor-id="パラメトリックノンパラメトリック">パラメトリック・ノンパラメトリック</h2>
+<p>母集団分布が既知である確率分布(例えば、二項分布や正規分布など)に従うことが明らかであるとき、母集団分布を母数の推定を行うことで解釈できる。このような分布を<strong>パラメトリック</strong>という。<br>
+一方で、上記に当てはまらない分布を<strong>ノンパラメトリック</strong>という。この場合は分布を仮定しなくても算術可能な記述統計量で母集団分布を解釈する。</p>
+</section>
+</section>
+<section id="母数統計量" class="level1">
+<h1>母数・統計量</h1>
+<section id="母数" class="level2">
+<h2 class="anchored" data-anchor-id="母数">母数</h2>
+<p>パラメトリックな分布において、母集団分布は確率密度関数が定義できるような確率分布であることを述べた。この確率密度関数は<span class="math inline">\(X=x\)</span>における確率値を表すほか、分布の性質を表す関数としても表すことができる。例えば、正規分布の<span class="math inline">\(\mu, \sigma^{2}\)</span>はその平均値および分散を表している(<a href="../../qmds/生物統計学/確率分布.html#正規分布">参考</a>)。このように、確率分布の特性を表す変数を<strong>母数(パラメータ)</strong>と呼ぶ。多くの場合、母数は未知であるため、統計的推測はこの母数を標本からどのようにして明らかにするかというところをフォーカス <a href="#fig-estimate">Figure&nbsp;1</a> する。<br>
+※他の確率分布の母数については、<a href="../../qmds/生物統計学/確率分布.html#分布の平均値・分散">こちら</a>にまとめている。</p>
+</section>
+<section id="統計量" class="level2">
+<h2 class="anchored" data-anchor-id="統計量">統計量</h2>
+<p><strong>統計量</strong>とは標本を要約したものである。ここでは未知のパラメータは含まずに、標本からのみ得られる数値のことを指す。統計量として考えられるものとして、平均・分散・標準偏差・メディアン・モード・最大値・最小値・四分位点・相関係数など様々なものがある。<br>
+これらは総じて標本<span class="math inline">\(x_{1}, x_{2}, \cdots, x_{n}\)</span>を統計量に変換する写像<span class="math inline">\(g(x_{1}, x_{2}, \cdots, x_{n})\)</span>と考えることができる。何パターンかの標本から算出される統計量<span class="math inline">\(g(x_{1}, x_{2}, \cdots, x_{n})\)</span>を集めて生成される確率分布を<strong>標本分布</strong>という。</p>
+</section>
+<section id="標本平均標本分散" class="level2">
+<h2 class="anchored" data-anchor-id="標本平均標本分散">標本平均・標本分散</h2>
+<p>標本<span class="math inline">\(x_{1}, x_{2}, \cdots, x_{n}\)</span>から算出する平均を<strong>標本平均</strong>と呼び、 <a href="#eq-mean">Equation&nbsp;1</a> で定義する。また、同様に標本から算出する分散を<strong>標本分散(不偏分散)</strong>と呼び、 <a href="#eq-variance">Equation&nbsp;2</a> で定義する。<br>
+※不偏分散の<span class="math inline">\(n - 1\)</span>を未知変数の数を意味する<strong>自由度</strong>と呼ぶ。</p>
+<p><span id="eq-mean"><span class="math display">\[
+\bar{x} = \frac{1}{n} \sum^{n}_{i = 1} x_{i}
 \tag{1}\]</span></span></p>
-<p>確率事象、確率は<strong>コルモゴロフの定理</strong>に従う。</p>
+<p><span id="eq-variance"><span class="math display">\[
+s^{2} = \frac{1}{n - 1} \sum^{n}_{i = 1} (x_{i} - \bar{x})
+\tag{2}\]</span></span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-コルモゴロフの定理
+標本平均・標本分散の標本分布
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li><span class="math inline">\(e_{1}, e_{2}, e_{3}, \cdots\)</span>が確率事象であるとき以下も全て確率事象である</li>
-</ol>
-<p><span class="math display">\[
-\begin{split}
-&amp;e_{1} \cap e_{2} \cap e_{3} \cap \cdots \\
-&amp;e_{1} \cup e_{2} \cup e_{3} \cup \cdots \\
-&amp;e_{1}^{c}, e_{2}^{c}, e_{3}^{c}, \cdots \\
-\end{split}
-\]</span></p>
-<ol start="2" type="1">
-<li>確率事象<span class="math inline">\(e_{1}, \Omega, \varnothing\)</span>に対して以下が成立する</li>
-</ol>
-<p><span class="math display">\[
-\begin{split}
-&amp;0 \leqq P(e_{1}) \leqq 1 \\
-&amp;P(\Omega) = 1 \\
-&amp;P(\varnothing) = 0 \\
-\end{split}
-\]</span></p>
-<ol start="3" type="1">
-<li>確率事象<span class="math inline">\(e_{1}, e_{2}, e_{3}, \cdots\)</span>は各々互いに素であるとき、以下が成立する</li>
-</ol>
-<p><span class="math display">\[
-P(e_{1} \cup e_{2} \cup e_{3} \cup \cdots) = P(e_{1}) + P(e_{2}) + P(e_{3}) + \cdots
-\]</span></p>
-</div>
-</div>
+<section id="標本平均" class="level3">
+<h3 class="anchored" data-anchor-id="標本平均">標本平均</h3>
+<p>標本平均の平均値について、<span class="math inline">\(E(\bar{x}) = \mu\)</span>が成立する。これは、<span class="math inline">\(\bar{x}\)</span>が母集団分布の平均<span class="math inline">\(\mu\)</span>を正しく推定することを表している。<br>
+また、標本平均の分散について、<span class="math inline">\(V(\bar{x}) = \frac{\sigma^{2}}{n}\)</span>が成立する。これは、<span class="math inline">\(\bar{x}\)</span>が母集団分布の分散<span class="math inline">\(\sigma^{2}\)</span>をサンプルサイズ<span class="math inline">\(n\)</span>の分だけ過小評価することを表している。<br>
+これらを踏まえると、<span class="math inline">\(n \rightarrow \infty \Rightarrow E(\bar{x}) \rightarrow \mu, V(\bar{x}) \rightarrow 0\)</span>が成立する。これは、サンプルサイズが増えるほど標本平均の標本分布は母集団分布の平均値<span class="math inline">\(\mu\)</span>に集中して局在するような傾向があるということである(大数の法則)。</p>
 </section>
-<section id="条件付き確率" class="level2">
-<h2 class="anchored" data-anchor-id="条件付き確率">条件付き確率</h2>
-<p><span class="math inline">\(e_{1}, e_{2}\)</span>が確率事象で、<span class="math inline">\(P(e_{2}) \neq 0\)</span>のとき、 <a href="#eq-condition">Equation&nbsp;2</a> で定義される<span class="math inline">\(P(e_{1}|e_{2})\)</span>を<span class="math inline">\(e_{2}\)</span>の条件の元での事象<span class="math inline">\(e_{1}\)</span>の<strong>(条件付き)確率</strong>という。</p>
-<p><span id="eq-condition"><span class="math display">\[
-P(e_{1} | e_{2}) = \frac{P(e_{1} \cap e_{2})}{P(e_{2})}
-\tag{2}\]</span></span></p>
-</section>
-<section id="事象の独立" class="level2">
-<h2 class="anchored" data-anchor-id="事象の独立">事象の独立</h2>
-<p><span class="math inline">\(e_{1}, e_{2}\)</span>が確率事象で、<a href="#eq-independence">Equation&nbsp;3</a> でが成り立つとき、<span class="math inline">\(e_{1}, e_{2}\)</span>は互いに<strong>独立</strong>という。</p>
-<p><span id="eq-independence"><span class="math display">\[
-P(e_{1} \cap e_{2}) = P(e_{1}) P(e_{2})
+<section id="標本分散" class="level3">
+<h3 class="anchored" data-anchor-id="標本分散">標本分散</h3>
+<p>標本分散の平均値について、<span class="math inline">\(E(s^{2}) = \sigma^{2}\)</span>が成立する。これは、<span class="math inline">\(s^{2}\)</span>が母集団分布の分散<span class="math inline">\(\sigma^{2}\)</span>を正しく推定することを表している。これにより、 <a href="#eq-variance">Equation&nbsp;2</a> は<strong>不偏分散(不偏推定量)</strong> と呼ぶ。<br>
+一方で、 <a href="#eq-variance2">Equation&nbsp;3</a> のような標本分散も定義できる。この場合は<span class="math inline">\(E(S^{2}) = \frac{n - 1}{n} \sigma^{2}\)</span>となり、母集団分布の分散より過小評価される。</p>
+<p><span id="eq-variance2"><span class="math display">\[
+S^{2} = \frac{1}{n} \sum^{n}_{i = 1} (x_{i} - \bar{x})
 \tag{3}\]</span></span></p>
 </section>
-<section id="ベイズの定理" class="level2">
-<h2 class="anchored" data-anchor-id="ベイズの定理">ベイズの定理</h2>
-<p><a href="#eq-bayes">Equation&nbsp;4</a> が<span class="math inline">\(i = 1, 2, \cdots, n\)</span>に対して成り立つことを<strong>ベイズの定理</strong>という。</p>
-<p><span id="eq-bayes"><span class="math display">\[
-\begin{split}
-&amp;e_{j} \cap e_{k} = \varnothing \ (j \neq k) \ かつ \ \Omega = e_{1} \cup e_{2} \cup \cdots \cup e_{n} \\
-&amp;\Rightarrow P(e_{i} | D) = \frac{P(e_{i})P(D | e_{i})}{\sum_{j=1}^{n} P(e_{j})P(D | e_{j})}
-\end{split}
+</div>
+</div>
+</section>
+</section>
+<section id="推定" class="level1">
+<h1>推定</h1>
+<p>未知である母数を推定するために標本から算出された統計量を<strong>推定量</strong><span class="math inline">\(\hat{\theta}\)</span>と呼ぶ。推定量は大まかに分けるとピンポイントに母数を推定する<strong>点推定</strong>と、真の母数が得られる確率を保証する区間を求める<strong>区間推定</strong>の二種類ある。</p>
+<section id="点推定" class="level2">
+<h2 class="anchored" data-anchor-id="点推定">点推定</h2>
+<p><span class="math inline">\(E(\bar{x}) = \mu, E(s^{2}) = \sigma^{2}\)</span>が成り立つことは既に述べた。これにより、標本平均および不偏分散はそれぞれ母集団分布の平均および分散の推定量である。これは、実際の観測から得られたデータで算出することができる。このようにして得られる値を<strong>推定値</strong>と呼ぶ。<br>
+次に、平均・分散以外のあらゆる母数について、推定値から真の母数に近い値を推定するために次の<strong>最尤法</strong>を導入する。</p>
+<p>母集団分布の確率密度関数<span class="math inline">\(f(x; \theta)\)</span>に対して、実際に得られた標本<span class="math inline">\(x_{1}, x_{2}, \cdots, x_{n}\)</span>を用いて<span class="math inline">\(n\)</span>個の確率関数<span class="math inline">\(f(x_{i}; \theta) \ (i = 1, 2, \cdots, n)\)</span>を生成する。このとき、<span class="math inline">\(x_{i}\)</span>は定数なので確率関数を母数<span class="math inline">\(\theta\)</span>は関数であることに注意する。また、母数がとりうる値の範囲<span class="math inline">\(\Theta\)</span>を<strong>母数空間</strong>と呼ぶ。<br>
+次に、確率関数の積 <a href="#eq-likehood">Equation&nbsp;4</a> を導入する。この<span class="math inline">\(L(\theta)\)</span>を<strong>尤度</strong>という。最尤法では、母数空間の範囲でこの尤度関数を最大化する<strong>最尤推定量</strong><span class="math inline">\(\tilde{\theta}\)</span>を求めることである。</p>
+<p><span id="eq-likehood"><span class="math display">\[
+L(\theta) = \prod^{n}_{i = 1} f(x_{i}; \theta)
 \tag{4}\]</span></span></p>
-</section>
-</section>
-<section id="確率変数確率分布" class="level1 page-columns page-full">
-<h1>確率変数・確率分布</h1>
-<section id="確率変数" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="確率変数">確率変数</h2>
-<p><a href="#eq-variable">Equation&nbsp;5</a> で定義される写像<span class="math inline">\(X\)</span>を<strong>確率変数</strong>と呼ぶ(<span class="math inline">\(\mathcal{B}\)</span>はボレル代数)。確率変数によって標本空間と事象空間を接合できる <a href="#fig-variable">Figure&nbsp;1</a> ため、ある試行から様々な事象や確率測度を展開することができる。また、この場合の確率測度<span class="math inline">\(P\)</span>は<span class="math inline">\(P(X^{-1}(b))\)</span>で定義され、「確率変数<span class="math inline">\(X\)</span>は確率分布<span class="math inline">\(P\)</span>に従う<span class="math inline">\((X \sim P)\)</span>」という。主要な確率分布は<a href="../../qmds/生物統計学/確率分布.html">別ページ</a>で扱う。</p>
-<p><span id="eq-variable"><span class="math display">\[
-X: \Omega \rightarrow \mathbb{R}, \exists X^{-1}(b) \in \mathcal{E} \ \mbox{for any} \ b \in \mathcal{B}
+<p>実際に最尤推定量を求める際には尤度関数の対数をとった<strong>対数尤度</strong><span class="math inline">\(\log{L(\theta)}\)</span>を使用する。この対数尤度(尤度も)は上に凸なので、<strong>尤度方程式</strong> <a href="#eq-max-likehood">Equation&nbsp;5</a> を解くことによって最尤推定量を算出することができる。</p>
+<p><span id="eq-max-likehood"><span class="math display">\[
+\frac{\partial}{\partial \theta} \log{L(\theta)} = 0
 \tag{5}\]</span></span></p>
-<div class="cell page-columns page-full" data-fig-height="300px">
-<div class="cell-output-display page-columns page-full">
-<div id="fig-variable" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
-<div>
-<svg width="672" height="300" viewbox="0.00 0.00 435.85 157.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 153)">
-<title>
-G
-</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-153 431.85,-153 431.85,4 -4,4"></polygon> <g id="clust1" class="cluster">
-<title>
-probability_space
-</title>
-<polygon fill="none" stroke="black" points="8,-64 8,-141 419.85,-141 419.85,-64 8,-64"></polygon> <text text-anchor="middle" x="213.93" y="-124.4" font-family="Times,serif" font-size="14.00">Probability space</text> </g> <!-- borel --> <g id="node1" class="node">
-<title>
-borel
-</title>
-<polygon fill="none" stroke="transparent" points="246.39,-36 154.79,-36 154.79,0 246.39,0 246.39,-36"></polygon> <polyline fill="none" stroke="black" points="154.79,0 246.39,0 "></polyline> <text text-anchor="middle" x="200.59" y="-13.8" font-family="Times,serif" font-size="14.00">Borel algebra</text> </g> <!-- event --> <g id="node3" class="node">
-<title>
-event
-</title>
-<polygon fill="none" stroke="black" points="242.34,-108 158.85,-108 158.85,-72 242.34,-72 242.34,-108"></polygon> <text text-anchor="middle" x="200.59" y="-85.8" font-family="Times,serif" font-size="14.00">Event space</text> </g> <!-- borel&#45;&gt;event --> <g id="edge4" class="edge">
-<title>
-borel-&gt;event
-</title>
-<path fill="none" stroke="black" d="M200.59,-36.17C200.59,-45.05 200.59,-55.88 200.59,-65.48"></path> <polygon fill="black" stroke="black" points="198.49,-65.59 200.59,-71.59 202.69,-65.59 198.49,-65.59"></polygon> <text text-anchor="middle" x="189.19" y="-49.8" font-family="Times,serif" font-size="14.00">Inverse X</text> </g> <!-- sample --> <g id="node2" class="node">
-<title>
-sample
-</title>
-<path fill="none" stroke="black" d="M108.38,-104.73C108.38,-106.53 87.72,-108 62.29,-108 36.86,-108 16.21,-106.53 16.21,-104.73 16.21,-104.73 16.21,-75.27 16.21,-75.27 16.21,-73.47 36.86,-72 62.29,-72 87.72,-72 108.38,-73.47 108.38,-75.27 108.38,-75.27 108.38,-104.73 108.38,-104.73"></path> <path fill="none" stroke="black" d="M108.38,-104.73C108.38,-102.92 87.72,-101.45 62.29,-101.45 36.86,-101.45 16.21,-102.92 16.21,-104.73"></path> <text text-anchor="middle" x="62.29" y="-85.8" font-family="Times,serif" font-size="14.00">Sample space</text> </g> <!-- sample&#45;&gt;borel --> <g id="edge3" class="edge">
-<title>
-sample-&gt;borel
-</title>
-<path fill="none" stroke="black" d="M96.29,-72.57C115.52,-62.41 139.91,-49.53 160.16,-38.83"></path> <polygon fill="black" stroke="black" points="161.15,-40.68 165.48,-36.02 159.19,-36.97 161.15,-40.68"></polygon> <text text-anchor="middle" x="131.64" y="-60.2" font-family="Times,serif" font-size="14.00">X</text> </g> <!-- sample&#45;&gt;event --> <g id="edge1" class="edge">
-<title>
-sample-&gt;event
-</title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M108.68,-90C122.65,-90 138.06,-90 152.16,-90"></path> <polygon fill="black" stroke="black" points="152.54,-92.1 158.54,-90 152.54,-87.9 152.54,-92.1"></polygon> </g> <!-- probability --> <g id="node4" class="node">
-<title>
-probability
-</title>
-<polygon fill="none" stroke="black" points="412.03,-108 283.31,-108 283.31,-72 412.03,-72 412.03,-108"></polygon> <text text-anchor="middle" x="347.67" y="-85.8" font-family="Times,serif" font-size="14.00">Probability measure</text> </g> <!-- event&#45;&gt;probability --> <g id="edge2" class="edge">
-<title>
-event-&gt;probability
-</title>
-<path fill="none" stroke="black" d="M242.39,-90C253.24,-90 265.27,-90 277.18,-90"></path> <polygon fill="black" stroke="black" points="277.4,-92.1 283.4,-90 277.4,-87.9 277.4,-92.1"></polygon> </g> </g>
-</svg>
-</div>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;1: 確率変数のイメージ</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+最尤原理
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>サイコロ二個同時に振る試行について、次のような確率変数を考えることができる。</p>
-<ul>
-<li>出た目の総和</li>
-<li>偶数の目が出るサイコロの数</li>
-<li>{サイコロAの目 / サイコロBの目}の値</li>
-</ul>
+<p>これら最尤法には「現実の標本は確率最大のものが実現した」という<strong>最尤原理</strong>の仮定が用いられている。これは、標本から得られる推定量は真の母数の近い位置に局在するというものである。</p>
 </div>
 </div>
-<p>また、確率変数は離散的なものと連続的なものの二つに分類することができる。次項で扱う。</p>
 </section>
-<section id="確率分布" class="level2">
-<h2 class="anchored" data-anchor-id="確率分布">確率分布</h2>
-<p>確率変数<span class="math inline">\(X\)</span>がとりうる値が高々可算個、即ち<span class="math inline">\(x_{1}, x_{2}, \cdots, x_{n} \ (i \neq j \Rightarrow x_{i} \neq x_{j})\)</span>の場合、<span class="math inline">\(X\)</span>は<strong>離散的確率変数</strong>である。<br>
-また、<a href="#eq-prob-discrete">Equation&nbsp;6</a> で定義される<span class="math inline">\(f(x_{i})\)</span>を<strong>確率分布</strong>という。</p>
-<p><span id="eq-prob-discrete"><span class="math display">\[
-P(X = x_{i}) = f(X_{i})
+<section id="区間推定" class="level2">
+<h2 class="anchored" data-anchor-id="区間推定">区間推定</h2>
+<p>区間推定は真の母数<span class="math inline">\(\theta\)</span>が、<span class="math inline">\(1 - \alpha\)</span>の確率で含まれるある区間<span class="math inline">\((l, u)\)</span>を推定すること <a href="#eq-confidence">Equation&nbsp;6</a> である。ここでの<span class="math inline">\(\alpha\)</span>は母数が区間に含まれない確率である。また、確率変数<span class="math inline">\(l\)</span>を<strong>下側信頼限界</strong>、確率変数<span class="math inline">\(u\)</span>を<strong>上側信頼限界</strong>、<span class="math inline">\(1 - \alpha\)</span>を<strong>信頼係数</strong>、区間<span class="math inline">\([l, u]\)</span>を<span class="math inline">\(100 * (1 - \alpha)\)</span>%<strong>信頼区間</strong>と呼ぶ。</p>
+<p><span id="eq-confidence"><span class="math display">\[
+P(l \leqq \theta \leqq u) \geqq 1 - \alpha
 \tag{6}\]</span></span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -632,245 +591,13 @@ P(X = x_{i}) = f(X_{i})
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-確率分布の性質
+信頼区間
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li><span class="math inline">\(f(X_{i}) \geqq 0 \ (i = 1, 2, \cdots)\)</span></li>
-<li><span class="math inline">\(\sum_{\mathbb{i}} f(x_{i}) = 1\)</span></li>
-<li><span class="math inline">\(P(X \in \mathcal{B}) = \sum_{x_{i} \in \mathcal{B}} f(x_{i})\)</span></li>
-</ul>
+<p>信頼区間は標本によって変化するので、「母数<span class="math inline">\(\theta\)</span>が、<span class="math inline">\(1 - \alpha\)</span>の確率で含まれる区間」が常に得られるわけではない。信頼区間の正しい解釈は「多くの標本に対して算出された信頼区間が<span class="math inline">\(\theta\)</span>を包含する確率が<span class="math inline">\(1 - \alpha\)</span>になる」というものである。これは、標本を得れば得るほど信頼区間の信頼性が増し、母数の推定において強力なエピデンスになるということである。<br>
+また、信頼区間の幅はサンプルサイズ<span class="math inline">\(n\)</span>に対して、多くの場合オーダー<span class="math inline">\(\frac{1}{\sqrt{n}}\)</span>で<span class="math inline">\(0\)</span>に近づく(オーダーがかわっても幅は<span class="math inline">\(0\)</span>に漸近する)。即ち、サンプルサイズが大きいほど母数<span class="math inline">\(\theta\)</span>を正確に推定できる。</p>
 </div>
-</div>
-</section>
-<section id="確率密度関数" class="level2">
-<h2 class="anchored" data-anchor-id="確率密度関数">確率密度関数</h2>
-<p>離散的でない確率変数<span class="math inline">\(X\)</span>を<strong>連続的確率変数</strong>と呼び、<a href="#eq-prob-continue">Equation&nbsp;7</a> で定義される<span class="math inline">\(f(x)\)</span>を<strong>確率密度関数</strong>と呼ぶ。</p>
-<p><span id="eq-prob-continue"><span class="math display">\[
-P(X \in \mathcal{B}) = \int_{\mathcal{B}} f(X)
-\tag{7}\]</span></span></p>
-<p>この確率密度関数においては、確率素分<span class="math inline">\(f(x) dx\)</span>に対して<span class="math inline">\(P(x \leqq X &lt; x + dx) = f(x) dx\)</span>が成り立つ。</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-確率密度関数の性質
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><span class="math inline">\(P(X = x) = \int^{x}_{x} f(u) du = 0\)</span></li>
-<li><span class="math inline">\(f(x) \geqq 0\)</span></li>
-<li><span class="math inline">\(\int^{\infty}_{- \infty} f(u) du = 1\)</span></li>
-<li><span class="math inline">\(E \subset \mathcal{B}\)</span>に対して、<span class="math inline">\(P(X \in E) = \int_{E} f(u) du\)</span></li>
-</ul>
-</div>
-</div>
-<p>以降では連続的確率変数の定義を中心に扱うが、離散的確率変数の場合でもほぼ同等のことがいえる。</p>
-</section>
-<section id="分布関数" class="level2">
-<h2 class="anchored" data-anchor-id="分布関数">分布関数</h2>
-<p>確率変数<span class="math inline">\(X\)</span>、実数$$xに対して <a href="#eq-dist-function">Equation&nbsp;8</a> を<strong>分布関数</strong>と呼ぶ。分布関数は様々な理論を展開するのによく用いられる。</p>
-<p><span id="eq-dist-function"><span class="math display">\[
-P(X \leqq x) = F(x)
-\tag{8}\]</span></span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-分布関数の性質
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>単調非減少関数</li>
-<li><span class="math inline">\(\forall a, b \in \mathbb{R}, P(a &lt; X \leqq b) = F(b) - F(a)\)</span></li>
-<li><span class="math inline">\(F(- \infty) = 0, F(\infty) = 1\)</span></li>
-<li>右連続</li>
-<li><span class="math inline">\(F(x) = \int^{x}_{- \infty} f(u) fu\)</span></li>
-</ul>
-</div>
-</div>
-</section>
-</section>
-<section id="多次元の確率変数分布" class="level1">
-<h1>多次元の確率変数・分布</h1>
-<section id="同時分布" class="level2">
-<h2 class="anchored" data-anchor-id="同時分布">同時分布</h2>
-<p>複数の事象<span class="math inline">\(e_{1}, e_{2}\)</span>が同時に生起する(<span class="math inline">\(e_{1} \cap e_{2}\)</span>)確率を<strong>同時確率</strong>という。これの確率変数<span class="math inline">\(X, Y\)</span>に対応する関数<span class="math inline">\(f(x, y)\)</span> <a href="#eq-prob-joint">Equation&nbsp;9</a> を<strong>同時確率密度関数</strong>(離散の場合は<strong>同時確率分布</strong>)と呼ぶ。</p>
-<p><span id="eq-prob-joint"><span class="math display">\[
-P((X, Y) \in \mathcal{E} \times \mathcal{E}) = \int_{X} \int_{Y} f(x, y) dy dx
-\tag{9}\]</span></span></p>
-<p>特に、<span class="math inline">\([x_{1}, x_{2}] \times [y_{1}, y_{2}] \subset \mathcal{E} \times \mathcal{E}\)</span>の場合、以下が成立する。</p>
-<p><span class="math display">\[
-P(x_{1} \leqq X \leqq x_{2}, y_{1} \leqq Y \leqq y_{2}) = \int^{x_{2}}_{x_{1}} \int^{y_{2}}_{y_{1}} f(x, y) dy dx
-\]</span></p>
-</section>
-<section id="周辺化" class="level2">
-<h2 class="anchored" data-anchor-id="周辺化">周辺化</h2>
-<p>確率変数<span class="math inline">\(X, Y\)</span>に対して、同時確率密度関数<span class="math inline">\(f(x, y)\)</span>のとりうる<span class="math inline">\(Y\)</span>を総和することを「<span class="math inline">\(Y\)</span>について<span class="math inline">\(f(x, y)\)</span>を<strong>周辺化</strong>する」という <a href="#eq-prob-marginal">Equation&nbsp;10</a> 。このとき周辺化された確率密度関数<span class="math inline">\(f(x)\)</span>を<strong>周辺確率密度関数</strong>と呼ぶ。</p>
-<p><span id="eq-prob-marginal"><span class="math display">\[
-f(x) = \int_{Y} f(x, y) dy
-\tag{10}\]</span></span></p>
-</section>
-<section id="条件付き分布" class="level2">
-<h2 class="anchored" data-anchor-id="条件付き分布">条件付き分布</h2>
-<p><a href="#eq-prob-condition">Equation&nbsp;11</a> を「条件<span class="math inline">\(Y = y\)</span>の元での<span class="math inline">\(X\)</span>の<strong>条件付き確率密度関数</strong>」という。</p>
-<p><span id="eq-prob-condition"><span class="math display">\[
-f(x | y) = \frac{f(x, y)}{f(y)}
-\tag{11}\]</span></span></p>
-</section>
-<section id="確率変数の独立" class="level2">
-<h2 class="anchored" data-anchor-id="確率変数の独立">確率変数の独立</h2>
-<p>独立な事象<span class="math inline">\(e_{1}, e_{2}\)</span>に対する確率変数<span class="math inline">\(X_{1}, X_{2}\)</span>が <a href="#eq-prob-independence">Equation&nbsp;12</a> を満たすとき、<span class="math inline">\(X_{1}, X_{2}\)</span>は<strong>独立</strong>であるという。</p>
-<p><span id="eq-prob-independence"><span class="math display">\[
-f(x, y) = f(x) f(y)
-\tag{12}\]</span></span></p>
-<p><a href="#eq-prob-condition">Equation&nbsp;11</a> より、独立な<span class="math inline">\(X_{1}, X_{2}\)</span>に対しては以下が成立する。</p>
-<p><span class="math display">\[
-f(x | y) = f(x)
-\]</span></p>
-</section>
-</section>
-<section id="記述統計量" class="level1">
-<h1>記述統計量</h1>
-<section id="平均値" class="level2">
-<h2 class="anchored" data-anchor-id="平均値">平均値</h2>
-<p>確率変数<span class="math inline">\(X\)</span>の代表的、中心的な値としてよく用いられる<strong>平均値(期待値)</strong><span class="math inline">\(E(X)\)</span>は <a href="#eq-mean">Equation&nbsp;13</a> で定義される。</p>
-<p><span id="eq-mean"><span class="math display">\[
-E(X) = \int^{\infty}_{- \infty} x f(x) dx
-\tag{13}\]</span></span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-平均値の性質
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><span class="math inline">\(E(X_{1}, X_{2}, \cdots, X_{n}) = \sum^{n}_{i = 1} E(X_{i})\)</span></li>
-<li><span class="math inline">\(a, b\)</span>が定数のとき、<span class="math inline">\(E(a X + b) = a E(X) + b\)</span></li>
-<li><span class="math inline">\(X, Y\)</span>が独立のとき、<span class="math inline">\(E(X Y) = E(X) E(Y)\)</span></li>
-<li><span class="math inline">\(\phi(X) \sim P\)</span>なる関数<span class="math inline">\(\phi\)</span>について、<span class="math inline">\(E(\phi(X)) = \int^{\infty}_{- \infty} \phi(x) f(x) dx\)</span></li>
-</ul>
-</div>
-</div>
-<p>また、<span class="math inline">\(Y = y\)</span>なる条件の元でのXの<strong>条件付き平均値</strong>は <a href="#eq-mean-condition">Equation&nbsp;14</a> で定義される。</p>
-<p><span id="eq-mean-condition"><span class="math display">\[
-E(X | Y = y) = \frac{1}{f(y)} \int^{\infty}_{- \infty} x f(x, y) dx
-\tag{14}\]</span></span></p>
-</section>
-<section id="分散" class="level2">
-<h2 class="anchored" data-anchor-id="分散">分散</h2>
-<p>確率変数<span class="math inline">\(X\)</span>のばらつきを表す値としてよく用いられる<strong>分散</strong><span class="math inline">\(V(X)\)</span>は <a href="#eq-var">Equation&nbsp;15</a> で定義される。ただし、<span class="math inline">\(\mu = E(X)\)</span>とした。</p>
-<p><span id="eq-var"><span class="math display">\[
-V(X) = \int^{\infty}_{- \infty} (x -\mu)^{2} f(x) dx
-\tag{15}\]</span></span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-分散の性質
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><span class="math inline">\(a, b\)</span>が定数のとき、<span class="math inline">\(V(a X + b) = a^{2} V(X)\)</span></li>
-<li><span class="math inline">\(V(X) = E(X^{2}) - E(X)^{2}\)</span></li>
-</ul>
-</div>
-</div>
-<p>また、<span class="math inline">\(\sqrt{V(X)}\)</span>を<strong>標準偏差</strong>と呼ぶ。</p>
-</section>
-<section id="共分散相関係数" class="level2">
-<h2 class="anchored" data-anchor-id="共分散相関係数">共分散・相関係数</h2>
-<p>二つの確率変数<span class="math inline">\(X, Y\)</span>間の相関関係の強さを表す値としてよく用いられる<strong>(ピアソンの)相関係数</strong><span class="math inline">\(R(X, Y)\)</span>は <a href="#eq-relation">Equation&nbsp;16</a> で定義される。このときの<span class="math inline">\(C(X, Y)\)</span>は<strong>共分散</strong>という。ただし、<span class="math inline">\(\mu_{x} = E(X), \mu_{y} = E(Y), \sigma_{x} = \sqrt{V(X)}, \sigma_{y} = \sqrt{V(Y)}\)</span>とした。</p>
-<p><span id="eq-relation"><span class="math display">\[
-\begin{split}
-&amp;C(X, Y) = E((X - \mu_{x})(Y - \mu_{y})) \\
-&amp;R(X, Y) = \frac{C(X, Y)}{\sigma_{x} \sigma_{y}}
-\end{split}
-\tag{16}\]</span></span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-共分散・相関係数の性質
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><span class="math inline">\(C(X, Y) = E(XY) - E(X) E(Y)\)</span></li>
-<li><span class="math inline">\(X, Y\)</span>が独立のとき、<span class="math inline">\(C(X, Y) = R(X, Y) = 0\)</span></li>
-<li><span class="math inline">\(V(X_{1} + V_{2} + \cdots + X_{n}) = \sum^{n}_{i = 1} V(X_{i}) + 2 \sum_{i &lt; j} C(X_{i}, X_{j})\)</span>
-<ul>
-<li>特に<span class="math inline">\(X_{1} + V_{2} + \cdots + X_{n}\)</span>が独立のときは、<span class="math inline">\(V(X_{1} + V_{2} + \cdots + X_{n}) = \sum^{n}_{i = 1} V(X_{i})\)</span></li>
-</ul></li>
-<li><span class="math inline">\(|R(X, Y)| \leqq 1\)</span>
-<ul>
-<li>特に<span class="math inline">\(R(X, Y) = \pm 1 \Rightarrow \frac{X - E(X)}{\sqrt{V(X)}} \mp \frac{Y - E(Y)}{\sqrt{V(Y)}} = 0\)</span>(複合同順)</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<p>相関係数には大まかに以下の意味がある。</p>
-<ul>
-<li>1に近いほど、「<span class="math inline">\(X\)</span>が大きいならば<span class="math inline">\(Y\)</span>も大きい」</li>
-<li>-1に近いほど、「<span class="math inline">\(X\)</span>が大きいならば<span class="math inline">\(Y\)</span>は小さい」</li>
-</ul>
-<p>これらの傾向をカットオフで分割し、 <a href="#tbl-relation">Table&nbsp;1</a> のように考察することができる。ただし、このカットオフは一般的な例であることに注意する。</p>
-<div id="tbl-relation" class="anchored">
-<table class="table">
-<caption>Table&nbsp;1: 相関係数から得られる考察</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;">相関係数</th>
-<th>考察</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(-1 \leqq x \leqq -0.7\)</span></td>
-<td>負の強相関</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(-0.7 \leqq x \leqq -0.4\)</span></td>
-<td>負の相関</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(-0.4 \leqq x \leqq -0.2\)</span></td>
-<td>負の弱相関</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(-0.2 \leqq x \leqq 0.2\)</span></td>
-<td>無相関</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(0.2 \leqq x \leqq 0.4\)</span></td>
-<td>正の弱相関</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(0.4 \leqq x \leqq 0.7\)</span></td>
-<td>正の相関</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(0.7 \leqq x \leqq 1\)</span></td>
-<td>正の強相関</td>
-</tr>
-</tbody>
-</table>
 </div>
 
 
