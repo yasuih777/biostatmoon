@@ -6,7 +6,6 @@ date-modified: 02-04-2024
 categories:
     - 確率統計
 order: 3
-draft: true
 ---
 
 # 標本抽出
