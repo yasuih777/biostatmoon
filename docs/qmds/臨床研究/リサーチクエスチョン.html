@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.529">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,12 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +61,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -77,7 +83,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <meta property="og:title" content="BiostatMoon">
 <meta property="og:description" content="Study biostatistics related math, programming and clinical research">
 <meta property="og:image" content="images/profile.png">
-<meta property="og:site-name" content="BiostatMoon">
+<meta property="og:site_name" content="BiostatMoon">
 <meta name="twitter:title" content="BiostatMoon">
 <meta name="twitter:description" content="Study biostatistics related math, programming and clinical research">
 <meta name="twitter:image" content="images/profile.png">
@@ -88,9 +94,9 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="index.qmd" class="navbar-brand navbar-brand-logo">
     <img src="../../images/profile.png" alt="" class="navbar-logo">
     </a>
@@ -105,52 +111,52 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../qmds/index.html" rel="" target="" aria-current="page">
- <span class="menu-text">ホーム</span></a>
+    <a class="nav-link active" href="../../qmds/index.html" aria-current="page"> 
+<span class="menu-text">ホーム</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/記事一覧.html" rel="" target="">
- <span class="menu-text">記事一覧</span></a>
+    <a class="nav-link" href="../../qmds/記事一覧.html"> 
+<span class="menu-text">記事一覧</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/ツール一覧.html" rel="" target="">
- <span class="menu-text">ツール一覧</span></a>
+    <a class="nav-link" href="../../qmds/ツール一覧.html"> 
+<span class="menu-text">ツール一覧</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/管理者.html" rel="" target="">
- <span class="menu-text">管理者</span></a>
+    <a class="nav-link" href="../../qmds/管理者.html"> 
+<span class="menu-text">管理者</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/実行環境.html" rel="" target="">
- <span class="menu-text">実行環境</span></a>
+    <a class="nav-link" href="../../qmds/実行環境.html"> 
+<span class="menu-text">実行環境</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/お問い合わせ.html" rel="" target="">
- <span class="menu-text">お問い合わせ</span></a>
+    <a class="nav-link" href="../../qmds/お問い合わせ.html"> 
+<span class="menu-text">お問い合わせ</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-    <a href="https://github.com/yasuih777/biostatmoon" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-    <a href="https://twitter.com/yugetsubiostat" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+    <a href="https://github.com/yasuih777/biostatmoon" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://twitter.com/yugetsubiostat" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../../qmds/臨床研究/リサーチクエスチョン.html">臨床研究</a></li><li class="breadcrumb-item"><a href="../../qmds/臨床研究/リサーチクエスチョン.html">リサーチクエスチョン</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../../qmds/臨床研究/リサーチクエスチョン.html">臨床研究</a></li><li class="breadcrumb-item"><a href="../../qmds/臨床研究/リサーチクエスチョン.html">リサーチクエスチョン</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
@@ -212,7 +218,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
- <span class="menu-text">プログラミング</span></a>
+ <span class="menu-text">データサイエンス</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -221,12 +227,40 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
- <span class="menu-text">Python</span></a>
+ <span class="menu-text">データエンジニアリング</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmds/データサイエンス/データエンジニアリング/整然データ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">整然データ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">プログラミング</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/プログラミング/python/環境構築.html" class="sidebar-item-text sidebar-link">
@@ -243,13 +277,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
  <span class="menu-text">R</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/プログラミング/R/環境構築.html" class="sidebar-item-text sidebar-link">
@@ -260,13 +294,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
  <span class="menu-text">その他</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/プログラミング/その他/anaconda.html" class="sidebar-item-text sidebar-link">
@@ -285,13 +319,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
  <span class="menu-text">生物統計学</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/生物統計学/確率論.html" class="sidebar-item-text sidebar-link">
@@ -314,13 +348,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true">
  <span class="menu-text">臨床研究</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/臨床研究/リサーチクエスチョン.html" class="sidebar-item-text sidebar-link active">
@@ -340,7 +374,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -360,7 +394,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../../qmds/臨床研究/リサーチクエスチョン.html">臨床研究</a></li><li class="breadcrumb-item"><a href="../../qmds/臨床研究/リサーチクエスチョン.html">リサーチクエスチョン</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">リサーチクエスチョン</h1>
   <div class="quarto-categories">
@@ -391,55 +425,65 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   
 <div>
   <div class="abstract">
-    <div class="abstract-title">Abstract</div>
+    <div class="block-title">Abstract</div>
     リサーチクエスチョンの立て方
   </div>
 </div>
 
+
 </header>
+
 
 <section id="リサーチクエスチョン" class="level1 page-columns page-full">
 <h1>リサーチクエスチョン</h1>
-<p><strong>リサーチクエスチョン</strong>とは研究によって明らかにしたい問いである。疑問の種類も様々 <a href="#fig-research-question">Figure&nbsp;1</a> だが、リサーチクエスチョンは疑問をどんどん掘り下げていってネットや文献で調べてもすぐに分からないものが候補となる。リサーチクエスチョンが明確であると、適切な研究デザインや統計解析を選択でき良い考察を得やすい。加えて、仮説にまで落とし込むことで論証までの道筋が明確になる他、結論を仮説通りだったか否かの二元論で述べることができるので主張がしやすくなるという大きな利点がある。また、p-hackingなどの統計不正を防ぐ効果もある。</p>
-<div class="cell page-columns page-full" data-fig-height="250px">
+<p><strong>リサーチクエスチョン</strong>とは研究によって明らかにしたい問いである。疑問の種類も様々 <a href="#fig-research-question" class="quarto-xref">Figure&nbsp;1</a> だが、リサーチクエスチョンは疑問をどんどん掘り下げていってネットや文献で調べてもすぐに分からないものが候補となる。リサーチクエスチョンが明確であると、適切な研究デザインや統計解析を選択でき良い考察を得やすい。加えて、仮説にまで落とし込むことで論証までの道筋が明確になる他、結論を仮説通りだったか否かの二元論で述べることができるので主張がしやすくなるという大きな利点がある。また、p-hackingなどの統計不正を防ぐ効果もある。</p>
+<div class="cell page-columns page-full" data-fig-height="250px" data-layout-align="default">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-research-question" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-research-question-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <svg width="672" height="250" viewbox="0.00 0.00 363.00 141.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 137.6)">
-<title>
-G
-</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-137.6 359,-137.6 359,4 -4,4"></polygon> <g id="clust1" class="cluster">
-<title>
-%59
-</title>
-<polygon fill="none" stroke="black" points="8,-8 8,-125.6 347,-125.6 347,-8 8,-8"></polygon> <text text-anchor="middle" x="177.5" y="-109" font-family="Times,serif" font-size="14.00">Clinical question</text> </g> <g id="clust2" class="cluster">
-<title>
-%61
-</title>
-<polygon fill="none" stroke="black" points="204,-16 204,-92.8 339,-92.8 339,-16 204,-16"></polygon> <text text-anchor="middle" x="271.5" y="-76.2" font-family="Times,serif" font-size="14.00">Background question</text> </g> <g id="clust3" class="cluster">
-<title>
-%63
-</title>
-<polygon fill="none" stroke="black" points="16,-16 16,-92.8 196,-92.8 196,-16 16,-16"></polygon> <text text-anchor="middle" x="106" y="-76.2" font-family="Times,serif" font-size="14.00">Foreground question</text> </g> <!-- hidden --> <g id="node1" class="node">
-<title>
-hidden
-</title>
-</g> <!-- research --> <g id="node2" class="node">
-<title>
-research
-</title>
-<ellipse fill="none" stroke="black" cx="106" cy="-42" rx="81.63" ry="18"></ellipse> <text text-anchor="start" x="54.88" y="-37.8" font-family="Times,serif" font-size="14.00">Research question</text> </g> </g>
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-137.6 359,-137.6 359,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>%59</title>
+<polygon fill="none" stroke="black" points="8,-8 8,-125.6 347,-125.6 347,-8 8,-8"></polygon>
+<text text-anchor="middle" x="177.5" y="-109" font-family="Times,serif" font-size="14.00">Clinical question</text>
+</g>
+<g id="clust2" class="cluster">
+<title>%61</title>
+<polygon fill="none" stroke="black" points="204,-16 204,-92.8 339,-92.8 339,-16 204,-16"></polygon>
+<text text-anchor="middle" x="271.5" y="-76.2" font-family="Times,serif" font-size="14.00">Background question</text>
+</g>
+<g id="clust3" class="cluster">
+<title>%63</title>
+<polygon fill="none" stroke="black" points="16,-16 16,-92.8 196,-92.8 196,-16 16,-16"></polygon>
+<text text-anchor="middle" x="106" y="-76.2" font-family="Times,serif" font-size="14.00">Foreground question</text>
+</g>
+<!-- hidden -->
+<g id="node1" class="node">
+<title>hidden</title>
+</g>
+<!-- research -->
+<g id="node2" class="node">
+<title>research</title>
+<ellipse fill="none" stroke="black" cx="106" cy="-42" rx="81.63" ry="18"></ellipse>
+<text text-anchor="start" x="54.88" y="-37.8" font-family="Times,serif" font-size="14.00">Research question</text>
+</g>
+</g>
 </svg>
 </div>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;1: リサーチクエスチョンの立ち位置</figcaption>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-research-question-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: リサーチクエスチョンの立ち位置
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled page-columns page-full">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -448,79 +492,104 @@ research
 リサーチクエスチョンに関連する疑問
 </div>
 </div>
-<div class="callout-body-container callout-body page-columns page-full">
+<div class="callout-body-container callout-body">
 <ul>
-<li>臨床上の疑問を<strong>クリニカルクエスチョン</strong>という。クリニカルクエスチョンは以下の2つに分類できる <a href="#fig-question">Figure&nbsp;2</a>
+<li>臨床上の疑問を<strong>クリニカルクエスチョン</strong>という。クリニカルクエスチョンは以下の2つに分類できる <a href="#fig-question" class="quarto-xref">Figure&nbsp;2</a>
 <ul>
 <li>基本的な知識や用語、概念等に関する疑問(<strong>背景疑問</strong>)</li>
 <li>それらの知識や概念を結び付けることによって生まれる疑問(<strong>前景疑問</strong>)</li>
 </ul></li>
 </ul>
-<div class="cell page-columns page-full" data-fig-height="250px">
-<div class="cell-output-display page-columns page-full">
-<div id="fig-question" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
+<div class="cell" data-fig-height="250px" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-question" class="quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure" aria-labelledby="fig-question-caption">
+<div aria-describedby="fig-question-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <svg width="672" height="250" viewbox="0.00 0.00 232.21 213.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 209)">
-<title>
-G
-</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-209 228.21,-209 228.21,4 -4,4"></polygon> <!-- a --> <g id="node1" class="node">
-<title>
-a
-</title>
-<ellipse fill="none" stroke="black" cx="18" cy="-18" rx="18" ry="18"></ellipse> <text text-anchor="middle" x="18" y="-13.8" font-family="Times,serif" font-size="14.00">B</text> </g> <!-- c --> <g id="node3" class="node">
-<title>
-c
-</title>
-<ellipse fill="none" stroke="black" cx="78.47" cy="-65.23" rx="18" ry="18"></ellipse> <text text-anchor="middle" x="78.47" y="-61.03" font-family="Times,serif" font-size="14.00">B</text> </g> <!-- a&#45;&#45;c --> <g id="edge1" class="edge">
-<title>
-a–c
-</title>
-<path fill="none" stroke="black" d="M32.33,-29.19C41.97,-36.72 54.63,-46.61 64.24,-54.12"></path> <text text-anchor="middle" x="44.39" y="-45.86" font-family="Times,serif" font-size="14.00">F</text> </g> <!-- b --> <g id="node2" class="node">
-<title>
-b
-</title>
-<ellipse fill="none" stroke="black" cx="149.9" cy="-37.17" rx="18" ry="18"></ellipse> <text text-anchor="middle" x="149.9" y="-32.97" font-family="Times,serif" font-size="14.00">B</text> </g> <!-- b&#45;&#45;c --> <g id="edge2" class="edge">
-<title>
-b–c
-</title>
-<path fill="none" stroke="black" d="M132.97,-43.82C121.58,-48.29 106.64,-54.16 95.28,-58.63"></path> <text text-anchor="middle" x="110.23" y="-55.42" font-family="Times,serif" font-size="14.00">F</text> </g> <!-- d --> <g id="node4" class="node">
-<title>
-d
-</title>
-<ellipse fill="none" stroke="black" cx="67.45" cy="-141.23" rx="18" ry="18"></ellipse> <text text-anchor="middle" x="67.45" y="-137.03" font-family="Times,serif" font-size="14.00">B</text> </g> <!-- c&#45;&#45;d --> <g id="edge3" class="edge">
-<title>
-c–d
-</title>
-<path fill="none" stroke="black" d="M75.86,-83.24C74.1,-95.36 71.8,-111.26 70.05,-123.35"></path> <text text-anchor="middle" x="69.06" y="-107.49" font-family="Times,serif" font-size="14.00">F</text> </g> <!-- e --> <g id="node5" class="node">
-<title>
-e
-</title>
-<ellipse fill="none" stroke="black" cx="135" cy="-132.64" rx="18" ry="18"></ellipse> <text text-anchor="middle" x="135" y="-128.44" font-family="Times,serif" font-size="14.00">B</text> </g> <!-- f --> <g id="node6" class="node">
-<title>
-f
-</title>
-<ellipse fill="none" stroke="black" cx="206.21" cy="-122" rx="18" ry="18"></ellipse> <text text-anchor="middle" x="206.21" y="-117.8" font-family="Times,serif" font-size="14.00">B</text> </g> <!-- e&#45;&#45;f --> <g id="edge4" class="edge">
-<title>
-e–f
-</title>
-<path fill="none" stroke="black" d="M152.97,-129.95C163.68,-128.35 177.24,-126.33 188,-124.72"></path> <text text-anchor="middle" x="166.59" y="-131.54" font-family="Times,serif" font-size="14.00">F</text> </g> <!-- g --> <g id="node7" class="node">
-<title>
-g
-</title>
-<ellipse fill="none" stroke="black" cx="200" cy="-187" rx="18" ry="18"></ellipse> <text text-anchor="middle" x="200" y="-182.8" font-family="Times,serif" font-size="14.00">B</text> </g> </g>
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-209 228.21,-209 228.21,4 -4,4"></polygon>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<ellipse fill="none" stroke="black" cx="18" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="18" y="-13.8" font-family="Times,serif" font-size="14.00">B</text>
+</g>
+<!-- c -->
+<g id="node3" class="node">
+<title>c</title>
+<ellipse fill="none" stroke="black" cx="78.47" cy="-65.23" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="78.47" y="-61.03" font-family="Times,serif" font-size="14.00">B</text>
+</g>
+<!-- a&#45;&#45;c -->
+<g id="edge1" class="edge">
+<title>a--c</title>
+<path fill="none" stroke="black" d="M32.33,-29.19C41.97,-36.72 54.63,-46.61 64.24,-54.12"></path>
+<text text-anchor="middle" x="44.39" y="-45.86" font-family="Times,serif" font-size="14.00">F</text>
+</g>
+<!-- b -->
+<g id="node2" class="node">
+<title>b</title>
+<ellipse fill="none" stroke="black" cx="149.9" cy="-37.17" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="149.9" y="-32.97" font-family="Times,serif" font-size="14.00">B</text>
+</g>
+<!-- b&#45;&#45;c -->
+<g id="edge2" class="edge">
+<title>b--c</title>
+<path fill="none" stroke="black" d="M132.97,-43.82C121.58,-48.29 106.64,-54.16 95.28,-58.63"></path>
+<text text-anchor="middle" x="110.23" y="-55.42" font-family="Times,serif" font-size="14.00">F</text>
+</g>
+<!-- d -->
+<g id="node4" class="node">
+<title>d</title>
+<ellipse fill="none" stroke="black" cx="67.45" cy="-141.23" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="67.45" y="-137.03" font-family="Times,serif" font-size="14.00">B</text>
+</g>
+<!-- c&#45;&#45;d -->
+<g id="edge3" class="edge">
+<title>c--d</title>
+<path fill="none" stroke="black" d="M75.86,-83.24C74.1,-95.36 71.8,-111.26 70.05,-123.35"></path>
+<text text-anchor="middle" x="69.06" y="-107.49" font-family="Times,serif" font-size="14.00">F</text>
+</g>
+<!-- e -->
+<g id="node5" class="node">
+<title>e</title>
+<ellipse fill="none" stroke="black" cx="135" cy="-132.64" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="135" y="-128.44" font-family="Times,serif" font-size="14.00">B</text>
+</g>
+<!-- f -->
+<g id="node6" class="node">
+<title>f</title>
+<ellipse fill="none" stroke="black" cx="206.21" cy="-122" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="206.21" y="-117.8" font-family="Times,serif" font-size="14.00">B</text>
+</g>
+<!-- e&#45;&#45;f -->
+<g id="edge4" class="edge">
+<title>e--f</title>
+<path fill="none" stroke="black" d="M152.97,-129.95C163.68,-128.35 177.24,-126.33 188,-124.72"></path>
+<text text-anchor="middle" x="166.59" y="-131.54" font-family="Times,serif" font-size="14.00">F</text>
+</g>
+<!-- g -->
+<g id="node7" class="node">
+<title>g</title>
+<ellipse fill="none" stroke="black" cx="200" cy="-187" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="200" y="-182.8" font-family="Times,serif" font-size="14.00">B</text>
+</g>
+</g>
 </svg>
 </div>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;2: 背景疑問(B)と前景疑問(F)の関係性: 臨床医学に対する知識が背景疑問として一つ一つのノードとして表現でき、それらを結合するエッジが前景疑問となる</figcaption>
+</div>
+
 </figure>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="fig-question-caption" class="margin-figure-caption column-margin callout-margin-content">
+Figure&nbsp;2: 背景疑問(B)と前景疑問(F)の関係性: 臨床医学に対する知識が背景疑問として一つ一つのノードとして表現でき、それらを結合するエッジが前景疑問となる
+</div><div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -548,10 +617,14 @@ Example
 <p>よいリサーチクエスチョンを立てるために、様々な定性化が為されている。</p>
 <section id="finer" class="level2">
 <h2 class="anchored" data-anchor-id="finer">FINER</h2>
-<p>よいリサーチクエスチョンかを自己評価するために以下5項目の頭文字をとった<strong>FINGER</strong> <a href="#tbl-finer">Table&nbsp;1</a> が用いられる。これらを満たさないリサーチクエスチョンは解明するのに適さないということがいえる。</p>
+<p>よいリサーチクエスチョンかを自己評価するために以下5項目の頭文字をとった<strong>FINGER</strong> <a href="#tbl-finer" class="quarto-xref">Table&nbsp;1</a> が用いられる。これらを満たさないリサーチクエスチョンは解明するのに適さないということがいえる。</p>
 <div id="tbl-finer" class="anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-finer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: FINGER
+</figcaption>
+<div aria-describedby="tbl-finer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
-<caption>Table&nbsp;1: FINGER</caption>
 <tbody>
 <tr class="odd">
 <td><strong>F</strong>easibility</td>
@@ -576,13 +649,19 @@ Example
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 </section>
 <section id="pico" class="level2">
 <h2 class="anchored" data-anchor-id="pico">PICO</h2>
-<p>リサーチクエスチョンを要素ごとに分解し、研究デザインや解析方法の立案に役立てるフレームワークとして<strong>PICO(PECO)</strong> <a href="#tbl-pico">Table&nbsp;2</a> がある(場合によって、要素が追加されたり減らされたりする)。一般的に介入研究ときはPICE、観察研究のときはPICOが用いられる。PICO(PECO)を明確にしていくことで、既存の研究成果等のリサーチが容易になる。</p>
+<p>リサーチクエスチョンを要素ごとに分解し、研究デザインや解析方法の立案に役立てるフレームワークとして<strong>PICO(PECO)</strong> <a href="#tbl-pico" class="quarto-xref">Table&nbsp;2</a> がある(場合によって、要素が追加されたり減らされたりする)。一般的に介入研究ときはPICE、観察研究のときはPICOが用いられる。PICO(PECO)を明確にしていくことで、既存の研究成果等のリサーチが容易になる。</p>
 <div id="tbl-pico" class="anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pico-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: PICO(T), PECO(T)
+</figcaption>
+<div aria-describedby="tbl-pico-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
-<caption>Table&nbsp;2: PICO(T), PECO(T)</caption>
 <tbody>
 <tr class="odd">
 <td><strong>P</strong>opulation</td>
@@ -611,77 +690,108 @@ Example
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 </section>
 </section>
 <section id="リサーチクエスチョンと研究プロセスの関係性" class="level1 page-columns page-full">
 <h1>リサーチクエスチョンと研究プロセスの関係性</h1>
-<p>リサーチクエスチョンを立てた後、FINERおよびPICOでクエスチョンの定性評価を行った後に適切な研究プロセス <a href="#fig-process">Figure&nbsp;3</a> 経由することで最終的な結果をより良いものにすることができる。</p>
-<div class="cell page-columns page-full" data-fig-height="400px">
+<p>リサーチクエスチョンを立てた後、FINERおよびPICOでクエスチョンの定性評価を行った後に適切な研究プロセス <a href="#fig-process" class="quarto-xref">Figure&nbsp;3</a> 経由することで最終的な結果をより良いものにすることができる。</p>
+<div class="cell page-columns page-full" data-fig-height="400px" data-layout-align="default">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-process" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <svg width="672" height="400" viewbox="0.00 0.00 126.25 332.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 328)">
-<title>
-G
-</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-328 122.25,-328 122.25,4 -4,4"></polygon> <!-- clinical_ques --> <g id="node1" class="node">
-<title>
-clinical_ques
-</title>
-<polygon fill="none" stroke="black" points="114.89,-324 3.36,-324 3.36,-288 114.89,-288 114.89,-324"></polygon> <text text-anchor="middle" x="59.12" y="-301.8" font-family="Times,serif" font-size="14.00">Clinical question</text> </g> <!-- research_ques --> <g id="node2" class="node">
-<title>
-research_ques
-</title>
-<polygon fill="none" stroke="black" points="118.37,-252 -0.12,-252 -0.12,-216 118.37,-216 118.37,-252"></polygon> <text text-anchor="middle" x="59.12" y="-229.8" font-family="Times,serif" font-size="14.00">Research question</text> </g> <!-- clinical_ques&#45;&gt;research_ques --> <g id="edge1" class="edge">
-<title>
-clinical_ques-&gt;research_ques
-</title>
-<path fill="none" stroke="black" d="M40.58,-287.83C40.58,-287.83 40.58,-262.41 40.58,-262.41"></path> <polygon fill="black" stroke="black" points="44.08,-262.41 40.58,-252.41 37.08,-262.41 44.08,-262.41"></polygon> </g> <!-- research_ques&#45;&gt;clinical_ques --> <g id="edge8" class="edge">
-<title>
-research_ques-&gt;clinical_ques
-</title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M77.67,-252.17C77.67,-252.17 77.67,-277.59 77.67,-277.59"></path> <polygon fill="black" stroke="black" points="74.17,-277.59 77.67,-287.59 81.17,-277.59 74.17,-277.59"></polygon> </g> <!-- research_des --> <g id="node3" class="node">
-<title>
-research_des
-</title>
-<polygon fill="none" stroke="black" points="112.98,-180 5.27,-180 5.27,-144 112.98,-144 112.98,-180"></polygon> <text text-anchor="middle" x="59.12" y="-157.8" font-family="Times,serif" font-size="14.00">Research desgin</text> </g> <!-- research_ques&#45;&gt;research_des --> <g id="edge2" class="edge">
-<title>
-research_ques-&gt;research_des
-</title>
-<path fill="none" stroke="black" d="M41.23,-215.83C41.23,-215.83 41.23,-190.41 41.23,-190.41"></path> <polygon fill="black" stroke="black" points="44.73,-190.41 41.23,-180.41 37.73,-190.41 44.73,-190.41"></polygon> </g> <!-- research_des&#45;&gt;research_ques --> <g id="edge7" class="edge">
-<title>
-research_des-&gt;research_ques
-</title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M77.02,-180.17C77.02,-180.17 77.02,-205.59 77.02,-205.59"></path> <polygon fill="black" stroke="black" points="73.52,-205.59 77.02,-215.59 80.52,-205.59 73.52,-205.59"></polygon> </g> <!-- data_analysis --> <g id="node4" class="node">
-<title>
-data_analysis
-</title>
-<polygon fill="none" stroke="black" points="104.65,-108 13.59,-108 13.59,-72 104.65,-72 104.65,-108"></polygon> <text text-anchor="middle" x="59.12" y="-85.8" font-family="Times,serif" font-size="14.00">Data analysis</text> </g> <!-- research_des&#45;&gt;data_analysis --> <g id="edge3" class="edge">
-<title>
-research_des-&gt;data_analysis
-</title>
-<path fill="none" stroke="black" d="M43.95,-143.83C43.95,-143.83 43.95,-118.41 43.95,-118.41"></path> <polygon fill="black" stroke="black" points="47.45,-118.41 43.95,-108.41 40.45,-118.41 47.45,-118.41"></polygon> </g> <!-- data_analysis&#45;&gt;research_des --> <g id="edge6" class="edge">
-<title>
-data_analysis-&gt;research_des
-</title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M74.29,-108.17C74.29,-108.17 74.29,-133.59 74.29,-133.59"></path> <polygon fill="black" stroke="black" points="70.79,-133.59 74.29,-143.59 77.79,-133.59 70.79,-133.59"></polygon> </g> <!-- consensus --> <g id="node5" class="node">
-<title>
-consensus
-</title>
-<polygon fill="none" stroke="black" points="97.02,-36 21.23,-36 21.23,0 97.02,0 97.02,-36"></polygon> <text text-anchor="middle" x="59.12" y="-13.8" font-family="Times,serif" font-size="14.00">Consensus</text> </g> <!-- data_analysis&#45;&gt;consensus --> <g id="edge4" class="edge">
-<title>
-data_analysis-&gt;consensus
-</title>
-<path fill="none" stroke="black" d="M46.47,-71.83C46.47,-71.83 46.47,-46.41 46.47,-46.41"></path> <polygon fill="black" stroke="black" points="49.97,-46.41 46.47,-36.41 42.97,-46.41 49.97,-46.41"></polygon> </g> <!-- consensus&#45;&gt;data_analysis --> <g id="edge5" class="edge">
-<title>
-consensus-&gt;data_analysis
-</title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M71.77,-36.17C71.77,-36.17 71.77,-61.59 71.77,-61.59"></path> <polygon fill="black" stroke="black" points="68.27,-61.59 71.77,-71.59 75.27,-61.59 68.27,-61.59"></polygon> </g> </g>
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-328 122.25,-328 122.25,4 -4,4"></polygon>
+<!-- clinical_ques -->
+<g id="node1" class="node">
+<title>clinical_ques</title>
+<polygon fill="none" stroke="black" points="114.89,-324 3.36,-324 3.36,-288 114.89,-288 114.89,-324"></polygon>
+<text text-anchor="middle" x="59.12" y="-301.8" font-family="Times,serif" font-size="14.00">Clinical question</text>
+</g>
+<!-- research_ques -->
+<g id="node2" class="node">
+<title>research_ques</title>
+<polygon fill="none" stroke="black" points="118.37,-252 -0.12,-252 -0.12,-216 118.37,-216 118.37,-252"></polygon>
+<text text-anchor="middle" x="59.12" y="-229.8" font-family="Times,serif" font-size="14.00">Research question</text>
+</g>
+<!-- clinical_ques&#45;&gt;research_ques -->
+<g id="edge1" class="edge">
+<title>clinical_ques-&gt;research_ques</title>
+<path fill="none" stroke="black" d="M40.58,-287.83C40.58,-287.83 40.58,-262.41 40.58,-262.41"></path>
+<polygon fill="black" stroke="black" points="44.08,-262.41 40.58,-252.41 37.08,-262.41 44.08,-262.41"></polygon>
+</g>
+<!-- research_ques&#45;&gt;clinical_ques -->
+<g id="edge8" class="edge">
+<title>research_ques-&gt;clinical_ques</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M77.67,-252.17C77.67,-252.17 77.67,-277.59 77.67,-277.59"></path>
+<polygon fill="black" stroke="black" points="74.17,-277.59 77.67,-287.59 81.17,-277.59 74.17,-277.59"></polygon>
+</g>
+<!-- research_des -->
+<g id="node3" class="node">
+<title>research_des</title>
+<polygon fill="none" stroke="black" points="112.98,-180 5.27,-180 5.27,-144 112.98,-144 112.98,-180"></polygon>
+<text text-anchor="middle" x="59.12" y="-157.8" font-family="Times,serif" font-size="14.00">Research desgin</text>
+</g>
+<!-- research_ques&#45;&gt;research_des -->
+<g id="edge2" class="edge">
+<title>research_ques-&gt;research_des</title>
+<path fill="none" stroke="black" d="M41.23,-215.83C41.23,-215.83 41.23,-190.41 41.23,-190.41"></path>
+<polygon fill="black" stroke="black" points="44.73,-190.41 41.23,-180.41 37.73,-190.41 44.73,-190.41"></polygon>
+</g>
+<!-- research_des&#45;&gt;research_ques -->
+<g id="edge7" class="edge">
+<title>research_des-&gt;research_ques</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M77.02,-180.17C77.02,-180.17 77.02,-205.59 77.02,-205.59"></path>
+<polygon fill="black" stroke="black" points="73.52,-205.59 77.02,-215.59 80.52,-205.59 73.52,-205.59"></polygon>
+</g>
+<!-- data_analysis -->
+<g id="node4" class="node">
+<title>data_analysis</title>
+<polygon fill="none" stroke="black" points="104.65,-108 13.59,-108 13.59,-72 104.65,-72 104.65,-108"></polygon>
+<text text-anchor="middle" x="59.12" y="-85.8" font-family="Times,serif" font-size="14.00">Data analysis</text>
+</g>
+<!-- research_des&#45;&gt;data_analysis -->
+<g id="edge3" class="edge">
+<title>research_des-&gt;data_analysis</title>
+<path fill="none" stroke="black" d="M43.95,-143.83C43.95,-143.83 43.95,-118.41 43.95,-118.41"></path>
+<polygon fill="black" stroke="black" points="47.45,-118.41 43.95,-108.41 40.45,-118.41 47.45,-118.41"></polygon>
+</g>
+<!-- data_analysis&#45;&gt;research_des -->
+<g id="edge6" class="edge">
+<title>data_analysis-&gt;research_des</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M74.29,-108.17C74.29,-108.17 74.29,-133.59 74.29,-133.59"></path>
+<polygon fill="black" stroke="black" points="70.79,-133.59 74.29,-143.59 77.79,-133.59 70.79,-133.59"></polygon>
+</g>
+<!-- consensus -->
+<g id="node5" class="node">
+<title>consensus</title>
+<polygon fill="none" stroke="black" points="97.02,-36 21.23,-36 21.23,0 97.02,0 97.02,-36"></polygon>
+<text text-anchor="middle" x="59.12" y="-13.8" font-family="Times,serif" font-size="14.00">Consensus</text>
+</g>
+<!-- data_analysis&#45;&gt;consensus -->
+<g id="edge4" class="edge">
+<title>data_analysis-&gt;consensus</title>
+<path fill="none" stroke="black" d="M46.47,-71.83C46.47,-71.83 46.47,-46.41 46.47,-46.41"></path>
+<polygon fill="black" stroke="black" points="49.97,-46.41 46.47,-36.41 42.97,-46.41 49.97,-46.41"></polygon>
+</g>
+<!-- consensus&#45;&gt;data_analysis -->
+<g id="edge5" class="edge">
+<title>consensus-&gt;data_analysis</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M71.77,-36.17C71.77,-36.17 71.77,-61.59 71.77,-61.59"></path>
+<polygon fill="black" stroke="black" points="68.27,-61.59 71.77,-71.59 75.27,-61.59 68.27,-61.59"></polygon>
+</g>
+</g>
 </svg>
 </div>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;3: 適切な研究プロセス</figcaption>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: 適切な研究プロセス
+</figcaption>
 </figure>
 </div>
 </div>
@@ -690,7 +800,7 @@ consensus-&gt;data_analysis
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div>CC BY 4.0 DEED</div></div></section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -770,10 +880,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -783,8 +912,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -797,6 +935,120 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -840,6 +1092,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -865,8 +1118,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-      // Handle positioning of the toggle
-      window.addEventListener(
+        // Handle positioning of the toggle
+    window.addEventListener(
       "resize",
       throttle(() => {
         elRect = undefined;
@@ -874,23 +1127,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           selectCodeLines(selectedAnnoteEl);
         }
       }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
               fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
       for (let i=0; i<annoteTargets.length; i++) {
         const annoteTarget = annoteTargets[i];
@@ -935,7 +1188,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               options: {
                 flipVariations: false, // true by default
                 allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
               },
             },
             {
@@ -987,22 +1240,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
@@ -1011,12 +1248,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2024, 優月</div>
+    <div class="nav-footer-center">
+<p>Copyright 2024, 優月</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 

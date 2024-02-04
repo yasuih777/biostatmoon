@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-01-24">
+<meta name="dcterms.date" content="2024-02-02">
 
-<title>BiostatMoon - R環境構築</title>
+<title>BiostatMoon - 整然データ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -181,7 +147,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item">プログラミング</li><li class="breadcrumb-item"><a href="../../../qmds/プログラミング/R/環境構築.html">R</a></li><li class="breadcrumb-item"><a href="../../../qmds/プログラミング/R/環境構築.html">R環境構築</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item">データサイエンス</li><li class="breadcrumb-item"><a href="../../../qmds/データサイエンス/データエンジニアリング/整然データ.html">データエンジニアリング</a></li><li class="breadcrumb-item"><a href="../../../qmds/データサイエンス/データエンジニアリング/整然データ.html">整然データ</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -251,25 +217,25 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">データサイエンス</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">データエンジニアリング</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../qmds/データサイエンス/データエンジニアリング/整然データ.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../qmds/データサイエンス/データエンジニアリング/整然データ.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">整然データ</span></a>
   </div>
 </li>
@@ -279,13 +245,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
  <span class="menu-text">プログラミング</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
@@ -311,16 +277,16 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
  <span class="menu-text">R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../qmds/プログラミング/R/環境構築.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../qmds/プログラミング/R/環境構築.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R環境構築</span></a>
   </div>
 </li>
@@ -411,35 +377,17 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#rにおける環境構築" id="toc-rにおける環境構築" class="nav-link active" data-scroll-target="#rにおける環境構築">Rにおける環境構築</a></li>
-  <li><a href="#rstudio-server-renvのインストール" id="toc-rstudio-server-renvのインストール" class="nav-link" data-scroll-target="#rstudio-server-renvのインストール">RStudio Server, renvのインストール</a>
-  <ul class="collapse">
-  <li><a href="#rstudio-server" id="toc-rstudio-server" class="nav-link" data-scroll-target="#rstudio-server">RStudio Server</a></li>
-  <li><a href="#renvのインストール" id="toc-renvのインストール" class="nav-link" data-scroll-target="#renvのインストール">renvのインストール</a></li>
-  </ul></li>
-  <li><a href="#rstudio-serverの起動" id="toc-rstudio-serverの起動" class="nav-link" data-scroll-target="#rstudio-serverの起動">Rstudio Serverの起動</a></li>
-  <li><a href="#開発環境構築" id="toc-開発環境構築" class="nav-link" data-scroll-target="#開発環境構築">開発環境構築</a>
-  <ul class="collapse">
-  <li><a href="#プロジェクトの作成" id="toc-プロジェクトの作成" class="nav-link" data-scroll-target="#プロジェクトの作成">プロジェクトの作成</a></li>
-  <li><a href="#renvの初期設定" id="toc-renvの初期設定" class="nav-link" data-scroll-target="#renvの初期設定">renvの初期設定</a></li>
-  <li><a href="#renvによるパッケージ管理" id="toc-renvによるパッケージ管理" class="nav-link" data-scroll-target="#renvによるパッケージ管理">renvによるパッケージ管理</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item">プログラミング</li><li class="breadcrumb-item"><a href="../../../qmds/プログラミング/R/環境構築.html">R</a></li><li class="breadcrumb-item"><a href="../../../qmds/プログラミング/R/環境構築.html">R環境構築</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item">データサイエンス</li><li class="breadcrumb-item"><a href="../../../qmds/データサイエンス/データエンジニアリング/整然データ.html">データエンジニアリング</a></li><li class="breadcrumb-item"><a href="../../../qmds/データサイエンス/データエンジニアリング/整然データ.html">整然データ</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">R環境構築</h1>
+<h1 class="title">整然データ</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">R</div>
-    <div class="quarto-category">開発環境</div>
+    <div class="quarto-category">データサイエンス</div>
+    <div class="quarto-category">データエンジニアリング</div>
   </div>
   </div>
 
@@ -451,14 +399,14 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-24</p>
+      <p class="date">2024-02-02</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-01-24</p>
+      <p class="date-modified">2024-02-03</p>
     </div>
   </div>
     
@@ -467,7 +415,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <div>
   <div class="abstract">
     <div class="block-title">Abstract</div>
-    Rstudio + renvを利用した環境構築
+    分析や可視化に向いているデータ構造について
   </div>
 </div>
 
@@ -475,117 +423,8 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 </header>
 
 
-<p>※このページのOSは以下とする。</p>
-<pre><code>OS: Windows11 WSL, Ubuntu 22.4</code></pre>
-<section id="rにおける環境構築" class="level1">
-<h1>Rにおける環境構築</h1>
-<p>Rの環境構築は<code>RStudio</code>を、パッケージ管理は<code>renv</code>を使うのがメジャーである。この記事でもこれらを使用した開発環境構築を行う。</p>
-<ul>
-<li>RStudio: RのIDE、プロジェクト作成から対話モードによるプログラミングまで全てこれ一つで賄える: <a href="https://posit.co/products/open-source/rstudio/">公式リンク</a>
-<ul>
-<li>WSL2環境なので、デスクトップ版ではなく<code>RStudio Server</code>を使用する。</li>
-</ul></li>
-<li>renv: パッケージ管理を行うことができるパッケージ: <a href="https://rstudio.github.io/renv/index.html">公式リンク</a></li>
-</ul>
-</section>
-<section id="rstudio-server-renvのインストール" class="level1">
-<h1>RStudio Server, renvのインストール</h1>
-<p>あらかじめ<code>apt</code>をアップデートしておく。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>sudo apt update</span>
-<span id="cb2-2"><a href="#cb2-2"></a>sudo apt upgrade</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="rstudio-server" class="level2">
-<h2 class="anchored" data-anchor-id="rstudio-server">RStudio Server</h2>
-<ol type="1">
-<li>Rのインストール</li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc</span>
-<span id="cb3-2"><a href="#cb3-2"></a>sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"</span>
-<span id="cb3-3"><a href="#cb3-3"></a>sudo apt install --no-install-recommends r-base</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>以下コマンドを実行。バージョン情報がでればOK</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>R --version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>RStudio Serverのインストール</li>
-</ol>
-<pre><code>wget https://rstudio.org/download/latest/stable/server/bionic/rstudio-server-latest-amd64.deb
-sudo apt install gdebi
-sudo gdebi rstudio-server-latest-amd64.deb</code></pre>
-<p>以下コマンドを実行。コマンド一覧がでればOK。</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>rstudio-server</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="renvのインストール" class="level2">
-<h2 class="anchored" data-anchor-id="renvのインストール">renvのインストール</h2>
-<ol type="1">
-<li>Rを起動する</li>
-</ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1"></a>R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>Rの標準関数<code>install.packages</code>で<code>renv</code>をインストール</li>
-</ol>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>ライブラリがインポートできるか確認</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">library</span>(renv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="3" type="1">
-<li>Rを終了する</li>
-</ol>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">q</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="rstudio-serverの起動" class="level1">
-<h1>Rstudio Serverの起動</h1>
-<ol type="1">
-<li>WSLでRstudio Serverを起動する</li>
-</ol>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a>sudo rstudio-server start</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>※Rstudio Serverを終了する場合は以下のコマンドを実行する</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href="#cb12-1"></a>sudo rstudio-server stop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>ブラウザからアクセス</li>
-</ol>
-<p><a href="http://localhost:8787/">こちらのリンク</a>を開く</p>
-<ol start="3" type="1">
-<li>ユーザー名とパスワードを入力</li>
-</ol>
-<p>ブラウザの認証情報を入力するとRStudioの画面がでてきて、使えるようになる。</p>
-</section>
-<section id="開発環境構築" class="level1">
-<h1>開発環境構築</h1>
-<section id="プロジェクトの作成" class="level2">
-<h2 class="anchored" data-anchor-id="プロジェクトの作成">プロジェクトの作成</h2>
-<ol type="1">
-<li>Rstudio Serverの右上の<code>Project: (~)</code>をクリックし、<code>New Project...</code>を選択する</li>
-<li>「New Project Wizard」から、プロジェクトを作成するディレクトりを選択する
-<ol type="1">
-<li>新しいディレクトリに作成する場合には<code>New Directory</code>を選択する、その後画面でプロジェクト名と作成する階層を指定する</li>
-<li>元々あるディレクトりに作成する場合には<code>Exising Directory</code>を選択し、ディレクトリの場所を指定する</li>
-</ol></li>
-<li><code>Create Project</code>をクリック</li>
-</ol>
-<p>作成後、<code>&lt;プロジェクト名&gt;.Rproj</code>というファイルが作成される。これにプロジェクトの情報が保存されていく。</p>
-</section>
-<section id="renvの初期設定" class="level2">
-<h2 class="anchored" data-anchor-id="renvの初期設定">renvの初期設定</h2>
-<p>Rコンソール上で行う。</p>
-<ol type="1">
-<li><code>renv</code>のインポートする</li>
-</ol>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">library</span>(renv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>renvの初期起動を行う</li>
-</ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>renv</code>ディレクトリと<code>renv.lock</code>というファイルが作成される。これらのファイルにRのパッケージ情報が記録されていく。</p>
-</section>
-<section id="renvによるパッケージ管理" class="level2">
-<h2 class="anchored" data-anchor-id="renvによるパッケージ管理">renvによるパッケージ管理</h2>
-<p>上記の初期設定を行った後は、通常通りにパッケージのインストールや削除を行ってよい。その後、新しくインポートやバージョン更新してパッケージについて、以下のコマンドで<code>renv</code>の情報を更新する必要がある。</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>基本的には、作業がひと段落したときに上記のコマンドを実行するようにしておけば良い。</p>
-<p>別のPCでパッケージ情報を再構築する際には以下のコマンドを実行する。</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

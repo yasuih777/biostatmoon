@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.529">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -81,7 +81,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,6 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -109,11 +115,38 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="BiostatMoon">
 <meta property="og:description" content="Study biostatistics related math, programming and clinical research">
 <meta property="og:image" content="images/profile.png">
-<meta property="og:site-name" content="BiostatMoon">
+<meta property="og:site_name" content="BiostatMoon">
 <meta name="twitter:title" content="BiostatMoon">
 <meta name="twitter:description" content="Study biostatistics related math, programming and clinical research">
 <meta name="twitter:image" content="images/profile.png">
@@ -124,9 +157,9 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="index.qmd" class="navbar-brand navbar-brand-logo">
     <img src="../../images/profile.png" alt="" class="navbar-logo">
     </a>
@@ -141,52 +174,52 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../qmds/index.html" rel="" target="" aria-current="page">
- <span class="menu-text">ホーム</span></a>
+    <a class="nav-link active" href="../../qmds/index.html" aria-current="page"> 
+<span class="menu-text">ホーム</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/記事一覧.html" rel="" target="">
- <span class="menu-text">記事一覧</span></a>
+    <a class="nav-link" href="../../qmds/記事一覧.html"> 
+<span class="menu-text">記事一覧</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/ツール一覧.html" rel="" target="">
- <span class="menu-text">ツール一覧</span></a>
+    <a class="nav-link" href="../../qmds/ツール一覧.html"> 
+<span class="menu-text">ツール一覧</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/管理者.html" rel="" target="">
- <span class="menu-text">管理者</span></a>
+    <a class="nav-link" href="../../qmds/管理者.html"> 
+<span class="menu-text">管理者</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/実行環境.html" rel="" target="">
- <span class="menu-text">実行環境</span></a>
+    <a class="nav-link" href="../../qmds/実行環境.html"> 
+<span class="menu-text">実行環境</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/お問い合わせ.html" rel="" target="">
- <span class="menu-text">お問い合わせ</span></a>
+    <a class="nav-link" href="../../qmds/お問い合わせ.html"> 
+<span class="menu-text">お問い合わせ</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-    <a href="https://github.com/yasuih777/biostatmoon" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-    <a href="https://twitter.com/yugetsubiostat" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+    <a href="https://github.com/yasuih777/biostatmoon" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://twitter.com/yugetsubiostat" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../../qmds/生物統計学/確率論.html">生物統計学</a></li><li class="breadcrumb-item"><a href="../../qmds/生物統計学/確率分布.html">確率分布</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../../qmds/生物統計学/確率論.html">生物統計学</a></li><li class="breadcrumb-item"><a href="../../qmds/生物統計学/確率分布.html">確率分布</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
@@ -248,7 +281,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
- <span class="menu-text">プログラミング</span></a>
+ <span class="menu-text">データサイエンス</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -257,12 +290,40 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
- <span class="menu-text">Python</span></a>
+ <span class="menu-text">データエンジニアリング</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmds/データサイエンス/データエンジニアリング/整然データ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">整然データ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">プログラミング</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/プログラミング/python/環境構築.html" class="sidebar-item-text sidebar-link">
@@ -279,13 +340,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
  <span class="menu-text">R</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/プログラミング/R/環境構築.html" class="sidebar-item-text sidebar-link">
@@ -296,13 +357,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
  <span class="menu-text">その他</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/プログラミング/その他/anaconda.html" class="sidebar-item-text sidebar-link">
@@ -321,13 +382,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
  <span class="menu-text">生物統計学</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/生物統計学/確率論.html" class="sidebar-item-text sidebar-link">
@@ -350,13 +411,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
  <span class="menu-text">臨床研究</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/臨床研究/リサーチクエスチョン.html" class="sidebar-item-text sidebar-link">
@@ -376,7 +437,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -405,7 +466,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../../qmds/生物統計学/確率論.html">生物統計学</a></li><li class="breadcrumb-item"><a href="../../qmds/生物統計学/確率分布.html">確率分布</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">確率分布</h1>
   <div class="quarto-categories">
@@ -436,12 +497,14 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   
 <div>
   <div class="abstract">
-    <div class="abstract-title">Abstract</div>
+    <div class="block-title">Abstract</div>
     頻出の確率分布
   </div>
 </div>
 
+
 </header>
+
 
 <div class="cell">
 
@@ -451,12 +514,12 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <p>離散的な確率変数が従う分布</p>
 <section id="超幾何分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="超幾何分布">超幾何分布</h2>
-<p>A or Bからなる<span class="math inline">\(N\)</span>個の集団を考える。A, Bの個数はそれぞれ<span class="math inline">\(M\)</span>, <span class="math inline">\(N - M\)</span>とする。この集団から<span class="math inline">\(n\)</span>個取り出したとき、Aの個数が<span class="math inline">\(k\)</span>個となる確率は <a href="#eq-hypergeometric">Equation&nbsp;1</a> で与えられる。この確率分布を<strong>超幾何分布</strong> <a href="#fig-hyper">Figure&nbsp;1</a> という。資源調査などでよく用いられる。</p>
+<p>A or Bからなる<span class="math inline">\(N\)</span>個の集団を考える。A, Bの個数はそれぞれ<span class="math inline">\(M\)</span>, <span class="math inline">\(N - M\)</span>とする。この集団から<span class="math inline">\(n\)</span>個取り出したとき、Aの個数が<span class="math inline">\(k\)</span>個となる確率は <a href="#eq-hypergeometric" class="quarto-xref">Equation&nbsp;1</a> で与えられる。この確率分布を<strong>超幾何分布</strong> <a href="#fig-hyper" class="quarto-xref">Figure&nbsp;1</a> という。資源調査などでよく用いられる。</p>
 <p><span id="eq-hypergeometric"><span class="math display">\[
 f(X=x; N, M, n) = \frac{_{M}C_{x} \cdot _{N - M}C_{n - x}}{_{N}C_{n}} \ (x = \max(0, n -(N - M)), \cdots, \min(n, M))
 \tag{1}\]</span></span></p>
 <div class="cell page-columns page-full">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span></span>
@@ -479,10 +542,14 @@ f(X=x; N, M, n) = \frac{_{M}C_{x} \cdot _{N - M}C_{n - x}}{_{N}C_{n}} \ (x = \ma
 <span id="cb1-19"><a href="#cb1-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-hyper" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="確率分布_files/figure-html/fig-hyper-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;1: 超幾何分布</figcaption>
+<div id="fig-hyper" class="quarto-figure quarto-figure-center anchored page-columns page-full" width="672">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-hyper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="確率分布_files/figure-html/fig-hyper-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-hyper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: 超幾何分布
+</figcaption>
 </figure>
 </div>
 </div>
@@ -490,13 +557,13 @@ f(X=x; N, M, n) = \frac{_{M}C_{x} \cdot _{N - M}C_{n - x}}{_{N}C_{n}} \ (x = \ma
 </section>
 <section id="二項分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="二項分布">二項分布</h2>
-<p>A or Bが観測できる試行を考える。A, Bが生起する確率をそれぞれ<span class="math inline">\(p, (1 - p)\)</span>とする。この試行を独立に<span class="math inline">\(n\)</span>回繰り返す(これを<strong>ベルヌーイ試行</strong>と呼ぶ)。Aが<span class="math inline">\(x\)</span>回生起する確率は <a href="#eq-bionormial">Equation&nbsp;2</a> で与えられる。この確率分布を<strong>二項分布</strong> <a href="#fig-bionorm">Figure&nbsp;2</a> という。二項分布はコイン投げのような単純な試行で使われる。<br>
+<p>A or Bが観測できる試行を考える。A, Bが生起する確率をそれぞれ<span class="math inline">\(p, (1 - p)\)</span>とする。この試行を独立に<span class="math inline">\(n\)</span>回繰り返す(これを<strong>ベルヌーイ試行</strong>と呼ぶ)。Aが<span class="math inline">\(x\)</span>回生起する確率は <a href="#eq-bionormial" class="quarto-xref">Equation&nbsp;2</a> で与えられる。この確率分布を<strong>二項分布</strong> <a href="#fig-bionorm" class="quarto-xref">Figure&nbsp;2</a> という。二項分布はコイン投げのような単純な試行で使われる。<br>
 また、<span class="math inline">\(n = 1\)</span>のときは<strong>ベルヌーイ分布</strong>と呼ぶ。</p>
 <p><span id="eq-bionormial"><span class="math display">\[
 f(X=x; n, p) = _{n}C_{x} p^{x} (1 - p)^{n - x}
 \tag{2}\]</span></span></p>
 <div class="cell page-columns page-full">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a>n <span class="ot">&lt;-</span> <span class="dv">6</span></span>
@@ -519,10 +586,14 @@ f(X=x; n, p) = _{n}C_{x} p^{x} (1 - p)^{n - x}
 <span id="cb2-19"><a href="#cb2-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-bionorm" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="確率分布_files/figure-html/fig-bionorm-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;2: 二項分布</figcaption>
+<div id="fig-bionorm" class="quarto-figure quarto-figure-center anchored page-columns page-full" width="672">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-bionorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="確率分布_files/figure-html/fig-bionorm-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-bionorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: 二項分布
+</figcaption>
 </figure>
 </div>
 </div>
@@ -530,12 +601,12 @@ f(X=x; n, p) = _{n}C_{x} p^{x} (1 - p)^{n - x}
 </section>
 <section id="ポアソン分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="ポアソン分布">ポアソン分布</h2>
-<p>二項分布の<span class="math inline">\(n\)</span>を大きくし、<span class="math inline">\(p\)</span>を0に近づけた事象を考える。このように、大量の観察の中で中々生起しない現象は交通事故件数や不良品件数などが当てはまる。今、<span class="math inline">\(\lambda \fallingdotseq n p\)</span>としたときに<span class="math inline">\(x\)</span>回生起する確率は <a href="#eq-poisson">Equation&nbsp;3</a> で与えられる。この確率分布を<strong>ポアソン分布</strong> <a href="#fig-poisson">Figure&nbsp;3</a> という。</p>
+<p>二項分布の<span class="math inline">\(n\)</span>を大きくし、<span class="math inline">\(p\)</span>を0に近づけた事象を考える。このように、大量の観察の中で中々生起しない現象は交通事故件数や不良品件数などが当てはまる。今、<span class="math inline">\(\lambda \fallingdotseq n p\)</span>としたときに<span class="math inline">\(x\)</span>回生起する確率は <a href="#eq-poisson" class="quarto-xref">Equation&nbsp;3</a> で与えられる。この確率分布を<strong>ポアソン分布</strong> <a href="#fig-poisson" class="quarto-xref">Figure&nbsp;3</a> という。</p>
 <p><span id="eq-poisson"><span class="math display">\[
 f(X=x; \lambda) = \frac{\lambda^{x} e^{- \lambda}}{x!}
 \tag{3}\]</span></span></p>
 <div class="cell page-columns page-full">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>)</span>
 <span id="cb3-2"><a href="#cb3-2"></a>lambda <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
@@ -557,10 +628,14 @@ f(X=x; \lambda) = \frac{\lambda^{x} e^{- \lambda}}{x!}
 <span id="cb3-18"><a href="#cb3-18"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-poisson" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="確率分布_files/figure-html/fig-poisson-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;3: ポアソン分布</figcaption>
+<div id="fig-poisson" class="quarto-figure quarto-figure-center anchored page-columns page-full" width="672">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-poisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="確率分布_files/figure-html/fig-poisson-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-poisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: ポアソン分布
+</figcaption>
 </figure>
 </div>
 </div>
@@ -568,13 +643,13 @@ f(X=x; \lambda) = \frac{\lambda^{x} e^{- \lambda}}{x!}
 </section>
 <section id="負の二項分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="負の二項分布">負の二項分布</h2>
-<p>生起する確率が<span class="math inline">\(p\)</span>であるベルヌーイ試行を繰り返すとき、<span class="math inline">\(k\)</span>回目の生起を得るまでの失敗回数<span class="math inline">\(x\)</span>は <a href="#eq-negative">Equation&nbsp;4</a> で与えられる。この確率分布を<strong>負の二項分布(パスカル分布)</strong> <a href="#fig-negative">Figure&nbsp;4</a> という。負の二項分布は待ち時間を表現するのに用いられる。<br>
+<p>生起する確率が<span class="math inline">\(p\)</span>であるベルヌーイ試行を繰り返すとき、<span class="math inline">\(k\)</span>回目の生起を得るまでの失敗回数<span class="math inline">\(x\)</span>は <a href="#eq-negative" class="quarto-xref">Equation&nbsp;4</a> で与えられる。この確率分布を<strong>負の二項分布(パスカル分布)</strong> <a href="#fig-negative" class="quarto-xref">Figure&nbsp;4</a> という。負の二項分布は待ち時間を表現するのに用いられる。<br>
 また、<span class="math inline">\(k = 1\)</span>のときは <strong>幾何分布</strong>と呼ぶ。</p>
 <p><span id="eq-negative"><span class="math display">\[
 f(X=x; p, k) = _{k + x - 1}C_{x} p^{k} (1 - p)^{x}
 \tag{4}\]</span></span></p>
 <div class="cell page-columns page-full">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a>k <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
@@ -597,10 +672,14 @@ f(X=x; p, k) = _{k + x - 1}C_{x} p^{k} (1 - p)^{x}
 <span id="cb4-19"><a href="#cb4-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-negative" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="確率分布_files/figure-html/fig-negative-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;4: 負の二項分布</figcaption>
+<div id="fig-negative" class="quarto-figure quarto-figure-center anchored page-columns page-full" width="672">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-negative-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="確率分布_files/figure-html/fig-negative-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-negative-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: 負の二項分布
+</figcaption>
 </figure>
 </div>
 </div>
@@ -610,20 +689,15 @@ f(X=x; p, k) = _{k + x - 1}C_{x} p^{k} (1 - p)^{x}
 <section id="連続分布" class="level1 page-columns page-full">
 <h1>連続分布</h1>
 <p>連続的な確率変数が従う分布</p>
-<section id="正規分布" class="level2">
+<section id="正規分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="正規分布">正規分布</h2>
-<p>自然界では左右非対称かつつりがね型の分布をとる現象が多く存在する。これはある代表値<span class="math inline">\(\mu\)</span>から、ばらつきを表す量<span class="math inline">\(\sigma^{2}\)</span>に応じた誤差の分だけ離れた観測を集めることで生成される。このような分布を<strong>正規分布</strong><span class="math inline">\(N(\mu, \sigma^{2})\)</span> <a href="#fig-norm">Figure&nbsp;5</a> といい、確率密度関数は <a href="#eq-norm">Equation&nbsp;5</a> である。<br>
+<p>自然界では左右非対称かつつりがね型の分布をとる現象が多く存在する。これはある代表値<span class="math inline">\(\mu\)</span>から、ばらつきを表す量<span class="math inline">\(\sigma^{2}\)</span>に応じた誤差の分だけ離れた観測を集めることで生成される。このような分布を<strong>正規分布</strong><span class="math inline">\(N(\mu, \sigma^{2})\)</span> <a href="#fig-norm" class="quarto-xref">Figure&nbsp;5</a> といい、確率密度関数は <a href="#eq-norm" class="quarto-xref">Equation&nbsp;5</a> である。<br>
 正規分布はあらゆる統計理論に関わっている最重要分布である。<br>
 また、<span class="math inline">\(\mu = 0, \sigma^{2} = 1\)</span>の場合の正規分布を<strong>標準正規分布</strong>と呼ぶ。</p>
 <p><span id="eq-norm"><span class="math display">\[
 f(X=x; \mu, \sigma^{2}) = \frac{1}{\sqrt{2 \pi \sigma^{2}}} \exp{\left( \frac{- (x - \mu)^{2}}{2 \sigma^{2}} \right)}
 \tag{5}\]</span></span></p>
-<div id="fig-norm" class="quarto-layout-panel" data-fig-height="3">
-<p></p><figcaption>Figure&nbsp;5: 正規分布</figcaption><p></p>
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
@@ -643,42 +717,56 @@ f(X=x; \mu, \sigma^{2}) = \frac{1}{\sqrt{2 \pi \sigma^{2}}} \exp{\left( \frac{- 
 <span id="cb5-16"><a href="#cb5-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb5-17"><a href="#cb5-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; mu, sigma^2)"</span>)</span>
 <span id="cb5-18"><a href="#cb5-18"></a></span>
-<span id="cb5-19"><a href="#cb5-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="fu">plot</span>(g)</span>
+<span id="cb5-20"><a href="#cb5-20"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="cf">for</span> (s <span class="cf">in</span> sigma){</span>
+<span id="cb5-22"><a href="#cb5-22"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb5-23"><a href="#cb5-23"></a>        <span class="at">x =</span> x,</span>
+<span id="cb5-24"><a href="#cb5-24"></a>        <span class="at">y =</span> <span class="fu">dnorm</span>(x, mu[<span class="dv">3</span>], s),</span>
+<span id="cb5-25"><a href="#cb5-25"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, mu[<span class="dv">3</span>], s)</span>
+<span id="cb5-26"><a href="#cb5-26"></a>    )</span>
+<span id="cb5-27"><a href="#cb5-27"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb5-28"><a href="#cb5-28"></a>}</span>
+<span id="cb5-29"><a href="#cb5-29"></a></span>
+<span id="cb5-30"><a href="#cb5-30"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb5-31"><a href="#cb5-31"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb5-32"><a href="#cb5-32"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; mu, sigma^2)"</span>)</span>
+<span id="cb5-33"><a href="#cb5-33"></a></span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div id="fig-norm" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-norm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;display: flex;">
 <div class="cell-output-display">
+<div>
+<figure class="figure">
 <p><img src="確率分布_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="cf">for</span> (s <span class="cf">in</span> sigma){</span>
-<span id="cb6-3"><a href="#cb6-3"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb6-4"><a href="#cb6-4"></a>        <span class="at">x =</span> x,</span>
-<span id="cb6-5"><a href="#cb6-5"></a>        <span class="at">y =</span> <span class="fu">dnorm</span>(x, mu[<span class="dv">3</span>], s),</span>
-<span id="cb6-6"><a href="#cb6-6"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, mu[<span class="dv">3</span>], s)</span>
-<span id="cb6-7"><a href="#cb6-7"></a>    )</span>
-<span id="cb6-8"><a href="#cb6-8"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
-<span id="cb6-9"><a href="#cb6-9"></a>}</span>
-<span id="cb6-10"><a href="#cb6-10"></a></span>
-<span id="cb6-11"><a href="#cb6-11"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; mu, sigma^2)"</span>)</span>
-<span id="cb6-14"><a href="#cb6-14"></a></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;display: flex;">
 <div class="cell-output-display">
+<div>
+<figure class="figure">
 <p><img src="確率分布_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
 </div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-norm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: 正規分布
+</figcaption>
 </figure>
 </div>
 </section>
 <section id="ガンマ分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="ガンマ分布">ガンマ分布</h2>
-<p>負の二項分布を連続化した分布を<strong>ガンマ分布</strong> <a href="#fig-gamma">Figure&nbsp;6</a> と呼ぶ。ガンマ分布はある期間<span class="math inline">\(\beta\)</span>ごとに1回生起する現象が<span class="math inline">\(\alpha\)</span>回起きるまでの期間<span class="math inline">\(x\)</span>の確率を表現することができる。確率密度関数は <a href="#eq-gamma">Equation&nbsp;6</a> である(<span class="math inline">\(\Gamma\)</span>はガンマ関数)。ガンマ分布はベイズ統計においても頻出の分布である。<br>
+<p>負の二項分布を連続化した分布を<strong>ガンマ分布</strong> <a href="#fig-gamma" class="quarto-xref">Figure&nbsp;6</a> と呼ぶ。ガンマ分布はある期間<span class="math inline">\(\beta\)</span>ごとに1回生起する現象が<span class="math inline">\(\alpha\)</span>回起きるまでの期間<span class="math inline">\(x\)</span>の確率を表現することができる。確率密度関数は <a href="#eq-gamma" class="quarto-xref">Equation&nbsp;6</a> である(<span class="math inline">\(\Gamma\)</span>はガンマ関数)。ガンマ分布はベイズ統計においても頻出の分布である。<br>
 また、<span class="math inline">\(\alpha = 1\)</span>の場合は<strong>指数分布</strong>と呼び、確率密度関数は<span class="math inline">\(f(x; \beta) = \beta e^{- \frac{x}{\beta}}\)</span>となる。</p>
 <p><span id="eq-gamma"><span class="math display">\[
 f(X=x; \alpha, \beta) =
@@ -692,33 +780,37 @@ f(X=x; \alpha, \beta) =
 \end{equation}
 \tag{6}\]</span></span></p>
 <div class="cell page-columns page-full">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>alpha <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>, <span class="fl">2.5</span>, <span class="dv">3</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a>beta <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a></span>
-<span id="cb7-5"><a href="#cb7-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="cf">for</span> (a <span class="cf">in</span> alpha){</span>
-<span id="cb7-7"><a href="#cb7-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb7-8"><a href="#cb7-8"></a>        <span class="at">x =</span> x,</span>
-<span id="cb7-9"><a href="#cb7-9"></a>        <span class="at">y =</span> <span class="fu">dgamma</span>(x, a, beta),</span>
-<span id="cb7-10"><a href="#cb7-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, a, beta)</span>
-<span id="cb7-11"><a href="#cb7-11"></a>    )</span>
-<span id="cb7-12"><a href="#cb7-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
-<span id="cb7-13"><a href="#cb7-13"></a>}</span>
-<span id="cb7-14"><a href="#cb7-14"></a></span>
-<span id="cb7-15"><a href="#cb7-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
-<span id="cb7-16"><a href="#cb7-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb7-17"><a href="#cb7-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; alpha, beta)"</span>)</span>
-<span id="cb7-18"><a href="#cb7-18"></a></span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>alpha <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>, <span class="fl">2.5</span>, <span class="dv">3</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>beta <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="cf">for</span> (a <span class="cf">in</span> alpha){</span>
+<span id="cb6-7"><a href="#cb6-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb6-8"><a href="#cb6-8"></a>        <span class="at">x =</span> x,</span>
+<span id="cb6-9"><a href="#cb6-9"></a>        <span class="at">y =</span> <span class="fu">dgamma</span>(x, a, beta),</span>
+<span id="cb6-10"><a href="#cb6-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, a, beta)</span>
+<span id="cb6-11"><a href="#cb6-11"></a>    )</span>
+<span id="cb6-12"><a href="#cb6-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb6-13"><a href="#cb6-13"></a>}</span>
+<span id="cb6-14"><a href="#cb6-14"></a></span>
+<span id="cb6-15"><a href="#cb6-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; alpha, beta)"</span>)</span>
+<span id="cb6-18"><a href="#cb6-18"></a></span>
+<span id="cb6-19"><a href="#cb6-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-gamma" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="確率分布_files/figure-html/fig-gamma-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;6: ガンマ分布</figcaption>
+<div id="fig-gamma" class="quarto-figure quarto-figure-center anchored page-columns page-full" width="672">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-gamma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="確率分布_files/figure-html/fig-gamma-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-gamma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: ガンマ分布
+</figcaption>
 </figure>
 </div>
 </div>
@@ -726,7 +818,7 @@ f(X=x; \alpha, \beta) =
 </section>
 <section id="一様分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="一様分布">一様分布</h2>
-<p>ある区間<span class="math inline">\([a, b]\)</span>で、全ての事象が生起する確率が等しい分布を<strong>一様分布</strong> <a href="#fig-uniform">Figure&nbsp;7</a> という。確率密度関数は <a href="#eq-uniform">Equation&nbsp;7</a> である。離散型でも同様の分布があり、両方で乱数生成の場面でよく用いられる。</p>
+<p>ある区間<span class="math inline">\([a, b]\)</span>で、全ての事象が生起する確率が等しい分布を<strong>一様分布</strong> <a href="#fig-uniform" class="quarto-xref">Figure&nbsp;7</a> という。確率密度関数は <a href="#eq-uniform" class="quarto-xref">Equation&nbsp;7</a> である。離散型でも同様の分布があり、両方で乱数生成の場面でよく用いられる。</p>
 <p><span id="eq-uniform"><span class="math display">\[
 f(X=x; a, b) =
 \begin{equation}
@@ -739,33 +831,37 @@ f(X=x; a, b) =
 \end{equation}
 \tag{7}\]</span></span></p>
 <div class="cell page-columns page-full">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
-<span id="cb8-2"><a href="#cb8-2"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="cf">for</span> (k <span class="cf">in</span> b){</span>
-<span id="cb8-7"><a href="#cb8-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb8-8"><a href="#cb8-8"></a>        <span class="at">x =</span> x,</span>
-<span id="cb8-9"><a href="#cb8-9"></a>        <span class="at">y =</span> <span class="fu">dunif</span>(x, a, k),</span>
-<span id="cb8-10"><a href="#cb8-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, a, k)</span>
-<span id="cb8-11"><a href="#cb8-11"></a>    )</span>
-<span id="cb8-12"><a href="#cb8-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
-<span id="cb8-13"><a href="#cb8-13"></a>}</span>
-<span id="cb8-14"><a href="#cb8-14"></a></span>
-<span id="cb8-15"><a href="#cb8-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
-<span id="cb8-16"><a href="#cb8-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb8-17"><a href="#cb8-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; a, b)"</span>)</span>
-<span id="cb8-18"><a href="#cb8-18"></a></span>
-<span id="cb8-19"><a href="#cb8-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="cf">for</span> (k <span class="cf">in</span> b){</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb7-8"><a href="#cb7-8"></a>        <span class="at">x =</span> x,</span>
+<span id="cb7-9"><a href="#cb7-9"></a>        <span class="at">y =</span> <span class="fu">dunif</span>(x, a, k),</span>
+<span id="cb7-10"><a href="#cb7-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, a, k)</span>
+<span id="cb7-11"><a href="#cb7-11"></a>    )</span>
+<span id="cb7-12"><a href="#cb7-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb7-13"><a href="#cb7-13"></a>}</span>
+<span id="cb7-14"><a href="#cb7-14"></a></span>
+<span id="cb7-15"><a href="#cb7-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; a, b)"</span>)</span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-uniform" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="確率分布_files/figure-html/fig-uniform-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;7: 一様分布</figcaption>
+<div id="fig-uniform" class="quarto-figure quarto-figure-center anchored page-columns page-full" width="672">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-uniform-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="確率分布_files/figure-html/fig-uniform-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-uniform-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: 一様分布
+</figcaption>
 </figure>
 </div>
 </div>
@@ -773,7 +869,7 @@ f(X=x; a, b) =
 </section>
 <section id="ベータ分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="ベータ分布">ベータ分布</h2>
-<p>二項分布に従う確率変数について、実際の観測に基づいて母数<span class="math inline">\(x = p\)</span>を得るとする。A, Bが生起する回数をそれぞれ<span class="math inline">\(\alpha, \beta\)</span>したときに、その数が少ない場合は得られる<span class="math inline">\(x\)</span>は偶然と考えるが、多い場合は確信をもって<span class="math inline">\(x\)</span>を得られる。この<span class="math inline">\(x\)</span>が従う分布を<strong>ベータ分布</strong> <a href="#fig-beta">Figure&nbsp;8</a> という。確率密度関数は <a href="#eq-beta">Equation&nbsp;8</a> である(<span class="math inline">\(B\)</span>はベータ関数)。ベータ分布はベイズ統計でよく用いられる。<br>
+<p>二項分布に従う確率変数について、実際の観測に基づいて母数<span class="math inline">\(x = p\)</span>を得るとする。A, Bが生起する回数をそれぞれ<span class="math inline">\(\alpha, \beta\)</span>したときに、その数が少ない場合は得られる<span class="math inline">\(x\)</span>は偶然と考えるが、多い場合は確信をもって<span class="math inline">\(x\)</span>を得られる。この<span class="math inline">\(x\)</span>が従う分布を<strong>ベータ分布</strong> <a href="#fig-beta" class="quarto-xref">Figure&nbsp;8</a> という。確率密度関数は <a href="#eq-beta" class="quarto-xref">Equation&nbsp;8</a> である(<span class="math inline">\(B\)</span>はベータ関数)。ベータ分布はベイズ統計でよく用いられる。<br>
 また、<span class="math inline">\(\alpha = 1, \beta = 1\)</span>のときは区間<span class="math inline">\([0, 1]\)</span>の一様分布となる。</p>
 <p><span id="eq-beta"><span class="math display">\[
 f(X=x; \alpha, \beta) =
@@ -787,33 +883,37 @@ f(X=x; \alpha, \beta) =
 \end{equation}
 \tag{8}\]</span></span></p>
 <div class="cell page-columns page-full">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
-<span id="cb9-2"><a href="#cb9-2"></a>alpha <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
-<span id="cb9-3"><a href="#cb9-3"></a>beta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>)</span>
-<span id="cb9-4"><a href="#cb9-4"></a></span>
-<span id="cb9-5"><a href="#cb9-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>){</span>
-<span id="cb9-7"><a href="#cb9-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb9-8"><a href="#cb9-8"></a>        <span class="at">x =</span> x,</span>
-<span id="cb9-9"><a href="#cb9-9"></a>        <span class="at">y =</span> <span class="fu">dbeta</span>(x, alpha[i], beta[i]),</span>
-<span id="cb9-10"><a href="#cb9-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, alpha[i], beta[i])</span>
-<span id="cb9-11"><a href="#cb9-11"></a>    )</span>
-<span id="cb9-12"><a href="#cb9-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
-<span id="cb9-13"><a href="#cb9-13"></a>}</span>
-<span id="cb9-14"><a href="#cb9-14"></a></span>
-<span id="cb9-15"><a href="#cb9-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
-<span id="cb9-16"><a href="#cb9-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb9-17"><a href="#cb9-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; alpha, beta)"</span>)</span>
-<span id="cb9-18"><a href="#cb9-18"></a></span>
-<span id="cb9-19"><a href="#cb9-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>alpha <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>beta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>)</span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>){</span>
+<span id="cb8-7"><a href="#cb8-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb8-8"><a href="#cb8-8"></a>        <span class="at">x =</span> x,</span>
+<span id="cb8-9"><a href="#cb8-9"></a>        <span class="at">y =</span> <span class="fu">dbeta</span>(x, alpha[i], beta[i]),</span>
+<span id="cb8-10"><a href="#cb8-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, alpha[i], beta[i])</span>
+<span id="cb8-11"><a href="#cb8-11"></a>    )</span>
+<span id="cb8-12"><a href="#cb8-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb8-13"><a href="#cb8-13"></a>}</span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-15"><a href="#cb8-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; alpha, beta)"</span>)</span>
+<span id="cb8-18"><a href="#cb8-18"></a></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-beta" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="確率分布_files/figure-html/fig-beta-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;8: ベータ分布</figcaption>
+<div id="fig-beta" class="quarto-figure quarto-figure-center anchored page-columns page-full" width="672">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-beta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="確率分布_files/figure-html/fig-beta-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-beta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: ベータ分布
+</figcaption>
 </figure>
 </div>
 </div>
@@ -821,7 +921,7 @@ f(X=x; \alpha, \beta) =
 </section>
 <section id="対数正規分布" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="対数正規分布">対数正規分布</h2>
-<p>自然界でみられる現象が従う分布として正規分布を対数変換したものがある。これは、観測値に下限はあるが、上限は明確にないような現象でよくみられる（例えば、血液検査など）。これは<strong>対数正規分布</strong> <a href="#fig-lognorm">Figure&nbsp;9</a> といい、確率密度関数は <a href="#eq-lognorm">Equation&nbsp;9</a> である。</p>
+<p>自然界でみられる現象が従う分布として正規分布を対数変換したものがある。これは、観測値に下限はあるが、上限は明確にないような現象でよくみられる（例えば、血液検査など）。これは<strong>対数正規分布</strong> <a href="#fig-lognorm" class="quarto-xref">Figure&nbsp;9</a> といい、確率密度関数は <a href="#eq-lognorm" class="quarto-xref">Equation&nbsp;9</a> である。</p>
 <p><span id="eq-lognorm"><span class="math display">\[
 f(X=x; \mu, \sigma^{2}) =
 \begin{equation}
@@ -834,33 +934,37 @@ f(X=x; \mu, \sigma^{2}) =
 \end{equation}
 \tag{9}\]</span></span></p>
 <div class="cell page-columns page-full">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
-<span id="cb10-2"><a href="#cb10-2"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb10-3"><a href="#cb10-3"></a>sigma <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a></span>
-<span id="cb10-5"><a href="#cb10-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="cf">for</span> (m <span class="cf">in</span> mu){</span>
-<span id="cb10-7"><a href="#cb10-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb10-8"><a href="#cb10-8"></a>        <span class="at">x =</span> x,</span>
-<span id="cb10-9"><a href="#cb10-9"></a>        <span class="at">y =</span> <span class="fu">dlnorm</span>(x, m, sigma),</span>
-<span id="cb10-10"><a href="#cb10-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, m, sigma)</span>
-<span id="cb10-11"><a href="#cb10-11"></a>    )</span>
-<span id="cb10-12"><a href="#cb10-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
-<span id="cb10-13"><a href="#cb10-13"></a>}</span>
-<span id="cb10-14"><a href="#cb10-14"></a></span>
-<span id="cb10-15"><a href="#cb10-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
-<span id="cb10-16"><a href="#cb10-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb10-17"><a href="#cb10-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; mu, sigma^2)"</span>)</span>
-<span id="cb10-18"><a href="#cb10-18"></a></span>
-<span id="cb10-19"><a href="#cb10-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>sigma <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="cf">for</span> (m <span class="cf">in</span> mu){</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb9-8"><a href="#cb9-8"></a>        <span class="at">x =</span> x,</span>
+<span id="cb9-9"><a href="#cb9-9"></a>        <span class="at">y =</span> <span class="fu">dlnorm</span>(x, m, sigma),</span>
+<span id="cb9-10"><a href="#cb9-10"></a>        <span class="at">f =</span> <span class="fu">sprintf</span>(<span class="st">"f(X; %s, %s)"</span>, m, sigma)</span>
+<span id="cb9-11"><a href="#cb9-11"></a>    )</span>
+<span id="cb9-12"><a href="#cb9-12"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb9-13"><a href="#cb9-13"></a>}</span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> f)) <span class="sc">+</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"f(X=x; mu, sigma^2)"</span>)</span>
+<span id="cb9-18"><a href="#cb9-18"></a></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-lognorm" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="確率分布_files/figure-html/fig-lognorm-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;9: 対数正規分布</figcaption>
+<div id="fig-lognorm" class="quarto-figure quarto-figure-center anchored page-columns page-full" width="672">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-lognorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="確率分布_files/figure-html/fig-lognorm-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-lognorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: 対数正規分布
+</figcaption>
 </figure>
 </div>
 </div>
@@ -869,10 +973,14 @@ f(X=x; \mu, \sigma^{2}) =
 </section>
 <section id="分布の平均値分散" class="level1">
 <h1>分布の平均値・分散</h1>
-<p>上記で記載した確率分布の平均値および分散は <a href="#tbl-value">Table&nbsp;1</a> のようになる。</p>
+<p>上記で記載した確率分布の平均値および分散は <a href="#tbl-value" class="quarto-xref">Table&nbsp;1</a> のようになる。</p>
 <div id="tbl-value" class="anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: 主要な分布の平均値・分散
+</figcaption>
+<div aria-describedby="tbl-value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
-<caption>Table&nbsp;1: 主要な分布の平均値・分散</caption>
 <thead>
 <tr class="header">
 <th>確率分布</th>
@@ -939,11 +1047,13 @@ f(X=x; \mu, \sigma^{2}) =
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div>CC BY 4.0 DEED</div></div></section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1023,10 +1133,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1036,8 +1165,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1050,6 +1188,120 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1093,6 +1345,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1118,8 +1371,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-      // Handle positioning of the toggle
-      window.addEventListener(
+        // Handle positioning of the toggle
+    window.addEventListener(
       "resize",
       throttle(() => {
         elRect = undefined;
@@ -1127,23 +1380,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           selectCodeLines(selectedAnnoteEl);
         }
       }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
               fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
       for (let i=0; i<annoteTargets.length; i++) {
         const annoteTarget = annoteTargets[i];
@@ -1188,7 +1441,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               options: {
                 flipVariations: false, // true by default
                 allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
               },
             },
             {
@@ -1240,22 +1493,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
@@ -1264,12 +1501,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2024, 優月</div>
+    <div class="nav-footer-center">
+<p>Copyright 2024, 優月</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 
