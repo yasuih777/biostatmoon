@@ -252,32 +252,11 @@
     "text": "streamlit.appを使用しています。\nPCでの使用を推奨します。\n\n\n読み込んでいます…\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
   },
   {
-    "objectID": "qmds/お問い合わせ.html",
-    "href": "qmds/お問い合わせ.html",
-    "title": "お問い合わせ",
+    "objectID": "qmds/ツール一覧.html",
+    "href": "qmds/ツール一覧.html",
+    "title": "ツール一覧",
     "section": "",
-    "text": "\\(\\mathbb{X}\\)(旧Twitter)からDMをお願いします。（もし宜しければフォローもお願いします。）\n\n\n\n※Google accountにログインしている方に制限させていただいています。 読み込んでいます…"
-  },
-  {
-    "objectID": "qmds/お問い合わせ.html#mathbbx",
-    "href": "qmds/お問い合わせ.html#mathbbx",
-    "title": "お問い合わせ",
-    "section": "",
-    "text": "\\(\\mathbb{X}\\)(旧Twitter)からDMをお願いします。（もし宜しければフォローもお願いします。）"
-  },
-  {
-    "objectID": "qmds/お問い合わせ.html#google-form",
-    "href": "qmds/お問い合わせ.html#google-form",
-    "title": "お問い合わせ",
-    "section": "",
-    "text": "※Google accountにログインしている方に制限させていただいています。 読み込んでいます…"
-  },
-  {
-    "objectID": "qmds/管理者.html",
-    "href": "qmds/管理者.html",
-    "title": "管理者",
-    "section": "",
-    "text": "経歴\n\n熊本県で生まれ育つ\n国立大学の数学科を卒業\n\n解析学(微分積分学)を中心に数学理論を学ぶ\n\n国立大学院の生命科学専攻を修了\n\nWetな手法でエピジェネティクスと初期発生に関する研究を行う\n定量化の方法としては画像解析系の技術を多く学ぶ\n\n受託分析会社でデータサイエンティストとして勤務\n\nデータ利活用を目的としたコンサルテーションを担当\nBIエンジニアリング, AIエンジニアリング, データ基盤作成, データ分析業を幅広く学ぶ\nプロジェクトリーダーを経験\n\n医療系ベンチャー企業のAIエンジニアとして勤務 ← Now\n\n医療機器に組み込む疾患予測モデルの構築\n社内データ基盤の整備\n臨床研究におけるデータ解析を担当\n\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
+    "text": "統計的仮説検定シミュレーター\n\n\n\n確率統計\n\n\n\n\n2024-01-28\n\n\n\n\n\n\nabstract\n\n\n統計的仮説検定をサンプルデータからシミュレーション\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to topReuseCC BY 4.0 DEED"
   },
   {
     "objectID": "qmds/index.html",
@@ -301,11 +280,95 @@
     "text": "ブログ内サンプルコードのライセンス\nブログ内で書いているコードに関しては例外的にMIT Licenceを適応します。\n\n\n\n\n\n\nMIT License\n\n\n\n\n\nCopyright 2024 優月\n以下に定める条件に従い、本ソフトウェアおよび関連文書のファイル（以下「ソフトウェア」）の複製を取得するすべての人に対し、ソフトウェアを無制限に扱うことを無償で許可します。これには、ソフトウェアの複製を使用、複写、変更、結合、掲載、頒布、サブライセンス、および/または販売する権利、およびソフトウェアを提供する相手に同じことを許可する権利も無制限に含まれます。\n上記の著作権表示および本許諾表示を、ソフトウェアのすべての複製または重要な部分に記載するものとします。\nソフトウェアは「現状のまま」で、明示であるか暗黙であるかを問わず、何らの保証もなく提供されます。ここでいう保証とは、商品性、特定の目的への適合性、および権利非侵害についての保証も含みますが、それに限定されるものではありません。 作者または著作権者は、契約行為、不法行為、またはそれ以外であろうと、ソフトウェアに起因または関連し、あるいはソフトウェアの使用またはその他の扱いによって生じる一切の請求、損害、その他の義務について何らの責任も負わないものとします。"
   },
   {
-    "objectID": "qmds/ツール一覧.html",
-    "href": "qmds/ツール一覧.html",
-    "title": "ツール一覧",
+    "objectID": "qmds/管理者.html",
+    "href": "qmds/管理者.html",
+    "title": "管理者",
     "section": "",
-    "text": "統計的仮説検定シミュレーター\n\n\n\n確率統計\n\n\n\n\n2024-01-28\n\n\n\n\n\n\nabstract\n\n\n統計的仮説検定をサンプルデータからシミュレーション\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to topReuseCC BY 4.0 DEED"
+    "text": "経歴\n\n熊本県で生まれ育つ\n国立大学の数学科を卒業\n\n解析学(微分積分学)を中心に数学理論を学ぶ\n\n国立大学院の生命科学専攻を修了\n\nWetな手法でエピジェネティクスと初期発生に関する研究を行う\n定量化の方法としては画像解析系の技術を多く学ぶ\n\n受託分析会社でデータサイエンティストとして勤務\n\nデータ利活用を目的としたコンサルテーションを担当\nBIエンジニアリング, AIエンジニアリング, データ基盤作成, データ分析業を幅広く学ぶ\nプロジェクトリーダーを経験\n\n医療系ベンチャー企業のAIエンジニアとして勤務 ← Now\n\n医療機器に組み込む疾患予測モデルの構築\n社内データ基盤の整備\n臨床研究におけるデータ解析を担当\n\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
+  },
+  {
+    "objectID": "qmds/お問い合わせ.html",
+    "href": "qmds/お問い合わせ.html",
+    "title": "お問い合わせ",
+    "section": "",
+    "text": "\\(\\mathbb{X}\\)(旧Twitter)からDMをお願いします。（もし宜しければフォローもお願いします。）\n\n\n\n※Google accountにログインしている方に制限させていただいています。 読み込んでいます…"
+  },
+  {
+    "objectID": "qmds/お問い合わせ.html#mathbbx",
+    "href": "qmds/お問い合わせ.html#mathbbx",
+    "title": "お問い合わせ",
+    "section": "",
+    "text": "\\(\\mathbb{X}\\)(旧Twitter)からDMをお願いします。（もし宜しければフォローもお願いします。）"
+  },
+  {
+    "objectID": "qmds/お問い合わせ.html#google-form",
+    "href": "qmds/お問い合わせ.html#google-form",
+    "title": "お問い合わせ",
+    "section": "",
+    "text": "※Google accountにログインしている方に制限させていただいています。 読み込んでいます…"
+  },
+  {
+    "objectID": "qmds/生物統計学/確率分布.html#超幾何分布",
+    "href": "qmds/生物統計学/確率分布.html#超幾何分布",
+    "title": "確率分布",
+    "section": "超幾何分布",
+    "text": "超幾何分布\nA or Bからなる\\(N\\)個の集団を考える。A, Bの個数はそれぞれ\\(M\\), \\(N - M\\)とする。この集団から\\(n\\)個取り出したとき、Aの個数が\\(k\\)個となる確率は Equation 1 で与えられる。この確率分布を超幾何分布 Figure 1 という。資源調査などでよく用いられる。\n\\[\nf(X=x; N, M, n) = \\frac{_{M}C_{x} \\cdot _{N - M}C_{n - x}}{_{N}C_{n}} \\ (x = \\max(0, n -(N - M)), \\cdots, \\min(n, M))\n\\tag{1}\\]\n\n\nCode\nx &lt;- c(0:5)\nN &lt;- 10\nM &lt;- c(3, 5, 7)\n\ndata &lt;- tibble()\nfor (m in M){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dhyper(x, m, N - m, max(x)),\n        f = sprintf(\"f(X; %s, %s, %s)\", N, m, max(x))\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; N, M, n)\")\n\nplot(g)\n\n\n\n\n\nFigure 1: 超幾何分布"
+  },
+  {
+    "objectID": "qmds/生物統計学/確率分布.html#二項分布",
+    "href": "qmds/生物統計学/確率分布.html#二項分布",
+    "title": "確率分布",
+    "section": "二項分布",
+    "text": "二項分布\nA or Bが観測できる試行を考える。A, Bが生起する確率をそれぞれ\\(p, (1 - p)\\)とする。この試行を独立に\\(n\\)回繰り返す(これをベルヌーイ試行と呼ぶ)。Aが\\(x\\)回生起する確率は Equation 2 で与えられる。この確率分布を二項分布 Figure 2 という。二項分布はコイン投げのような単純な試行で使われる。\nまた、\\(n = 1\\)のときはベルヌーイ分布と呼ぶ。\n\\[\nf(X=x; n, p) = _{n}C_{x} p^{x} (1 - p)^{n - x}\n\\tag{2}\\]\n\n\nCode\nx &lt;- c(0:6)\nn &lt;- 6\np &lt;- c(1:5) / 6\n\ndata &lt;- tibble()\nfor (prob in p){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dbinom(x, n, prob),\n        f = sprintf(\"f(X; %s, %s)\", n, prob)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; n, p)\")\n\nplot(g)\n\n\n\n\n\nFigure 2: 二項分布"
+  },
+  {
+    "objectID": "qmds/生物統計学/確率分布.html#ポアソン分布",
+    "href": "qmds/生物統計学/確率分布.html#ポアソン分布",
+    "title": "確率分布",
+    "section": "ポアソン分布",
+    "text": "ポアソン分布\n二項分布の\\(n\\)を大きくし、\\(p\\)を0に近づけた事象を考える。このように、大量の観察の中で中々生起しない現象は交通事故件数や不良品件数などが当てはまる。今、\\(\\lambda \\fallingdotseq n p\\)としたときに\\(x\\)回生起する確率は Equation 3 で与えられる。この確率分布をポアソン分布 Figure 3 という。\n\\[\nf(X=x; \\lambda) = \\frac{\\lambda^{x} e^{- \\lambda}}{x!}\n\\tag{3}\\]\n\n\nCode\nx &lt;- c(0:10)\nlambda &lt;- c(0, 1, 2, 3, 4, 5)\n\ndata &lt;- tibble()\nfor (l in lambda){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dpois(x, l),\n        f = sprintf(\"f(X; %s)\", l)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; lambda)\")\n\nplot(g)\n\n\n\n\n\nFigure 3: ポアソン分布"
+  },
+  {
+    "objectID": "qmds/生物統計学/確率分布.html#負の二項分布",
+    "href": "qmds/生物統計学/確率分布.html#負の二項分布",
+    "title": "確率分布",
+    "section": "負の二項分布",
+    "text": "負の二項分布\n生起する確率が\\(p\\)であるベルヌーイ試行を繰り返すとき、\\(k\\)回目の生起を得るまでの失敗回数\\(x\\)は Equation 4 で与えられる。この確率分布を負の二項分布(パスカル分布) Figure 4 という。負の二項分布は待ち時間を表現するのに用いられる。\nまた、\\(k = 1\\)のときは 幾何分布と呼ぶ。\n\\[\nf(X=x; p, k) = _{k + x - 1}C_{x} p^{k} (1 - p)^{x}\n\\tag{4}\\]\n\n\nCode\nx &lt;- c(0:10)\nk &lt;- c(1, 2, 3, 4)\np &lt;- 1 / 2\n\ndata &lt;- tibble()\nfor (i in k){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dnbinom(x, i, p),\n        f = sprintf(\"f(X; %s, %s)\", p, i)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; p, k)\")\n\nplot(g)\n\n\n\n\n\nFigure 4: 負の二項分布"
+  },
+  {
+    "objectID": "qmds/生物統計学/確率分布.html#正規分布",
+    "href": "qmds/生物統計学/確率分布.html#正規分布",
+    "title": "確率分布",
+    "section": "正規分布",
+    "text": "正規分布\n自然界では左右非対称かつつりがね型の分布をとる現象が多く存在する。これはある代表値\\(\\mu\\)から、ばらつきを表す量\\(\\sigma^{2}\\)に応じた誤差の分だけ離れた観測を集めることで生成される。このような分布を正規分布\\(N(\\mu, \\sigma^{2})\\) Figure 5 といい、確率密度関数は Equation 5 である。\n正規分布はあらゆる統計理論に関わっている最重要分布である。\nまた、\\(\\mu = 0, \\sigma^{2} = 1\\)の場合の正規分布を標準正規分布と呼ぶ。\n\\[\nf(X=x; \\mu, \\sigma^{2}) = \\frac{1}{\\sqrt{2 \\pi \\sigma^{2}}} \\exp{\\left( \\frac{- (x - \\mu)^{2}}{2 \\sigma^{2}} \\right)}\n\\tag{5}\\]\n\nFigure 5: 正規分布\n\n\n\n\nCode\nx &lt;- seq(-5, 5, by = 0.01)\nmu &lt;- c(-2, -1, 0, 1, 2)\nsigma &lt;- c(1, 2, 3, 4)\n\ndata &lt;- tibble()\nfor (m in mu){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dnorm(x, m, sigma[1]),\n        f = sprintf(\"f(X; %s, %s)\", m, sigma[1])\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; mu, sigma^2)\")\n\nplot(g)\n\n\n\n\n\n\n\nCode\ndata &lt;- tibble()\nfor (s in sigma){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dnorm(x, mu[3], s),\n        f = sprintf(\"f(X; %s, %s)\", mu[3], s)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; mu, sigma^2)\")\n\nplot(g)"
+  },
+  {
+    "objectID": "qmds/生物統計学/確率分布.html#ガンマ分布",
+    "href": "qmds/生物統計学/確率分布.html#ガンマ分布",
+    "title": "確率分布",
+    "section": "ガンマ分布",
+    "text": "ガンマ分布\n負の二項分布を連続化した分布をガンマ分布 Figure 6 と呼ぶ。ガンマ分布はある期間\\(\\beta\\)ごとに1回生起する現象が\\(\\alpha\\)回起きるまでの期間\\(x\\)の確率を表現することができる。確率密度関数は Equation 6 である(\\(\\Gamma\\)はガンマ関数)。ガンマ分布はベイズ統計においても頻出の分布である。\nまた、\\(\\alpha = 1\\)の場合は指数分布と呼び、確率密度関数は\\(f(x; \\beta) = \\beta e^{- \\frac{x}{\\beta}}\\)となる。\n\\[\nf(X=x; \\alpha, \\beta) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{\\beta^{\\alpha}}{\\Gamma(\\alpha)} x^{\\alpha - 1} e^{- \\frac{x}{\\beta}} \\ &(x \\geqq 0) \\\\\n    &0 \\ &(x &lt; 0)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{6}\\]\n\n\nCode\nx &lt;- seq(0, 5, by = 0.01)\nalpha &lt;- c(1, 1.5, 2, 2.5, 3)\nbeta &lt;- 2\n\ndata &lt;- tibble()\nfor (a in alpha){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dgamma(x, a, beta),\n        f = sprintf(\"f(X; %s, %s)\", a, beta)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; alpha, beta)\")\n\nplot(g)\n\n\n\n\n\nFigure 6: ガンマ分布"
+  },
+  {
+    "objectID": "qmds/生物統計学/確率分布.html#一様分布",
+    "href": "qmds/生物統計学/確率分布.html#一様分布",
+    "title": "確率分布",
+    "section": "一様分布",
+    "text": "一様分布\nある区間\\([a, b]\\)で、全ての事象が生起する確率が等しい分布を一様分布 Figure 7 という。確率密度関数は Equation 7 である。離散型でも同様の分布があり、両方で乱数生成の場面でよく用いられる。\n\\[\nf(X=x; a, b) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{1}{b - a} \\ &(a \\leqq x \\leqq b) \\\\\n    &0 \\ &(x &lt; a, x &gt; b)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{7}\\]\n\n\nCode\nx &lt;- seq(0, 6, by = 0.01)\na &lt;- 1\nb &lt;- c(2, 3, 4, 5)\n\ndata &lt;- tibble()\nfor (k in b){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dunif(x, a, k),\n        f = sprintf(\"f(X; %s, %s)\", a, k)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; a, b)\")\n\nplot(g)\n\n\n\n\n\nFigure 7: 一様分布"
+  },
+  {
+    "objectID": "qmds/生物統計学/確率分布.html#ベータ分布",
+    "href": "qmds/生物統計学/確率分布.html#ベータ分布",
+    "title": "確率分布",
+    "section": "ベータ分布",
+    "text": "ベータ分布\n二項分布に従う確率変数について、実際の観測に基づいて母数\\(x = p\\)を得るとする。A, Bが生起する回数をそれぞれ\\(\\alpha, \\beta\\)したときに、その数が少ない場合は得られる\\(x\\)は偶然と考えるが、多い場合は確信をもって\\(x\\)を得られる。この\\(x\\)が従う分布をベータ分布 Figure 8 という。確率密度関数は Equation 8 である(\\(B\\)はベータ関数)。ベータ分布はベイズ統計でよく用いられる。\nまた、\\(\\alpha = 1, \\beta = 1\\)のときは区間\\([0, 1]\\)の一様分布となる。\n\\[\nf(X=x; \\alpha, \\beta) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{x^{\\alpha - 1} (1 - x)^{\\beta - 1}}{B(\\alpha, \\beta)} \\ &(0 \\leqq x \\leqq 1) \\\\\n    &0 \\ &(x &lt; 0, x &gt; 1)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{8}\\]\n\n\nCode\nx &lt;- seq(0, 1, by = 0.01)\nalpha &lt;- c(2, 3, 4, 5, 6)\nbeta &lt;- c(3, 5, 7, 9, 11)\n\ndata &lt;- tibble()\nfor (i in 1:5){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dbeta(x, alpha[i], beta[i]),\n        f = sprintf(\"f(X; %s, %s)\", alpha[i], beta[i])\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; alpha, beta)\")\n\nplot(g)\n\n\n\n\n\nFigure 8: ベータ分布"
+  },
+  {
+    "objectID": "qmds/生物統計学/確率分布.html#対数正規分布",
+    "href": "qmds/生物統計学/確率分布.html#対数正規分布",
+    "title": "確率分布",
+    "section": "対数正規分布",
+    "text": "対数正規分布\n自然界でみられる現象が従う分布として正規分布を対数変換したものがある。これは、観測値に下限はあるが、上限は明確にないような現象でよくみられる（例えば、血液検査など）。これは対数正規分布 Figure 9 といい、確率密度関数は Equation 9 である。\n\\[\nf(X=x; \\mu, \\sigma^{2}) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{1}{\\sqrt{2 \\pi \\sigma^{2}} x} \\exp{\\left( \\frac{- (\\log{x} - \\mu)^{2}}{2 \\sigma^{2}} \\right)} \\ &(x \\geqq 0) \\\\\n    &0 \\ &(x &lt; 0)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{9}\\]\n\n\nCode\nx &lt;- seq(0, 20, by = 0.01)\nmu &lt;- c(1, 2, 3, 4)\nsigma &lt;- 1\n\ndata &lt;- tibble()\nfor (m in mu){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dlnorm(x, m, sigma),\n        f = sprintf(\"f(X; %s, %s)\", m, sigma)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; mu, sigma^2)\")\n\nplot(g)\n\n\n\n\n\nFigure 9: 対数正規分布"
   },
   {
     "objectID": "qmds/生物統計学/確率論.html",
@@ -459,7 +522,7 @@
     "href": "qmds/臨床研究/リサーチクエスチョン.html",
     "title": "リサーチクエスチョン",
     "section": "",
-    "text": "リサーチクエスチョンとは研究によって明らかにしたい問いである。疑問の種類も様々 Figure 1 だが、リサーチクエスチョンは疑問をどんどん掘り下げていってネットや文献で調べてもすぐに分からないものが候補となる。リサーチクエスチョンが明確であると、適切な研究デザインや統計解析を選択でき良い考察を得やすい。加えて、仮説にまで落とし込むことで論証までの道筋が明確になる他、結論を仮説通りだったか否かの二元論で述べることができるので主張がしやすくなるという大きな利点がある。また、p-hackingなどの統計不正を防ぐ効果もある。\n\n\n\n\n\n\n\n\nG\n\n \n\n%45\n\n Clinical question  \n\n%47\n\n Background question  \n\n%49\n\n Foreground question   \n\nhidden\n\n  \n\nresearch\n\n Research question  \n\n\nFigure 1: リサーチクエスチョンの立ち位置\n\n\n\n\n\n\n\n\n\n\nリサーチクエスチョンに関連する疑問\n\n\n\n\n臨床上の疑問をクリニカルクエスチョンという。クリニカルクエスチョンは以下の2つに分類できる Figure 2\n\n基本的な知識や用語、概念等に関する疑問(背景疑問)\nそれらの知識や概念を結び付けることによって生まれる疑問(前景疑問)\n\n\n\n\n\n\n\n\n\n\nG\n\n  \n\na\n\n B   \n\nc\n\n B   \n\na–c\n\n F   \n\nb\n\n B   \n\nb–c\n\n F   \n\nd\n\n B   \n\nc–d\n\n F   \n\ne\n\n B   \n\nf\n\n B   \n\ne–f\n\n F   \n\ng\n\n B  \n\n\nFigure 2: 背景疑問(B)と前景疑問(F)の関係性: 臨床医学に対する知識が背景疑問として一つ一つのノードとして表現でき、それらを結合するエッジが前景疑問となる\n\n\n\n\n\n\n\n\n\n\n\n\nExample\n\n\n\n\n日常的な運動は心疾患の予防に寄与するか\n\n仮説: 運動をすることで、心疾患の予防が期待できる\n\nサウナは心疾患リスクの要因となるか\n\n仮説: サウナに日常的に入る人は心疾患のリスクが高い"
+    "text": "リサーチクエスチョンとは研究によって明らかにしたい問いである。疑問の種類も様々 Figure 1 だが、リサーチクエスチョンは疑問をどんどん掘り下げていってネットや文献で調べてもすぐに分からないものが候補となる。リサーチクエスチョンが明確であると、適切な研究デザインや統計解析を選択でき良い考察を得やすい。加えて、仮説にまで落とし込むことで論証までの道筋が明確になる他、結論を仮説通りだったか否かの二元論で述べることができるので主張がしやすくなるという大きな利点がある。また、p-hackingなどの統計不正を防ぐ効果もある。\n\n\n\n\n\n\n\n\nG\n\n \n\n%59\n\n Clinical question  \n\n%61\n\n Background question  \n\n%63\n\n Foreground question   \n\nhidden\n\n  \n\nresearch\n\n Research question  \n\n\nFigure 1: リサーチクエスチョンの立ち位置\n\n\n\n\n\n\n\n\n\n\nリサーチクエスチョンに関連する疑問\n\n\n\n\n臨床上の疑問をクリニカルクエスチョンという。クリニカルクエスチョンは以下の2つに分類できる Figure 2\n\n基本的な知識や用語、概念等に関する疑問(背景疑問)\nそれらの知識や概念を結び付けることによって生まれる疑問(前景疑問)\n\n\n\n\n\n\n\n\n\n\nG\n\n  \n\na\n\n B   \n\nc\n\n B   \n\na–c\n\n F   \n\nb\n\n B   \n\nb–c\n\n F   \n\nd\n\n B   \n\nc–d\n\n F   \n\ne\n\n B   \n\nf\n\n B   \n\ne–f\n\n F   \n\ng\n\n B  \n\n\nFigure 2: 背景疑問(B)と前景疑問(F)の関係性: 臨床医学に対する知識が背景疑問として一つ一つのノードとして表現でき、それらを結合するエッジが前景疑問となる\n\n\n\n\n\n\n\n\n\n\n\n\nExample\n\n\n\n\n日常的な運動は心疾患の予防に寄与するか\n\n仮説: 運動をすることで、心疾患の予防が期待できる\n\nサウナは心疾患リスクの要因となるか\n\n仮説: サウナに日常的に入る人は心疾患のリスクが高い"
   },
   {
     "objectID": "qmds/臨床研究/リサーチクエスチョン.html#finer",
@@ -578,69 +641,6 @@
     "href": "qmds/実行環境.html",
     "title": "実行環境",
     "section": "",
-    "text": "OS\nOS: Windows11 WSL, Ubuntu 22.4\n\n\nQuarto\nQuarto version: 1.3.450\n\n\nR\n\n\n setting  value\n version  R version 4.3.2 (2023-10-31)\n os       Ubuntu 22.04.3 LTS\n system   x86_64, linux-gnu\n ui       X11\n language (EN)\n collate  C.UTF-8\n ctype    C.UTF-8\n tz       Asia/Tokyo\n date     2024-02-03\n pandoc   3.1.1 @ /opt/quarto/bin/tools/ (via rmarkdown)\n\n\n\n\nPython\n\n\n3.10.13\n\n\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
-  },
-  {
-    "objectID": "qmds/生物統計学/確率分布.html#超幾何分布",
-    "href": "qmds/生物統計学/確率分布.html#超幾何分布",
-    "title": "確率分布",
-    "section": "超幾何分布",
-    "text": "超幾何分布\nA or Bからなる\\(N\\)個の集団を考える。A, Bの個数はそれぞれ\\(M\\), \\(N - M\\)とする。この集団から\\(n\\)個取り出したとき、Aの個数が\\(k\\)個となる確率は Equation 1 で与えられる。この確率分布を超幾何分布 Figure 1 という。資源調査などでよく用いられる。\n\\[\nf(X=x; N, M, n) = \\frac{_{M}C_{x} \\cdot _{N - M}C_{n - x}}{_{N}C_{n}} \\ (x = \\max(0, n -(N - M)), \\cdots, \\min(n, M))\n\\tag{1}\\]\n\n\nCode\nx &lt;- c(0:5)\nN &lt;- 10\nM &lt;- c(3, 5, 7)\n\ndata &lt;- tibble()\nfor (m in M){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dhyper(x, m, N - m, max(x)),\n        f = sprintf(\"f(X; %s, %s, %s)\", N, m, max(x))\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; N, M, n)\")\n\nplot(g)\n\n\n\n\n\nFigure 1: 超幾何分布"
-  },
-  {
-    "objectID": "qmds/生物統計学/確率分布.html#二項分布",
-    "href": "qmds/生物統計学/確率分布.html#二項分布",
-    "title": "確率分布",
-    "section": "二項分布",
-    "text": "二項分布\nA or Bが観測できる試行を考える。A, Bが生起する確率をそれぞれ\\(p, (1 - p)\\)とする。この試行を独立に\\(n\\)回繰り返す(これをベルヌーイ試行と呼ぶ)。Aが\\(x\\)回生起する確率は Equation 2 で与えられる。この確率分布を二項分布 Figure 2 という。二項分布はコイン投げのような単純な試行で使われる。\nまた、\\(n = 1\\)のときはベルヌーイ分布と呼ぶ。\n\\[\nf(X=x; n, p) = _{n}C_{x} p^{x} (1 - p)^{n - x}\n\\tag{2}\\]\n\n\nCode\nx &lt;- c(0:6)\nn &lt;- 6\np &lt;- c(1:5) / 6\n\ndata &lt;- tibble()\nfor (prob in p){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dbinom(x, n, prob),\n        f = sprintf(\"f(X; %s, %s)\", n, prob)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; n, p)\")\n\nplot(g)\n\n\n\n\n\nFigure 2: 二項分布"
-  },
-  {
-    "objectID": "qmds/生物統計学/確率分布.html#ポアソン分布",
-    "href": "qmds/生物統計学/確率分布.html#ポアソン分布",
-    "title": "確率分布",
-    "section": "ポアソン分布",
-    "text": "ポアソン分布\n二項分布の\\(n\\)を大きくし、\\(p\\)を0に近づけた事象を考える。このように、大量の観察の中で中々生起しない現象は交通事故件数や不良品件数などが当てはまる。今、\\(\\lambda \\fallingdotseq n p\\)としたときに\\(x\\)回生起する確率は Equation 3 で与えられる。この確率分布をポアソン分布 Figure 3 という。\n\\[\nf(X=x; \\lambda) = \\frac{\\lambda^{x} e^{- \\lambda}}{x!}\n\\tag{3}\\]\n\n\nCode\nx &lt;- c(0:10)\nlambda &lt;- c(0, 1, 2, 3, 4, 5)\n\ndata &lt;- tibble()\nfor (l in lambda){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dpois(x, l),\n        f = sprintf(\"f(X; %s)\", l)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; lambda)\")\n\nplot(g)\n\n\n\n\n\nFigure 3: ポアソン分布"
-  },
-  {
-    "objectID": "qmds/生物統計学/確率分布.html#負の二項分布",
-    "href": "qmds/生物統計学/確率分布.html#負の二項分布",
-    "title": "確率分布",
-    "section": "負の二項分布",
-    "text": "負の二項分布\n生起する確率が\\(p\\)であるベルヌーイ試行を繰り返すとき、\\(k\\)回目の生起を得るまでの失敗回数\\(x\\)は Equation 4 で与えられる。この確率分布を負の二項分布(パスカル分布) Figure 4 という。負の二項分布は待ち時間を表現するのに用いられる。\nまた、\\(k = 1\\)のときは 幾何分布と呼ぶ。\n\\[\nf(X=x; p, k) = _{k + x - 1}C_{x} p^{k} (1 - p)^{x}\n\\tag{4}\\]\n\n\nCode\nx &lt;- c(0:10)\nk &lt;- c(1, 2, 3, 4)\np &lt;- 1 / 2\n\ndata &lt;- tibble()\nfor (i in k){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dnbinom(x, i, p),\n        f = sprintf(\"f(X; %s, %s)\", p, i)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; p, k)\")\n\nplot(g)\n\n\n\n\n\nFigure 4: 負の二項分布"
-  },
-  {
-    "objectID": "qmds/生物統計学/確率分布.html#正規分布",
-    "href": "qmds/生物統計学/確率分布.html#正規分布",
-    "title": "確率分布",
-    "section": "正規分布",
-    "text": "正規分布\n自然界では左右非対称かつつりがね型の分布をとる現象が多く存在する。これはある代表値\\(\\mu\\)から、ばらつきを表す量\\(\\sigma^{2}\\)に応じた誤差の分だけ離れた観測を集めることで生成される。このような分布を正規分布\\(N(\\mu, \\sigma^{2})\\) Figure 5 といい、確率密度関数は Equation 5 である。\n正規分布はあらゆる統計理論に関わっている最重要分布である。\n\\[\nf(X=x; \\mu, \\sigma^{2}) = \\frac{1}{\\sqrt{2 \\pi \\sigma^{2}}} \\exp{\\left( \\frac{- (x - \\mu)^{2}}{2 \\sigma^{2}} \\right)}\n\\tag{5}\\]\n\nFigure 5: 正規分布\n\n\n\n\nCode\nx &lt;- seq(-5, 5, by = 0.01)\nmu &lt;- c(-2, -1, 0, 1, 2)\nsigma &lt;- c(1, 2, 3, 4)\n\ndata &lt;- tibble()\nfor (m in mu){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dnorm(x, m, sigma[1]),\n        f = sprintf(\"f(X; %s, %s)\", m, sigma[1])\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; mu, sigma^2)\")\n\nplot(g)\n\n\n\n\n\n\n\nCode\ndata &lt;- tibble()\nfor (s in sigma){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dnorm(x, mu[3], s),\n        f = sprintf(\"f(X; %s, %s)\", mu[3], s)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; mu, sigma^2)\")\n\nplot(g)"
-  },
-  {
-    "objectID": "qmds/生物統計学/確率分布.html#ガンマ分布",
-    "href": "qmds/生物統計学/確率分布.html#ガンマ分布",
-    "title": "確率分布",
-    "section": "ガンマ分布",
-    "text": "ガンマ分布\n負の二項分布を連続化した分布をガンマ分布 Figure 6 と呼ぶ。ガンマ分布はある期間\\(\\beta\\)ごとに1回生起する現象が\\(\\alpha\\)回起きるまでの期間\\(x\\)の確率を表現することができる。確率密度関数は Equation 6 である(\\(\\Gamma\\)はガンマ関数)。ガンマ分布はベイズ統計においても頻出の分布である。\nまた、\\(\\alpha = 1\\)の場合は指数分布と呼び、確率密度関数は\\(f(x; \\beta) = \\beta e^{- \\frac{x}{\\beta}}\\)となる。\n\\[\nf(X=x; \\alpha, \\beta) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{\\beta^{\\alpha}}{\\Gamma(\\alpha)} x^{\\alpha - 1} e^{- \\frac{x}{\\beta}} \\ &(x \\geqq 0) \\\\\n    &0 \\ &(x &lt; 0)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{6}\\]\n\n\nCode\nx &lt;- seq(0, 5, by = 0.01)\nalpha &lt;- c(1, 1.5, 2, 2.5, 3)\nbeta &lt;- 2\n\ndata &lt;- tibble()\nfor (a in alpha){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dgamma(x, a, beta),\n        f = sprintf(\"f(X; %s, %s)\", a, beta)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; alpha, beta)\")\n\nplot(g)\n\n\n\n\n\nFigure 6: ガンマ分布"
-  },
-  {
-    "objectID": "qmds/生物統計学/確率分布.html#一様分布",
-    "href": "qmds/生物統計学/確率分布.html#一様分布",
-    "title": "確率分布",
-    "section": "一様分布",
-    "text": "一様分布\nある区間\\([a, b]\\)で、全ての事象が生起する確率が等しい分布を一様分布 Figure 7 という。確率密度関数は Equation 7 である。離散型でも同様の分布があり、両方で乱数生成の場面でよく用いられる。\n\\[\nf(X=x; a, b) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{1}{b - a} \\ &(a \\leqq x \\leqq b) \\\\\n    &0 \\ &(x &lt; a, x &gt; b)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{7}\\]\n\n\nCode\nx &lt;- seq(0, 6, by = 0.01)\na &lt;- 1\nb &lt;- c(2, 3, 4, 5)\n\ndata &lt;- tibble()\nfor (k in b){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dunif(x, a, k),\n        f = sprintf(\"f(X; %s, %s)\", a, k)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; a, b)\")\n\nplot(g)\n\n\n\n\n\nFigure 7: 一様分布"
-  },
-  {
-    "objectID": "qmds/生物統計学/確率分布.html#ベータ分布",
-    "href": "qmds/生物統計学/確率分布.html#ベータ分布",
-    "title": "確率分布",
-    "section": "ベータ分布",
-    "text": "ベータ分布\n二項分布に従う確率変数について、実際の観測に基づいて母数\\(x = p\\)を得るとする。A, Bが生起する回数をそれぞれ\\(\\alpha, \\beta\\)したときに、その数が少ない場合は得られる\\(x\\)は偶然と考えるが、多い場合は確信をもって\\(x\\)を得られる。この\\(x\\)が従う分布をベータ分布 Figure 8 という。確率密度関数は Equation 8 である(\\(B\\)はベータ関数)。ベータ分布はベイズ統計でよく用いられる。\nまた、\\(\\alpha = 1, \\beta = 1\\)のときは区間\\([0, 1]\\)の一様分布となる。\n\\[\nf(X=x; \\alpha, \\beta) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{x^{\\alpha - 1} (1 - x)^{\\beta - 1}}{B(\\alpha, \\beta)} \\ &(0 \\leqq x \\leqq 1) \\\\\n    &0 \\ &(x &lt; 0, x &gt; 1)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{8}\\]\n\n\nCode\nx &lt;- seq(0, 1, by = 0.01)\nalpha &lt;- c(2, 3, 4, 5, 6)\nbeta &lt;- c(3, 5, 7, 9, 11)\n\ndata &lt;- tibble()\nfor (i in 1:5){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dbeta(x, alpha[i], beta[i]),\n        f = sprintf(\"f(X; %s, %s)\", alpha[i], beta[i])\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; alpha, beta)\")\n\nplot(g)\n\n\n\n\n\nFigure 8: ベータ分布"
-  },
-  {
-    "objectID": "qmds/生物統計学/確率分布.html#対数正規分布",
-    "href": "qmds/生物統計学/確率分布.html#対数正規分布",
-    "title": "確率分布",
-    "section": "対数正規分布",
-    "text": "対数正規分布\n自然界でみられる現象が従う分布として正規分布を対数変換したものがある。これは、観測値に下限はあるが、上限は明確にないような現象でよくみられる（例えば、血液検査など）。これは対数正規分布 Figure 9 といい、確率密度関数は Equation 9 である。\n\\[\nf(X=x; \\mu, \\sigma^{2}) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{1}{\\sqrt{2 \\pi \\sigma^{2}} x} \\exp{\\left( \\frac{- (\\log{x} - \\mu)^{2}}{2 \\sigma^{2}} \\right)} \\ &(x \\geqq 0) \\\\\n    &0 \\ &(x &lt; 0)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{9}\\]\n\n\nCode\nx &lt;- seq(0, 20, by = 0.01)\nmu &lt;- c(1, 2, 3, 4)\nsigma &lt;- 1\n\ndata &lt;- tibble()\nfor (m in mu){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dlnorm(x, m, sigma),\n        f = sprintf(\"f(X; %s, %s)\", m, sigma)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; mu, sigma^2)\")\n\nplot(g)\n\n\n\n\n\nFigure 9: 対数正規分布"
+    "text": "OS\nOS: Windows11 WSL, Ubuntu 22.4\n\n\nQuarto\nQuarto version: 1.3.450\n\n\nR\n\n\n setting  value\n version  R version 4.3.2 (2023-10-31)\n os       Ubuntu 22.04.3 LTS\n system   x86_64, linux-gnu\n ui       X11\n language (EN)\n collate  C.UTF-8\n ctype    C.UTF-8\n tz       Asia/Tokyo\n date     2024-02-04\n pandoc   3.1.1 @ /opt/quarto/bin/tools/ (via rmarkdown)\n\n\n\n\nPython\n\n\n3.10.13\n\n\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
   }
 ]
