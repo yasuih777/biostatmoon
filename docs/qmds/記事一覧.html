@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.529">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -49,7 +49,12 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -58,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -218,11 +224,38 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="BiostatMoon">
 <meta property="og:description" content="Study biostatistics related math, programming and clinical research">
 <meta property="og:image" content="images/profile.png">
-<meta property="og:site-name" content="BiostatMoon">
+<meta property="og:site_name" content="BiostatMoon">
 <meta name="twitter:title" content="BiostatMoon">
 <meta name="twitter:description" content="Study biostatistics related math, programming and clinical research">
 <meta name="twitter:image" content="images/profile.png">
@@ -233,9 +266,9 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../qmds/index.html" class="navbar-brand navbar-brand-logo">
     <img src="../images/profile.png" alt="" class="navbar-logo">
     </a>
@@ -250,52 +283,52 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../qmds/index.html" rel="" target="" aria-current="page">
- <span class="menu-text">ホーム</span></a>
+    <a class="nav-link active" href="../qmds/index.html" aria-current="page"> 
+<span class="menu-text">ホーム</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../qmds/記事一覧.html" rel="" target="">
- <span class="menu-text">記事一覧</span></a>
+    <a class="nav-link" href="../qmds/記事一覧.html"> 
+<span class="menu-text">記事一覧</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../qmds/ツール一覧.html" rel="" target="">
- <span class="menu-text">ツール一覧</span></a>
+    <a class="nav-link" href="../qmds/ツール一覧.html"> 
+<span class="menu-text">ツール一覧</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../qmds/管理者.html" rel="" target="">
- <span class="menu-text">管理者</span></a>
+    <a class="nav-link" href="../qmds/管理者.html"> 
+<span class="menu-text">管理者</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../qmds/実行環境.html" rel="" target="">
- <span class="menu-text">実行環境</span></a>
+    <a class="nav-link" href="../qmds/実行環境.html"> 
+<span class="menu-text">実行環境</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../qmds/お問い合わせ.html" rel="" target="">
- <span class="menu-text">お問い合わせ</span></a>
+    <a class="nav-link" href="../qmds/お問い合わせ.html"> 
+<span class="menu-text">お問い合わせ</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-    <a href="https://github.com/yasuih777/biostatmoon" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-    <a href="https://twitter.com/yugetsubiostat" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+    <a href="https://github.com/yasuih777/biostatmoon" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://twitter.com/yugetsubiostat" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../qmds/記事一覧.html">記事一覧</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../qmds/記事一覧.html">記事一覧</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
@@ -357,7 +390,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
- <span class="menu-text">プログラミング</span></a>
+ <span class="menu-text">データサイエンス</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -366,12 +399,40 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
- <span class="menu-text">Python</span></a>
+ <span class="menu-text">データエンジニアリング</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmds/データサイエンス/データエンジニアリング/整然データ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">整然データ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">プログラミング</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmds/プログラミング/python/環境構築.html" class="sidebar-item-text sidebar-link">
@@ -388,13 +449,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
  <span class="menu-text">R</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmds/プログラミング/R/環境構築.html" class="sidebar-item-text sidebar-link">
@@ -405,13 +466,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
  <span class="menu-text">その他</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmds/プログラミング/その他/anaconda.html" class="sidebar-item-text sidebar-link">
@@ -430,13 +491,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
  <span class="menu-text">生物統計学</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmds/生物統計学/確率論.html" class="sidebar-item-text sidebar-link">
@@ -459,13 +520,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
  <span class="menu-text">臨床研究</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmds/臨床研究/リサーチクエスチョン.html" class="sidebar-item-text sidebar-link">
@@ -485,7 +546,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -507,7 +568,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../qmds/記事一覧.html">記事一覧</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">記事一覧</h1>
 </div>
@@ -535,12 +596,14 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   
 <div>
   <div class="abstract">
-    <div class="abstract-title">Abstract</div>
+    <div class="block-title">Abstract</div>
     このサイト内の記事一覧
   </div>
 </div>
 
+
 </header>
+
 
 <section id="臨床研究" class="level1">
 <h1>臨床研究</h1>
@@ -567,7 +630,6 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-
 <table class="quarto-listing-table table">
 <thead>
 <tr>
@@ -586,7 +648,7 @@ Categories
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="臨床研究" data-listing-date-sort="1706108400000" data-listing-file-modified-sort="1706343882831" data-listing-date-modified-sort="1706281200000" data-listing-reading-time-sort="2" data-listing-title-sort="リサーチクエスチョン" data-listing-filename-sort="リサーチクエスチョン.qmd">
+<tr data-index="0" data-categories="臨床研究" data-listing-date-sort="1706108400000" data-listing-file-modified-sort="1706343882831" data-listing-date-modified-sort="1706281200000" data-listing-reading-time-sort="2" data-listing-word-count-sort="384" data-listing-title-sort="リサーチクエスチョン" data-listing-filename-sort="リサーチクエスチョン.qmd">
 <td>
 <span class="listing-date">2024-01-25</span>
 </td>
@@ -601,7 +663,6 @@ Categories
 </td>
 </tr>
 </tbody>
-
 </table>
 <div class="listing-no-matching d-none">
 No matching items
@@ -633,7 +694,6 @@ No matching items
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-
 <table class="quarto-listing-table table">
 <thead>
 <tr>
@@ -652,7 +712,7 @@ Categories
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="確率統計" data-listing-date-sort="1706022000000" data-listing-file-modified-sort="1706199331375" data-listing-date-modified-sort="1706194800000" data-listing-reading-time-sort="4" data-listing-title-sort="確率論基礎" data-listing-filename-sort="確率論.qmd">
+<tr data-index="0" data-categories="確率統計" data-listing-date-sort="1706022000000" data-listing-file-modified-sort="1706199331375" data-listing-date-modified-sort="1706194800000" data-listing-reading-time-sort="4" data-listing-word-count-sort="795" data-listing-title-sort="確率論基礎" data-listing-filename-sort="確率論.qmd">
 <td>
 <span class="listing-date">2024-01-24</span>
 </td>
@@ -666,7 +726,7 @@ Categories
 <span class="listing-categories">確率統計</span>
 </td>
 </tr>
-<tr data-index="1" data-categories="確率統計" data-listing-date-sort="1706799600000" data-listing-file-modified-sort="1706968122837" data-listing-date-modified-sort="1706886000000" data-listing-reading-time-sort="8" data-listing-title-sort="確率分布" data-listing-filename-sort="確率分布.qmd">
+<tr data-index="1" data-categories="確率統計" data-listing-date-sort="1706799600000" data-listing-file-modified-sort="1706968122837" data-listing-date-modified-sort="1706886000000" data-listing-reading-time-sort="8" data-listing-word-count-sort="1469" data-listing-title-sort="確率分布" data-listing-filename-sort="確率分布.qmd">
 <td>
 <span class="listing-date">2024-02-02</span>
 </td>
@@ -680,7 +740,7 @@ Categories
 <span class="listing-categories">確率統計</span>
 </td>
 </tr>
-<tr data-index="2" data-categories="確率統計" data-listing-date-sort="1706972400000" data-listing-file-modified-sort="1707055503285" data-listing-date-modified-sort="1706972400000" data-listing-reading-time-sort="2" data-listing-title-sort="推定" data-listing-filename-sort="推定.qmd">
+<tr data-index="2" data-categories="確率統計" data-listing-date-sort="1706972400000" data-listing-file-modified-sort="1707055503285" data-listing-date-modified-sort="1706972400000" data-listing-reading-time-sort="2" data-listing-word-count-sort="324" data-listing-title-sort="推定" data-listing-filename-sort="推定.qmd">
 <td>
 <span class="listing-date">2024-02-04</span>
 </td>
@@ -695,7 +755,6 @@ Categories
 </td>
 </tr>
 </tbody>
-
 </table>
 <div class="listing-no-matching d-none">
 No matching items
@@ -733,7 +792,6 @@ No matching items
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-
 <table class="quarto-listing-table table">
 <thead>
 <tr>
@@ -752,7 +810,7 @@ Categories
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="R,開発環境" data-listing-date-sort="1706022000000" data-listing-file-modified-sort="1706284888655" data-listing-date-modified-sort="1706022000000" data-listing-reading-time-sort="1" data-listing-title-sort="R環境構築" data-listing-filename-sort="環境構築.qmd">
+<tr data-index="0" data-categories="R,開発環境" data-listing-date-sort="1706022000000" data-listing-file-modified-sort="1706284888655" data-listing-date-modified-sort="1706022000000" data-listing-reading-time-sort="1" data-listing-word-count-sort="94" data-listing-title-sort="R環境構築" data-listing-filename-sort="環境構築.qmd">
 <td>
 <span class="listing-date">2024-01-24</span>
 </td>
@@ -763,11 +821,10 @@ Categories
 <span class="listing-abstract">Rstudio + renvを利用した環境構築</span>
 </td>
 <td>
-<span class="listing-categories">R,開発環境</span>
+<span class="listing-categories">R, 開発環境</span>
 </td>
 </tr>
 </tbody>
-
 </table>
 <div class="listing-no-matching d-none">
 No matching items
@@ -799,7 +856,6 @@ No matching items
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-
 <table class="quarto-listing-table table">
 <thead>
 <tr>
@@ -818,7 +874,7 @@ Categories
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="Python,開発環境" data-listing-date-sort="1705762800000" data-listing-file-modified-sort="1706198314645" data-listing-date-modified-sort="1705762800000" data-listing-reading-time-sort="1" data-listing-title-sort="Python環境構築" data-listing-filename-sort="環境構築.qmd">
+<tr data-index="0" data-categories="Python,開発環境" data-listing-date-sort="1705762800000" data-listing-file-modified-sort="1707056016825" data-listing-date-modified-sort="1705762800000" data-listing-reading-time-sort="1" data-listing-word-count-sort="96" data-listing-title-sort="Python環境構築" data-listing-filename-sort="環境構築.qmd">
 <td>
 <span class="listing-date">2024-01-21</span>
 </td>
@@ -829,10 +885,10 @@ Categories
 <span class="listing-abstract">pyenv + poetryを利用した環境構築</span>
 </td>
 <td>
-<span class="listing-categories">Python,開発環境</span>
+<span class="listing-categories">Python, 開発環境</span>
 </td>
 </tr>
-<tr data-index="1" data-categories="Python" data-listing-date-sort="1705849200000" data-listing-file-modified-sort="1706198319175" data-listing-date-modified-sort="1706022000000" data-listing-reading-time-sort="5" data-listing-title-sort="Python基礎" data-listing-filename-sort="基礎.qmd">
+<tr data-index="1" data-categories="Python" data-listing-date-sort="1705849200000" data-listing-file-modified-sort="1706198319175" data-listing-date-modified-sort="1706022000000" data-listing-reading-time-sort="5" data-listing-word-count-sort="933" data-listing-title-sort="Python基礎" data-listing-filename-sort="基礎.qmd">
 <td>
 <span class="listing-date">2024-01-22</span>
 </td>
@@ -847,7 +903,6 @@ Categories
 </td>
 </tr>
 </tbody>
-
 </table>
 <div class="listing-no-matching d-none">
 No matching items
@@ -879,7 +934,6 @@ No matching items
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-
 <table class="quarto-listing-table table">
 <thead>
 <tr>
@@ -898,7 +952,7 @@ Categories
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="R,Python,開発環境" data-listing-date-sort="1705762800000" data-listing-file-modified-sort="1706199216925" data-listing-date-modified-sort="1706194800000" data-listing-reading-time-sort="1" data-listing-title-sort="Anaconda" data-listing-filename-sort="anaconda.qmd">
+<tr data-index="0" data-categories="R,Python,開発環境" data-listing-date-sort="1705762800000" data-listing-file-modified-sort="1706199216925" data-listing-date-modified-sort="1706194800000" data-listing-reading-time-sort="1" data-listing-word-count-sort="136" data-listing-title-sort="Anaconda" data-listing-filename-sort="anaconda.qmd">
 <td>
 <span class="listing-date">2024-01-21</span>
 </td>
@@ -909,10 +963,10 @@ Categories
 <span class="listing-abstract">minicondaによるデータ分析の環境構築</span>
 </td>
 <td>
-<span class="listing-categories">R,Python,開発環境</span>
+<span class="listing-categories">R, Python, 開発環境</span>
 </td>
 </tr>
-<tr data-index="1" data-categories="DOT,グラフィックス" data-listing-date-sort="1705762800000" data-listing-file-modified-sort="1706200089965" data-listing-date-modified-sort="1705762800000" data-listing-reading-time-sort="3" data-listing-title-sort="DOT言語" data-listing-filename-sort="dot.qmd">
+<tr data-index="1" data-categories="DOT,グラフィックス" data-listing-date-sort="1705762800000" data-listing-file-modified-sort="1706200089965" data-listing-date-modified-sort="1705762800000" data-listing-reading-time-sort="3" data-listing-word-count-sort="579" data-listing-title-sort="DOT言語" data-listing-filename-sort="dot.qmd">
 <td>
 <span class="listing-date">2024-01-21</span>
 </td>
@@ -923,11 +977,10 @@ Categories
 <span class="listing-abstract">ネットワーク系のグラフが書けるDOT言語</span>
 </td>
 <td>
-<span class="listing-categories">DOT,グラフィックス</span>
+<span class="listing-categories">DOT, グラフィックス</span>
 </td>
 </tr>
 </tbody>
-
 </table>
 <div class="listing-no-matching d-none">
 No matching items
@@ -939,7 +992,7 @@ No matching items
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div>CC BY 4.0 DEED</div></div></section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1019,10 +1072,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1032,8 +1104,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1046,6 +1127,120 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1089,6 +1284,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1114,8 +1310,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-      // Handle positioning of the toggle
-      window.addEventListener(
+        // Handle positioning of the toggle
+    window.addEventListener(
       "resize",
       throttle(() => {
         elRect = undefined;
@@ -1123,23 +1319,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           selectCodeLines(selectedAnnoteEl);
         }
       }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
               fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
       for (let i=0; i<annoteTargets.length; i++) {
         const annoteTarget = annoteTargets[i];
@@ -1184,7 +1380,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               options: {
                 flipVariations: false, // true by default
                 allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
               },
             },
             {
@@ -1236,22 +1432,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
@@ -1260,12 +1440,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2024, 優月</div>
+    <div class="nav-footer-center">
+<p>Copyright 2024, 優月</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 

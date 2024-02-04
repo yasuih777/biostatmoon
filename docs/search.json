@@ -4,713 +4,1256 @@
     "href": "qmds/プログラミング/R/環境構築.html",
     "title": "R環境構築",
     "section": "",
-    "text": "※このページのOSは以下とする。"
+    "text": "※このページのOSは以下とする。",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "R",
+      "R環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/R/環境構築.html#rstudio-server",
     "href": "qmds/プログラミング/R/環境構築.html#rstudio-server",
     "title": "R環境構築",
     "section": "RStudio Server",
-    "text": "RStudio Server\n\nRのインストール\n\nwget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc\nsudo add-apt-repository \"deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/\"\nsudo apt install --no-install-recommends r-base\n以下コマンドを実行。バージョン情報がでればOK\nR --version\n\nRStudio Serverのインストール\n\nwget https://rstudio.org/download/latest/stable/server/bionic/rstudio-server-latest-amd64.deb\nsudo apt install gdebi\nsudo gdebi rstudio-server-latest-amd64.deb\n以下コマンドを実行。コマンド一覧がでればOK。\nrstudio-server"
+    "text": "RStudio Server\n\nRのインストール\n\nwget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc\nsudo add-apt-repository \"deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/\"\nsudo apt install --no-install-recommends r-base\n以下コマンドを実行。バージョン情報がでればOK\nR --version\n\nRStudio Serverのインストール\n\nwget https://rstudio.org/download/latest/stable/server/bionic/rstudio-server-latest-amd64.deb\nsudo apt install gdebi\nsudo gdebi rstudio-server-latest-amd64.deb\n以下コマンドを実行。コマンド一覧がでればOK。\nrstudio-server",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "R",
+      "R環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/R/環境構築.html#renvのインストール",
     "href": "qmds/プログラミング/R/環境構築.html#renvのインストール",
     "title": "R環境構築",
     "section": "renvのインストール",
-    "text": "renvのインストール\n\nRを起動する\n\nR\n\nRの標準関数install.packagesでrenvをインストール\n\ninstall.packages(\"renv\")\nライブラリがインポートできるか確認\nlibrary(renv)\n\nRを終了する\n\nq()"
+    "text": "renvのインストール\n\nRを起動する\n\nR\n\nRの標準関数install.packagesでrenvをインストール\n\ninstall.packages(\"renv\")\nライブラリがインポートできるか確認\nlibrary(renv)\n\nRを終了する\n\nq()",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "R",
+      "R環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/R/環境構築.html#プロジェクトの作成",
     "href": "qmds/プログラミング/R/環境構築.html#プロジェクトの作成",
     "title": "R環境構築",
     "section": "プロジェクトの作成",
-    "text": "プロジェクトの作成\n\nRstudio Serverの右上のProject: (~)をクリックし、New Project...を選択する\n「New Project Wizard」から、プロジェクトを作成するディレクトりを選択する\n\n新しいディレクトリに作成する場合にはNew Directoryを選択する、その後画面でプロジェクト名と作成する階層を指定する\n元々あるディレクトりに作成する場合にはExising Directoryを選択し、ディレクトリの場所を指定する\n\nCreate Projectをクリック\n\n作成後、&lt;プロジェクト名&gt;.Rprojというファイルが作成される。これにプロジェクトの情報が保存されていく。"
+    "text": "プロジェクトの作成\n\nRstudio Serverの右上のProject: (~)をクリックし、New Project...を選択する\n「New Project Wizard」から、プロジェクトを作成するディレクトりを選択する\n\n新しいディレクトリに作成する場合にはNew Directoryを選択する、その後画面でプロジェクト名と作成する階層を指定する\n元々あるディレクトりに作成する場合にはExising Directoryを選択し、ディレクトリの場所を指定する\n\nCreate Projectをクリック\n\n作成後、&lt;プロジェクト名&gt;.Rprojというファイルが作成される。これにプロジェクトの情報が保存されていく。",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "R",
+      "R環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/R/環境構築.html#renvの初期設定",
     "href": "qmds/プログラミング/R/環境構築.html#renvの初期設定",
     "title": "R環境構築",
     "section": "renvの初期設定",
-    "text": "renvの初期設定\nRコンソール上で行う。\n\nrenvのインポートする\n\nlibrary(renv)\n\nrenvの初期起動を行う\n\nrenv::init()\nrenvディレクトリとrenv.lockというファイルが作成される。これらのファイルにRのパッケージ情報が記録されていく。"
+    "text": "renvの初期設定\nRコンソール上で行う。\n\nrenvのインポートする\n\nlibrary(renv)\n\nrenvの初期起動を行う\n\nrenv::init()\nrenvディレクトリとrenv.lockというファイルが作成される。これらのファイルにRのパッケージ情報が記録されていく。",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "R",
+      "R環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/R/環境構築.html#renvによるパッケージ管理",
     "href": "qmds/プログラミング/R/環境構築.html#renvによるパッケージ管理",
     "title": "R環境構築",
     "section": "renvによるパッケージ管理",
-    "text": "renvによるパッケージ管理\n上記の初期設定を行った後は、通常通りにパッケージのインストールや削除を行ってよい。その後、新しくインポートやバージョン更新してパッケージについて、以下のコマンドでrenvの情報を更新する必要がある。\nrenv::snapshot()\n基本的には、作業がひと段落したときに上記のコマンドを実行するようにしておけば良い。\n別のPCでパッケージ情報を再構築する際には以下のコマンドを実行する。\nrenv::restore()"
+    "text": "renvによるパッケージ管理\n上記の初期設定を行った後は、通常通りにパッケージのインストールや削除を行ってよい。その後、新しくインポートやバージョン更新してパッケージについて、以下のコマンドでrenvの情報を更新する必要がある。\nrenv::snapshot()\n基本的には、作業がひと段落したときに上記のコマンドを実行するようにしておけば良い。\n別のPCでパッケージ情報を再構築する際には以下のコマンドを実行する。\nrenv::restore()",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "R",
+      "R環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html",
     "href": "qmds/プログラミング/python/基礎.html",
     "title": "Python基礎",
     "section": "",
-    "text": "参考: 公式チュートリアル"
+    "text": "参考: 公式チュートリアル",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#代入",
     "href": "qmds/プログラミング/python/基礎.html#代入",
     "title": "Python基礎",
     "section": "代入",
-    "text": "代入\n変数に値を代入するには=を使う。\n\n1a = 5\nb = 2\n\nprint(a, b)\n\n\n1\n\n変数の代入\n\n\n\n\n5 2"
+    "text": "代入\n変数に値を代入するには=を使う。\n\n1a = 5\nb = 2\n\nprint(a, b)\n\n\n1\n\n変数の代入\n\n\n\n\n5 2",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#数値計算",
     "href": "qmds/プログラミング/python/基礎.html#数値計算",
     "title": "Python基礎",
     "section": "数値計算",
-    "text": "数値計算\n以下の演算子 Table 1 が使用可能\n\n\nTable 1: Pythonの標準演算子\n\n\n演算子\n処理\n\n\n\n\n+\n加算\n\n\n-\n減算\n\n\n*\n積算\n\n\n/\n除算\n\n\n%\n除算の余り\n\n\n**\n累乗\n\n\n//\n切り捨て除算\n\n\n\n\n\n1print(a + b)\n2print(a - b)\n3print(a * b)\n4print(a / b)\n5print(a % b)\n6print(a ** b)\n7print(a // b)\n\n\n1\n\n加算\n\n2\n\n減算\n\n3\n\n積算\n\n4\n\n除算\n\n5\n\n除算の余り\n\n6\n\n累乗\n\n7\n\n切り捨て除算\n\n\n\n\n7\n3\n10\n2.5\n1\n25\n2"
+    "text": "数値計算\n以下の演算子 Table 1 が使用可能\n\n\n\nTable 1: Pythonの標準演算子\n\n\n\n\n\n演算子\n処理\n\n\n\n\n+\n加算\n\n\n-\n減算\n\n\n*\n積算\n\n\n/\n除算\n\n\n%\n除算の余り\n\n\n**\n累乗\n\n\n//\n切り捨て除算\n\n\n\n\n\n\n\n1print(a + b)\n2print(a - b)\n3print(a * b)\n4print(a / b)\n5print(a % b)\n6print(a ** b)\n7print(a // b)\n\n\n1\n\n加算\n\n2\n\n減算\n\n3\n\n積算\n\n4\n\n除算\n\n5\n\n除算の余り\n\n6\n\n累乗\n\n7\n\n切り捨て除算\n\n\n\n\n7\n3\n10\n2.5\n1\n25\n2",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#論理式",
     "href": "qmds/プログラミング/python/基礎.html#論理式",
     "title": "Python基礎",
     "section": "論理式",
-    "text": "論理式\n以下の論理演算子 Table 2 が使用可能\n\n\nTable 2: Pythonの標準演算子\n\n\n演算子\n処理\n\n\n\n\n==\n等しい\n\n\n!=\n異なる\n\n\n&gt;\nより大きい\n\n\n&gt;=\n以上\n\n\n&lt;\nより小さい\n\n\n&lt;=\n以下\n\n\nis\n等しい(主にNoneの判別に使用)\n\n\nis not\n異なる(主にNoneの判別に使用)\n\n\nin\n含まれる\n\n\nnot in\n含まれない\n\n\nand\n論理積\n\n\nor\n論理和\n\n\nnot\n論理式の否定\n\n\n\n\n\n1print(a == b)\n2print(a != b)\n3print(a &gt; b)\n4print(a &gt;= b)\n5print(a &lt; b)\n6print(a &lt;= b)\n7print(a is None)\n8print(a is not None)\n9print(a in [1, 2, 3])\n10print(a not in [1, 2, 3])\n11print(a == b and a &gt; b)\n12print(a == b or a &gt; b)\n13print(not a == b )\n\n\n1\n\n等しい\n\n2\n\n異なる\n\n3\n\nより大きい\n\n4\n\n以上\n\n5\n\nより小さい\n\n6\n\n以下\n\n7\n\n等しい(主にNoneの判別に使用)\n\n8\n\n異なる(主にNoneの判別に使用)\n\n9\n\n含まれる\n\n10\n\n含まれない\n\n11\n\n論理積\n\n12\n\n論理和\n\n13\n\n論理式の否定\n\n\n\n\nFalse\nTrue\nTrue\nTrue\nFalse\nFalse\nFalse\nTrue\nFalse\nTrue\nFalse\nTrue\nTrue"
+    "text": "論理式\n以下の論理演算子 Table 2 が使用可能\n\n\n\nTable 2: Pythonの標準演算子\n\n\n\n\n\n演算子\n処理\n\n\n\n\n==\n等しい\n\n\n!=\n異なる\n\n\n&gt;\nより大きい\n\n\n&gt;=\n以上\n\n\n&lt;\nより小さい\n\n\n&lt;=\n以下\n\n\nis\n等しい(主にNoneの判別に使用)\n\n\nis not\n異なる(主にNoneの判別に使用)\n\n\nin\n含まれる\n\n\nnot in\n含まれない\n\n\nand\n論理積\n\n\nor\n論理和\n\n\nnot\n論理式の否定\n\n\n\n\n\n\n\n1print(a == b)\n2print(a != b)\n3print(a &gt; b)\n4print(a &gt;= b)\n5print(a &lt; b)\n6print(a &lt;= b)\n7print(a is None)\n8print(a is not None)\n9print(a in [1, 2, 3])\n10print(a not in [1, 2, 3])\n11print(a == b and a &gt; b)\n12print(a == b or a &gt; b)\n13print(not a == b )\n\n\n1\n\n等しい\n\n2\n\n異なる\n\n3\n\nより大きい\n\n4\n\n以上\n\n5\n\nより小さい\n\n6\n\n以下\n\n7\n\n等しい(主にNoneの判別に使用)\n\n8\n\n異なる(主にNoneの判別に使用)\n\n9\n\n含まれる\n\n10\n\n含まれない\n\n11\n\n論理積\n\n12\n\n論理和\n\n13\n\n論理式の否定\n\n\n\n\nFalse\nTrue\nTrue\nTrue\nFalse\nFalse\nFalse\nTrue\nFalse\nTrue\nFalse\nTrue\nTrue",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#文字列",
     "href": "qmds/プログラミング/python/基礎.html#文字列",
     "title": "Python基礎",
     "section": "文字列",
-    "text": "文字列\n文字列は\"\"で文字を挟むことで定義可能\n\n1text = \"Hello python world!!\"\n\nprint(text)\n\n\n1\n\n文字列の代入\n\n\n\n\nHello python world!!\n\n\n\nインデックス・スライス\n[]の中に整数値n(インデックス)を入れることで左からn番目の文字を取り出すことができる。\n\n数字の始まりは0であることに注意\n0: 3などの範囲(スライス)を指定することでその間の番号の文字列をまとめてとることができる\n右からのn番目の文字をとる場合は-nとする(こっちは数字の始まりは1)\n\n\n1print(text[0])\n2print(text[0: 5])\n3print(text[-1])\n\n\n1\n\nインデックスでの指定\n\n2\n\nスライスでの指定\n\n3\n\n右順でのインデックス指定\n\n\n\n\nH\nHello\n!\n\n\n\n\n結合\n文字列は+演算子で結合できる\n\nprint(text + \" Nice to meet you.\")\n\nHello python world!! Nice to meet you.\n\n\n\n\nf-string\nf\"\"とすることで、括弧内に変数を入れることができる。文字列の生成でよく使うので覚えておくと良い。\n\nprint(f\"{text} I've been learning Python for {a} years.\")\n\nHello python world!! I've been learning Python for 5 years."
+    "text": "文字列\n文字列は\"\"で文字を挟むことで定義可能\n\n1text = \"Hello python world!!\"\n\nprint(text)\n\n\n1\n\n文字列の代入\n\n\n\n\nHello python world!!\n\n\n\nインデックス・スライス\n[]の中に整数値n(インデックス)を入れることで左からn番目の文字を取り出すことができる。\n\n数字の始まりは0であることに注意\n0: 3などの範囲(スライス)を指定することでその間の番号の文字列をまとめてとることができる\n右からのn番目の文字をとる場合は-nとする(こっちは数字の始まりは1)\n\n\n1print(text[0])\n2print(text[0: 5])\n3print(text[-1])\n\n\n1\n\nインデックスでの指定\n\n2\n\nスライスでの指定\n\n3\n\n右順でのインデックス指定\n\n\n\n\nH\nHello\n!\n\n\n\n\n結合\n文字列は+演算子で結合できる\n\nprint(text + \" Nice to meet you.\")\n\nHello python world!! Nice to meet you.\n\n\n\n\nf-string\nf\"\"とすることで、括弧内に変数を入れることができる。文字列の生成でよく使うので覚えておくと良い。\n\nprint(f\"{text} I've been learning Python for {a} years.\")\n\nHello python world!! I've been learning Python for 5 years.",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#tuple",
     "href": "qmds/プログラミング/python/基礎.html#tuple",
     "title": "Python基礎",
     "section": "tuple",
-    "text": "tuple\n\n1t = (1, 2, 3, 4, 5)\nprint(t)\n2print(t[1])\n3print(t[1: 4])\n\n4t[0] = 6\n\n\n1\n\n()で囲うことでtupleの代入\n\n2\n\nインデックス抽出\n\n3\n\nスライス抽出\n\n4\n\ntupleの要素は変更不可(エラーとなる)\n\n\n\n\n(1, 2, 3, 4, 5)\n2\n(2, 3, 4)\n\n\nTypeError: 'tuple' object does not support item assignment"
+    "text": "tuple\n\n1t = (1, 2, 3, 4, 5)\nprint(t)\n2print(t[1])\n3print(t[1: 4])\n\n4t[0] = 6\n\n\n1\n\n()で囲うことでtupleの代入\n\n2\n\nインデックス抽出\n\n3\n\nスライス抽出\n\n4\n\ntupleの要素は変更不可(エラーとなる)\n\n\n\n\n(1, 2, 3, 4, 5)\n2\n(2, 3, 4)\n\n\nTypeError: 'tuple' object does not support item assignment",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#list",
     "href": "qmds/プログラミング/python/基礎.html#list",
     "title": "Python基礎",
     "section": "list",
-    "text": "list\n\n1l = [1, 2, 3, 4, 5]\nprint(l)\n2print(l[1])\n3print(l[1: 4])\n\n4l[0] = 6\nprint(l)\n\n5l.append(7)\nprint(l)\n\n6l.extend([8, 9])\nprint(l)\n\n7l.insert(0, 10)\nprint(l)\n\n8l.pop(0)\nprint(l)\n\n\n1\n\n[]で囲うことでlistの代入\n\n2\n\nインデックス抽出\n\n3\n\nスライス抽出\n\n4\n\nlistの要素は変更可能\n\n5\n\n末尾に要素一つを追加\n\n6\n\n末尾に要素複数を追加\n\n7\n\n特定の位置に要素を追加\n\n8\n\n特定の位置の要素を削除\n\n\n\n\n[1, 2, 3, 4, 5]\n2\n[2, 3, 4]\n[6, 2, 3, 4, 5]\n[6, 2, 3, 4, 5, 7]\n[6, 2, 3, 4, 5, 7, 8, 9]\n[10, 6, 2, 3, 4, 5, 7, 8, 9]\n[6, 2, 3, 4, 5, 7, 8, 9]"
+    "text": "list\n\n1l = [1, 2, 3, 4, 5]\nprint(l)\n2print(l[1])\n3print(l[1: 4])\n\n4l[0] = 6\nprint(l)\n\n5l.append(7)\nprint(l)\n\n6l.extend([8, 9])\nprint(l)\n\n7l.insert(0, 10)\nprint(l)\n\n8l.pop(0)\nprint(l)\n\n\n1\n\n[]で囲うことでlistの代入\n\n2\n\nインデックス抽出\n\n3\n\nスライス抽出\n\n4\n\nlistの要素は変更可能\n\n5\n\n末尾に要素一つを追加\n\n6\n\n末尾に要素複数を追加\n\n7\n\n特定の位置に要素を追加\n\n8\n\n特定の位置の要素を削除\n\n\n\n\n[1, 2, 3, 4, 5]\n2\n[2, 3, 4]\n[6, 2, 3, 4, 5]\n[6, 2, 3, 4, 5, 7]\n[6, 2, 3, 4, 5, 7, 8, 9]\n[10, 6, 2, 3, 4, 5, 7, 8, 9]\n[6, 2, 3, 4, 5, 7, 8, 9]",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#dict",
     "href": "qmds/プログラミング/python/基礎.html#dict",
     "title": "Python基礎",
     "section": "dict",
-    "text": "dict\n\n1d = {\"a\": 0, \"b\": 1, \"c\": 2}\nprint(d)\n\n2d[\"a\"] = 1\nprint(d)\n\n3d[\"d\"] = 3\nprint(d)\n\n4del d[\"d\"]\nprint(d)\n\n5print(list(d.keys()))\n6print(list(d.values()))\n7print(list(d.items()))\n\n\n1\n\n{}内にkey: valueの組を入力しdictの代入\n\n2\n\nkeyのvalueを変更\n\n3\n\nkeyとvalueの組を追加\n\n4\n\nkeyとvalueの組を削除\n\n5\n\ndictからkeyをlistで取得\n\n6\n\ndictからvalueをlistで取得\n\n7\n\ndictからkey, value両方をlistで取得\n\n\n\n\n{'a': 0, 'b': 1, 'c': 2}\n{'a': 1, 'b': 1, 'c': 2}\n{'a': 1, 'b': 1, 'c': 2, 'd': 3}\n{'a': 1, 'b': 1, 'c': 2}\n['a', 'b', 'c']\n[1, 1, 2]\n[('a', 1), ('b', 1), ('c', 2)]"
+    "text": "dict\n\n1d = {\"a\": 0, \"b\": 1, \"c\": 2}\nprint(d)\n\n2d[\"a\"] = 1\nprint(d)\n\n3d[\"d\"] = 3\nprint(d)\n\n4del d[\"d\"]\nprint(d)\n\n5print(list(d.keys()))\n6print(list(d.values()))\n7print(list(d.items()))\n\n\n1\n\n{}内にkey: valueの組を入力しdictの代入\n\n2\n\nkeyのvalueを変更\n\n3\n\nkeyとvalueの組を追加\n\n4\n\nkeyとvalueの組を削除\n\n5\n\ndictからkeyをlistで取得\n\n6\n\ndictからvalueをlistで取得\n\n7\n\ndictからkey, value両方をlistで取得\n\n\n\n\n{'a': 0, 'b': 1, 'c': 2}\n{'a': 1, 'b': 1, 'c': 2}\n{'a': 1, 'b': 1, 'c': 2, 'd': 3}\n{'a': 1, 'b': 1, 'c': 2}\n['a', 'b', 'c']\n[1, 1, 2]\n[('a', 1), ('b', 1), ('c', 2)]",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#set",
     "href": "qmds/プログラミング/python/基礎.html#set",
     "title": "Python基礎",
     "section": "set",
-    "text": "set\n\n1s1 = {0, 1, 2, 2, 3}\ns2 = {0, 2, 4, 6, 8}\nprint(s1, s2)\n\n2s1.add(5)\nprint(s1)\n\n3s1.remove(5)\nprint(s1)\n\n4print(s1 | s2)\n5print(s1 - s2)\n6print(s1 & s2)\n7print(s1 ^ s2)\n\n\n1\n\n{}で囲うことでsetの代入、同じ要素は含まれない\n\n2\n\n要素の追加\n\n3\n\n要素の削除\n\n4\n\n和集合\n\n5\n\n差集合\n\n6\n\n積集合\n\n7\n\n排他的論理和\n\n\n\n\n{0, 1, 2, 3} {0, 2, 4, 6, 8}\n{0, 1, 2, 3, 5}\n{0, 1, 2, 3}\n{0, 1, 2, 3, 4, 6, 8}\n{1, 3}\n{0, 2}\n{1, 3, 4, 6, 8}"
+    "text": "set\n\n1s1 = {0, 1, 2, 2, 3}\ns2 = {0, 2, 4, 6, 8}\nprint(s1, s2)\n\n2s1.add(5)\nprint(s1)\n\n3s1.remove(5)\nprint(s1)\n\n4print(s1 | s2)\n5print(s1 - s2)\n6print(s1 & s2)\n7print(s1 ^ s2)\n\n\n1\n\n{}で囲うことでsetの代入、同じ要素は含まれない\n\n2\n\n要素の追加\n\n3\n\n要素の削除\n\n4\n\n和集合\n\n5\n\n差集合\n\n6\n\n積集合\n\n7\n\n排他的論理和\n\n\n\n\n{0, 1, 2, 3} {0, 2, 4, 6, 8}\n{0, 1, 2, 3, 5}\n{0, 1, 2, 3}\n{0, 1, 2, 3, 4, 6, 8}\n{1, 3}\n{0, 2}\n{1, 3, 4, 6, 8}",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#反復処理",
     "href": "qmds/プログラミング/python/基礎.html#反復処理",
     "title": "Python基礎",
     "section": "反復処理",
-    "text": "反復処理\n\nfor\nfor xxx in iteratorの後にインデントを揃えて記述したコードを反復することができる。\n\niteratorの部分に反復する対象のオブジェクトを指定する、反復処理はiterator内の要素全てに対して行われる\nxxxの部分にiteratorから抽出された要素が代入される\n\n\n1for i in range(5):\n2    c = a + i\n    print(i, c)\n\n\n1\n\nforの定義\n\n2\n\n反復される処理\n\n\n\n\n0 5\n1 6\n2 7\n3 8\n4 9\n\n\n\n\nwhile\nwhile boolingの後にインデントを揃えて記述したコードを反復することができる。\n\nboolingは条件式、この条件を満たすまで処理が反復される(条件を満たなさい場合は永遠に処理が反復されるため要注意)\n\n\nc = 5\n1while c &gt; 0:\n2    print(c)\n    c -= 1\n\n\n1\n\nwhileの定義\n\n2\n\n反復される処理\n\n\n\n\n5\n4\n3\n2\n1\n\n\n\n\n反復処理の関数\nイテレーターを拡張できる関数\n\nzip: 複数のイテレーターから同時に要素を抽出する\nenumerate: 要素と同時にインデックス番号を取得する\n\n\niter1 = [0, 2, 4, 6, 8]\niter2 = [1, 3, 5, 7, 9]\n\n1for i1, i2 in zip(iter1, iter2):\n    print(i1, i2)\n\n\n1\n\nzipの例\n\n\n\n\n0 1\n2 3\n4 5\n6 7\n8 9\n\n\n\n1for idx ,i1 in enumerate(iter1):\n    print(idx, i1)\n\n\n1\n\nenumerateの例\n\n\n\n\n0 0\n1 2\n2 4\n3 6\n4 8"
+    "text": "反復処理\n\nfor\nfor xxx in iteratorの後にインデントを揃えて記述したコードを反復することができる。\n\niteratorの部分に反復する対象のオブジェクトを指定する、反復処理はiterator内の要素全てに対して行われる\nxxxの部分にiteratorから抽出された要素が代入される\n\n\n1for i in range(5):\n2    c = a + i\n    print(i, c)\n\n\n1\n\nforの定義\n\n2\n\n反復される処理\n\n\n\n\n0 5\n1 6\n2 7\n3 8\n4 9\n\n\n\n\nwhile\nwhile boolingの後にインデントを揃えて記述したコードを反復することができる。\n\nboolingは条件式、この条件を満たすまで処理が反復される(条件を満たなさい場合は永遠に処理が反復されるため要注意)\n\n\nc = 5\n1while c &gt; 0:\n2    print(c)\n    c -= 1\n\n\n1\n\nwhileの定義\n\n2\n\n反復される処理\n\n\n\n\n5\n4\n3\n2\n1\n\n\n\n\n反復処理の関数\nイテレーターを拡張できる関数\n\nzip: 複数のイテレーターから同時に要素を抽出する\nenumerate: 要素と同時にインデックス番号を取得する\n\n\niter1 = [0, 2, 4, 6, 8]\niter2 = [1, 3, 5, 7, 9]\n\n1for i1, i2 in zip(iter1, iter2):\n    print(i1, i2)\n\n\n1\n\nzipの例\n\n\n\n\n0 1\n2 3\n4 5\n6 7\n8 9\n\n\n\n1for idx ,i1 in enumerate(iter1):\n    print(idx, i1)\n\n\n1\n\nenumerateの例\n\n\n\n\n0 0\n1 2\n2 4\n3 6\n4 8",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#条件分岐",
     "href": "qmds/プログラミング/python/基礎.html#条件分岐",
     "title": "Python基礎",
     "section": "条件分岐",
-    "text": "条件分岐\n\nif-else\nif xxxの後にインデントを揃えてコ―ドを記述することで、条件式xxxを満たす場合のみ処理を行うことができる。他に追加で条件分岐を行う場合にはelif yyy:とする、これら全ての条件を満たさない処理はelse:の後に記述する。\n\n1if a &lt; 2:\n    print(f\"{a} is under than 2\")\n2elif a &lt; 0:\n    print(f\"{a} is negative value\")\n3else:\n    print(f\"{a} is over than 2\")\n\n\n1\n\n条件式1を満たす\n\n2\n\n条件式1を満たさないかつ条件式2を満たす\n\n3\n\n条件式1、条件式2両方を満たす\n\n\n\n\n5 is over than 2\n\n\n\n\nassert\nassertは条件を満たさない場合、エラーとして処理が止まる。テストコードをよく使う。\n\n1assert a == 5\n2assert a is None\n\n\n1\n\n条件式が真の場合は何も起こらない\n\n2\n\n条件式が偽の場合はエラー\n\n\n\n\nAssertionError:"
+    "text": "条件分岐\n\nif-else\nif xxxの後にインデントを揃えてコ―ドを記述することで、条件式xxxを満たす場合のみ処理を行うことができる。他に追加で条件分岐を行う場合にはelif yyy:とする、これら全ての条件を満たさない処理はelse:の後に記述する。\n\n1if a &lt; 2:\n    print(f\"{a} is under than 2\")\n2elif a &lt; 0:\n    print(f\"{a} is negative value\")\n3else:\n    print(f\"{a} is over than 2\")\n\n\n1\n\n条件式1を満たす\n\n2\n\n条件式1を満たさないかつ条件式2を満たす\n\n3\n\n条件式1、条件式2両方を満たす\n\n\n\n\n5 is over than 2\n\n\n\n\nassert\nassertは条件を満たさない場合、エラーとして処理が止まる。テストコードをよく使う。\n\n1assert a == 5\n2assert a is None\n\n\n1\n\n条件式が真の場合は何も起こらない\n\n2\n\n条件式が偽の場合はエラー\n\n\n\n\nAssertionError:",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#例外処理",
     "href": "qmds/プログラミング/python/基礎.html#例外処理",
     "title": "Python基礎",
     "section": "例外処理",
-    "text": "例外処理\n\ntry-except\ntry:の後の処理がエラーとなるかチェックされる。もしエラーがない場合はそのまま処理が実行されるが、エラーとなる場合はそこの処理以降のコードは実行されず、except:の後の処理が実行される。\n\n1try:\n    print(f\"check {a}\")\n    assert a is None\n2    print(f\"{a} is None\")\n3except:\n    print(f\"{a} is not None\")\n\n\n1\n\ntryの後の処理がエラーとなるかどうかで分岐する\n\n2\n\nエラーとなる場合、ここは実行されない\n\n3\n\nエラーとなる場合のみ実行される\n\n\n\n\ncheck 5\n5 is not None\n\n\n\n\nraise\nraise xxxとすることで処理がエラーとなるパターンを自分で設定できる。xxxには組み込み例外関数を入力する。基本的にif-elseと同時に使い、dataclass等でパラメータの入力を制限するときに多用する。\n\nif not isinstance(a, str):\n    raise ValueError(f\"{a} is not string\")\n\nValueError: 5 is not string"
+    "text": "例外処理\n\ntry-except\ntry:の後の処理がエラーとなるかチェックされる。もしエラーがない場合はそのまま処理が実行されるが、エラーとなる場合はそこの処理以降のコードは実行されず、except:の後の処理が実行される。\n\n1try:\n    print(f\"check {a}\")\n    assert a is None\n2    print(f\"{a} is None\")\n3except:\n    print(f\"{a} is not None\")\n\n\n1\n\ntryの後の処理がエラーとなるかどうかで分岐する\n\n2\n\nエラーとなる場合、ここは実行されない\n\n3\n\nエラーとなる場合のみ実行される\n\n\n\n\ncheck 5\n5 is not None\n\n\n\n\nraise\nraise xxxとすることで処理がエラーとなるパターンを自分で設定できる。xxxには組み込み例外関数を入力する。基本的にif-elseと同時に使い、dataclass等でパラメータの入力を制限するときに多用する。\n\nif not isinstance(a, str):\n    raise ValueError(f\"{a} is not string\")\n\nValueError: 5 is not string",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#モジュールのインポート",
     "href": "qmds/プログラミング/python/基礎.html#モジュールのインポート",
     "title": "Python基礎",
     "section": "モジュールのインポート",
-    "text": "モジュールのインポート\nPythonはライブラリが充実しており、多くの関数をimportするだけで使うことができる。\n\n1import numpy as np\n\n2ndarray = np.array([0, 1, 2, 3])\nprint(ndarray)\n\n\n1\n\nモジュールのインポート\n\n2\n\nモジュール内関数の使用例\n\n\n\n\n[0 1 2 3]"
+    "text": "モジュールのインポート\nPythonはライブラリが充実しており、多くの関数をimportするだけで使うことができる。\n\n1import numpy as np\n\n2ndarray = np.array([0, 1, 2, 3])\nprint(ndarray)\n\n\n1\n\nモジュールのインポート\n\n2\n\nモジュール内関数の使用例\n\n\n\n\n[0 1 2 3]",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#def",
     "href": "qmds/プログラミング/python/基礎.html#def",
     "title": "Python基礎",
     "section": "def",
-    "text": "def\nよく使う処理はdefで関数化できる。関数には引数、戻り値を設定することができる。\n\ndef add_function(\n1    a, b = 0\n):\n2    c = a + b\n3    return c\n\n4print(add_function(2, 4))\n5print(add_function(3))\n6print(add_function(b=3))\n\n\n1\n\n関数内で入力を受け付ける引数の設定、ここでのbのように初期値を設定することもできる\n\n2\n\n関数内の処理\n\n3\n\nreturnの後の変数が関数の戻り値となる、複数個設定することも可能。設定しない場合は戻り値のない関数とできる\n\n4\n\n定義した関数の名前を実行するだけで関数内の処理が実行できる\n\n5\n\n初期値を設定した引数は省略可能、その場合は初期値が使われる\n\n6\n\n初期値を設定していない引数を省略した場合にはエラーとなる\n\n\n\n\n6\n3\n\n\nTypeError: add_function() missing 1 required positional argument: 'a'"
+    "text": "def\nよく使う処理はdefで関数化できる。関数には引数、戻り値を設定することができる。\n\ndef add_function(\n1    a, b = 0\n):\n2    c = a + b\n3    return c\n\n4print(add_function(2, 4))\n5print(add_function(3))\n6print(add_function(b=3))\n\n\n1\n\n関数内で入力を受け付ける引数の設定、ここでのbのように初期値を設定することもできる\n\n2\n\n関数内の処理\n\n3\n\nreturnの後の変数が関数の戻り値となる、複数個設定することも可能。設定しない場合は戻り値のない関数とできる\n\n4\n\n定義した関数の名前を実行するだけで関数内の処理が実行できる\n\n5\n\n初期値を設定した引数は省略可能、その場合は初期値が使われる\n\n6\n\n初期値を設定していない引数を省略した場合にはエラーとなる\n\n\n\n\n6\n3\n\n\nTypeError: add_function() missing 1 required positional argument: 'a'",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#クラスの基本文法",
     "href": "qmds/プログラミング/python/基礎.html#クラスの基本文法",
     "title": "Python基礎",
     "section": "クラスの基本文法",
-    "text": "クラスの基本文法\nPythonではクラスによって関数や(インスタンス)変数等をまとめてオブジェクト化することができる。次のようにしてクラスを定義することができる。\n\n1class HelloRobot:\n2    def __init__(self, name, age = 10):\n3        self.name = name\n        self.age = age\n\n4    def greeting(self, lang = \"english\"):\n        if lang == \"english\":\n            print(f\"Hello! My name is {self.name}, and age is {self.age}\")\n        elif lang == \"japanese\":\n            print(f\"こんにちは！私の名前は{self.name}です。年齢は{self.age}歳です。\")\n\n5robot = HelloRobot(\"Robot\")\n\n6print(robot.name)\n\n7robot.greeting()\nrobot.greeting(\"japanese\")\n\n\n1\n\nクラスの定義\n\n2\n\n__init__関数を作成することで、クラスの立ち上げ時、自動的にスクリプトを実行できる\n\n3\n\nインスタンス変数の定義、クラス内ではself.~としてアクセスする\n\n4\n\nクラス内での関数を定義できる\n\n5\n\nクラスインスタンスの立ち上げ\n\n6\n\nメイン文でのインスタンス変数の抽出\n\n7\n\nクラス内の関数の実行\n\n\n\n\nRobot\nHello! My name is Robot, and age is 10\nこんにちは！私の名前はRobotです。年齢は10歳です。"
+    "text": "クラスの基本文法\nPythonではクラスによって関数や(インスタンス)変数等をまとめてオブジェクト化することができる。次のようにしてクラスを定義することができる。\n\n1class HelloRobot:\n2    def __init__(self, name, age = 10):\n3        self.name = name\n        self.age = age\n\n4    def greeting(self, lang = \"english\"):\n        if lang == \"english\":\n            print(f\"Hello! My name is {self.name}, and age is {self.age}\")\n        elif lang == \"japanese\":\n            print(f\"こんにちは！私の名前は{self.name}です。年齢は{self.age}歳です。\")\n\n5robot = HelloRobot(\"Robot\")\n\n6print(robot.name)\n\n7robot.greeting()\nrobot.greeting(\"japanese\")\n\n\n1\n\nクラスの定義\n\n2\n\n__init__関数を作成することで、クラスの立ち上げ時、自動的にスクリプトを実行できる\n\n3\n\nインスタンス変数の定義、クラス内ではself.~としてアクセスする\n\n4\n\nクラス内での関数を定義できる\n\n5\n\nクラスインスタンスの立ち上げ\n\n6\n\nメイン文でのインスタンス変数の抽出\n\n7\n\nクラス内の関数の実行\n\n\n\n\nRobot\nHello! My name is Robot, and age is 10\nこんにちは！私の名前はRobotです。年齢は10歳です。",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/基礎.html#継承",
     "href": "qmds/プログラミング/python/基礎.html#継承",
     "title": "Python基礎",
     "section": "継承",
-    "text": "継承\n定義済のクラスのオブジェクトを別クラスに継承することができる。Pytorchで深層学習を行う際には必須の技術である。\n\n1class SuperHelloRobot(HelloRobot):\n2    def __init__(self, name, your_name, age=10):\n3        super().__init__(name, age)\n\n4        self.your_name = your_name\n    \n5    def farewell(self):\n        print(f\"ByeBye {self.your_name}!!\")\n\n6robot = SuperHelloRobot(\"Super Robot\", \"Yugestu\")\n\n7print(robot.age)\n8print(robot.your_name)\n\n9robot.greeting()\n10robot.farewell()\n\n\n1\n\n継承する場合はクラス名の後の括弧内に継承元のクラス名を入力する\n\n2\n\n__init__関数は新しく作成する\n\n3\n\n継承元クラスのインスタンス立ち上げをsuper()で行う\n\n4\n\n継承先クラスのインスタンス変数を新たに定義できる\n\n5\n\n継承先クラスの新たな関数\n\n6\n\nクラスインスタンスの立ち上げ\n\n7\n\n継承元クラスのインスタンス変数を抽出可能\n\n8\n\n継承先クラスのインスタンス変数を抽出\n\n9\n\n継承元クラスの関数を使用可能\n\n10\n\n継承先クラスの関数を使用\n\n\n\n\n10\nYugestu\nHello! My name is Super Robot, and age is 10\nByeBye Yugestu!!"
+    "text": "継承\n定義済のクラスのオブジェクトを別クラスに継承することができる。Pytorchで深層学習を行う際には必須の技術である。\n\n1class SuperHelloRobot(HelloRobot):\n2    def __init__(self, name, your_name, age=10):\n3        super().__init__(name, age)\n\n4        self.your_name = your_name\n    \n5    def farewell(self):\n        print(f\"ByeBye {self.your_name}!!\")\n\n6robot = SuperHelloRobot(\"Super Robot\", \"Yugestu\")\n\n7print(robot.age)\n8print(robot.your_name)\n\n9robot.greeting()\n10robot.farewell()\n\n\n1\n\n継承する場合はクラス名の後の括弧内に継承元のクラス名を入力する\n\n2\n\n__init__関数は新しく作成する\n\n3\n\n継承元クラスのインスタンス立ち上げをsuper()で行う\n\n4\n\n継承先クラスのインスタンス変数を新たに定義できる\n\n5\n\n継承先クラスの新たな関数\n\n6\n\nクラスインスタンスの立ち上げ\n\n7\n\n継承元クラスのインスタンス変数を抽出可能\n\n8\n\n継承先クラスのインスタンス変数を抽出\n\n9\n\n継承元クラスの関数を使用可能\n\n10\n\n継承先クラスの関数を使用\n\n\n\n\n10\nYugestu\nHello! My name is Super Robot, and age is 10\nByeBye Yugestu!!",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python基礎"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html",
     "href": "qmds/プログラミング/その他/anaconda.html",
     "title": "Anaconda",
     "section": "",
-    "text": "※このページのOSは以下とする。"
+    "text": "※このページのOSは以下とする。",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html#anacondaのポジティブ要素",
     "href": "qmds/プログラミング/その他/anaconda.html#anacondaのポジティブ要素",
     "title": "Anaconda",
     "section": "Anacondaのポジティブ要素",
-    "text": "Anacondaのポジティブ要素\n\n素早くPythonまたはRの実行環境(仮想環境)を作成できる\nPythonとRの実行環境を同時に管理することができる\n上記の理由から、特にNGS解析の環境構築に強みがある(ほぼ専用のチャネルもある)\n(よく知らないけど)CI/CDができるらしい"
+    "text": "Anacondaのポジティブ要素\n\n素早くPythonまたはRの実行環境(仮想環境)を作成できる\nPythonとRの実行環境を同時に管理することができる\n上記の理由から、特にNGS解析の環境構築に強みがある(ほぼ専用のチャネルもある)\n(よく知らないけど)CI/CDができるらしい",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html#anacondaのネガティブ要素",
     "href": "qmds/プログラミング/その他/anaconda.html#anacondaのネガティブ要素",
     "title": "Anaconda",
     "section": "Anacondaのネガティブ要素",
-    "text": "Anacondaのネガティブ要素\n\n条件付きで商用利用となる。個人利用は無料、利用規約はこちら。\nOSが異なる場合は構築環境を完全にトレースすることができない\nPythonのライブラリ管理の面で、pipとcondaを混合してしまうとエラーの原因になる\nAnacondaでなくともPython, R共に実行環境を管理することは可能\n\nPythonの構築例\nRの構築例"
+    "text": "Anacondaのネガティブ要素\n\n条件付きで商用利用となる。個人利用は無料、利用規約はこちら。\nOSが異なる場合は構築環境を完全にトレースすることができない\nPythonのライブラリ管理の面で、pipとcondaを混合してしまうとエラーの原因になる\nAnacondaでなくともPython, R共に実行環境を管理することは可能\n\nPythonの構築例\nRの構築例",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html#minicondaをインストール",
     "href": "qmds/プログラミング/その他/anaconda.html#minicondaをインストール",
     "title": "Anaconda",
     "section": "Minicondaをインストール",
-    "text": "Minicondaをインストール\nMinicondaのインストーラーをインストールし、bashで実行する\nwget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh\nbash Miniconda3-latest-Linux-x86_64.sh\nrm Miniconda3-latest-Linux-x86_64.sh\n\nインストーラーの実行中に以下のようなリクエストがでるので、yesを選択する(でないと面倒なことに…)\n\nDo you wish the installer to initialize Miniconda3\nby running conda init? [yes|no]\n\nインストール終了後は一度ターミナルを再起動する\n\nMinicondaがインストールできていることの確認。コマンドのヘルプがでればOK\nconda -h"
+    "text": "Minicondaをインストール\nMinicondaのインストーラーをインストールし、bashで実行する\nwget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh\nbash Miniconda3-latest-Linux-x86_64.sh\nrm Miniconda3-latest-Linux-x86_64.sh\n\nインストーラーの実行中に以下のようなリクエストがでるので、yesを選択する(でないと面倒なことに…)\n\nDo you wish the installer to initialize Miniconda3\nby running conda init? [yes|no]\n\nインストール終了後は一度ターミナルを再起動する\n\nMinicondaがインストールできていることの確認。コマンドのヘルプがでればOK\nconda -h",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html#チャネルをconda-forgeに変更",
     "href": "qmds/プログラミング/その他/anaconda.html#チャネルをconda-forgeに変更",
     "title": "Anaconda",
     "section": "チャネルをconda-forgeに変更",
-    "text": "チャネルをconda-forgeに変更\ncondaで管理するレポジトリはデフォルトで商用利用の範囲であるdefaultになっているので、これを変更する\nconda config --add channels conda-forge\nconda config --remove channels defaults\nチャネルの変更を確認。conda-forgeのみになっていればOK\nconda config --get channels"
+    "text": "チャネルをconda-forgeに変更\ncondaで管理するレポジトリはデフォルトで商用利用の範囲であるdefaultになっているので、これを変更する\nconda config --add channels conda-forge\nconda config --remove channels defaults\nチャネルの変更を確認。conda-forgeのみになっていればOK\nconda config --get channels",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html#環境の作成",
     "href": "qmds/プログラミング/その他/anaconda.html#環境の作成",
     "title": "Anaconda",
     "section": "環境の作成",
-    "text": "環境の作成\ncondaによる環境の管理として、プロジェクトごとにPython(R)のバージョンやパッケージ・ライブラリを変えることができる。この、環境を仮想環境という。これにより、コードを沢山書いているうちにライブラリが増えて依存関係が壊れたり、過去に書いたコードが動かなくなったりなどの技術的負債を緩和することができる。環境の作成には以下のコマンドを実行する。\n\nenv_nameには環境の名前を入力する\nlist_of_packagesには環境作成時にインストールするパッケージを入力する\n\nconda create -n env_name list_of_packages\n作成済の環境は以下で確認できる。現在アクティブなものに(*)が付く\nconda info --envs\n※作成済の環境を削除するには以下のようにする。\nconda env remove --name env_name"
+    "text": "環境の作成\ncondaによる環境の管理として、プロジェクトごとにPython(R)のバージョンやパッケージ・ライブラリを変えることができる。この、環境を仮想環境という。これにより、コードを沢山書いているうちにライブラリが増えて依存関係が壊れたり、過去に書いたコードが動かなくなったりなどの技術的負債を緩和することができる。環境の作成には以下のコマンドを実行する。\n\nenv_nameには環境の名前を入力する\nlist_of_packagesには環境作成時にインストールするパッケージを入力する\n\nconda create -n env_name list_of_packages\n作成済の環境は以下で確認できる。現在アクティブなものに(*)が付く\nconda info --envs\n※作成済の環境を削除するには以下のようにする。\nconda env remove --name env_name",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html#仮想環境のアクティブ化",
     "href": "qmds/プログラミング/その他/anaconda.html#仮想環境のアクティブ化",
     "title": "Anaconda",
     "section": "仮想環境のアクティブ化",
-    "text": "仮想環境のアクティブ化\n以下のコマンドで仮想環境をアクティベートできる。\nconda activate env_name\nアクティベートした仮想環境は以下のコマンドで終了できる。\nconda deactivate"
+    "text": "仮想環境のアクティブ化\n以下のコマンドで仮想環境をアクティベートできる。\nconda activate env_name\nアクティベートした仮想環境は以下のコマンドで終了できる。\nconda deactivate",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html#パッケージのインストール",
     "href": "qmds/プログラミング/その他/anaconda.html#パッケージのインストール",
     "title": "Anaconda",
     "section": "パッケージのインストール",
-    "text": "パッケージのインストール\n必要なパッケージのインストールは以下のコマンドで行う。\n\nパッケージのバージョンを指定する場合はpackages_name==x.x.xのようにする\nPythonのバージョンも同様に変更可能(python==x.x.x)\n\nconda install -c conda-forge packages_name"
+    "text": "パッケージのインストール\n必要なパッケージのインストールは以下のコマンドで行う。\n\nパッケージのバージョンを指定する場合はpackages_name==x.x.xのようにする\nPythonのバージョンも同様に変更可能(python==x.x.x)\n\nconda install -c conda-forge packages_name",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html#パッケージのアンインストール",
     "href": "qmds/プログラミング/その他/anaconda.html#パッケージのアンインストール",
     "title": "Anaconda",
     "section": "パッケージのアンインストール",
-    "text": "パッケージのアンインストール\nパッケージのアンインストールは以下のコマンドで行う。\nconda uninstall packages_name"
+    "text": "パッケージのアンインストール\nパッケージのアンインストールは以下のコマンドで行う。\nconda uninstall packages_name",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html#環境の保存再構築",
     "href": "qmds/プログラミング/その他/anaconda.html#環境の保存再構築",
     "title": "Anaconda",
     "section": "環境の保存・再構築",
-    "text": "環境の保存・再構築\ncondaの環境を他のPCで使えるようにするために、YAMLまたはTXTに必要な情報を書きだす。\n\nYAMLの場合\nプラットフォームとライブラリの依存性を保存\n環境のエクスポート\nconda env export env_name&gt;environment.yml\n環境のインストール\nconda env create -n env_name --file environment.yml\n\n\nTXTの場合\nプラットフォームとライブラリ、さらにチャネル情報も加えて依存性を保存\n環境のエクスポート\nconda list --explicit&gt;environment.txt\n環境のインストール\nconda create -n env_name --file environment.txt"
+    "text": "環境の保存・再構築\ncondaの環境を他のPCで使えるようにするために、YAMLまたはTXTに必要な情報を書きだす。\n\nYAMLの場合\nプラットフォームとライブラリの依存性を保存\n環境のエクスポート\nconda env export env_name&gt;environment.yml\n環境のインストール\nconda env create -n env_name --file environment.yml\n\n\nTXTの場合\nプラットフォームとライブラリ、さらにチャネル情報も加えて依存性を保存\n環境のエクスポート\nconda list --explicit&gt;environment.txt\n環境のインストール\nconda create -n env_name --file environment.txt",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html#r環境の構築",
     "href": "qmds/プログラミング/その他/anaconda.html#r環境の構築",
     "title": "Anaconda",
     "section": "R環境の構築",
-    "text": "R環境の構築\nMiniconda + Rの構築例があまりなく苦労するかもしれないが、ユーザーガイドの手順に則るのが確実。\nなお、チャネルはconda-forgeよりrの方が充実しているのでそちらを使うと良い。"
+    "text": "R環境の構築\nMiniconda + Rの構築例があまりなく苦労するかもしれないが、ユーザーガイドの手順に則るのが確実。\nなお、チャネルはconda-forgeよりrの方が充実しているのでそちらを使うと良い。",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html#mamba",
     "href": "qmds/プログラミング/その他/anaconda.html#mamba",
     "title": "Anaconda",
     "section": "Mamba",
-    "text": "Mamba\nMambaはcondaパッケージマネージャーのC++での再実装である。これにより様々な処理が効率化され、早く動く。特にパッケージのインストールが並列化によりサクサク動くようになる。(Github)\n\nインストール\ncondaからインストール可能\nconda install -c conda-forge mamba\n\n\n使い方\ncondaをmambaに置き換えるだけでよい\nmamba create -n env_name list_of_packages\nmamba install -c conda-forge list_of_packages"
+    "text": "Mamba\nMambaはcondaパッケージマネージャーのC++での再実装である。これにより様々な処理が効率化され、早く動く。特にパッケージのインストールが並列化によりサクサク動くようになる。(Github)\n\nインストール\ncondaからインストール可能\nconda install -c conda-forge mamba\n\n\n使い方\ncondaをmambaに置き換えるだけでよい\nmamba create -n env_name list_of_packages\nmamba install -c conda-forge list_of_packages",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/anaconda.html#minicondaのアンインストール",
     "href": "qmds/プログラミング/その他/anaconda.html#minicondaのアンインストール",
     "title": "Anaconda",
     "section": "Minicondaのアンインストール",
-    "text": "Minicondaのアンインストール\nMinicondaのアンインストールは適切にやらないとキャッシュ等が残って次にインストールするときにかなり苦労する。が、WSLではターミナルから簡単に削除できる。\nrm -rf ~/miniconda\nrm -rf ~/.condarc ~/.conda ~/.continuum\n~/.bash_profileを編集して、MinicondaのPATHを削除する\nvi ~/.bash_profile"
+    "text": "Minicondaのアンインストール\nMinicondaのアンインストールは適切にやらないとキャッシュ等が残って次にインストールするときにかなり苦労する。が、WSLではターミナルから簡単に削除できる。\nrm -rf ~/miniconda\nrm -rf ~/.condarc ~/.conda ~/.continuum\n~/.bash_profileを編集して、MinicondaのPATHを削除する\nvi ~/.bash_profile",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "Anaconda"
+    ]
   },
   {
     "objectID": "qmds/ツール/統計的仮説検定シミュレーター.html",
     "href": "qmds/ツール/統計的仮説検定シミュレーター.html",
     "title": "統計的仮説検定シミュレーター",
     "section": "",
-    "text": "streamlit.appを使用しています。\nPCでの使用を推奨します。\n\n\n読み込んでいます…\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
+    "text": "streamlit.appを使用しています。\nPCでの使用を推奨します。\n\n\n読み込んでいます…\n\n\n\n\n Back to topReuseCC BY 4.0",
+    "crumbs": [
+      "ホーム",
+      "ツール",
+      "統計的仮説検定シミュレーター"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/推定.html",
     "href": "qmds/生物統計学/推定.html",
     "title": "推定",
     "section": "",
-    "text": "解析対象として考慮する集団全体を母集団という。しかし、母集団が非常に多くの要素を含む、個々の観測のコストが高い、未来の事象も対象に含むなど母集団全体を解析することが困難な場合が多い。このようなとき母集団の一部を選択し、それらを解析し、母集団の特性を推測するということを行う。これを統計的推測 Figure 1 と呼ぶ。また、このようにして母集団の一部として選ばれた要素を標本、選び出すことを標本抽出(抽出)と呼ぶ。\n※母集団全体を標本として調査することを全数調査(悉皆調査)という。\n\n\n\n標本抽出の方法として大きく以下の二つがある。母集団の要素数が十分に大きい場合はほとんど差がない。\n\n復元抽出: 抽出した標本を再び母集団に戻す方法\n非復元抽出: 一度抽出した標本を母集団に戻さない方法\n\n普段の実験や観測ではこちらが行われる\n\n\nまた、標本の選び方として以下の二つがある。エピデンスレベルが高いのは無作為抽出だが、一方で有意抽出の方が低コストで調査を行えるというメリデメがある。\n\n無作為抽出: 標本をランダムに選択し、抽出\n有意抽出: 標本を恣意的に選択し、抽出\n\n\n\n\n統計理論において解析の対象となるのは母集団の特性である。ここでいう特性とは、母集団がもつ分布(母集団分布)である。標本はこの母集団分布に基づいて取り出されることになるので、標本\\(x_{1}, x_{2}, \\cdots, x_{n}\\)は互いに独立で、母集団分布\\(P\\)に従う。\nここで抽出した標本の数\\(n\\)をサンプルサイズと呼ぶ。\n\n\n\n\n\n\n\n\nG\n\n \n\ncluster_population\n\n Population distribution  \n\ncluster_sample\n\n  \n\npopulation\n\n Population   \n\nsample\n\n  Sample   \n\npopulation-&gt;sample\n\n  sampling   \n\nparameter\n\n  Parameter   \n\nestimate\n\n Estimate   \n\nsample-&gt;estimate\n\n  analysis   \n\nestimate-&gt;parameter\n\n  inference  \n\n\nFigure 1: 統計的推測\n\n\n\n\n\n\n\n母集団分布が既知である確率分布(例えば、二項分布や正規分布など)に従うことが明らかであるとき、母集団分布を母数の推定を行うことで解釈できる。このような分布をパラメトリックという。\n一方で、上記に当てはまらない分布をノンパラメトリックという。この場合は分布を仮定しなくても算術可能な記述統計量で母集団分布を解釈する。"
+    "text": "解析対象として考慮する集団全体を母集団という。しかし、母集団が非常に多くの要素を含む、個々の観測のコストが高い、未来の事象も対象に含むなど母集団全体を解析することが困難な場合が多い。このようなとき母集団の一部を選択し、それらを解析し、母集団の特性を推測するということを行う。これを統計的推測 Figure 1 と呼ぶ。また、このようにして母集団の一部として選ばれた要素を標本、選び出すことを標本抽出(抽出)と呼ぶ。\n※母集団全体を標本として調査することを全数調査(悉皆調査)という。\n\n\n\n標本抽出の方法として大きく以下の二つがある。母集団の要素数が十分に大きい場合はほとんど差がない。\n\n復元抽出: 抽出した標本を再び母集団に戻す方法\n非復元抽出: 一度抽出した標本を母集団に戻さない方法\n\n普段の実験や観測ではこちらが行われる\n\n\nまた、標本の選び方として以下の二つがある。エピデンスレベルが高いのは無作為抽出だが、一方で有意抽出の方が低コストで調査を行えるというメリデメがある。\n\n無作為抽出: 標本をランダムに選択し、抽出\n有意抽出: 標本を恣意的に選択し、抽出\n\n\n\n\n統計理論において解析の対象となるのは母集団の特性である。ここでいう特性とは、母集団がもつ分布(母集団分布)である。標本はこの母集団分布に基づいて取り出されることになるので、標本\\(x_{1}, x_{2}, \\cdots, x_{n}\\)は互いに独立で、母集団分布\\(P\\)に従う。\nここで抽出した標本の数\\(n\\)をサンプルサイズと呼ぶ。\n\n\n\n\n\n\n\n\nG\n\n\ncluster_population\n\nPopulation distribution\n\n\ncluster_sample\n\n\n\npopulation\n\nPopulation\n\n\n\nsample\n\n\nSample\n\n\n\npopulation-&gt;sample\n\n\nsampling\n\n\n\nparameter\n\n\nParameter\n\n\n\nestimate\n\nEstimate\n\n\n\nsample-&gt;estimate\n\n\nanalysis\n\n\n\nestimate-&gt;parameter\n\n\ninference\n\n\n\n\n\n\nFigure 1: 統計的推測\n\n\n\n\n\n\n\n\n母集団分布が既知である確率分布(例えば、二項分布や正規分布など)に従うことが明らかであるとき、母集団分布を母数の推定を行うことで解釈できる。このような分布をパラメトリックという。\n一方で、上記に当てはまらない分布をノンパラメトリックという。この場合は分布を仮定しなくても算術可能な記述統計量で母集団分布を解釈する。",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "推定"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/推定.html#母集団標本",
     "href": "qmds/生物統計学/推定.html#母集団標本",
     "title": "推定",
     "section": "",
-    "text": "解析対象として考慮する集団全体を母集団という。しかし、母集団が非常に多くの要素を含む、個々の観測のコストが高い、未来の事象も対象に含むなど母集団全体を解析することが困難な場合が多い。このようなとき母集団の一部を選択し、それらを解析し、母集団の特性を推測するということを行う。これを統計的推測 Figure 1 と呼ぶ。また、このようにして母集団の一部として選ばれた要素を標本、選び出すことを標本抽出(抽出)と呼ぶ。\n※母集団全体を標本として調査することを全数調査(悉皆調査)という。"
+    "text": "解析対象として考慮する集団全体を母集団という。しかし、母集団が非常に多くの要素を含む、個々の観測のコストが高い、未来の事象も対象に含むなど母集団全体を解析することが困難な場合が多い。このようなとき母集団の一部を選択し、それらを解析し、母集団の特性を推測するということを行う。これを統計的推測 Figure 1 と呼ぶ。また、このようにして母集団の一部として選ばれた要素を標本、選び出すことを標本抽出(抽出)と呼ぶ。\n※母集団全体を標本として調査することを全数調査(悉皆調査)という。",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "推定"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/推定.html#抽出方法",
     "href": "qmds/生物統計学/推定.html#抽出方法",
     "title": "推定",
     "section": "",
-    "text": "標本抽出の方法として大きく以下の二つがある。母集団の要素数が十分に大きい場合はほとんど差がない。\n\n復元抽出: 抽出した標本を再び母集団に戻す方法\n非復元抽出: 一度抽出した標本を母集団に戻さない方法\n\n普段の実験や観測ではこちらが行われる\n\n\nまた、標本の選び方として以下の二つがある。エピデンスレベルが高いのは無作為抽出だが、一方で有意抽出の方が低コストで調査を行えるというメリデメがある。\n\n無作為抽出: 標本をランダムに選択し、抽出\n有意抽出: 標本を恣意的に選択し、抽出"
+    "text": "標本抽出の方法として大きく以下の二つがある。母集団の要素数が十分に大きい場合はほとんど差がない。\n\n復元抽出: 抽出した標本を再び母集団に戻す方法\n非復元抽出: 一度抽出した標本を母集団に戻さない方法\n\n普段の実験や観測ではこちらが行われる\n\n\nまた、標本の選び方として以下の二つがある。エピデンスレベルが高いのは無作為抽出だが、一方で有意抽出の方が低コストで調査を行えるというメリデメがある。\n\n無作為抽出: 標本をランダムに選択し、抽出\n有意抽出: 標本を恣意的に選択し、抽出",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "推定"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/推定.html#母集団分布標本分布",
     "href": "qmds/生物統計学/推定.html#母集団分布標本分布",
     "title": "推定",
     "section": "",
-    "text": "統計理論において解析の対象となるのは母集団の特性である。ここでいう特性とは、母集団がもつ分布(母集団分布)である。標本はこの母集団分布に基づいて取り出されることになるので、標本\\(x_{1}, x_{2}, \\cdots, x_{n}\\)は互いに独立で、母集団分布\\(P\\)に従う。\nここで抽出した標本の数\\(n\\)をサンプルサイズと呼ぶ。\n\n\n\n\n\n\n\n\nG\n\n \n\ncluster_population\n\n Population distribution  \n\ncluster_sample\n\n  \n\npopulation\n\n Population   \n\nsample\n\n  Sample   \n\npopulation-&gt;sample\n\n  sampling   \n\nparameter\n\n  Parameter   \n\nestimate\n\n Estimate   \n\nsample-&gt;estimate\n\n  analysis   \n\nestimate-&gt;parameter\n\n  inference  \n\n\nFigure 1: 統計的推測"
+    "text": "統計理論において解析の対象となるのは母集団の特性である。ここでいう特性とは、母集団がもつ分布(母集団分布)である。標本はこの母集団分布に基づいて取り出されることになるので、標本\\(x_{1}, x_{2}, \\cdots, x_{n}\\)は互いに独立で、母集団分布\\(P\\)に従う。\nここで抽出した標本の数\\(n\\)をサンプルサイズと呼ぶ。\n\n\n\n\n\n\n\n\nG\n\n\ncluster_population\n\nPopulation distribution\n\n\ncluster_sample\n\n\n\npopulation\n\nPopulation\n\n\n\nsample\n\n\nSample\n\n\n\npopulation-&gt;sample\n\n\nsampling\n\n\n\nparameter\n\n\nParameter\n\n\n\nestimate\n\nEstimate\n\n\n\nsample-&gt;estimate\n\n\nanalysis\n\n\n\nestimate-&gt;parameter\n\n\ninference\n\n\n\n\n\n\nFigure 1: 統計的推測",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "推定"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/推定.html#パラメトリックノンパラメトリック",
     "href": "qmds/生物統計学/推定.html#パラメトリックノンパラメトリック",
     "title": "推定",
     "section": "",
-    "text": "母集団分布が既知である確率分布(例えば、二項分布や正規分布など)に従うことが明らかであるとき、母集団分布を母数の推定を行うことで解釈できる。このような分布をパラメトリックという。\n一方で、上記に当てはまらない分布をノンパラメトリックという。この場合は分布を仮定しなくても算術可能な記述統計量で母集団分布を解釈する。"
+    "text": "母集団分布が既知である確率分布(例えば、二項分布や正規分布など)に従うことが明らかであるとき、母集団分布を母数の推定を行うことで解釈できる。このような分布をパラメトリックという。\n一方で、上記に当てはまらない分布をノンパラメトリックという。この場合は分布を仮定しなくても算術可能な記述統計量で母集団分布を解釈する。",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "推定"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/推定.html#母数",
     "href": "qmds/生物統計学/推定.html#母数",
     "title": "推定",
     "section": "母数",
-    "text": "母数\nパラメトリックな分布において、母集団分布は確率密度関数が定義できるような確率分布であることを述べた。この確率密度関数は\\(X=x\\)における確率値を表すほか、分布の性質を表す関数としても表すことができる。例えば、正規分布の\\(\\mu, \\sigma^{2}\\)はその平均値および分散を表している(参考)。このように、確率分布の特性を表す変数を母数(パラメータ)と呼ぶ。多くの場合、母数は未知であるため、統計的推測はこの母数を標本からどのようにして明らかにするかというところをフォーカス Figure 1 する。\n※他の確率分布の母数については、こちらにまとめている。"
+    "text": "母数\nパラメトリックな分布において、母集団分布は確率密度関数が定義できるような確率分布であることを述べた。この確率密度関数は\\(X=x\\)における確率値を表すほか、分布の性質を表す関数としても表すことができる。例えば、正規分布の\\(\\mu, \\sigma^{2}\\)はその平均値および分散を表している(参考)。このように、確率分布の特性を表す変数を母数(パラメータ)と呼ぶ。多くの場合、母数は未知であるため、統計的推測はこの母数を標本からどのようにして明らかにするかというところをフォーカス Figure 1 する。\n※他の確率分布の母数については、こちらにまとめている。",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "推定"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/推定.html#統計量",
     "href": "qmds/生物統計学/推定.html#統計量",
     "title": "推定",
     "section": "統計量",
-    "text": "統計量\n統計量とは標本を要約したものである。ここでは未知のパラメータは含まずに、標本からのみ得られる数値のことを指す。統計量として考えられるものとして、平均・分散・標準偏差・メディアン・モード・最大値・最小値・四分位点・相関係数など様々なものがある。\nこれらは総じて標本\\(x_{1}, x_{2}, \\cdots, x_{n}\\)を統計量に変換する写像\\(g(x_{1}, x_{2}, \\cdots, x_{n})\\)と考えることができる。何パターンかの標本から算出される統計量\\(g(x_{1}, x_{2}, \\cdots, x_{n})\\)を集めて生成される確率分布を標本分布という。"
+    "text": "統計量\n統計量とは標本を要約したものである。ここでは未知のパラメータは含まずに、標本からのみ得られる数値のことを指す。統計量として考えられるものとして、平均・分散・標準偏差・メディアン・モード・最大値・最小値・四分位点・相関係数など様々なものがある。\nこれらは総じて標本\\(x_{1}, x_{2}, \\cdots, x_{n}\\)を統計量に変換する写像\\(g(x_{1}, x_{2}, \\cdots, x_{n})\\)と考えることができる。何パターンかの標本から算出される統計量\\(g(x_{1}, x_{2}, \\cdots, x_{n})\\)を集めて生成される確率分布を標本分布という。",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "推定"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/推定.html#標本平均標本分散",
     "href": "qmds/生物統計学/推定.html#標本平均標本分散",
     "title": "推定",
     "section": "標本平均・標本分散",
-    "text": "標本平均・標本分散\n標本\\(x_{1}, x_{2}, \\cdots, x_{n}\\)から算出する平均を標本平均と呼び、 Equation 1 で定義する。また、同様に標本から算出する分散を標本分散(不偏分散)と呼び、 Equation 2 で定義する。\n※不偏分散の\\(n - 1\\)を未知変数の数を意味する自由度と呼ぶ。\n\\[\n\\bar{x} = \\frac{1}{n} \\sum^{n}_{i = 1} x_{i}\n\\tag{1}\\]\n\\[\ns^{2} = \\frac{1}{n - 1} \\sum^{n}_{i = 1} (x_{i} - \\bar{x})\n\\tag{2}\\]\n\n\n\n\n\n\n標本平均・標本分散の標本分布\n\n\n\n\n標本平均\n標本平均の平均値について、\\(E(\\bar{x}) = \\mu\\)が成立する。これは、\\(\\bar{x}\\)が母集団分布の平均\\(\\mu\\)を正しく推定することを表している。\nまた、標本平均の分散について、\\(V(\\bar{x}) = \\frac{\\sigma^{2}}{n}\\)が成立する。これは、\\(\\bar{x}\\)が母集団分布の分散\\(\\sigma^{2}\\)をサンプルサイズ\\(n\\)の分だけ過小評価することを表している。\nこれらを踏まえると、\\(n \\rightarrow \\infty \\Rightarrow E(\\bar{x}) \\rightarrow \\mu, V(\\bar{x}) \\rightarrow 0\\)が成立する。これは、サンプルサイズが増えるほど標本平均の標本分布は母集団分布の平均値\\(\\mu\\)に集中して局在するような傾向があるということである(大数の法則)。\n\n\n標本分散\n標本分散の平均値について、\\(E(s^{2}) = \\sigma^{2}\\)が成立する。これは、\\(s^{2}\\)が母集団分布の分散\\(\\sigma^{2}\\)を正しく推定することを表している。これにより、 Equation 2 は不偏分散(不偏推定量) と呼ぶ。\n一方で、 Equation 3 のような標本分散も定義できる。この場合は\\(E(S^{2}) = \\frac{n - 1}{n} \\sigma^{2}\\)となり、母集団分布の分散より過小評価される。\n\\[\nS^{2} = \\frac{1}{n} \\sum^{n}_{i = 1} (x_{i} - \\bar{x})\n\\tag{3}\\]"
+    "text": "標本平均・標本分散\n標本\\(x_{1}, x_{2}, \\cdots, x_{n}\\)から算出する平均を標本平均と呼び、 Equation 1 で定義する。また、同様に標本から算出する分散を標本分散(不偏分散)と呼び、 Equation 2 で定義する。\n※不偏分散の\\(n - 1\\)を未知変数の数を意味する自由度と呼ぶ。\n\\[\n\\bar{x} = \\frac{1}{n} \\sum^{n}_{i = 1} x_{i}\n\\tag{1}\\]\n\\[\ns^{2} = \\frac{1}{n - 1} \\sum^{n}_{i = 1} (x_{i} - \\bar{x})\n\\tag{2}\\]\n\n\n\n\n\n\n標本平均・標本分散の標本分布\n\n\n\n\n標本平均\n標本平均の平均値について、\\(E(\\bar{x}) = \\mu\\)が成立する。これは、\\(\\bar{x}\\)が母集団分布の平均\\(\\mu\\)を正しく推定することを表している。\nまた、標本平均の分散について、\\(V(\\bar{x}) = \\frac{\\sigma^{2}}{n}\\)が成立する。これは、\\(\\bar{x}\\)が母集団分布の分散\\(\\sigma^{2}\\)をサンプルサイズ\\(n\\)の分だけ過小評価することを表している。\nこれらを踏まえると、\\(n \\rightarrow \\infty \\Rightarrow E(\\bar{x}) \\rightarrow \\mu, V(\\bar{x}) \\rightarrow 0\\)が成立する。これは、サンプルサイズが増えるほど標本平均の標本分布は母集団分布の平均値\\(\\mu\\)に集中して局在するような傾向があるということである(大数の法則)。\n\n\n標本分散\n標本分散の平均値について、\\(E(s^{2}) = \\sigma^{2}\\)が成立する。これは、\\(s^{2}\\)が母集団分布の分散\\(\\sigma^{2}\\)を正しく推定することを表している。これにより、 Equation 2 は不偏分散(不偏推定量) と呼ぶ。\n一方で、 Equation 3 のような標本分散も定義できる。この場合は\\(E(S^{2}) = \\frac{n - 1}{n} \\sigma^{2}\\)となり、母集団分布の分散より過小評価される。\n\\[\nS^{2} = \\frac{1}{n} \\sum^{n}_{i = 1} (x_{i} - \\bar{x})\n\\tag{3}\\]",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "推定"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/推定.html#点推定",
     "href": "qmds/生物統計学/推定.html#点推定",
     "title": "推定",
     "section": "点推定",
-    "text": "点推定\n\\(E(\\bar{x}) = \\mu, E(s^{2}) = \\sigma^{2}\\)が成り立つことは既に述べた。これにより、標本平均および不偏分散はそれぞれ母集団分布の平均および分散の推定量である。これは、実際の観測から得られたデータで算出することができる。このようにして得られる値を推定値と呼ぶ。\n次に、平均・分散以外のあらゆる母数について、推定値から真の母数に近い値を推定するために次の最尤法を導入する。\n母集団分布の確率密度関数\\(f(x; \\theta)\\)に対して、実際に得られた標本\\(x_{1}, x_{2}, \\cdots, x_{n}\\)を用いて\\(n\\)個の確率関数\\(f(x_{i}; \\theta) \\ (i = 1, 2, \\cdots, n)\\)を生成する。このとき、\\(x_{i}\\)は定数なので確率関数を母数\\(\\theta\\)は関数であることに注意する。また、母数がとりうる値の範囲\\(\\Theta\\)を母数空間と呼ぶ。\n次に、確率関数の積 Equation 4 を導入する。この\\(L(\\theta)\\)を尤度という。最尤法では、母数空間の範囲でこの尤度関数を最大化する最尤推定量\\(\\tilde{\\theta}\\)を求めることである。\n\\[\nL(\\theta) = \\prod^{n}_{i = 1} f(x_{i}; \\theta)\n\\tag{4}\\]\n実際に最尤推定量を求める際には尤度関数の対数をとった対数尤度\\(\\log{L(\\theta)}\\)を使用する。この対数尤度(尤度も)は上に凸なので、尤度方程式 Equation 5 を解くことによって最尤推定量を算出することができる。\n\\[\n\\frac{\\partial}{\\partial \\theta} \\log{L(\\theta)} = 0\n\\tag{5}\\]\n\n\n\n\n\n\n最尤原理\n\n\n\nこれら最尤法には「現実の標本は確率最大のものが実現した」という最尤原理の仮定が用いられている。これは、標本から得られる推定量は真の母数の近い位置に局在するというものである。"
+    "text": "点推定\n\\(E(\\bar{x}) = \\mu, E(s^{2}) = \\sigma^{2}\\)が成り立つことは既に述べた。これにより、標本平均および不偏分散はそれぞれ母集団分布の平均および分散の推定量である。これは、実際の観測から得られたデータで算出することができる。このようにして得られる値を推定値と呼ぶ。\n次に、平均・分散以外のあらゆる母数について、推定値から真の母数に近い値を推定するために次の最尤法を導入する。\n母集団分布の確率密度関数\\(f(x; \\theta)\\)に対して、実際に得られた標本\\(x_{1}, x_{2}, \\cdots, x_{n}\\)を用いて\\(n\\)個の確率関数\\(f(x_{i}; \\theta) \\ (i = 1, 2, \\cdots, n)\\)を生成する。このとき、\\(x_{i}\\)は定数なので確率関数を母数\\(\\theta\\)は関数であることに注意する。また、母数がとりうる値の範囲\\(\\Theta\\)を母数空間と呼ぶ。\n次に、確率関数の積 Equation 4 を導入する。この\\(L(\\theta)\\)を尤度という。最尤法では、母数空間の範囲でこの尤度関数を最大化する最尤推定量\\(\\tilde{\\theta}\\)を求めることである。\n\\[\nL(\\theta) = \\prod^{n}_{i = 1} f(x_{i}; \\theta)\n\\tag{4}\\]\n実際に最尤推定量を求める際には尤度関数の対数をとった対数尤度\\(\\log{L(\\theta)}\\)を使用する。この対数尤度(尤度も)は上に凸なので、尤度方程式 Equation 5 を解くことによって最尤推定量を算出することができる。\n\\[\n\\frac{\\partial}{\\partial \\theta} \\log{L(\\theta)} = 0\n\\tag{5}\\]\n\n\n\n\n\n\n最尤原理\n\n\n\nこれら最尤法には「現実の標本は確率最大のものが実現した」という最尤原理の仮定が用いられている。これは、標本から得られる推定量は真の母数の近い位置に局在するというものである。",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "推定"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/推定.html#区間推定",
     "href": "qmds/生物統計学/推定.html#区間推定",
     "title": "推定",
     "section": "区間推定",
-    "text": "区間推定\n区間推定は真の母数\\(\\theta\\)が、\\(1 - \\alpha\\)の確率で含まれるある区間\\((l, u)\\)を推定すること Equation 6 である。ここでの\\(\\alpha\\)は母数が区間に含まれない確率である。また、確率変数\\(l\\)を下側信頼限界、確率変数\\(u\\)を上側信頼限界、\\(1 - \\alpha\\)を信頼係数、区間\\([l, u]\\)を\\(100 * (1 - \\alpha)\\)%信頼区間と呼ぶ。\n\\[\nP(l \\leqq \\theta \\leqq u) \\geqq 1 - \\alpha\n\\tag{6}\\]\n\n\n\n\n\n\n信頼区間\n\n\n\n信頼区間は標本によって変化するので、「母数\\(\\theta\\)が、\\(1 - \\alpha\\)の確率で含まれる区間」が常に得られるわけではない。信頼区間の正しい解釈は「多くの標本に対して算出された信頼区間が\\(\\theta\\)を包含する確率が\\(1 - \\alpha\\)になる」というものである。これは、標本を得れば得るほど信頼区間の信頼性が増し、母数の推定において強力なエピデンスになるということである。\nまた、信頼区間の幅はサンプルサイズ\\(n\\)に対して、多くの場合オーダー\\(\\frac{1}{\\sqrt{n}}\\)で\\(0\\)に近づく(オーダーがかわっても幅は\\(0\\)に漸近する)。即ち、サンプルサイズが大きいほど母数\\(\\theta\\)を正確に推定できる。"
+    "text": "区間推定\n区間推定は真の母数\\(\\theta\\)が、\\(1 - \\alpha\\)の確率で含まれるある区間\\((l, u)\\)を推定すること Equation 6 である。ここでの\\(\\alpha\\)は母数が区間に含まれない確率である。また、確率変数\\(l\\)を下側信頼限界、確率変数\\(u\\)を上側信頼限界、\\(1 - \\alpha\\)を信頼係数、区間\\([l, u]\\)を\\(100 * (1 - \\alpha)\\)%信頼区間と呼ぶ。\n\\[\nP(l \\leqq \\theta \\leqq u) \\geqq 1 - \\alpha\n\\tag{6}\\]\n\n\n\n\n\n\n信頼区間\n\n\n\n信頼区間は標本によって変化するので、「母数\\(\\theta\\)が、\\(1 - \\alpha\\)の確率で含まれる区間」が常に得られるわけではない。信頼区間の正しい解釈は「多くの標本に対して算出された信頼区間が\\(\\theta\\)を包含する確率が\\(1 - \\alpha\\)になる」というものである。これは、標本を得れば得るほど信頼区間の信頼性が増し、母数の推定において強力なエピデンスになるということである。\nまた、信頼区間の幅はサンプルサイズ\\(n\\)に対して、多くの場合オーダー\\(\\frac{1}{\\sqrt{n}}\\)で\\(0\\)に近づく(オーダーがかわっても幅は\\(0\\)に漸近する)。即ち、サンプルサイズが大きいほど母数\\(\\theta\\)を正確に推定できる。",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "推定"
+    ]
   },
   {
     "objectID": "qmds/ツール一覧.html",
     "href": "qmds/ツール一覧.html",
     "title": "ツール一覧",
     "section": "",
-    "text": "統計的仮説検定シミュレーター\n\n\n\n確率統計\n\n\n\n\n2024-01-28\n\n\n\n\n\n\nabstract\n\n\n統計的仮説検定をサンプルデータからシミュレーション\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to topReuseCC BY 4.0 DEED"
-  },
-  {
-    "objectID": "qmds/index.html",
-    "href": "qmds/index.html",
-    "title": "ホーム",
-    "section": "",
-    "text": "管理者(優月)が生物統計(+その他の技術諸々)について学んだことを書いていきます。レベル感としては、統計家が適切な判断によってデータ分析ができるようになることを目標としています。\n\n記事一覧: 書いたコンテンツをまとめています。左のサイドバーでもリスティングしています。\n管理者: 管理者である優月の紹介ページです。\n実行環境: このサイトを構成している環境を書いています。(メインエンジンはQuarto使っています)\nお問い合わせ: お問い合わせがございましたらこちらからよろしくお願い致します。"
-  },
-  {
-    "objectID": "qmds/index.html#ブログ内のコンテンツ",
-    "href": "qmds/index.html#ブログ内のコンテンツ",
-    "title": "ホーム",
-    "section": "ブログ内のコンテンツ",
-    "text": "ブログ内のコンテンツ\n本サイトにおける各エントリの文章や画像などのコンテンツはクリエイティブ・コモンズ・ライセンスを適応します。"
-  },
-  {
-    "objectID": "qmds/index.html#ブログ内サンプルコードのライセンス",
-    "href": "qmds/index.html#ブログ内サンプルコードのライセンス",
-    "title": "ホーム",
-    "section": "ブログ内サンプルコードのライセンス",
-    "text": "ブログ内サンプルコードのライセンス\nブログ内で書いているコードに関しては例外的にMIT Licenceを適応します。\n\n\n\n\n\n\nMIT License\n\n\n\n\n\nCopyright 2024 優月\n以下に定める条件に従い、本ソフトウェアおよび関連文書のファイル（以下「ソフトウェア」）の複製を取得するすべての人に対し、ソフトウェアを無制限に扱うことを無償で許可します。これには、ソフトウェアの複製を使用、複写、変更、結合、掲載、頒布、サブライセンス、および/または販売する権利、およびソフトウェアを提供する相手に同じことを許可する権利も無制限に含まれます。\n上記の著作権表示および本許諾表示を、ソフトウェアのすべての複製または重要な部分に記載するものとします。\nソフトウェアは「現状のまま」で、明示であるか暗黙であるかを問わず、何らの保証もなく提供されます。ここでいう保証とは、商品性、特定の目的への適合性、および権利非侵害についての保証も含みますが、それに限定されるものではありません。 作者または著作権者は、契約行為、不法行為、またはそれ以外であろうと、ソフトウェアに起因または関連し、あるいはソフトウェアの使用またはその他の扱いによって生じる一切の請求、損害、その他の義務について何らの責任も負わないものとします。"
+    "text": "統計的仮説検定シミュレーター\n\n\n\n確率統計\n\n\n\n\n2024-01-28\n\n\n\n\n\nabstract\n\n\n統計的仮説検定をサンプルデータからシミュレーション\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to topReuseCC BY 4.0",
+    "crumbs": [
+      "ホーム",
+      "ツール一覧"
+    ]
   },
   {
     "objectID": "qmds/管理者.html",
     "href": "qmds/管理者.html",
     "title": "管理者",
     "section": "",
-    "text": "経歴\n\n熊本県で生まれ育つ\n国立大学の数学科を卒業\n\n解析学(微分積分学)を中心に数学理論を学ぶ\n\n国立大学院の生命科学専攻を修了\n\nWetな手法でエピジェネティクスと初期発生に関する研究を行う\n定量化の方法としては画像解析系の技術を多く学ぶ\n\n受託分析会社でデータサイエンティストとして勤務\n\nデータ利活用を目的としたコンサルテーションを担当\nBIエンジニアリング, AIエンジニアリング, データ基盤作成, データ分析業を幅広く学ぶ\nプロジェクトリーダーを経験\n\n医療系ベンチャー企業のAIエンジニアとして勤務 ← Now\n\n医療機器に組み込む疾患予測モデルの構築\n社内データ基盤の整備\n臨床研究におけるデータ解析を担当\n\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
+    "text": "経歴\n\n熊本県で生まれ育つ\n国立大学の数学科を卒業\n\n解析学(微分積分学)を中心に数学理論を学ぶ\n\n国立大学院の生命科学専攻を修了\n\nWetな手法でエピジェネティクスと初期発生に関する研究を行う\n定量化の方法としては画像解析系の技術を多く学ぶ\n\n受託分析会社でデータサイエンティストとして勤務\n\nデータ利活用を目的としたコンサルテーションを担当\nBIエンジニアリング, AIエンジニアリング, データ基盤作成, データ分析業を幅広く学ぶ\nプロジェクトリーダーを経験\n\n医療系ベンチャー企業のAIエンジニアとして勤務 ← Now\n\n医療機器に組み込む疾患予測モデルの構築\n社内データ基盤の整備\n臨床研究におけるデータ解析を担当\n\n\n\n\n\n Back to topReuseCC BY 4.0",
+    "crumbs": [
+      "ホーム",
+      "管理者"
+    ]
+  },
+  {
+    "objectID": "qmds/index.html",
+    "href": "qmds/index.html",
+    "title": "ホーム",
+    "section": "",
+    "text": "管理者(優月)が生物統計(+その他の技術諸々)について学んだことを書いていきます。レベル感としては、統計家が適切な判断によってデータ分析ができるようになることを目標としています。\n\n記事一覧: 書いたコンテンツをまとめています。左のサイドバーでもリスティングしています。\n管理者: 管理者である優月の紹介ページです。\n実行環境: このサイトを構成している環境を書いています。(メインエンジンはQuarto使っています)\nお問い合わせ: お問い合わせがございましたらこちらからよろしくお願い致します。",
+    "crumbs": [
+      "ホーム"
+    ]
+  },
+  {
+    "objectID": "qmds/index.html#ブログ内のコンテンツ",
+    "href": "qmds/index.html#ブログ内のコンテンツ",
+    "title": "ホーム",
+    "section": "ブログ内のコンテンツ",
+    "text": "ブログ内のコンテンツ\n本サイトにおける各エントリの文章や画像などのコンテンツはクリエイティブ・コモンズ・ライセンスを適応します。",
+    "crumbs": [
+      "ホーム"
+    ]
+  },
+  {
+    "objectID": "qmds/index.html#ブログ内サンプルコードのライセンス",
+    "href": "qmds/index.html#ブログ内サンプルコードのライセンス",
+    "title": "ホーム",
+    "section": "ブログ内サンプルコードのライセンス",
+    "text": "ブログ内サンプルコードのライセンス\nブログ内で書いているコードに関しては例外的にMIT Licenceを適応します。\n\n\n\n\n\n\nMIT License\n\n\n\n\n\nCopyright 2024 優月\n以下に定める条件に従い、本ソフトウェアおよび関連文書のファイル（以下「ソフトウェア」）の複製を取得するすべての人に対し、ソフトウェアを無制限に扱うことを無償で許可します。これには、ソフトウェアの複製を使用、複写、変更、結合、掲載、頒布、サブライセンス、および/または販売する権利、およびソフトウェアを提供する相手に同じことを許可する権利も無制限に含まれます。\n上記の著作権表示および本許諾表示を、ソフトウェアのすべての複製または重要な部分に記載するものとします。\nソフトウェアは「現状のまま」で、明示であるか暗黙であるかを問わず、何らの保証もなく提供されます。ここでいう保証とは、商品性、特定の目的への適合性、および権利非侵害についての保証も含みますが、それに限定されるものではありません。 作者または著作権者は、契約行為、不法行為、またはそれ以外であろうと、ソフトウェアに起因または関連し、あるいはソフトウェアの使用またはその他の扱いによって生じる一切の請求、損害、その他の義務について何らの責任も負わないものとします。",
+    "crumbs": [
+      "ホーム"
+    ]
   },
   {
     "objectID": "qmds/お問い合わせ.html",
     "href": "qmds/お問い合わせ.html",
     "title": "お問い合わせ",
     "section": "",
-    "text": "\\(\\mathbb{X}\\)(旧Twitter)からDMをお願いします。（もし宜しければフォローもお願いします。）\n\n\n\n※Google accountにログインしている方に制限させていただいています。 読み込んでいます…"
+    "text": "\\(\\mathbb{X}\\)(旧Twitter)からDMをお願いします。（もし宜しければフォローもお願いします。）\n\n\n\n※Google accountにログインしている方に制限させていただいています。 読み込んでいます…",
+    "crumbs": [
+      "ホーム",
+      "お問い合わせ"
+    ]
   },
   {
     "objectID": "qmds/お問い合わせ.html#mathbbx",
     "href": "qmds/お問い合わせ.html#mathbbx",
     "title": "お問い合わせ",
     "section": "",
-    "text": "\\(\\mathbb{X}\\)(旧Twitter)からDMをお願いします。（もし宜しければフォローもお願いします。）"
+    "text": "\\(\\mathbb{X}\\)(旧Twitter)からDMをお願いします。（もし宜しければフォローもお願いします。）",
+    "crumbs": [
+      "ホーム",
+      "お問い合わせ"
+    ]
   },
   {
     "objectID": "qmds/お問い合わせ.html#google-form",
     "href": "qmds/お問い合わせ.html#google-form",
     "title": "お問い合わせ",
     "section": "",
-    "text": "※Google accountにログインしている方に制限させていただいています。 読み込んでいます…"
+    "text": "※Google accountにログインしている方に制限させていただいています。 読み込んでいます…",
+    "crumbs": [
+      "ホーム",
+      "お問い合わせ"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率分布.html#超幾何分布",
     "href": "qmds/生物統計学/確率分布.html#超幾何分布",
     "title": "確率分布",
     "section": "超幾何分布",
-    "text": "超幾何分布\nA or Bからなる\\(N\\)個の集団を考える。A, Bの個数はそれぞれ\\(M\\), \\(N - M\\)とする。この集団から\\(n\\)個取り出したとき、Aの個数が\\(k\\)個となる確率は Equation 1 で与えられる。この確率分布を超幾何分布 Figure 1 という。資源調査などでよく用いられる。\n\\[\nf(X=x; N, M, n) = \\frac{_{M}C_{x} \\cdot _{N - M}C_{n - x}}{_{N}C_{n}} \\ (x = \\max(0, n -(N - M)), \\cdots, \\min(n, M))\n\\tag{1}\\]\n\n\nCode\nx &lt;- c(0:5)\nN &lt;- 10\nM &lt;- c(3, 5, 7)\n\ndata &lt;- tibble()\nfor (m in M){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dhyper(x, m, N - m, max(x)),\n        f = sprintf(\"f(X; %s, %s, %s)\", N, m, max(x))\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; N, M, n)\")\n\nplot(g)\n\n\n\n\n\nFigure 1: 超幾何分布"
+    "text": "超幾何分布\nA or Bからなる\\(N\\)個の集団を考える。A, Bの個数はそれぞれ\\(M\\), \\(N - M\\)とする。この集団から\\(n\\)個取り出したとき、Aの個数が\\(k\\)個となる確率は Equation 1 で与えられる。この確率分布を超幾何分布 Figure 1 という。資源調査などでよく用いられる。\n\\[\nf(X=x; N, M, n) = \\frac{_{M}C_{x} \\cdot _{N - M}C_{n - x}}{_{N}C_{n}} \\ (x = \\max(0, n -(N - M)), \\cdots, \\min(n, M))\n\\tag{1}\\]\n\n\nCode\nx &lt;- c(0:5)\nN &lt;- 10\nM &lt;- c(3, 5, 7)\n\ndata &lt;- tibble()\nfor (m in M){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dhyper(x, m, N - m, max(x)),\n        f = sprintf(\"f(X; %s, %s, %s)\", N, m, max(x))\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; N, M, n)\")\n\nplot(g)\n\n\n\n\n\n\n\n\nFigure 1: 超幾何分布",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率分布"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率分布.html#二項分布",
     "href": "qmds/生物統計学/確率分布.html#二項分布",
     "title": "確率分布",
     "section": "二項分布",
-    "text": "二項分布\nA or Bが観測できる試行を考える。A, Bが生起する確率をそれぞれ\\(p, (1 - p)\\)とする。この試行を独立に\\(n\\)回繰り返す(これをベルヌーイ試行と呼ぶ)。Aが\\(x\\)回生起する確率は Equation 2 で与えられる。この確率分布を二項分布 Figure 2 という。二項分布はコイン投げのような単純な試行で使われる。\nまた、\\(n = 1\\)のときはベルヌーイ分布と呼ぶ。\n\\[\nf(X=x; n, p) = _{n}C_{x} p^{x} (1 - p)^{n - x}\n\\tag{2}\\]\n\n\nCode\nx &lt;- c(0:6)\nn &lt;- 6\np &lt;- c(1:5) / 6\n\ndata &lt;- tibble()\nfor (prob in p){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dbinom(x, n, prob),\n        f = sprintf(\"f(X; %s, %s)\", n, prob)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; n, p)\")\n\nplot(g)\n\n\n\n\n\nFigure 2: 二項分布"
+    "text": "二項分布\nA or Bが観測できる試行を考える。A, Bが生起する確率をそれぞれ\\(p, (1 - p)\\)とする。この試行を独立に\\(n\\)回繰り返す(これをベルヌーイ試行と呼ぶ)。Aが\\(x\\)回生起する確率は Equation 2 で与えられる。この確率分布を二項分布 Figure 2 という。二項分布はコイン投げのような単純な試行で使われる。\nまた、\\(n = 1\\)のときはベルヌーイ分布と呼ぶ。\n\\[\nf(X=x; n, p) = _{n}C_{x} p^{x} (1 - p)^{n - x}\n\\tag{2}\\]\n\n\nCode\nx &lt;- c(0:6)\nn &lt;- 6\np &lt;- c(1:5) / 6\n\ndata &lt;- tibble()\nfor (prob in p){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dbinom(x, n, prob),\n        f = sprintf(\"f(X; %s, %s)\", n, prob)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; n, p)\")\n\nplot(g)\n\n\n\n\n\n\n\n\nFigure 2: 二項分布",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率分布"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率分布.html#ポアソン分布",
     "href": "qmds/生物統計学/確率分布.html#ポアソン分布",
     "title": "確率分布",
     "section": "ポアソン分布",
-    "text": "ポアソン分布\n二項分布の\\(n\\)を大きくし、\\(p\\)を0に近づけた事象を考える。このように、大量の観察の中で中々生起しない現象は交通事故件数や不良品件数などが当てはまる。今、\\(\\lambda \\fallingdotseq n p\\)としたときに\\(x\\)回生起する確率は Equation 3 で与えられる。この確率分布をポアソン分布 Figure 3 という。\n\\[\nf(X=x; \\lambda) = \\frac{\\lambda^{x} e^{- \\lambda}}{x!}\n\\tag{3}\\]\n\n\nCode\nx &lt;- c(0:10)\nlambda &lt;- c(0, 1, 2, 3, 4, 5)\n\ndata &lt;- tibble()\nfor (l in lambda){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dpois(x, l),\n        f = sprintf(\"f(X; %s)\", l)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; lambda)\")\n\nplot(g)\n\n\n\n\n\nFigure 3: ポアソン分布"
+    "text": "ポアソン分布\n二項分布の\\(n\\)を大きくし、\\(p\\)を0に近づけた事象を考える。このように、大量の観察の中で中々生起しない現象は交通事故件数や不良品件数などが当てはまる。今、\\(\\lambda \\fallingdotseq n p\\)としたときに\\(x\\)回生起する確率は Equation 3 で与えられる。この確率分布をポアソン分布 Figure 3 という。\n\\[\nf(X=x; \\lambda) = \\frac{\\lambda^{x} e^{- \\lambda}}{x!}\n\\tag{3}\\]\n\n\nCode\nx &lt;- c(0:10)\nlambda &lt;- c(0, 1, 2, 3, 4, 5)\n\ndata &lt;- tibble()\nfor (l in lambda){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dpois(x, l),\n        f = sprintf(\"f(X; %s)\", l)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; lambda)\")\n\nplot(g)\n\n\n\n\n\n\n\n\nFigure 3: ポアソン分布",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率分布"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率分布.html#負の二項分布",
     "href": "qmds/生物統計学/確率分布.html#負の二項分布",
     "title": "確率分布",
     "section": "負の二項分布",
-    "text": "負の二項分布\n生起する確率が\\(p\\)であるベルヌーイ試行を繰り返すとき、\\(k\\)回目の生起を得るまでの失敗回数\\(x\\)は Equation 4 で与えられる。この確率分布を負の二項分布(パスカル分布) Figure 4 という。負の二項分布は待ち時間を表現するのに用いられる。\nまた、\\(k = 1\\)のときは 幾何分布と呼ぶ。\n\\[\nf(X=x; p, k) = _{k + x - 1}C_{x} p^{k} (1 - p)^{x}\n\\tag{4}\\]\n\n\nCode\nx &lt;- c(0:10)\nk &lt;- c(1, 2, 3, 4)\np &lt;- 1 / 2\n\ndata &lt;- tibble()\nfor (i in k){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dnbinom(x, i, p),\n        f = sprintf(\"f(X; %s, %s)\", p, i)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; p, k)\")\n\nplot(g)\n\n\n\n\n\nFigure 4: 負の二項分布"
+    "text": "負の二項分布\n生起する確率が\\(p\\)であるベルヌーイ試行を繰り返すとき、\\(k\\)回目の生起を得るまでの失敗回数\\(x\\)は Equation 4 で与えられる。この確率分布を負の二項分布(パスカル分布) Figure 4 という。負の二項分布は待ち時間を表現するのに用いられる。\nまた、\\(k = 1\\)のときは 幾何分布と呼ぶ。\n\\[\nf(X=x; p, k) = _{k + x - 1}C_{x} p^{k} (1 - p)^{x}\n\\tag{4}\\]\n\n\nCode\nx &lt;- c(0:10)\nk &lt;- c(1, 2, 3, 4)\np &lt;- 1 / 2\n\ndata &lt;- tibble()\nfor (i in k){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dnbinom(x, i, p),\n        f = sprintf(\"f(X; %s, %s)\", p, i)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; p, k)\")\n\nplot(g)\n\n\n\n\n\n\n\n\nFigure 4: 負の二項分布",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率分布"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率分布.html#正規分布",
     "href": "qmds/生物統計学/確率分布.html#正規分布",
     "title": "確率分布",
     "section": "正規分布",
-    "text": "正規分布\n自然界では左右非対称かつつりがね型の分布をとる現象が多く存在する。これはある代表値\\(\\mu\\)から、ばらつきを表す量\\(\\sigma^{2}\\)に応じた誤差の分だけ離れた観測を集めることで生成される。このような分布を正規分布\\(N(\\mu, \\sigma^{2})\\) Figure 5 といい、確率密度関数は Equation 5 である。\n正規分布はあらゆる統計理論に関わっている最重要分布である。\nまた、\\(\\mu = 0, \\sigma^{2} = 1\\)の場合の正規分布を標準正規分布と呼ぶ。\n\\[\nf(X=x; \\mu, \\sigma^{2}) = \\frac{1}{\\sqrt{2 \\pi \\sigma^{2}}} \\exp{\\left( \\frac{- (x - \\mu)^{2}}{2 \\sigma^{2}} \\right)}\n\\tag{5}\\]\n\nFigure 5: 正規分布\n\n\n\n\nCode\nx &lt;- seq(-5, 5, by = 0.01)\nmu &lt;- c(-2, -1, 0, 1, 2)\nsigma &lt;- c(1, 2, 3, 4)\n\ndata &lt;- tibble()\nfor (m in mu){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dnorm(x, m, sigma[1]),\n        f = sprintf(\"f(X; %s, %s)\", m, sigma[1])\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; mu, sigma^2)\")\n\nplot(g)\n\n\n\n\n\n\n\nCode\ndata &lt;- tibble()\nfor (s in sigma){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dnorm(x, mu[3], s),\n        f = sprintf(\"f(X; %s, %s)\", mu[3], s)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; mu, sigma^2)\")\n\nplot(g)"
+    "text": "正規分布\n自然界では左右非対称かつつりがね型の分布をとる現象が多く存在する。これはある代表値\\(\\mu\\)から、ばらつきを表す量\\(\\sigma^{2}\\)に応じた誤差の分だけ離れた観測を集めることで生成される。このような分布を正規分布\\(N(\\mu, \\sigma^{2})\\) Figure 5 といい、確率密度関数は Equation 5 である。\n正規分布はあらゆる統計理論に関わっている最重要分布である。\nまた、\\(\\mu = 0, \\sigma^{2} = 1\\)の場合の正規分布を標準正規分布と呼ぶ。\n\\[\nf(X=x; \\mu, \\sigma^{2}) = \\frac{1}{\\sqrt{2 \\pi \\sigma^{2}}} \\exp{\\left( \\frac{- (x - \\mu)^{2}}{2 \\sigma^{2}} \\right)}\n\\tag{5}\\]\n\nCode\nx &lt;- seq(-5, 5, by = 0.01)\nmu &lt;- c(-2, -1, 0, 1, 2)\nsigma &lt;- c(1, 2, 3, 4)\n\ndata &lt;- tibble()\nfor (m in mu){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dnorm(x, m, sigma[1]),\n        f = sprintf(\"f(X; %s, %s)\", m, sigma[1])\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; mu, sigma^2)\")\n\nplot(g)\ndata &lt;- tibble()\nfor (s in sigma){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dnorm(x, mu[3], s),\n        f = sprintf(\"f(X; %s, %s)\", mu[3], s)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; mu, sigma^2)\")\n\nplot(g)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: 正規分布",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率分布"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率分布.html#ガンマ分布",
     "href": "qmds/生物統計学/確率分布.html#ガンマ分布",
     "title": "確率分布",
     "section": "ガンマ分布",
-    "text": "ガンマ分布\n負の二項分布を連続化した分布をガンマ分布 Figure 6 と呼ぶ。ガンマ分布はある期間\\(\\beta\\)ごとに1回生起する現象が\\(\\alpha\\)回起きるまでの期間\\(x\\)の確率を表現することができる。確率密度関数は Equation 6 である(\\(\\Gamma\\)はガンマ関数)。ガンマ分布はベイズ統計においても頻出の分布である。\nまた、\\(\\alpha = 1\\)の場合は指数分布と呼び、確率密度関数は\\(f(x; \\beta) = \\beta e^{- \\frac{x}{\\beta}}\\)となる。\n\\[\nf(X=x; \\alpha, \\beta) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{\\beta^{\\alpha}}{\\Gamma(\\alpha)} x^{\\alpha - 1} e^{- \\frac{x}{\\beta}} \\ &(x \\geqq 0) \\\\\n    &0 \\ &(x &lt; 0)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{6}\\]\n\n\nCode\nx &lt;- seq(0, 5, by = 0.01)\nalpha &lt;- c(1, 1.5, 2, 2.5, 3)\nbeta &lt;- 2\n\ndata &lt;- tibble()\nfor (a in alpha){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dgamma(x, a, beta),\n        f = sprintf(\"f(X; %s, %s)\", a, beta)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; alpha, beta)\")\n\nplot(g)\n\n\n\n\n\nFigure 6: ガンマ分布"
+    "text": "ガンマ分布\n負の二項分布を連続化した分布をガンマ分布 Figure 6 と呼ぶ。ガンマ分布はある期間\\(\\beta\\)ごとに1回生起する現象が\\(\\alpha\\)回起きるまでの期間\\(x\\)の確率を表現することができる。確率密度関数は Equation 6 である(\\(\\Gamma\\)はガンマ関数)。ガンマ分布はベイズ統計においても頻出の分布である。\nまた、\\(\\alpha = 1\\)の場合は指数分布と呼び、確率密度関数は\\(f(x; \\beta) = \\beta e^{- \\frac{x}{\\beta}}\\)となる。\n\\[\nf(X=x; \\alpha, \\beta) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{\\beta^{\\alpha}}{\\Gamma(\\alpha)} x^{\\alpha - 1} e^{- \\frac{x}{\\beta}} \\ &(x \\geqq 0) \\\\\n    &0 \\ &(x &lt; 0)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{6}\\]\n\n\nCode\nx &lt;- seq(0, 5, by = 0.01)\nalpha &lt;- c(1, 1.5, 2, 2.5, 3)\nbeta &lt;- 2\n\ndata &lt;- tibble()\nfor (a in alpha){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dgamma(x, a, beta),\n        f = sprintf(\"f(X; %s, %s)\", a, beta)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; alpha, beta)\")\n\nplot(g)\n\n\n\n\n\n\n\n\nFigure 6: ガンマ分布",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率分布"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率分布.html#一様分布",
     "href": "qmds/生物統計学/確率分布.html#一様分布",
     "title": "確率分布",
     "section": "一様分布",
-    "text": "一様分布\nある区間\\([a, b]\\)で、全ての事象が生起する確率が等しい分布を一様分布 Figure 7 という。確率密度関数は Equation 7 である。離散型でも同様の分布があり、両方で乱数生成の場面でよく用いられる。\n\\[\nf(X=x; a, b) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{1}{b - a} \\ &(a \\leqq x \\leqq b) \\\\\n    &0 \\ &(x &lt; a, x &gt; b)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{7}\\]\n\n\nCode\nx &lt;- seq(0, 6, by = 0.01)\na &lt;- 1\nb &lt;- c(2, 3, 4, 5)\n\ndata &lt;- tibble()\nfor (k in b){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dunif(x, a, k),\n        f = sprintf(\"f(X; %s, %s)\", a, k)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; a, b)\")\n\nplot(g)\n\n\n\n\n\nFigure 7: 一様分布"
+    "text": "一様分布\nある区間\\([a, b]\\)で、全ての事象が生起する確率が等しい分布を一様分布 Figure 7 という。確率密度関数は Equation 7 である。離散型でも同様の分布があり、両方で乱数生成の場面でよく用いられる。\n\\[\nf(X=x; a, b) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{1}{b - a} \\ &(a \\leqq x \\leqq b) \\\\\n    &0 \\ &(x &lt; a, x &gt; b)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{7}\\]\n\n\nCode\nx &lt;- seq(0, 6, by = 0.01)\na &lt;- 1\nb &lt;- c(2, 3, 4, 5)\n\ndata &lt;- tibble()\nfor (k in b){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dunif(x, a, k),\n        f = sprintf(\"f(X; %s, %s)\", a, k)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; a, b)\")\n\nplot(g)\n\n\n\n\n\n\n\n\nFigure 7: 一様分布",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率分布"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率分布.html#ベータ分布",
     "href": "qmds/生物統計学/確率分布.html#ベータ分布",
     "title": "確率分布",
     "section": "ベータ分布",
-    "text": "ベータ分布\n二項分布に従う確率変数について、実際の観測に基づいて母数\\(x = p\\)を得るとする。A, Bが生起する回数をそれぞれ\\(\\alpha, \\beta\\)したときに、その数が少ない場合は得られる\\(x\\)は偶然と考えるが、多い場合は確信をもって\\(x\\)を得られる。この\\(x\\)が従う分布をベータ分布 Figure 8 という。確率密度関数は Equation 8 である(\\(B\\)はベータ関数)。ベータ分布はベイズ統計でよく用いられる。\nまた、\\(\\alpha = 1, \\beta = 1\\)のときは区間\\([0, 1]\\)の一様分布となる。\n\\[\nf(X=x; \\alpha, \\beta) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{x^{\\alpha - 1} (1 - x)^{\\beta - 1}}{B(\\alpha, \\beta)} \\ &(0 \\leqq x \\leqq 1) \\\\\n    &0 \\ &(x &lt; 0, x &gt; 1)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{8}\\]\n\n\nCode\nx &lt;- seq(0, 1, by = 0.01)\nalpha &lt;- c(2, 3, 4, 5, 6)\nbeta &lt;- c(3, 5, 7, 9, 11)\n\ndata &lt;- tibble()\nfor (i in 1:5){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dbeta(x, alpha[i], beta[i]),\n        f = sprintf(\"f(X; %s, %s)\", alpha[i], beta[i])\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; alpha, beta)\")\n\nplot(g)\n\n\n\n\n\nFigure 8: ベータ分布"
+    "text": "ベータ分布\n二項分布に従う確率変数について、実際の観測に基づいて母数\\(x = p\\)を得るとする。A, Bが生起する回数をそれぞれ\\(\\alpha, \\beta\\)したときに、その数が少ない場合は得られる\\(x\\)は偶然と考えるが、多い場合は確信をもって\\(x\\)を得られる。この\\(x\\)が従う分布をベータ分布 Figure 8 という。確率密度関数は Equation 8 である(\\(B\\)はベータ関数)。ベータ分布はベイズ統計でよく用いられる。\nまた、\\(\\alpha = 1, \\beta = 1\\)のときは区間\\([0, 1]\\)の一様分布となる。\n\\[\nf(X=x; \\alpha, \\beta) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{x^{\\alpha - 1} (1 - x)^{\\beta - 1}}{B(\\alpha, \\beta)} \\ &(0 \\leqq x \\leqq 1) \\\\\n    &0 \\ &(x &lt; 0, x &gt; 1)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{8}\\]\n\n\nCode\nx &lt;- seq(0, 1, by = 0.01)\nalpha &lt;- c(2, 3, 4, 5, 6)\nbeta &lt;- c(3, 5, 7, 9, 11)\n\ndata &lt;- tibble()\nfor (i in 1:5){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dbeta(x, alpha[i], beta[i]),\n        f = sprintf(\"f(X; %s, %s)\", alpha[i], beta[i])\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; alpha, beta)\")\n\nplot(g)\n\n\n\n\n\n\n\n\nFigure 8: ベータ分布",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率分布"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率分布.html#対数正規分布",
     "href": "qmds/生物統計学/確率分布.html#対数正規分布",
     "title": "確率分布",
     "section": "対数正規分布",
-    "text": "対数正規分布\n自然界でみられる現象が従う分布として正規分布を対数変換したものがある。これは、観測値に下限はあるが、上限は明確にないような現象でよくみられる（例えば、血液検査など）。これは対数正規分布 Figure 9 といい、確率密度関数は Equation 9 である。\n\\[\nf(X=x; \\mu, \\sigma^{2}) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{1}{\\sqrt{2 \\pi \\sigma^{2}} x} \\exp{\\left( \\frac{- (\\log{x} - \\mu)^{2}}{2 \\sigma^{2}} \\right)} \\ &(x \\geqq 0) \\\\\n    &0 \\ &(x &lt; 0)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{9}\\]\n\n\nCode\nx &lt;- seq(0, 20, by = 0.01)\nmu &lt;- c(1, 2, 3, 4)\nsigma &lt;- 1\n\ndata &lt;- tibble()\nfor (m in mu){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dlnorm(x, m, sigma),\n        f = sprintf(\"f(X; %s, %s)\", m, sigma)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; mu, sigma^2)\")\n\nplot(g)\n\n\n\n\n\nFigure 9: 対数正規分布"
+    "text": "対数正規分布\n自然界でみられる現象が従う分布として正規分布を対数変換したものがある。これは、観測値に下限はあるが、上限は明確にないような現象でよくみられる（例えば、血液検査など）。これは対数正規分布 Figure 9 といい、確率密度関数は Equation 9 である。\n\\[\nf(X=x; \\mu, \\sigma^{2}) =\n\\begin{equation}\n\\left\\{ \\,\n    \\begin{aligned}\n    &\\frac{1}{\\sqrt{2 \\pi \\sigma^{2}} x} \\exp{\\left( \\frac{- (\\log{x} - \\mu)^{2}}{2 \\sigma^{2}} \\right)} \\ &(x \\geqq 0) \\\\\n    &0 \\ &(x &lt; 0)\n    \\end{aligned}\n\\right.\n\\end{equation}\n\\tag{9}\\]\n\n\nCode\nx &lt;- seq(0, 20, by = 0.01)\nmu &lt;- c(1, 2, 3, 4)\nsigma &lt;- 1\n\ndata &lt;- tibble()\nfor (m in mu){\n    sub_data &lt;- tibble(\n        x = x,\n        y = dlnorm(x, m, sigma),\n        f = sprintf(\"f(X; %s, %s)\", m, sigma)\n    )\n    data &lt;- rbind(data, sub_data)\n}\n\ng &lt;- ggplot(data, aes(x = x, y = y, color = f)) +\n    geom_line() +\n    labs(y = \"f(X=x; mu, sigma^2)\")\n\nplot(g)\n\n\n\n\n\n\n\n\nFigure 9: 対数正規分布",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率分布"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html",
     "href": "qmds/生物統計学/確率論.html",
     "title": "確率論基礎",
     "section": "",
-    "text": "考察の材料とするための実験または観測を試行という。試行によって得られる個々の結果を標本点(または基本事象、単純事象、根元事元)という。標本点はいつも同じ値を取るのではなく、偶発的要因の影響を受けて揺らぎがある。この揺らぎを全て包含した標本点全体の集合を標本空間\\(\\Omega = \\{ \\omega_{1}, \\omega_{2}, \\cdots \\}\\)という。\n\n\n\n\n\n\nExample\n\n\n\nサイコロを振る試行における標本空間は次のようになる\n\\[\n\\Omega = \\{ 1, 2, 3, 4, 5, 6 \\}\n\\]\n\n\n今、試行の中で期待したい観測のみを抽出したいとする。これは標本空間の部分集合として表現でき、事象\\(e \\subset \\Omega\\)と呼ぶ。標本点\\(\\omega\\)が事象\\(e\\)に含まれる(\\(\\omega \\in e\\))とき、事象\\(e\\)が生起したという。事象全体の集合を事象空間\\(\\mathcal{E}\\)と呼ぶ。\n\n事象には基本的な集合演算(和集合、積集合、補集合)を適応することができる\n特殊な事象として、標本空間を事象とした全事象\\(\\Omega\\)と、標本点を一つももたない空事象\\(\\varnothing\\)がある\n\\(e_{1} \\cap e_{2} = \\varnothing\\)のとき、事象\\(e_{1}\\)と事象\\(e_{2}\\)は互いに排反という\n事象空間の要素数は\\(2^{|\\Omega|}\\)である\n\n\n\n\n\n\n\nExample\n\n\n\nサイコロから偶数が出る事象\\(e_{odd}\\)は次のようになる\n\\[\ne_{odd} = \\{ 2, 4, 6 \\}\n\\]\n\n\n\n\n\n標本点は偶発的要因により揺らぎをもって試行から生成されるとした。この試行を独立に十分な数\\(n\\)だけ行い、事象\\(e\\)が生起した回数を\\(r\\)とする。このとき Equation 1 を満たすような定数\\(p\\)の存在が(経験的に)確かであるとき、事象\\(e\\)を確率事象、\\(p = P(e)\\)を確率事象\\(e\\)の確率という。また、この写像\\(P: \\mathcal{E} \\rightarrow [0, 1]\\)を確率測度という。標本空間\\(\\Omega\\)、事象空間\\(\\mathcal{E}\\)、確率測度\\(P\\)の三つ組\\((\\Omega, \\mathcal{E}, P)\\)を確率空間と呼び、この空間をもって各種の確率理論を展開することができる。\n\\[\np = \\lim_{n \\rightarrow \\infty} \\frac{r}{n}\n\\tag{1}\\]\n確率事象、確率はコルモゴロフの定理に従う。\n\n\n\n\n\n\nコルモゴロフの定理\n\n\n\n\n\\(e_{1}, e_{2}, e_{3}, \\cdots\\)が確率事象であるとき以下も全て確率事象である\n\n\\[\n\\begin{split}\n&e_{1} \\cap e_{2} \\cap e_{3} \\cap \\cdots \\\\\n&e_{1} \\cup e_{2} \\cup e_{3} \\cup \\cdots \\\\\n&e_{1}^{c}, e_{2}^{c}, e_{3}^{c}, \\cdots \\\\\n\\end{split}\n\\]\n\n確率事象\\(e_{1}, \\Omega, \\varnothing\\)に対して以下が成立する\n\n\\[\n\\begin{split}\n&0 \\leqq P(e_{1}) \\leqq 1 \\\\\n&P(\\Omega) = 1 \\\\\n&P(\\varnothing) = 0 \\\\\n\\end{split}\n\\]\n\n確率事象\\(e_{1}, e_{2}, e_{3}, \\cdots\\)は各々互いに素であるとき、以下が成立する\n\n\\[\nP(e_{1} \\cup e_{2} \\cup e_{3} \\cup \\cdots) = P(e_{1}) + P(e_{2}) + P(e_{3}) + \\cdots\n\\]\n\n\n\n\n\n\\(e_{1}, e_{2}\\)が確率事象で、\\(P(e_{2}) \\neq 0\\)のとき、 Equation 2 で定義される\\(P(e_{1}|e_{2})\\)を\\(e_{2}\\)の条件の元での事象\\(e_{1}\\)の(条件付き)確率という。\n\\[\nP(e_{1} | e_{2}) = \\frac{P(e_{1} \\cap e_{2})}{P(e_{2})}\n\\tag{2}\\]\n\n\n\n\\(e_{1}, e_{2}\\)が確率事象で、Equation 3 でが成り立つとき、\\(e_{1}, e_{2}\\)は互いに独立という。\n\\[\nP(e_{1} \\cap e_{2}) = P(e_{1}) P(e_{2})\n\\tag{3}\\]\n\n\n\nEquation 4 が\\(i = 1, 2, \\cdots, n\\)に対して成り立つことをベイズの定理という。\n\\[\n\\begin{split}\n&e_{j} \\cap e_{k} = \\varnothing \\ (j \\neq k) \\ かつ \\ \\Omega = e_{1} \\cup e_{2} \\cup \\cdots \\cup e_{n} \\\\\n&\\Rightarrow P(e_{i} | D) = \\frac{P(e_{i})P(D | e_{i})}{\\sum_{j=1}^{n} P(e_{j})P(D | e_{j})}\n\\end{split}\n\\tag{4}\\]"
+    "text": "考察の材料とするための実験または観測を試行という。試行によって得られる個々の結果を標本点(または基本事象、単純事象、根元事元)という。標本点はいつも同じ値を取るのではなく、偶発的要因の影響を受けて揺らぎがある。この揺らぎを全て包含した標本点全体の集合を標本空間\\(\\Omega = \\{ \\omega_{1}, \\omega_{2}, \\cdots \\}\\)という。\n\n\n\n\n\n\nExample\n\n\n\nサイコロを振る試行における標本空間は次のようになる\n\\[\n\\Omega = \\{ 1, 2, 3, 4, 5, 6 \\}\n\\]\n\n\n今、試行の中で期待したい観測のみを抽出したいとする。これは標本空間の部分集合として表現でき、事象\\(e \\subset \\Omega\\)と呼ぶ。標本点\\(\\omega\\)が事象\\(e\\)に含まれる(\\(\\omega \\in e\\))とき、事象\\(e\\)が生起したという。事象全体の集合を事象空間\\(\\mathcal{E}\\)と呼ぶ。\n\n事象には基本的な集合演算(和集合、積集合、補集合)を適応することができる\n特殊な事象として、標本空間を事象とした全事象\\(\\Omega\\)と、標本点を一つももたない空事象\\(\\varnothing\\)がある\n\\(e_{1} \\cap e_{2} = \\varnothing\\)のとき、事象\\(e_{1}\\)と事象\\(e_{2}\\)は互いに排反という\n事象空間の要素数は\\(2^{|\\Omega|}\\)である\n\n\n\n\n\n\n\nExample\n\n\n\nサイコロから偶数が出る事象\\(e_{odd}\\)は次のようになる\n\\[\ne_{odd} = \\{ 2, 4, 6 \\}\n\\]\n\n\n\n\n\n標本点は偶発的要因により揺らぎをもって試行から生成されるとした。この試行を独立に十分な数\\(n\\)だけ行い、事象\\(e\\)が生起した回数を\\(r\\)とする。このとき Equation 1 を満たすような定数\\(p\\)の存在が(経験的に)確かであるとき、事象\\(e\\)を確率事象、\\(p = P(e)\\)を確率事象\\(e\\)の確率という。また、この写像\\(P: \\mathcal{E} \\rightarrow [0, 1]\\)を確率測度という。標本空間\\(\\Omega\\)、事象空間\\(\\mathcal{E}\\)、確率測度\\(P\\)の三つ組\\((\\Omega, \\mathcal{E}, P)\\)を確率空間と呼び、この空間をもって各種の確率理論を展開することができる。\n\\[\np = \\lim_{n \\rightarrow \\infty} \\frac{r}{n}\n\\tag{1}\\]\n確率事象、確率はコルモゴロフの定理に従う。\n\n\n\n\n\n\nコルモゴロフの定理\n\n\n\n\n\\(e_{1}, e_{2}, e_{3}, \\cdots\\)が確率事象であるとき以下も全て確率事象である\n\n\\[\n\\begin{split}\n&e_{1} \\cap e_{2} \\cap e_{3} \\cap \\cdots \\\\\n&e_{1} \\cup e_{2} \\cup e_{3} \\cup \\cdots \\\\\n&e_{1}^{c}, e_{2}^{c}, e_{3}^{c}, \\cdots \\\\\n\\end{split}\n\\]\n\n確率事象\\(e_{1}, \\Omega, \\varnothing\\)に対して以下が成立する\n\n\\[\n\\begin{split}\n&0 \\leqq P(e_{1}) \\leqq 1 \\\\\n&P(\\Omega) = 1 \\\\\n&P(\\varnothing) = 0 \\\\\n\\end{split}\n\\]\n\n確率事象\\(e_{1}, e_{2}, e_{3}, \\cdots\\)は各々互いに素であるとき、以下が成立する\n\n\\[\nP(e_{1} \\cup e_{2} \\cup e_{3} \\cup \\cdots) = P(e_{1}) + P(e_{2}) + P(e_{3}) + \\cdots\n\\]\n\n\n\n\n\n\\(e_{1}, e_{2}\\)が確率事象で、\\(P(e_{2}) \\neq 0\\)のとき、 Equation 2 で定義される\\(P(e_{1}|e_{2})\\)を\\(e_{2}\\)の条件の元での事象\\(e_{1}\\)の(条件付き)確率という。\n\\[\nP(e_{1} | e_{2}) = \\frac{P(e_{1} \\cap e_{2})}{P(e_{2})}\n\\tag{2}\\]\n\n\n\n\\(e_{1}, e_{2}\\)が確率事象で、Equation 3 でが成り立つとき、\\(e_{1}, e_{2}\\)は互いに独立という。\n\\[\nP(e_{1} \\cap e_{2}) = P(e_{1}) P(e_{2})\n\\tag{3}\\]\n\n\n\nEquation 4 が\\(i = 1, 2, \\cdots, n\\)に対して成り立つことをベイズの定理という。\n\\[\n\\begin{split}\n&e_{j} \\cap e_{k} = \\varnothing \\ (j \\neq k) \\ かつ \\ \\Omega = e_{1} \\cup e_{2} \\cup \\cdots \\cup e_{n} \\\\\n&\\Rightarrow P(e_{i} | D) = \\frac{P(e_{i})P(D | e_{i})}{\\sum_{j=1}^{n} P(e_{j})P(D | e_{j})}\n\\end{split}\n\\tag{4}\\]",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#事象",
     "href": "qmds/生物統計学/確率論.html#事象",
     "title": "確率論基礎",
     "section": "",
-    "text": "考察の材料とするための実験または観測を試行という。試行によって得られる個々の結果を標本点(または基本事象、単純事象、根元事元)という。標本点はいつも同じ値を取るのではなく、偶発的要因の影響を受けて揺らぎがある。この揺らぎを全て包含した標本点全体の集合を標本空間\\(\\Omega = \\{ \\omega_{1}, \\omega_{2}, \\cdots \\}\\)という。\n\n\n\n\n\n\nExample\n\n\n\nサイコロを振る試行における標本空間は次のようになる\n\\[\n\\Omega = \\{ 1, 2, 3, 4, 5, 6 \\}\n\\]\n\n\n今、試行の中で期待したい観測のみを抽出したいとする。これは標本空間の部分集合として表現でき、事象\\(e \\subset \\Omega\\)と呼ぶ。標本点\\(\\omega\\)が事象\\(e\\)に含まれる(\\(\\omega \\in e\\))とき、事象\\(e\\)が生起したという。事象全体の集合を事象空間\\(\\mathcal{E}\\)と呼ぶ。\n\n事象には基本的な集合演算(和集合、積集合、補集合)を適応することができる\n特殊な事象として、標本空間を事象とした全事象\\(\\Omega\\)と、標本点を一つももたない空事象\\(\\varnothing\\)がある\n\\(e_{1} \\cap e_{2} = \\varnothing\\)のとき、事象\\(e_{1}\\)と事象\\(e_{2}\\)は互いに排反という\n事象空間の要素数は\\(2^{|\\Omega|}\\)である\n\n\n\n\n\n\n\nExample\n\n\n\nサイコロから偶数が出る事象\\(e_{odd}\\)は次のようになる\n\\[\ne_{odd} = \\{ 2, 4, 6 \\}\n\\]"
+    "text": "考察の材料とするための実験または観測を試行という。試行によって得られる個々の結果を標本点(または基本事象、単純事象、根元事元)という。標本点はいつも同じ値を取るのではなく、偶発的要因の影響を受けて揺らぎがある。この揺らぎを全て包含した標本点全体の集合を標本空間\\(\\Omega = \\{ \\omega_{1}, \\omega_{2}, \\cdots \\}\\)という。\n\n\n\n\n\n\nExample\n\n\n\nサイコロを振る試行における標本空間は次のようになる\n\\[\n\\Omega = \\{ 1, 2, 3, 4, 5, 6 \\}\n\\]\n\n\n今、試行の中で期待したい観測のみを抽出したいとする。これは標本空間の部分集合として表現でき、事象\\(e \\subset \\Omega\\)と呼ぶ。標本点\\(\\omega\\)が事象\\(e\\)に含まれる(\\(\\omega \\in e\\))とき、事象\\(e\\)が生起したという。事象全体の集合を事象空間\\(\\mathcal{E}\\)と呼ぶ。\n\n事象には基本的な集合演算(和集合、積集合、補集合)を適応することができる\n特殊な事象として、標本空間を事象とした全事象\\(\\Omega\\)と、標本点を一つももたない空事象\\(\\varnothing\\)がある\n\\(e_{1} \\cap e_{2} = \\varnothing\\)のとき、事象\\(e_{1}\\)と事象\\(e_{2}\\)は互いに排反という\n事象空間の要素数は\\(2^{|\\Omega|}\\)である\n\n\n\n\n\n\n\nExample\n\n\n\nサイコロから偶数が出る事象\\(e_{odd}\\)は次のようになる\n\\[\ne_{odd} = \\{ 2, 4, 6 \\}\n\\]",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#確率",
     "href": "qmds/生物統計学/確率論.html#確率",
     "title": "確率論基礎",
     "section": "",
-    "text": "標本点は偶発的要因により揺らぎをもって試行から生成されるとした。この試行を独立に十分な数\\(n\\)だけ行い、事象\\(e\\)が生起した回数を\\(r\\)とする。このとき Equation 1 を満たすような定数\\(p\\)の存在が(経験的に)確かであるとき、事象\\(e\\)を確率事象、\\(p = P(e)\\)を確率事象\\(e\\)の確率という。また、この写像\\(P: \\mathcal{E} \\rightarrow [0, 1]\\)を確率測度という。標本空間\\(\\Omega\\)、事象空間\\(\\mathcal{E}\\)、確率測度\\(P\\)の三つ組\\((\\Omega, \\mathcal{E}, P)\\)を確率空間と呼び、この空間をもって各種の確率理論を展開することができる。\n\\[\np = \\lim_{n \\rightarrow \\infty} \\frac{r}{n}\n\\tag{1}\\]\n確率事象、確率はコルモゴロフの定理に従う。\n\n\n\n\n\n\nコルモゴロフの定理\n\n\n\n\n\\(e_{1}, e_{2}, e_{3}, \\cdots\\)が確率事象であるとき以下も全て確率事象である\n\n\\[\n\\begin{split}\n&e_{1} \\cap e_{2} \\cap e_{3} \\cap \\cdots \\\\\n&e_{1} \\cup e_{2} \\cup e_{3} \\cup \\cdots \\\\\n&e_{1}^{c}, e_{2}^{c}, e_{3}^{c}, \\cdots \\\\\n\\end{split}\n\\]\n\n確率事象\\(e_{1}, \\Omega, \\varnothing\\)に対して以下が成立する\n\n\\[\n\\begin{split}\n&0 \\leqq P(e_{1}) \\leqq 1 \\\\\n&P(\\Omega) = 1 \\\\\n&P(\\varnothing) = 0 \\\\\n\\end{split}\n\\]\n\n確率事象\\(e_{1}, e_{2}, e_{3}, \\cdots\\)は各々互いに素であるとき、以下が成立する\n\n\\[\nP(e_{1} \\cup e_{2} \\cup e_{3} \\cup \\cdots) = P(e_{1}) + P(e_{2}) + P(e_{3}) + \\cdots\n\\]"
+    "text": "標本点は偶発的要因により揺らぎをもって試行から生成されるとした。この試行を独立に十分な数\\(n\\)だけ行い、事象\\(e\\)が生起した回数を\\(r\\)とする。このとき Equation 1 を満たすような定数\\(p\\)の存在が(経験的に)確かであるとき、事象\\(e\\)を確率事象、\\(p = P(e)\\)を確率事象\\(e\\)の確率という。また、この写像\\(P: \\mathcal{E} \\rightarrow [0, 1]\\)を確率測度という。標本空間\\(\\Omega\\)、事象空間\\(\\mathcal{E}\\)、確率測度\\(P\\)の三つ組\\((\\Omega, \\mathcal{E}, P)\\)を確率空間と呼び、この空間をもって各種の確率理論を展開することができる。\n\\[\np = \\lim_{n \\rightarrow \\infty} \\frac{r}{n}\n\\tag{1}\\]\n確率事象、確率はコルモゴロフの定理に従う。\n\n\n\n\n\n\nコルモゴロフの定理\n\n\n\n\n\\(e_{1}, e_{2}, e_{3}, \\cdots\\)が確率事象であるとき以下も全て確率事象である\n\n\\[\n\\begin{split}\n&e_{1} \\cap e_{2} \\cap e_{3} \\cap \\cdots \\\\\n&e_{1} \\cup e_{2} \\cup e_{3} \\cup \\cdots \\\\\n&e_{1}^{c}, e_{2}^{c}, e_{3}^{c}, \\cdots \\\\\n\\end{split}\n\\]\n\n確率事象\\(e_{1}, \\Omega, \\varnothing\\)に対して以下が成立する\n\n\\[\n\\begin{split}\n&0 \\leqq P(e_{1}) \\leqq 1 \\\\\n&P(\\Omega) = 1 \\\\\n&P(\\varnothing) = 0 \\\\\n\\end{split}\n\\]\n\n確率事象\\(e_{1}, e_{2}, e_{3}, \\cdots\\)は各々互いに素であるとき、以下が成立する\n\n\\[\nP(e_{1} \\cup e_{2} \\cup e_{3} \\cup \\cdots) = P(e_{1}) + P(e_{2}) + P(e_{3}) + \\cdots\n\\]",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#条件付き確率",
     "href": "qmds/生物統計学/確率論.html#条件付き確率",
     "title": "確率論基礎",
     "section": "",
-    "text": "\\(e_{1}, e_{2}\\)が確率事象で、\\(P(e_{2}) \\neq 0\\)のとき、 Equation 2 で定義される\\(P(e_{1}|e_{2})\\)を\\(e_{2}\\)の条件の元での事象\\(e_{1}\\)の(条件付き)確率という。\n\\[\nP(e_{1} | e_{2}) = \\frac{P(e_{1} \\cap e_{2})}{P(e_{2})}\n\\tag{2}\\]"
+    "text": "\\(e_{1}, e_{2}\\)が確率事象で、\\(P(e_{2}) \\neq 0\\)のとき、 Equation 2 で定義される\\(P(e_{1}|e_{2})\\)を\\(e_{2}\\)の条件の元での事象\\(e_{1}\\)の(条件付き)確率という。\n\\[\nP(e_{1} | e_{2}) = \\frac{P(e_{1} \\cap e_{2})}{P(e_{2})}\n\\tag{2}\\]",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#事象の独立",
     "href": "qmds/生物統計学/確率論.html#事象の独立",
     "title": "確率論基礎",
     "section": "",
-    "text": "\\(e_{1}, e_{2}\\)が確率事象で、Equation 3 でが成り立つとき、\\(e_{1}, e_{2}\\)は互いに独立という。\n\\[\nP(e_{1} \\cap e_{2}) = P(e_{1}) P(e_{2})\n\\tag{3}\\]"
+    "text": "\\(e_{1}, e_{2}\\)が確率事象で、Equation 3 でが成り立つとき、\\(e_{1}, e_{2}\\)は互いに独立という。\n\\[\nP(e_{1} \\cap e_{2}) = P(e_{1}) P(e_{2})\n\\tag{3}\\]",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#ベイズの定理",
     "href": "qmds/生物統計学/確率論.html#ベイズの定理",
     "title": "確率論基礎",
     "section": "",
-    "text": "Equation 4 が\\(i = 1, 2, \\cdots, n\\)に対して成り立つことをベイズの定理という。\n\\[\n\\begin{split}\n&e_{j} \\cap e_{k} = \\varnothing \\ (j \\neq k) \\ かつ \\ \\Omega = e_{1} \\cup e_{2} \\cup \\cdots \\cup e_{n} \\\\\n&\\Rightarrow P(e_{i} | D) = \\frac{P(e_{i})P(D | e_{i})}{\\sum_{j=1}^{n} P(e_{j})P(D | e_{j})}\n\\end{split}\n\\tag{4}\\]"
+    "text": "Equation 4 が\\(i = 1, 2, \\cdots, n\\)に対して成り立つことをベイズの定理という。\n\\[\n\\begin{split}\n&e_{j} \\cap e_{k} = \\varnothing \\ (j \\neq k) \\ かつ \\ \\Omega = e_{1} \\cup e_{2} \\cup \\cdots \\cup e_{n} \\\\\n&\\Rightarrow P(e_{i} | D) = \\frac{P(e_{i})P(D | e_{i})}{\\sum_{j=1}^{n} P(e_{j})P(D | e_{j})}\n\\end{split}\n\\tag{4}\\]",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#確率変数",
     "href": "qmds/生物統計学/確率論.html#確率変数",
     "title": "確率論基礎",
     "section": "確率変数",
-    "text": "確率変数\nEquation 5 で定義される写像\\(X\\)を確率変数と呼ぶ(\\(\\mathcal{B}\\)はボレル代数)。確率変数によって標本空間と事象空間を接合できる Figure 1 ため、ある試行から様々な事象や確率測度を展開することができる。また、この場合の確率測度\\(P\\)は\\(P(X^{-1}(b))\\)で定義され、「確率変数\\(X\\)は確率分布\\(P\\)に従う\\((X \\sim P)\\)」という。主要な確率分布は別ページで扱う。\n\\[\nX: \\Omega \\rightarrow \\mathbb{R}, \\exists X^{-1}(b) \\in \\mathcal{E} \\ \\mbox{for any} \\ b \\in \\mathcal{B}\n\\tag{5}\\]\n\n\n\n\n\n\n\n\nG\n\n \n\nprobability_space\n\n Probability space   \n\nborel\n\n  Borel algebra   \n\nevent\n\n Event space   \n\nborel-&gt;event\n\n  Inverse X   \n\nsample\n\n  Sample space   \n\nsample-&gt;borel\n\n  X   \n\nsample-&gt;event\n\n    \n\nprobability\n\n Probability measure   \n\nevent-&gt;probability\n\n   \n\n\nFigure 1: 確率変数のイメージ\n\n\n\n\n\n\n\n\n\n\nExample\n\n\n\nサイコロ二個同時に振る試行について、次のような確率変数を考えることができる。\n\n出た目の総和\n偶数の目が出るサイコロの数\n{サイコロAの目 / サイコロBの目}の値\n\n\n\nまた、確率変数は離散的なものと連続的なものの二つに分類することができる。次項で扱う。"
+    "text": "確率変数\nEquation 5 で定義される写像\\(X\\)を確率変数と呼ぶ(\\(\\mathcal{B}\\)はボレル代数)。確率変数によって標本空間と事象空間を接合できる Figure 1 ため、ある試行から様々な事象や確率測度を展開することができる。また、この場合の確率測度\\(P\\)は\\(P(X^{-1}(b))\\)で定義され、「確率変数\\(X\\)は確率分布\\(P\\)に従う\\((X \\sim P)\\)」という。主要な確率分布は別ページで扱う。\n\\[\nX: \\Omega \\rightarrow \\mathbb{R}, \\exists X^{-1}(b) \\in \\mathcal{E} \\ \\mbox{for any} \\ b \\in \\mathcal{B}\n\\tag{5}\\]\n\n\n\n\n\n\n\n\nG\n\n\nprobability_space\n\nProbability space\n\n\n\nborel\n\n\nBorel algebra\n\n\n\nevent\n\nEvent space\n\n\n\nborel-&gt;event\n\n\nInverse X\n\n\n\nsample\n\n\nSample space\n\n\n\nsample-&gt;borel\n\n\nX\n\n\n\nsample-&gt;event\n\n\n\n\n\nprobability\n\nProbability measure\n\n\n\nevent-&gt;probability\n\n\n\n\n\n\n\n\nFigure 1: 確率変数のイメージ\n\n\n\n\n\n\n\n\n\n\n\nExample\n\n\n\nサイコロ二個同時に振る試行について、次のような確率変数を考えることができる。\n\n出た目の総和\n偶数の目が出るサイコロの数\n{サイコロAの目 / サイコロBの目}の値\n\n\n\nまた、確率変数は離散的なものと連続的なものの二つに分類することができる。次項で扱う。",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#確率分布",
     "href": "qmds/生物統計学/確率論.html#確率分布",
     "title": "確率論基礎",
     "section": "確率分布",
-    "text": "確率分布\n確率変数\\(X\\)がとりうる値が高々可算個、即ち\\(x_{1}, x_{2}, \\cdots, x_{n} \\ (i \\neq j \\Rightarrow x_{i} \\neq x_{j})\\)の場合、\\(X\\)は離散的確率変数である。\nまた、Equation 6 で定義される\\(f(x_{i})\\)を確率分布という。\n\\[\nP(X = x_{i}) = f(X_{i})\n\\tag{6}\\]\n\n\n\n\n\n\n確率分布の性質\n\n\n\n\n\\(f(X_{i}) \\geqq 0 \\ (i = 1, 2, \\cdots)\\)\n\\(\\sum_{\\mathbb{i}} f(x_{i}) = 1\\)\n\\(P(X \\in \\mathcal{B}) = \\sum_{x_{i} \\in \\mathcal{B}} f(x_{i})\\)"
+    "text": "確率分布\n確率変数\\(X\\)がとりうる値が高々可算個、即ち\\(x_{1}, x_{2}, \\cdots, x_{n} \\ (i \\neq j \\Rightarrow x_{i} \\neq x_{j})\\)の場合、\\(X\\)は離散的確率変数である。\nまた、Equation 6 で定義される\\(f(x_{i})\\)を確率分布という。\n\\[\nP(X = x_{i}) = f(X_{i})\n\\tag{6}\\]\n\n\n\n\n\n\n確率分布の性質\n\n\n\n\n\\(f(X_{i}) \\geqq 0 \\ (i = 1, 2, \\cdots)\\)\n\\(\\sum_{\\mathbb{i}} f(x_{i}) = 1\\)\n\\(P(X \\in \\mathcal{B}) = \\sum_{x_{i} \\in \\mathcal{B}} f(x_{i})\\)",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#確率密度関数",
     "href": "qmds/生物統計学/確率論.html#確率密度関数",
     "title": "確率論基礎",
     "section": "確率密度関数",
-    "text": "確率密度関数\n離散的でない確率変数\\(X\\)を連続的確率変数と呼び、Equation 7 で定義される\\(f(x)\\)を確率密度関数と呼ぶ。\n\\[\nP(X \\in \\mathcal{B}) = \\int_{\\mathcal{B}} f(X)\n\\tag{7}\\]\nこの確率密度関数においては、確率素分\\(f(x) dx\\)に対して\\(P(x \\leqq X &lt; x + dx) = f(x) dx\\)が成り立つ。\n\n\n\n\n\n\n確率密度関数の性質\n\n\n\n\n\\(P(X = x) = \\int^{x}_{x} f(u) du = 0\\)\n\\(f(x) \\geqq 0\\)\n\\(\\int^{\\infty}_{- \\infty} f(u) du = 1\\)\n\\(E \\subset \\mathcal{B}\\)に対して、\\(P(X \\in E) = \\int_{E} f(u) du\\)\n\n\n\n以降では連続的確率変数の定義を中心に扱うが、離散的確率変数の場合でもほぼ同等のことがいえる。"
+    "text": "確率密度関数\n離散的でない確率変数\\(X\\)を連続的確率変数と呼び、Equation 7 で定義される\\(f(x)\\)を確率密度関数と呼ぶ。\n\\[\nP(X \\in \\mathcal{B}) = \\int_{\\mathcal{B}} f(X)\n\\tag{7}\\]\nこの確率密度関数においては、確率素分\\(f(x) dx\\)に対して\\(P(x \\leqq X &lt; x + dx) = f(x) dx\\)が成り立つ。\n\n\n\n\n\n\n確率密度関数の性質\n\n\n\n\n\\(P(X = x) = \\int^{x}_{x} f(u) du = 0\\)\n\\(f(x) \\geqq 0\\)\n\\(\\int^{\\infty}_{- \\infty} f(u) du = 1\\)\n\\(E \\subset \\mathcal{B}\\)に対して、\\(P(X \\in E) = \\int_{E} f(u) du\\)\n\n\n\n以降では連続的確率変数の定義を中心に扱うが、離散的確率変数の場合でもほぼ同等のことがいえる。",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#分布関数",
     "href": "qmds/生物統計学/確率論.html#分布関数",
     "title": "確率論基礎",
     "section": "分布関数",
-    "text": "分布関数\n確率変数\\(X\\)、実数$$xに対して Equation 8 を分布関数と呼ぶ。分布関数は様々な理論を展開するのによく用いられる。\n\\[\nP(X \\leqq x) = F(x)\n\\tag{8}\\]\n\n\n\n\n\n\n分布関数の性質\n\n\n\n\n単調非減少関数\n\\(\\forall a, b \\in \\mathbb{R}, P(a &lt; X \\leqq b) = F(b) - F(a)\\)\n\\(F(- \\infty) = 0, F(\\infty) = 1\\)\n右連続\n\\(F(x) = \\int^{x}_{- \\infty} f(u) fu\\)"
+    "text": "分布関数\n確率変数\\(X\\)、実数$$xに対して Equation 8 を分布関数と呼ぶ。分布関数は様々な理論を展開するのによく用いられる。\n\\[\nP(X \\leqq x) = F(x)\n\\tag{8}\\]\n\n\n\n\n\n\n分布関数の性質\n\n\n\n\n単調非減少関数\n\\(\\forall a, b \\in \\mathbb{R}, P(a &lt; X \\leqq b) = F(b) - F(a)\\)\n\\(F(- \\infty) = 0, F(\\infty) = 1\\)\n右連続\n\\(F(x) = \\int^{x}_{- \\infty} f(u) fu\\)",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#同時分布",
     "href": "qmds/生物統計学/確率論.html#同時分布",
     "title": "確率論基礎",
     "section": "同時分布",
-    "text": "同時分布\n複数の事象\\(e_{1}, e_{2}\\)が同時に生起する(\\(e_{1} \\cap e_{2}\\))確率を同時確率という。これの確率変数\\(X, Y\\)に対応する関数\\(f(x, y)\\) Equation 9 を同時確率密度関数(離散の場合は同時確率分布)と呼ぶ。\n\\[\nP((X, Y) \\in \\mathcal{E} \\times \\mathcal{E}) = \\int_{X} \\int_{Y} f(x, y) dy dx\n\\tag{9}\\]\n特に、\\([x_{1}, x_{2}] \\times [y_{1}, y_{2}] \\subset \\mathcal{E} \\times \\mathcal{E}\\)の場合、以下が成立する。\n\\[\nP(x_{1} \\leqq X \\leqq x_{2}, y_{1} \\leqq Y \\leqq y_{2}) = \\int^{x_{2}}_{x_{1}} \\int^{y_{2}}_{y_{1}} f(x, y) dy dx\n\\]"
+    "text": "同時分布\n複数の事象\\(e_{1}, e_{2}\\)が同時に生起する(\\(e_{1} \\cap e_{2}\\))確率を同時確率という。これの確率変数\\(X, Y\\)に対応する関数\\(f(x, y)\\) Equation 9 を同時確率密度関数(離散の場合は同時確率分布)と呼ぶ。\n\\[\nP((X, Y) \\in \\mathcal{E} \\times \\mathcal{E}) = \\int_{X} \\int_{Y} f(x, y) dy dx\n\\tag{9}\\]\n特に、\\([x_{1}, x_{2}] \\times [y_{1}, y_{2}] \\subset \\mathcal{E} \\times \\mathcal{E}\\)の場合、以下が成立する。\n\\[\nP(x_{1} \\leqq X \\leqq x_{2}, y_{1} \\leqq Y \\leqq y_{2}) = \\int^{x_{2}}_{x_{1}} \\int^{y_{2}}_{y_{1}} f(x, y) dy dx\n\\]",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#周辺化",
     "href": "qmds/生物統計学/確率論.html#周辺化",
     "title": "確率論基礎",
     "section": "周辺化",
-    "text": "周辺化\n確率変数\\(X, Y\\)に対して、同時確率密度関数\\(f(x, y)\\)のとりうる\\(Y\\)を総和することを「\\(Y\\)について\\(f(x, y)\\)を周辺化する」という Equation 10 。このとき周辺化された確率密度関数\\(f(x)\\)を周辺確率密度関数と呼ぶ。\n\\[\nf(x) = \\int_{Y} f(x, y) dy\n\\tag{10}\\]"
+    "text": "周辺化\n確率変数\\(X, Y\\)に対して、同時確率密度関数\\(f(x, y)\\)のとりうる\\(Y\\)を総和することを「\\(Y\\)について\\(f(x, y)\\)を周辺化する」という Equation 10 。このとき周辺化された確率密度関数\\(f(x)\\)を周辺確率密度関数と呼ぶ。\n\\[\nf(x) = \\int_{Y} f(x, y) dy\n\\tag{10}\\]",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#条件付き分布",
     "href": "qmds/生物統計学/確率論.html#条件付き分布",
     "title": "確率論基礎",
     "section": "条件付き分布",
-    "text": "条件付き分布\nEquation 11 を「条件\\(Y = y\\)の元での\\(X\\)の条件付き確率密度関数」という。\n\\[\nf(x | y) = \\frac{f(x, y)}{f(y)}\n\\tag{11}\\]"
+    "text": "条件付き分布\nEquation 11 を「条件\\(Y = y\\)の元での\\(X\\)の条件付き確率密度関数」という。\n\\[\nf(x | y) = \\frac{f(x, y)}{f(y)}\n\\tag{11}\\]",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#確率変数の独立",
     "href": "qmds/生物統計学/確率論.html#確率変数の独立",
     "title": "確率論基礎",
     "section": "確率変数の独立",
-    "text": "確率変数の独立\n独立な事象\\(e_{1}, e_{2}\\)に対する確率変数\\(X_{1}, X_{2}\\)が Equation 12 を満たすとき、\\(X_{1}, X_{2}\\)は独立であるという。\n\\[\nf(x, y) = f(x) f(y)\n\\tag{12}\\]\nEquation 11 より、独立な\\(X_{1}, X_{2}\\)に対しては以下が成立する。\n\\[\nf(x | y) = f(x)\n\\]"
+    "text": "確率変数の独立\n独立な事象\\(e_{1}, e_{2}\\)に対する確率変数\\(X_{1}, X_{2}\\)が Equation 12 を満たすとき、\\(X_{1}, X_{2}\\)は独立であるという。\n\\[\nf(x, y) = f(x) f(y)\n\\tag{12}\\]\nEquation 11 より、独立な\\(X_{1}, X_{2}\\)に対しては以下が成立する。\n\\[\nf(x | y) = f(x)\n\\]",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#平均値",
     "href": "qmds/生物統計学/確率論.html#平均値",
     "title": "確率論基礎",
     "section": "平均値",
-    "text": "平均値\n確率変数\\(X\\)の代表的、中心的な値としてよく用いられる平均値(期待値)\\(E(X)\\)は Equation 13 で定義される。\n\\[\nE(X) = \\int^{\\infty}_{- \\infty} x f(x) dx\n\\tag{13}\\]\n\n\n\n\n\n\n平均値の性質\n\n\n\n\n\\(E(X_{1}, X_{2}, \\cdots, X_{n}) = \\sum^{n}_{i = 1} E(X_{i})\\)\n\\(a, b\\)が定数のとき、\\(E(a X + b) = a E(X) + b\\)\n\\(X, Y\\)が独立のとき、\\(E(X Y) = E(X) E(Y)\\)\n\\(\\phi(X) \\sim P\\)なる関数\\(\\phi\\)について、\\(E(\\phi(X)) = \\int^{\\infty}_{- \\infty} \\phi(x) f(x) dx\\)\n\n\n\nまた、\\(Y = y\\)なる条件の元でのXの条件付き平均値は Equation 14 で定義される。\n\\[\nE(X | Y = y) = \\frac{1}{f(y)} \\int^{\\infty}_{- \\infty} x f(x, y) dx\n\\tag{14}\\]"
+    "text": "平均値\n確率変数\\(X\\)の代表的、中心的な値としてよく用いられる平均値(期待値)\\(E(X)\\)は Equation 13 で定義される。\n\\[\nE(X) = \\int^{\\infty}_{- \\infty} x f(x) dx\n\\tag{13}\\]\n\n\n\n\n\n\n平均値の性質\n\n\n\n\n\\(E(X_{1}, X_{2}, \\cdots, X_{n}) = \\sum^{n}_{i = 1} E(X_{i})\\)\n\\(a, b\\)が定数のとき、\\(E(a X + b) = a E(X) + b\\)\n\\(X, Y\\)が独立のとき、\\(E(X Y) = E(X) E(Y)\\)\n\\(\\phi(X) \\sim P\\)なる関数\\(\\phi\\)について、\\(E(\\phi(X)) = \\int^{\\infty}_{- \\infty} \\phi(x) f(x) dx\\)\n\n\n\nまた、\\(Y = y\\)なる条件の元でのXの条件付き平均値は Equation 14 で定義される。\n\\[\nE(X | Y = y) = \\frac{1}{f(y)} \\int^{\\infty}_{- \\infty} x f(x, y) dx\n\\tag{14}\\]",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#分散",
     "href": "qmds/生物統計学/確率論.html#分散",
     "title": "確率論基礎",
     "section": "分散",
-    "text": "分散\n確率変数\\(X\\)のばらつきを表す値としてよく用いられる分散\\(V(X)\\)は Equation 15 で定義される。ただし、\\(\\mu = E(X)\\)とした。\n\\[\nV(X) = \\int^{\\infty}_{- \\infty} (x -\\mu)^{2} f(x) dx\n\\tag{15}\\]\n\n\n\n\n\n\n分散の性質\n\n\n\n\n\\(a, b\\)が定数のとき、\\(V(a X + b) = a^{2} V(X)\\)\n\\(V(X) = E(X^{2}) - E(X)^{2}\\)\n\n\n\nまた、\\(\\sqrt{V(X)}\\)を標準偏差と呼ぶ。"
+    "text": "分散\n確率変数\\(X\\)のばらつきを表す値としてよく用いられる分散\\(V(X)\\)は Equation 15 で定義される。ただし、\\(\\mu = E(X)\\)とした。\n\\[\nV(X) = \\int^{\\infty}_{- \\infty} (x -\\mu)^{2} f(x) dx\n\\tag{15}\\]\n\n\n\n\n\n\n分散の性質\n\n\n\n\n\\(a, b\\)が定数のとき、\\(V(a X + b) = a^{2} V(X)\\)\n\\(V(X) = E(X^{2}) - E(X)^{2}\\)\n\n\n\nまた、\\(\\sqrt{V(X)}\\)を標準偏差と呼ぶ。",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/生物統計学/確率論.html#共分散相関係数",
     "href": "qmds/生物統計学/確率論.html#共分散相関係数",
     "title": "確率論基礎",
     "section": "共分散・相関係数",
-    "text": "共分散・相関係数\n二つの確率変数\\(X, Y\\)間の相関関係の強さを表す値としてよく用いられる(ピアソンの)相関係数\\(R(X, Y)\\)は Equation 16 で定義される。このときの\\(C(X, Y)\\)は共分散という。ただし、\\(\\mu_{x} = E(X), \\mu_{y} = E(Y), \\sigma_{x} = \\sqrt{V(X)}, \\sigma_{y} = \\sqrt{V(Y)}\\)とした。\n\\[\n\\begin{split}\n&C(X, Y) = E((X - \\mu_{x})(Y - \\mu_{y})) \\\\\n&R(X, Y) = \\frac{C(X, Y)}{\\sigma_{x} \\sigma_{y}}\n\\end{split}\n\\tag{16}\\]\n\n\n\n\n\n\n共分散・相関係数の性質\n\n\n\n\n\\(C(X, Y) = E(XY) - E(X) E(Y)\\)\n\\(X, Y\\)が独立のとき、\\(C(X, Y) = R(X, Y) = 0\\)\n\\(V(X_{1} + V_{2} + \\cdots + X_{n}) = \\sum^{n}_{i = 1} V(X_{i}) + 2 \\sum_{i &lt; j} C(X_{i}, X_{j})\\)\n\n特に\\(X_{1} + V_{2} + \\cdots + X_{n}\\)が独立のときは、\\(V(X_{1} + V_{2} + \\cdots + X_{n}) = \\sum^{n}_{i = 1} V(X_{i})\\)\n\n\\(|R(X, Y)| \\leqq 1\\)\n\n特に\\(R(X, Y) = \\pm 1 \\Rightarrow \\frac{X - E(X)}{\\sqrt{V(X)}} \\mp \\frac{Y - E(Y)}{\\sqrt{V(Y)}} = 0\\)(複合同順)\n\n\n\n\n相関係数には大まかに以下の意味がある。\n\n1に近いほど、「\\(X\\)が大きいならば\\(Y\\)も大きい」\n-1に近いほど、「\\(X\\)が大きいならば\\(Y\\)は小さい」\n\nこれらの傾向をカットオフで分割し、 Table 1 のように考察することができる。ただし、このカットオフは一般的な例であることに注意する。\n\n\nTable 1: 相関係数から得られる考察\n\n\n相関係数\n考察\n\n\n\n\n\\(-1 \\leqq x \\leqq -0.7\\)\n負の強相関\n\n\n\\(-0.7 \\leqq x \\leqq -0.4\\)\n負の相関\n\n\n\\(-0.4 \\leqq x \\leqq -0.2\\)\n負の弱相関\n\n\n\\(-0.2 \\leqq x \\leqq 0.2\\)\n無相関\n\n\n\\(0.2 \\leqq x \\leqq 0.4\\)\n正の弱相関\n\n\n\\(0.4 \\leqq x \\leqq 0.7\\)\n正の相関\n\n\n\\(0.7 \\leqq x \\leqq 1\\)\n正の強相関"
+    "text": "共分散・相関係数\n二つの確率変数\\(X, Y\\)間の相関関係の強さを表す値としてよく用いられる(ピアソンの)相関係数\\(R(X, Y)\\)は Equation 16 で定義される。このときの\\(C(X, Y)\\)は共分散という。ただし、\\(\\mu_{x} = E(X), \\mu_{y} = E(Y), \\sigma_{x} = \\sqrt{V(X)}, \\sigma_{y} = \\sqrt{V(Y)}\\)とした。\n\\[\n\\begin{split}\n&C(X, Y) = E((X - \\mu_{x})(Y - \\mu_{y})) \\\\\n&R(X, Y) = \\frac{C(X, Y)}{\\sigma_{x} \\sigma_{y}}\n\\end{split}\n\\tag{16}\\]\n\n\n\n\n\n\n共分散・相関係数の性質\n\n\n\n\n\\(C(X, Y) = E(XY) - E(X) E(Y)\\)\n\\(X, Y\\)が独立のとき、\\(C(X, Y) = R(X, Y) = 0\\)\n\\(V(X_{1} + V_{2} + \\cdots + X_{n}) = \\sum^{n}_{i = 1} V(X_{i}) + 2 \\sum_{i &lt; j} C(X_{i}, X_{j})\\)\n\n特に\\(X_{1} + V_{2} + \\cdots + X_{n}\\)が独立のときは、\\(V(X_{1} + V_{2} + \\cdots + X_{n}) = \\sum^{n}_{i = 1} V(X_{i})\\)\n\n\\(|R(X, Y)| \\leqq 1\\)\n\n特に\\(R(X, Y) = \\pm 1 \\Rightarrow \\frac{X - E(X)}{\\sqrt{V(X)}} \\mp \\frac{Y - E(Y)}{\\sqrt{V(Y)}} = 0\\)(複合同順)\n\n\n\n\n相関係数には大まかに以下の意味がある。\n\n1に近いほど、「\\(X\\)が大きいならば\\(Y\\)も大きい」\n-1に近いほど、「\\(X\\)が大きいならば\\(Y\\)は小さい」\n\nこれらの傾向をカットオフで分割し、 Table 1 のように考察することができる。ただし、このカットオフは一般的な例であることに注意する。\n\n\n\nTable 1: 相関係数から得られる考察\n\n\n\n\n\n相関係数\n考察\n\n\n\n\n\\(-1 \\leqq x \\leqq -0.7\\)\n負の強相関\n\n\n\\(-0.7 \\leqq x \\leqq -0.4\\)\n負の相関\n\n\n\\(-0.4 \\leqq x \\leqq -0.2\\)\n負の弱相関\n\n\n\\(-0.2 \\leqq x \\leqq 0.2\\)\n無相関\n\n\n\\(0.2 \\leqq x \\leqq 0.4\\)\n正の弱相関\n\n\n\\(0.4 \\leqq x \\leqq 0.7\\)\n正の相関\n\n\n\\(0.7 \\leqq x \\leqq 1\\)\n正の強相関",
+    "crumbs": [
+      "ホーム",
+      "生物統計学",
+      "確率論基礎"
+    ]
   },
   {
     "objectID": "qmds/記事一覧.html",
     "href": "qmds/記事一覧.html",
     "title": "記事一覧",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nabstract\n\n\nCategories\n\n\n\n\n\n\n2024-01-25\n\n\nリサーチクエスチョン\n\n\nリサーチクエスチョンの立て方\n\n\n臨床研究\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nabstract\n\n\nCategories\n\n\n\n\n\n\n2024-01-25\n\n\nリサーチクエスチョン\n\n\nリサーチクエスチョンの立て方\n\n\n臨床研究\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "ホーム",
+      "記事一覧"
+    ]
   },
   {
     "objectID": "qmds/記事一覧.html#r",
     "href": "qmds/記事一覧.html#r",
     "title": "記事一覧",
     "section": "R",
-    "text": "R\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nabstract\n\n\nCategories\n\n\n\n\n\n\n2024-01-24\n\n\nR環境構築\n\n\nRstudio + renvを利用した環境構築\n\n\nR,開発環境\n\n\n\n\n\n\nNo matching items"
+    "text": "R\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nabstract\n\n\nCategories\n\n\n\n\n\n\n2024-01-24\n\n\nR環境構築\n\n\nRstudio + renvを利用した環境構築\n\n\nR, 開発環境\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "ホーム",
+      "記事一覧"
+    ]
   },
   {
     "objectID": "qmds/記事一覧.html#python",
     "href": "qmds/記事一覧.html#python",
     "title": "記事一覧",
     "section": "Python",
-    "text": "Python\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nabstract\n\n\nCategories\n\n\n\n\n\n\n2024-01-21\n\n\nPython環境構築\n\n\npyenv + poetryを利用した環境構築\n\n\nPython,開発環境\n\n\n\n\n2024-01-22\n\n\nPython基礎\n\n\nPythonの基礎文法\n\n\nPython\n\n\n\n\n\n\nNo matching items"
+    "text": "Python\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nabstract\n\n\nCategories\n\n\n\n\n\n\n2024-01-21\n\n\nPython環境構築\n\n\npyenv + poetryを利用した環境構築\n\n\nPython, 開発環境\n\n\n\n\n2024-01-22\n\n\nPython基礎\n\n\nPythonの基礎文法\n\n\nPython\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "ホーム",
+      "記事一覧"
+    ]
   },
   {
     "objectID": "qmds/記事一覧.html#その他",
     "href": "qmds/記事一覧.html#その他",
     "title": "記事一覧",
     "section": "その他",
-    "text": "その他\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nabstract\n\n\nCategories\n\n\n\n\n\n\n2024-01-21\n\n\nAnaconda\n\n\nminicondaによるデータ分析の環境構築\n\n\nR,Python,開発環境\n\n\n\n\n2024-01-21\n\n\nDOT言語\n\n\nネットワーク系のグラフが書けるDOT言語\n\n\nDOT,グラフィックス\n\n\n\n\n\n\nNo matching items"
+    "text": "その他\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nabstract\n\n\nCategories\n\n\n\n\n\n\n2024-01-21\n\n\nAnaconda\n\n\nminicondaによるデータ分析の環境構築\n\n\nR, Python, 開発環境\n\n\n\n\n2024-01-21\n\n\nDOT言語\n\n\nネットワーク系のグラフが書けるDOT言語\n\n\nDOT, グラフィックス\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "ホーム",
+      "記事一覧"
+    ]
   },
   {
     "objectID": "qmds/臨床研究/リサーチクエスチョン.html",
     "href": "qmds/臨床研究/リサーチクエスチョン.html",
     "title": "リサーチクエスチョン",
     "section": "",
-    "text": "リサーチクエスチョンとは研究によって明らかにしたい問いである。疑問の種類も様々 Figure 1 だが、リサーチクエスチョンは疑問をどんどん掘り下げていってネットや文献で調べてもすぐに分からないものが候補となる。リサーチクエスチョンが明確であると、適切な研究デザインや統計解析を選択でき良い考察を得やすい。加えて、仮説にまで落とし込むことで論証までの道筋が明確になる他、結論を仮説通りだったか否かの二元論で述べることができるので主張がしやすくなるという大きな利点がある。また、p-hackingなどの統計不正を防ぐ効果もある。\n\n\n\n\n\n\n\n\nG\n\n \n\n%59\n\n Clinical question  \n\n%61\n\n Background question  \n\n%63\n\n Foreground question   \n\nhidden\n\n  \n\nresearch\n\n Research question  \n\n\nFigure 1: リサーチクエスチョンの立ち位置\n\n\n\n\n\n\n\n\n\n\nリサーチクエスチョンに関連する疑問\n\n\n\n\n臨床上の疑問をクリニカルクエスチョンという。クリニカルクエスチョンは以下の2つに分類できる Figure 2\n\n基本的な知識や用語、概念等に関する疑問(背景疑問)\nそれらの知識や概念を結び付けることによって生まれる疑問(前景疑問)\n\n\n\n\n\n\n\n\n\n\nG\n\n  \n\na\n\n B   \n\nc\n\n B   \n\na–c\n\n F   \n\nb\n\n B   \n\nb–c\n\n F   \n\nd\n\n B   \n\nc–d\n\n F   \n\ne\n\n B   \n\nf\n\n B   \n\ne–f\n\n F   \n\ng\n\n B  \n\n\nFigure 2: 背景疑問(B)と前景疑問(F)の関係性: 臨床医学に対する知識が背景疑問として一つ一つのノードとして表現でき、それらを結合するエッジが前景疑問となる\n\n\n\n\n\n\n\n\n\n\n\n\nExample\n\n\n\n\n日常的な運動は心疾患の予防に寄与するか\n\n仮説: 運動をすることで、心疾患の予防が期待できる\n\nサウナは心疾患リスクの要因となるか\n\n仮説: サウナに日常的に入る人は心疾患のリスクが高い"
+    "text": "リサーチクエスチョンとは研究によって明らかにしたい問いである。疑問の種類も様々 Figure 1 だが、リサーチクエスチョンは疑問をどんどん掘り下げていってネットや文献で調べてもすぐに分からないものが候補となる。リサーチクエスチョンが明確であると、適切な研究デザインや統計解析を選択でき良い考察を得やすい。加えて、仮説にまで落とし込むことで論証までの道筋が明確になる他、結論を仮説通りだったか否かの二元論で述べることができるので主張がしやすくなるという大きな利点がある。また、p-hackingなどの統計不正を防ぐ効果もある。\n\n\n\n\n\n\n\n\nG\n\n\n%59\n\nClinical question\n\n\n%61\n\nBackground question\n\n\n%63\n\nForeground question\n\n\n\nhidden\n\n\n\nresearch\n\nResearch question\n\n\n\n\n\n\nFigure 1: リサーチクエスチョンの立ち位置\n\n\n\n\n\n\n\n\n\n\n\nリサーチクエスチョンに関連する疑問\n\n\n\n\n臨床上の疑問をクリニカルクエスチョンという。クリニカルクエスチョンは以下の2つに分類できる Figure 2\n\n基本的な知識や用語、概念等に関する疑問(背景疑問)\nそれらの知識や概念を結び付けることによって生まれる疑問(前景疑問)\n\n\n\n\n\n\n\n\n\n\nG\n\n\n\na\n\nB\n\n\n\nc\n\nB\n\n\n\na--c\n\nF\n\n\n\nb\n\nB\n\n\n\nb--c\n\nF\n\n\n\nd\n\nB\n\n\n\nc--d\n\nF\n\n\n\ne\n\nB\n\n\n\nf\n\nB\n\n\n\ne--f\n\nF\n\n\n\ng\n\nB\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: 背景疑問(B)と前景疑問(F)の関係性: 臨床医学に対する知識が背景疑問として一つ一つのノードとして表現でき、それらを結合するエッジが前景疑問となる\n\n\n\n\n\n\nExample\n\n\n\n\n日常的な運動は心疾患の予防に寄与するか\n\n仮説: 運動をすることで、心疾患の予防が期待できる\n\nサウナは心疾患リスクの要因となるか\n\n仮説: サウナに日常的に入る人は心疾患のリスクが高い",
+    "crumbs": [
+      "ホーム",
+      "臨床研究",
+      "リサーチクエスチョン"
+    ]
   },
   {
     "objectID": "qmds/臨床研究/リサーチクエスチョン.html#finer",
     "href": "qmds/臨床研究/リサーチクエスチョン.html#finer",
     "title": "リサーチクエスチョン",
     "section": "FINER",
-    "text": "FINER\nよいリサーチクエスチョンかを自己評価するために以下5項目の頭文字をとったFINGER Table 1 が用いられる。これらを満たさないリサーチクエスチョンは解明するのに適さないということがいえる。\n\n\nTable 1: FINGER\n\n\nFeasibility\n実現可能性\n\n\nInteresting\n興味深さ\n\n\nNovel\n新規性\n\n\nEthical\n倫理性\n\n\nRelevant\n必要性"
+    "text": "FINER\nよいリサーチクエスチョンかを自己評価するために以下5項目の頭文字をとったFINGER Table 1 が用いられる。これらを満たさないリサーチクエスチョンは解明するのに適さないということがいえる。\n\n\n\nTable 1: FINGER\n\n\n\n\n\nFeasibility\n実現可能性\n\n\nInteresting\n興味深さ\n\n\nNovel\n新規性\n\n\nEthical\n倫理性\n\n\nRelevant\n必要性",
+    "crumbs": [
+      "ホーム",
+      "臨床研究",
+      "リサーチクエスチョン"
+    ]
   },
   {
     "objectID": "qmds/臨床研究/リサーチクエスチョン.html#pico",
     "href": "qmds/臨床研究/リサーチクエスチョン.html#pico",
     "title": "リサーチクエスチョン",
     "section": "PICO",
-    "text": "PICO\nリサーチクエスチョンを要素ごとに分解し、研究デザインや解析方法の立案に役立てるフレームワークとしてPICO(PECO) Table 2 がある(場合によって、要素が追加されたり減らされたりする)。一般的に介入研究ときはPICE、観察研究のときはPICOが用いられる。PICO(PECO)を明確にしていくことで、既存の研究成果等のリサーチが容易になる。\n\n\nTable 2: PICO(T), PECO(T)\n\n\nPopulation\n参加者\n\n\nIntervention\n介入\n\n\nExposure\n曝露\n\n\nControl\n対象\n\n\nOutcome\nアウトカム・結果\n\n\nTime\n調査機関"
+    "text": "PICO\nリサーチクエスチョンを要素ごとに分解し、研究デザインや解析方法の立案に役立てるフレームワークとしてPICO(PECO) Table 2 がある(場合によって、要素が追加されたり減らされたりする)。一般的に介入研究ときはPICE、観察研究のときはPICOが用いられる。PICO(PECO)を明確にしていくことで、既存の研究成果等のリサーチが容易になる。\n\n\n\nTable 2: PICO(T), PECO(T)\n\n\n\n\n\nPopulation\n参加者\n\n\nIntervention\n介入\n\n\nExposure\n曝露\n\n\nControl\n対象\n\n\nOutcome\nアウトカム・結果\n\n\nTime\n調査機関",
+    "crumbs": [
+      "ホーム",
+      "臨床研究",
+      "リサーチクエスチョン"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/dot.html",
     "href": "qmds/プログラミング/その他/dot.html",
     "title": "DOT言語",
     "section": "",
-    "text": "DOT言語は、オープンソースのグラフ視覚化ソフトウェアであるGraphvizを定義するための抽象的文法である。抽象的とはあるが、非常に簡潔な記述でネットワークグラフを描画することができる。\n\n公式リンク\nGraphviz Visual Editor: こちらでインタラクティブに練習することができる\n\nこの記事では Figure 1 のような簡単なデータフローが書けるようなレベルを目指す。\n※なお、Quartoでの使用を前提とするためGraphvizのインストール等は扱わない。詳しくはこちらを参照。\n\n\n\n\n\n\n\n\nG\n\n  \n\npopulation\n\n Population (N=n)   \n\nconsent\n\n Consented (N=n)   \n\npopulation-&gt;consent\n\n    \n\nexclude_consent\n\n not consent (N=n)   \n\npopulation-&gt;exclude_consent\n\n    \n\nanalyze\n\n Analysis (N=n)   \n\nconsent-&gt;analyze\n\n    \n\nexclude_analyze\n\n don’t get ECG signal (N=n)   \n\nconsent-&gt;exclude_analyze\n\n    \n\ncontrol\n\n Control (N=n)   \n\nanalyze-&gt;control\n\n    \n\nvhd\n\n VHD (N=n)   \n\nanalyze-&gt;vhd\n\n   \n\n\nFigure 1: 臨床研究でよく見られるデータフロー"
+    "text": "DOT言語は、オープンソースのグラフ視覚化ソフトウェアであるGraphvizを定義するための抽象的文法である。抽象的とはあるが、非常に簡潔な記述でネットワークグラフを描画することができる。\n\n公式リンク\nGraphviz Visual Editor: こちらでインタラクティブに練習することができる\n\nこの記事では Figure 1 のような簡単なデータフローが書けるようなレベルを目指す。\n※なお、Quartoでの使用を前提とするためGraphvizのインストール等は扱わない。詳しくはこちらを参照。\n\n\n\n\n\n\n\n\nG\n\n\n\npopulation\n\nPopulation\n(N=n)\n\n\n\nconsent\n\nConsented\n(N=n)\n\n\n\npopulation-&gt;consent\n\n\n\n\n\nexclude_consent\n\nnot consent\n(N=n)\n\n\n\npopulation-&gt;exclude_consent\n\n\n\n\n\nanalyze\n\nAnalysis\n(N=n)\n\n\n\nconsent-&gt;analyze\n\n\n\n\n\nexclude_analyze\n\ndon't get ECG signal\n(N=n)\n\n\n\nconsent-&gt;exclude_analyze\n\n\n\n\n\ncontrol\n\nControl\n(N=n)\n\n\n\nanalyze-&gt;control\n\n\n\n\n\nvhd\n\nVHD\n(N=n)\n\n\n\nanalyze-&gt;vhd\n\n\n\n\n\n\n\n\nFigure 1: 臨床研究でよく見られるデータフロー",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "DOT言語"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/dot.html#グラフ",
     "href": "qmds/プログラミング/その他/dot.html#グラフ",
     "title": "DOT言語",
     "section": "グラフ",
-    "text": "グラフ\n一枚のグラフを作成するためにまずgraphを定義する。\n有向グラフを記述する際にはdirgraphとする。\ngraph G{}\nグラフの属性を設定するには、graph [~]とする。\n\n\n\n\n\n\n\nG\n\n add graph label \n\n\n\n\n\ngraph G{\n    graph [label=\"add graph label\"]\n}"
+    "text": "グラフ\n一枚のグラフを作成するためにまずgraphを定義する。\n有向グラフを記述する際にはdirgraphとする。\ngraph G{}\nグラフの属性を設定するには、graph [~]とする。\n\n\n\n\n\n\n\nG\n\nadd graph label\n\n\n\n\n\n\n\ngraph G{\n    graph [label=\"add graph label\"]\n}",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "DOT言語"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/dot.html#ノード",
     "href": "qmds/プログラミング/その他/dot.html#ノード",
     "title": "DOT言語",
     "section": "ノード",
-    "text": "ノード\ngraph内に変数を入力数することでノードを作成できる。\ngraph G{\n    a b c\n}\n\n\n\n\n\n\n\nG\n\n  \n\na\n\n a   \n\nb\n\n b   \n\nc\n\n c  \n\n\n\n\n\n変数の後に属性を入力することで、形や色を変えることができる。\ngraph G {\n    a \n    b [shape=box]\n    c [color=red]\n}\n\n\n\n\n\n\n\nG\n\n  \n\na\n\n a   \n\nb\n\n b   \n\nc\n\n c  \n\n\n\n\n\nnode [~]とすることでその後のノードの設定を一括変更することができる。\ngraph G {\n    node [shape=box color=red]\n    a \n    b\n    c\n}\n\n\n\n\n\n\n\nG\n\n  \n\na\n\n a   \n\nb\n\n b   \n\nc\n\n c  \n\n\n\n\n\nノード内の文字を変更するには、label属性を使用する。マークダウンの関数もいくつか使える。(日本語の場合はみ出す場合があるので注意)\ngraph G {\n    a [label=\"example A\"]\n    b [label=&lt;example B&lt;BR/&gt;hogehoge&gt;]\n    c [label=&lt;&lt;B&gt;example c&lt;/B&gt;&gt;]\n}\n\n\n\n\n\n\n\nG\n\n  \n\na\n\n example A   \n\nb\n\n example B hogehoge   \n\nc\n\n example c"
+    "text": "ノード\ngraph内に変数を入力数することでノードを作成できる。\ngraph G{\n    a b c\n}\n\n\n\n\n\n\n\nG\n\n\n\na\n\na\n\n\n\nb\n\nb\n\n\n\nc\n\nc\n\n\n\n\n\n\n\n\n変数の後に属性を入力することで、形や色を変えることができる。\ngraph G {\n    a \n    b [shape=box]\n    c [color=red]\n}\n\n\n\n\n\n\n\nG\n\n\n\na\n\na\n\n\n\nb\n\nb\n\n\n\nc\n\nc\n\n\n\n\n\n\n\n\nnode [~]とすることでその後のノードの設定を一括変更することができる。\ngraph G {\n    node [shape=box color=red]\n    a \n    b\n    c\n}\n\n\n\n\n\n\n\nG\n\n\n\na\n\na\n\n\n\nb\n\nb\n\n\n\nc\n\nc\n\n\n\n\n\n\n\n\nノード内の文字を変更するには、label属性を使用する。マークダウンの関数もいくつか使える。(日本語の場合はみ出す場合があるので注意)\ngraph G {\n    a [label=\"example A\"]\n    b [label=&lt;example B&lt;BR/&gt;hogehoge&gt;]\n    c [label=&lt;&lt;B&gt;example c&lt;/B&gt;&gt;]\n}\n\n\n\n\n\n\n\nG\n\n\n\na\n\nexample A\n\n\n\nb\n\nexample B\nhogehoge\n\n\n\nc\n\nexample c",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "DOT言語"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/dot.html#エッジ",
     "href": "qmds/プログラミング/その他/dot.html#エッジ",
     "title": "DOT言語",
     "section": "エッジ",
-    "text": "エッジ\ngraphの場合、変数を--で結ぶことでノード間のエッジを記述することができる。\ngraph G {\n    a b c\n\n    a -- b\n}\n\n\n\n\n\n\n\nG\n\n  \n\na\n\n a   \n\nb\n\n b   \n\na–b\n\n   \n\nc\n\n c  \n\n\n\n\n\ndigraphの場合、--の代わり-&gt;を使用する。\ndigraph G {\n    a b c\n\n    a -&gt; b\n}\n\n\n\n\n\n\n\nG\n\n  \n\na\n\n a   \n\nb\n\n b   \n\na-&gt;b\n\n    \n\nc\n\n c  \n\n\n\n\n\nエッジも、ノード同様に属性をつけることができる。\ngraph G {\n    a b c\n\n    edge [color=blue]\n    a -- b\n    a -- c [label=\"edge to c\"]\n}\n\n\n\n\n\n\n\nG\n\n  \n\na\n\n a   \n\nb\n\n b   \n\na–b\n\n   \n\nc\n\n c   \n\na–c\n\n edge to c"
+    "text": "エッジ\ngraphの場合、変数を--で結ぶことでノード間のエッジを記述することができる。\ngraph G {\n    a b c\n\n    a -- b\n}\n\n\n\n\n\n\n\nG\n\n\n\na\n\na\n\n\n\nb\n\nb\n\n\n\na--b\n\n\n\n\nc\n\nc\n\n\n\n\n\n\n\n\ndigraphの場合、--の代わり-&gt;を使用する。\ndigraph G {\n    a b c\n\n    a -&gt; b\n}\n\n\n\n\n\n\n\nG\n\n\n\na\n\na\n\n\n\nb\n\nb\n\n\n\na-&gt;b\n\n\n\n\n\nc\n\nc\n\n\n\n\n\n\n\n\nエッジも、ノード同様に属性をつけることができる。\ngraph G {\n    a b c\n\n    edge [color=blue]\n    a -- b\n    a -- c [label=\"edge to c\"]\n}\n\n\n\n\n\n\n\nG\n\n\n\na\n\na\n\n\n\nb\n\nb\n\n\n\na--b\n\n\n\n\nc\n\nc\n\n\n\na--c\n\nedge to c",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "DOT言語"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/その他/dot.html#ランク",
     "href": "qmds/プログラミング/その他/dot.html#ランク",
     "title": "DOT言語",
     "section": "ランク",
-    "text": "ランク\nrankによって、ノードの位置階層を定義することができる。(maxが一番下で、minが一番上となる)\n同じ階層に置くにはsameを使う。\ngraph G {\n    a b c d e\n\n    a -- b -- c -- d -- e\n\n    {rank=same; a d}\n    {rank=min; b}\n    {rank=max; c e}\n}\n\n\n\n\n\n\n\nG\n\n  \n\na\n\n a   \n\nb\n\n b   \n\na–b\n\n   \n\nc\n\n c   \n\nb–c\n\n   \n\nd\n\n d   \n\nc–d\n\n   \n\ne\n\n e   \n\nd–e\n\n  \n\n\n\n\n\nこれらを全て使うことで、Figure 1 が描画できる。(以下コード例)\ndigraph G{\n    graph [splines=ortho nodesep=.8]\n\n    node [shape=box]\n    population [label=&lt;Population&lt;BR/&gt;(N=n)&gt;]\n    consent [label=&lt;Consented&lt;BR/&gt;(N=n)&gt;]\n    exclude_consent [label=&lt;not consent&lt;BR/&gt;(N=n)&gt;]\n    analyze [label=&lt;Analysis&lt;BR/&gt;(N=n)&gt;]\n    exclude_analyze [label=&lt;don't get ECG signal&lt;BR/&gt;(N=n)&gt;]\n    control [label=&lt;Control&lt;BR/&gt;(N=n)&gt;]\n    vhd [label=&lt;VHD&lt;BR/&gt;(N=n)&gt;]\n\n    edge [arrowsize=.6]\n\n    population -&gt; consent -&gt; analyze\n    population -&gt; exclude_consent\n    consent -&gt; exclude_analyze\n    analyze-&gt; control\n    analyze -&gt; vhd\n\n    {rank=same; population exclude_consent}\n    {rank=same; consent exclude_analyze}\n}"
+    "text": "ランク\nrankによって、ノードの位置階層を定義することができる。(maxが一番下で、minが一番上となる)\n同じ階層に置くにはsameを使う。\ngraph G {\n    a b c d e\n\n    a -- b -- c -- d -- e\n\n    {rank=same; a d}\n    {rank=min; b}\n    {rank=max; c e}\n}\n\n\n\n\n\n\n\nG\n\n\n\na\n\na\n\n\n\nb\n\nb\n\n\n\na--b\n\n\n\n\nc\n\nc\n\n\n\nb--c\n\n\n\n\nd\n\nd\n\n\n\nc--d\n\n\n\n\ne\n\ne\n\n\n\nd--e\n\n\n\n\n\n\n\n\n\nこれらを全て使うことで、Figure 1 が描画できる。(以下コード例)\ndigraph G{\n    graph [splines=ortho nodesep=.8]\n\n    node [shape=box]\n    population [label=&lt;Population&lt;BR/&gt;(N=n)&gt;]\n    consent [label=&lt;Consented&lt;BR/&gt;(N=n)&gt;]\n    exclude_consent [label=&lt;not consent&lt;BR/&gt;(N=n)&gt;]\n    analyze [label=&lt;Analysis&lt;BR/&gt;(N=n)&gt;]\n    exclude_analyze [label=&lt;don't get ECG signal&lt;BR/&gt;(N=n)&gt;]\n    control [label=&lt;Control&lt;BR/&gt;(N=n)&gt;]\n    vhd [label=&lt;VHD&lt;BR/&gt;(N=n)&gt;]\n\n    edge [arrowsize=.6]\n\n    population -&gt; consent -&gt; analyze\n    population -&gt; exclude_consent\n    consent -&gt; exclude_analyze\n    analyze-&gt; control\n    analyze -&gt; vhd\n\n    {rank=same; population exclude_consent}\n    {rank=same; consent exclude_analyze}\n}",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "その他",
+      "DOT言語"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/環境構築.html",
     "href": "qmds/プログラミング/python/環境構築.html",
     "title": "Python環境構築",
     "section": "",
-    "text": "※このページのOSは以下とする。"
+    "text": "※このページのOSは以下とする。",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/環境構築.html#pyenv",
     "href": "qmds/プログラミング/python/環境構築.html#pyenv",
     "title": "Python環境構築",
     "section": "pyenv",
-    "text": "pyenv\n\npyenvの依存関係をインストール\n\nsudo apt install libssl-dev libffi-dev libncurses5-dev zlib1g zlib1g-dev libreadline-dev libbz2-dev libsqlite3-dev make gcc\n\npyenvのインストール\n\ncurl https://pyenv.run | bash\n\nPATH環境変数の設定\n\necho '' &gt;&gt; ~/.bashrc\necho 'export PYENV_ROOT=\"$HOME/.pyenv\"' &gt;&gt; ~/.bashrc\necho 'export PATH=\"$PYENV_ROOT/bin:$PATH\"' &gt;&gt; ~/.bashrc\necho 'eval \"$(pyenv init --path)\"' &gt;&gt; ~/.bashrc\nWSL再起動後、以下コマンドを実行。バージョン情報がでればOK\npyenv --version"
+    "text": "pyenv\n\npyenvの依存関係をインストール\n\nsudo apt install libssl-dev libffi-dev libncurses5-dev zlib1g zlib1g-dev libreadline-dev libbz2-dev libsqlite3-dev make gcc\n\npyenvのインストール\n\ncurl https://pyenv.run | bash\n\nPATH環境変数の設定\n\necho '' &gt;&gt; ~/.bashrc\necho 'export PYENV_ROOT=\"$HOME/.pyenv\"' &gt;&gt; ~/.bashrc\necho 'export PATH=\"$PYENV_ROOT/bin:$PATH\"' &gt;&gt; ~/.bashrc\necho 'eval \"$(pyenv init --path)\"' &gt;&gt; ~/.bashrc\nWSL再起動後、以下コマンドを実行。バージョン情報がでればOK\npyenv --version",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/環境構築.html#poetry",
     "href": "qmds/プログラミング/python/環境構築.html#poetry",
     "title": "Python環境構築",
     "section": "poetry",
-    "text": "poetry\n\npoetryのインストール\n\ncurl -sSL https://install.python-poetry.org | python3 -\npoetry --version\n\n仮想環境作成先の指定\n\n以下のコマンドにより、プロジェクトのディレクトリ配下で仮想環境.venvが作成されるように設定する。\npoetry config virtualenvs.in-project true"
+    "text": "poetry\n\npoetryのインストール\n\ncurl -sSL https://install.python-poetry.org | python3 -\npoetry --version\n\n仮想環境作成先の指定\n\n以下のコマンドにより、プロジェクトのディレクトリ配下で仮想環境.venvが作成されるように設定する。\npoetry config virtualenvs.in-project true",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/環境構築.html#プロジェクトの作成",
     "href": "qmds/プログラミング/python/環境構築.html#プロジェクトの作成",
     "title": "Python環境構築",
     "section": "プロジェクトの作成",
-    "text": "プロジェクトの作成\npoetryからプロジェクトを作成する\n\n新しいディレクトリで作成する\n\npoetry new project_name\n\n元々あるディレクトりに作成する\n\npoetry init\nプロジェクト作成後はpyproject.tomlというファイルができる。これにPythonの開発環境に関するあらゆる情報が記録されていく。"
+    "text": "プロジェクトの作成\npoetryからプロジェクトを作成する\n\n新しいディレクトリで作成する\n\npoetry new project_name\n\n元々あるディレクトりに作成する\n\npoetry init\nプロジェクト作成後はpyproject.tomlというファイルができる。これにPythonの開発環境に関するあらゆる情報が記録されていく。",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/環境構築.html#pythonバージョンの変更",
     "href": "qmds/プログラミング/python/環境構築.html#pythonバージョンの変更",
     "title": "Python環境構築",
     "section": "Pythonバージョンの変更",
-    "text": "Pythonバージョンの変更\npyenvでプロジェクト内でのPythonバージョンを変更する。対象のバージョンがpyenvにない場合はまずインストールする\n# Pythonのインストール\npyenv install x.x.x\n# プロジェクトディレクトリ内での変更\npyenv local x.x.x"
+    "text": "Pythonバージョンの変更\npyenvでプロジェクト内でのPythonバージョンを変更する。対象のバージョンがpyenvにない場合はまずインストールする\n# Pythonのインストール\npyenv install x.x.x\n# プロジェクトディレクトリ内での変更\npyenv local x.x.x",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/環境構築.html#仮想環境のアクティブ化",
     "href": "qmds/プログラミング/python/環境構築.html#仮想環境のアクティブ化",
     "title": "Python環境構築",
     "section": "仮想環境のアクティブ化",
-    "text": "仮想環境のアクティブ化\npoetry shell\nアクティベートした仮想環境は以下のコマンドで終了できる。\nexit"
+    "text": "仮想環境のアクティブ化\npoetry shell\nアクティベートした仮想環境は以下のコマンドで終了できる。\nexit",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/環境構築.html#ライブラリのインストール",
     "href": "qmds/プログラミング/python/環境構築.html#ライブラリのインストール",
     "title": "Python環境構築",
     "section": "ライブラリのインストール",
-    "text": "ライブラリのインストール\npoetryで必要なライブラリをインストールする\n\nパッケージのバージョンを指定する場合はpackages_name==x.x.xのようにする\n\npoetry add packages_name"
+    "text": "ライブラリのインストール\npoetryで必要なライブラリをインストールする\n\nパッケージのバージョンを指定する場合はpackages_name==x.x.xのようにする\n\npoetry add packages_name",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/環境構築.html#ライブラリのアンインストール",
     "href": "qmds/プログラミング/python/環境構築.html#ライブラリのアンインストール",
     "title": "Python環境構築",
     "section": "ライブラリのアンインストール",
-    "text": "ライブラリのアンインストール\npoetry remove packages_name"
+    "text": "ライブラリのアンインストール\npoetry remove packages_name",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python環境構築"
+    ]
   },
   {
     "objectID": "qmds/プログラミング/python/環境構築.html#開発環境のインストール",
     "href": "qmds/プログラミング/python/環境構築.html#開発環境のインストール",
     "title": "Python環境構築",
     "section": "開発環境のインストール",
-    "text": "開発環境のインストール\npoetryで構築した環境はpyproject.tomlに全て自動で保存されていく。これを別のPCで使うには以下のコマンドを実行する。\n\npyenv, poetry加えてPythonのバージョンは改めて準備する必要がある\n\npoetry install"
+    "text": "開発環境のインストール\npoetryで構築した環境はpyproject.tomlに全て自動で保存されていく。これを別のPCで使うには以下のコマンドを実行する。\n\npyenv, poetry加えてPythonのバージョンは改めて準備する必要がある\n\npoetry install",
+    "crumbs": [
+      "ホーム",
+      "プログラミング",
+      "Python",
+      "Python環境構築"
+    ]
   },
   {
     "objectID": "qmds/実行環境.html",
     "href": "qmds/実行環境.html",
     "title": "実行環境",
     "section": "",
-    "text": "OS\nOS: Windows11 WSL, Ubuntu 22.4\n\n\nQuarto\nQuarto version: 1.3.450\n\n\nR\n\n\n setting  value\n version  R version 4.3.2 (2023-10-31)\n os       Ubuntu 22.04.3 LTS\n system   x86_64, linux-gnu\n ui       X11\n language (EN)\n collate  C.UTF-8\n ctype    C.UTF-8\n tz       Asia/Tokyo\n date     2024-02-04\n pandoc   3.1.1 @ /opt/quarto/bin/tools/ (via rmarkdown)\n\n\n\n\nPython\n\n\n3.10.13\n\n\n\n\n\n\n Back to topReuseCC BY 4.0 DEED"
+    "text": "OS\nOS: Windows11 WSL, Ubuntu 22.4\n\n\nQuarto\nQuarto version: 1.3.450\n\n\nR\n\n\n setting  value\n version  R version 4.3.2 (2023-10-31)\n os       Ubuntu 22.04.3 LTS\n system   x86_64, linux-gnu\n ui       X11\n language (EN)\n collate  C.UTF-8\n ctype    C.UTF-8\n tz       Asia/Tokyo\n date     2024-02-04\n pandoc   3.1.11 @ /opt/quarto/bin/tools/ (via rmarkdown)\n\n\n\n\nPython\n\n\n3.10.13\n\n\n\n\n\n\n Back to topReuseCC BY 4.0",
+    "crumbs": [
+      "ホーム",
+      "実行環境"
+    ]
   }
 ]

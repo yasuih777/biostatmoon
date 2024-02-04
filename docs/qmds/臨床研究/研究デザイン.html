@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.529">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,12 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +61,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -77,7 +83,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <meta property="og:title" content="BiostatMoon">
 <meta property="og:description" content="Study biostatistics related math, programming and clinical research">
 <meta property="og:image" content="images/profile.png">
-<meta property="og:site-name" content="BiostatMoon">
+<meta property="og:site_name" content="BiostatMoon">
 <meta name="twitter:title" content="BiostatMoon">
 <meta name="twitter:description" content="Study biostatistics related math, programming and clinical research">
 <meta name="twitter:image" content="images/profile.png">
@@ -88,9 +94,9 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="index.qmd" class="navbar-brand navbar-brand-logo">
     <img src="../../images/profile.png" alt="" class="navbar-logo">
     </a>
@@ -105,52 +111,52 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../qmds/index.html" rel="" target="" aria-current="page">
- <span class="menu-text">ホーム</span></a>
+    <a class="nav-link active" href="../../qmds/index.html" aria-current="page"> 
+<span class="menu-text">ホーム</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/記事一覧.html" rel="" target="">
- <span class="menu-text">記事一覧</span></a>
+    <a class="nav-link" href="../../qmds/記事一覧.html"> 
+<span class="menu-text">記事一覧</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/ツール一覧.html" rel="" target="">
- <span class="menu-text">ツール一覧</span></a>
+    <a class="nav-link" href="../../qmds/ツール一覧.html"> 
+<span class="menu-text">ツール一覧</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/管理者.html" rel="" target="">
- <span class="menu-text">管理者</span></a>
+    <a class="nav-link" href="../../qmds/管理者.html"> 
+<span class="menu-text">管理者</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/実行環境.html" rel="" target="">
- <span class="menu-text">実行環境</span></a>
+    <a class="nav-link" href="../../qmds/実行環境.html"> 
+<span class="menu-text">実行環境</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../qmds/お問い合わせ.html" rel="" target="">
- <span class="menu-text">お問い合わせ</span></a>
+    <a class="nav-link" href="../../qmds/お問い合わせ.html"> 
+<span class="menu-text">お問い合わせ</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-    <a href="https://github.com/yasuih777/biostatmoon" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-    <a href="https://twitter.com/yugetsubiostat" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+    <a href="https://github.com/yasuih777/biostatmoon" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://twitter.com/yugetsubiostat" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../../qmds/臨床研究/リサーチクエスチョン.html">臨床研究</a></li><li class="breadcrumb-item"><a href="../../qmds/臨床研究/研究デザイン.html">研究デザイン</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../../qmds/臨床研究/リサーチクエスチョン.html">臨床研究</a></li><li class="breadcrumb-item"><a href="../../qmds/臨床研究/研究デザイン.html">研究デザイン</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
@@ -212,7 +218,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
- <span class="menu-text">プログラミング</span></a>
+ <span class="menu-text">データサイエンス</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -221,12 +227,40 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
- <span class="menu-text">Python</span></a>
+ <span class="menu-text">データエンジニアリング</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmds/データサイエンス/データエンジニアリング/整然データ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">整然データ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">プログラミング</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/プログラミング/python/環境構築.html" class="sidebar-item-text sidebar-link">
@@ -243,13 +277,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
  <span class="menu-text">R</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/プログラミング/R/環境構築.html" class="sidebar-item-text sidebar-link">
@@ -260,13 +294,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
  <span class="menu-text">その他</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/プログラミング/その他/anaconda.html" class="sidebar-item-text sidebar-link">
@@ -285,13 +319,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
  <span class="menu-text">生物統計学</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/生物統計学/確率論.html" class="sidebar-item-text sidebar-link">
@@ -314,13 +348,13 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true">
  <span class="menu-text">臨床研究</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmds/臨床研究/リサーチクエスチョン.html" class="sidebar-item-text sidebar-link">
@@ -340,7 +374,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -368,7 +402,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../../qmds/臨床研究/リサーチクエスチョン.html">臨床研究</a></li><li class="breadcrumb-item"><a href="../../qmds/臨床研究/研究デザイン.html">研究デザイン</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">研究デザイン</h1>
 </div>
@@ -396,142 +430,188 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
   
 <div>
   <div class="abstract">
-    <div class="abstract-title">Abstract</div>
+    <div class="block-title">Abstract</div>
     リサーチクエスチョンを解明するための研究の型
   </div>
 </div>
 
+
 </header>
+
 
 <section id="研究デザイン" class="level1 page-columns page-full">
 <h1>研究デザイン</h1>
-<p><strong>研究デザイン</strong>とは、データの集め方や解析方法を構造化した大まかな型である。リサーチクエスチョンの解明には適切な研究デザインの選択が必須である。研究デザインには色々あるが、全体像は <a href="#fig-desgin-map">Figure&nbsp;1</a> のようになる。</p>
-<div class="cell page-columns page-full">
+<p><strong>研究デザイン</strong>とは、データの集め方や解析方法を構造化した大まかな型である。リサーチクエスチョンの解明には適切な研究デザインの選択が必須である。研究デザインには色々あるが、全体像は <a href="#fig-desgin-map" class="quarto-xref">Figure&nbsp;1</a> のようになる。</p>
+<div class="cell page-columns page-full" data-layout-align="default">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-desgin-map" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-desgin-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <svg width="672" height="480" viewbox="0.00 0.00 611.12 404.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 400)">
-<title>
-G
-</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-400 607.12,-400 607.12,4 -4,4"></polygon> <!-- all --> <g id="node1" class="node">
-<title>
-all
-</title>
-<polygon fill="none" stroke="black" points="445.34,-396 377.88,-396 377.88,-360 445.34,-360 445.34,-396"></polygon> <text text-anchor="middle" x="411.61" y="-373.8" font-family="Times,serif" font-size="14.00">All study</text> </g> <!-- descriptive --> <g id="node2" class="node">
-<title>
-descriptive
-</title>
-<polygon fill="none" stroke="black" points="209.98,-324 95.24,-324 95.24,-288 209.98,-288 209.98,-324"></polygon> <text text-anchor="middle" x="152.61" y="-301.8" font-family="Times,serif" font-size="14.00">Descriptive study</text> </g> <!-- all&#45;&#45;descriptive --> <g id="edge1" class="edge">
-<title>
-all:w–descriptive:n
-</title>
-<path fill="none" stroke="black" d="M376.61,-378C325.41,-378 152.61,-375.2 152.61,-324"></path> </g> <!-- analytical --> <g id="node5" class="node">
-<title>
-analytical
-</title>
-<polygon fill="none" stroke="black" points="465.76,-324 357.46,-324 357.46,-288 465.76,-288 465.76,-324"></polygon> <text text-anchor="middle" x="411.61" y="-301.8" font-family="Times,serif" font-size="14.00">Analytical study</text> </g> <!-- all&#45;&#45;analytical --> <g id="edge2" class="edge">
-<title>
-all:s–analytical:n
-</title>
-<path fill="none" stroke="black" d="M411.61,-360C411.61,-344 411.61,-340 411.61,-324"></path> </g> <!-- review --> <g id="node13" class="node">
-<title>
-review
-</title>
-<polygon fill="none" stroke="black" points="603.13,-324 484.08,-324 484.08,-288 603.13,-288 603.13,-324"></polygon> <text text-anchor="middle" x="543.61" y="-301.8" font-family="Times,serif" font-size="14.00">Systematic review</text> </g> <!-- all&#45;&#45;review --> <g id="edge3" class="edge">
-<title>
-all:e–review:n
-</title>
-<path fill="none" stroke="black" d="M446.61,-378C495.95,-378 543.61,-373.34 543.61,-324"></path> </g> <!-- qualitative --> <g id="node3" class="node">
-<title>
-qualitative
-</title>
-<polygon fill="none" stroke="black" points="125.33,-252 -0.11,-252 -0.11,-216 125.33,-216 125.33,-252"></polygon> <text text-anchor="middle" x="62.61" y="-229.8" font-family="Times,serif" font-size="14.00">qualitative research</text> </g> <!-- descriptive&#45;&#45;qualitative --> <g id="edge4" class="edge">
-<title>
-descriptive:w–qualitative:n
-</title>
-<path fill="none" stroke="black" d="M94.61,-306C66.71,-306 62.61,-279.9 62.61,-252"></path> </g> <!-- quantitative --> <g id="node4" class="node">
-<title>
-quantitative
-</title>
-<polygon fill="none" stroke="black" points="275.83,-252 143.39,-252 143.39,-216 275.83,-216 275.83,-252"></polygon> <text text-anchor="middle" x="209.61" y="-229.8" font-family="Times,serif" font-size="14.00">quantitative research</text> </g> <!-- descriptive&#45;&#45;quantitative --> <g id="edge5" class="edge">
-<title>
-descriptive:e–quantitative:n
-</title>
-<path fill="none" stroke="black" d="M210.61,-306C234.61,-306 209.61,-276 209.61,-252"></path> </g> <!-- interventional --> <g id="node6" class="node">
-<title>
-interventional
-</title>
-<polygon fill="none" stroke="black" points="421.97,-252 293.25,-252 293.25,-216 421.97,-216 421.97,-252"></polygon> <text text-anchor="middle" x="357.61" y="-229.8" font-family="Times,serif" font-size="14.00">Interventional study</text> </g> <!-- analytical&#45;&#45;interventional --> <g id="edge6" class="edge">
-<title>
-analytical:w–interventional:n
-</title>
-<path fill="none" stroke="black" d="M356.61,-306C332.6,-306 357.61,-276 357.61,-252"></path> </g> <!-- observational --> <g id="node9" class="node">
-<title>
-observational
-</title>
-<polygon fill="none" stroke="black" points="599.98,-252 471.24,-252 471.24,-216 599.98,-216 599.98,-252"></polygon> <text text-anchor="middle" x="535.61" y="-229.8" font-family="Times,serif" font-size="14.00">Observational study</text> </g> <!-- analytical&#45;&#45;observational --> <g id="edge7" class="edge">
-<title>
-analytical:e–observational:n
-</title>
-<path fill="none" stroke="black" d="M466.61,-306C475.36,-306 468.78,-294.54 474.61,-288 495.55,-264.5 535.61,-283.48 535.61,-252"></path> </g> <!-- random --> <g id="node7" class="node">
-<title>
-random
-</title>
-<polygon fill="none" stroke="black" points="329.11,-180 172.1,-180 172.1,-144 329.11,-144 329.11,-180"></polygon> <text text-anchor="middle" x="250.61" y="-157.8" font-family="Times,serif" font-size="14.00">Randomized clinical trial</text> </g> <!-- interventional&#45;&#45;random --> <g id="edge8" class="edge">
-<title>
-interventional:s–random:e
-</title>
-<path fill="none" stroke="black" d="M357.61,-216C357.61,-209.29 337.32,-162 330.61,-162"></path> </g> <!-- non_random --> <g id="node8" class="node">
-<title>
-non_random
-</title>
-<polygon fill="none" stroke="black" points="349.21,-108 168.01,-108 168.01,-72 349.21,-72 349.21,-108"></polygon> <text text-anchor="middle" x="258.61" y="-85.8" font-family="Times,serif" font-size="14.00">Non-randomized clinical trial</text> </g> <!-- interventional&#45;&#45;non_random --> <g id="edge9" class="edge">
-<title>
-interventional:s–non_random:e
-</title>
-<path fill="none" stroke="black" d="M357.61,-216C357.61,-159.91 406.7,-90 350.61,-90"></path> </g> <!-- random&#45;&#45;non_random --> <g id="edge13" class="edge">
-<title>
-random–non_random
-</title>
-<path fill="none" stroke="white" d="M252.59,-143.7C253.83,-132.85 255.42,-118.92 256.65,-108.1"></path> </g> <!-- cross --> <g id="node10" class="node">
-<title>
-cross
-</title>
-<polygon fill="none" stroke="black" points="521.76,-180 385.45,-180 385.45,-144 521.76,-144 521.76,-180"></polygon> <text text-anchor="middle" x="453.61" y="-157.8" font-family="Times,serif" font-size="14.00">Cross-sectional study</text> </g> <!-- observational&#45;&#45;cross --> <g id="edge10" class="edge">
-<title>
-observational:s–cross:e
-</title>
-<path fill="none" stroke="black" d="M535.61,-216C535.61,-203.66 534.95,-162 522.61,-162"></path> </g> <!-- case --> <g id="node11" class="node">
-<title>
-case
-</title>
-<polygon fill="none" stroke="black" points="549.82,-108 429.4,-108 429.4,-72 549.82,-72 549.82,-108"></polygon> <text text-anchor="middle" x="489.61" y="-85.8" font-family="Times,serif" font-size="14.00">Case control study</text> </g> <!-- observational&#45;&#45;case --> <g id="edge11" class="edge">
-<title>
-observational:s–case:e
-</title>
-<path fill="none" stroke="black" d="M535.61,-216C535.61,-159.6 607,-90 550.61,-90"></path> </g> <!-- cohort --> <g id="node12" class="node">
-<title>
-cohort
-</title>
-<polygon fill="none" stroke="black" points="560.84,-36 472.38,-36 472.38,0 560.84,0 560.84,-36"></polygon> <text text-anchor="middle" x="516.61" y="-13.8" font-family="Times,serif" font-size="14.00">Cohort study</text> </g> <!-- observational&#45;&#45;cohort --> <g id="edge12" class="edge">
-<title>
-observational:s–cohort:e
-</title>
-<path fill="none" stroke="black" d="M535.61,-216C535.61,-195.17 558.52,-199.58 565.61,-180 584.25,-128.51 621.04,-18 561.61,-18"></path> </g> <!-- cross&#45;&#45;case --> <g id="edge14" class="edge">
-<title>
-cross–case
-</title>
-<path fill="none" stroke="white" d="M462.51,-143.7C468.09,-132.85 475.25,-118.92 480.81,-108.1"></path> </g> <!-- case&#45;&#45;cohort --> <g id="edge15" class="edge">
-<title>
-case–cohort
-</title>
-<path fill="none" stroke="white" d="M496.28,-71.7C500.47,-60.85 505.84,-46.92 510.01,-36.1"></path> </g> </g>
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-400 607.12,-400 607.12,4 -4,4"></polygon>
+<!-- all -->
+<g id="node1" class="node">
+<title>all</title>
+<polygon fill="none" stroke="black" points="445.34,-396 377.88,-396 377.88,-360 445.34,-360 445.34,-396"></polygon>
+<text text-anchor="middle" x="411.61" y="-373.8" font-family="Times,serif" font-size="14.00">All study</text>
+</g>
+<!-- descriptive -->
+<g id="node2" class="node">
+<title>descriptive</title>
+<polygon fill="none" stroke="black" points="209.98,-324 95.24,-324 95.24,-288 209.98,-288 209.98,-324"></polygon>
+<text text-anchor="middle" x="152.61" y="-301.8" font-family="Times,serif" font-size="14.00">Descriptive study</text>
+</g>
+<!-- all&#45;&#45;descriptive -->
+<g id="edge1" class="edge">
+<title>all:w--descriptive:n</title>
+<path fill="none" stroke="black" d="M376.61,-378C325.41,-378 152.61,-375.2 152.61,-324"></path>
+</g>
+<!-- analytical -->
+<g id="node5" class="node">
+<title>analytical</title>
+<polygon fill="none" stroke="black" points="465.76,-324 357.46,-324 357.46,-288 465.76,-288 465.76,-324"></polygon>
+<text text-anchor="middle" x="411.61" y="-301.8" font-family="Times,serif" font-size="14.00">Analytical study</text>
+</g>
+<!-- all&#45;&#45;analytical -->
+<g id="edge2" class="edge">
+<title>all:s--analytical:n</title>
+<path fill="none" stroke="black" d="M411.61,-360C411.61,-344 411.61,-340 411.61,-324"></path>
+</g>
+<!-- review -->
+<g id="node13" class="node">
+<title>review</title>
+<polygon fill="none" stroke="black" points="603.13,-324 484.08,-324 484.08,-288 603.13,-288 603.13,-324"></polygon>
+<text text-anchor="middle" x="543.61" y="-301.8" font-family="Times,serif" font-size="14.00">Systematic review</text>
+</g>
+<!-- all&#45;&#45;review -->
+<g id="edge3" class="edge">
+<title>all:e--review:n</title>
+<path fill="none" stroke="black" d="M446.61,-378C495.95,-378 543.61,-373.34 543.61,-324"></path>
+</g>
+<!-- qualitative -->
+<g id="node3" class="node">
+<title>qualitative</title>
+<polygon fill="none" stroke="black" points="125.33,-252 -0.11,-252 -0.11,-216 125.33,-216 125.33,-252"></polygon>
+<text text-anchor="middle" x="62.61" y="-229.8" font-family="Times,serif" font-size="14.00">qualitative research</text>
+</g>
+<!-- descriptive&#45;&#45;qualitative -->
+<g id="edge4" class="edge">
+<title>descriptive:w--qualitative:n</title>
+<path fill="none" stroke="black" d="M94.61,-306C66.71,-306 62.61,-279.9 62.61,-252"></path>
+</g>
+<!-- quantitative -->
+<g id="node4" class="node">
+<title>quantitative</title>
+<polygon fill="none" stroke="black" points="275.83,-252 143.39,-252 143.39,-216 275.83,-216 275.83,-252"></polygon>
+<text text-anchor="middle" x="209.61" y="-229.8" font-family="Times,serif" font-size="14.00">quantitative research</text>
+</g>
+<!-- descriptive&#45;&#45;quantitative -->
+<g id="edge5" class="edge">
+<title>descriptive:e--quantitative:n</title>
+<path fill="none" stroke="black" d="M210.61,-306C234.61,-306 209.61,-276 209.61,-252"></path>
+</g>
+<!-- interventional -->
+<g id="node6" class="node">
+<title>interventional</title>
+<polygon fill="none" stroke="black" points="421.97,-252 293.25,-252 293.25,-216 421.97,-216 421.97,-252"></polygon>
+<text text-anchor="middle" x="357.61" y="-229.8" font-family="Times,serif" font-size="14.00">Interventional study</text>
+</g>
+<!-- analytical&#45;&#45;interventional -->
+<g id="edge6" class="edge">
+<title>analytical:w--interventional:n</title>
+<path fill="none" stroke="black" d="M356.61,-306C332.6,-306 357.61,-276 357.61,-252"></path>
+</g>
+<!-- observational -->
+<g id="node9" class="node">
+<title>observational</title>
+<polygon fill="none" stroke="black" points="599.98,-252 471.24,-252 471.24,-216 599.98,-216 599.98,-252"></polygon>
+<text text-anchor="middle" x="535.61" y="-229.8" font-family="Times,serif" font-size="14.00">Observational study</text>
+</g>
+<!-- analytical&#45;&#45;observational -->
+<g id="edge7" class="edge">
+<title>analytical:e--observational:n</title>
+<path fill="none" stroke="black" d="M466.61,-306C475.36,-306 468.78,-294.54 474.61,-288 495.55,-264.5 535.61,-283.48 535.61,-252"></path>
+</g>
+<!-- random -->
+<g id="node7" class="node">
+<title>random</title>
+<polygon fill="none" stroke="black" points="329.11,-180 172.1,-180 172.1,-144 329.11,-144 329.11,-180"></polygon>
+<text text-anchor="middle" x="250.61" y="-157.8" font-family="Times,serif" font-size="14.00">Randomized clinical trial</text>
+</g>
+<!-- interventional&#45;&#45;random -->
+<g id="edge8" class="edge">
+<title>interventional:s--random:e</title>
+<path fill="none" stroke="black" d="M357.61,-216C357.61,-209.29 337.32,-162 330.61,-162"></path>
+</g>
+<!-- non_random -->
+<g id="node8" class="node">
+<title>non_random</title>
+<polygon fill="none" stroke="black" points="349.21,-108 168.01,-108 168.01,-72 349.21,-72 349.21,-108"></polygon>
+<text text-anchor="middle" x="258.61" y="-85.8" font-family="Times,serif" font-size="14.00">Non-randomized clinical trial</text>
+</g>
+<!-- interventional&#45;&#45;non_random -->
+<g id="edge9" class="edge">
+<title>interventional:s--non_random:e</title>
+<path fill="none" stroke="black" d="M357.61,-216C357.61,-159.91 406.7,-90 350.61,-90"></path>
+</g>
+<!-- random&#45;&#45;non_random -->
+<g id="edge13" class="edge">
+<title>random--non_random</title>
+<path fill="none" stroke="white" d="M252.59,-143.7C253.83,-132.85 255.42,-118.92 256.65,-108.1"></path>
+</g>
+<!-- cross -->
+<g id="node10" class="node">
+<title>cross</title>
+<polygon fill="none" stroke="black" points="521.76,-180 385.45,-180 385.45,-144 521.76,-144 521.76,-180"></polygon>
+<text text-anchor="middle" x="453.61" y="-157.8" font-family="Times,serif" font-size="14.00">Cross-sectional study</text>
+</g>
+<!-- observational&#45;&#45;cross -->
+<g id="edge10" class="edge">
+<title>observational:s--cross:e</title>
+<path fill="none" stroke="black" d="M535.61,-216C535.61,-203.66 534.95,-162 522.61,-162"></path>
+</g>
+<!-- case -->
+<g id="node11" class="node">
+<title>case</title>
+<polygon fill="none" stroke="black" points="549.82,-108 429.4,-108 429.4,-72 549.82,-72 549.82,-108"></polygon>
+<text text-anchor="middle" x="489.61" y="-85.8" font-family="Times,serif" font-size="14.00">Case control study</text>
+</g>
+<!-- observational&#45;&#45;case -->
+<g id="edge11" class="edge">
+<title>observational:s--case:e</title>
+<path fill="none" stroke="black" d="M535.61,-216C535.61,-159.6 607,-90 550.61,-90"></path>
+</g>
+<!-- cohort -->
+<g id="node12" class="node">
+<title>cohort</title>
+<polygon fill="none" stroke="black" points="560.84,-36 472.38,-36 472.38,0 560.84,0 560.84,-36"></polygon>
+<text text-anchor="middle" x="516.61" y="-13.8" font-family="Times,serif" font-size="14.00">Cohort study</text>
+</g>
+<!-- observational&#45;&#45;cohort -->
+<g id="edge12" class="edge">
+<title>observational:s--cohort:e</title>
+<path fill="none" stroke="black" d="M535.61,-216C535.61,-195.17 558.52,-199.58 565.61,-180 584.25,-128.51 621.04,-18 561.61,-18"></path>
+</g>
+<!-- cross&#45;&#45;case -->
+<g id="edge14" class="edge">
+<title>cross--case</title>
+<path fill="none" stroke="white" d="M462.51,-143.7C468.09,-132.85 475.25,-118.92 480.81,-108.1"></path>
+</g>
+<!-- case&#45;&#45;cohort -->
+<g id="edge15" class="edge">
+<title>case--cohort</title>
+<path fill="none" stroke="white" d="M496.28,-71.7C500.47,-60.85 505.84,-46.92 510.01,-36.1"></path>
+</g>
+</g>
 </svg>
 </div>
-<figcaption class="figure-caption margin-caption">Figure&nbsp;1: 研究デザインの全体像</figcaption>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-desgin-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: 研究デザインの全体像
+</figcaption>
 </figure>
 </div>
 </div>
@@ -575,10 +655,14 @@ case–cohort
 </section>
 <section id="研究デザインとリサーチクエスチョンの対応" class="level1">
 <h1>研究デザインとリサーチクエスチョンの対応</h1>
-<p><a href="../../qmds/臨床研究/リサーチクエスチョン.html">リサーチクエスチョン</a>と適切な研究デザインの対応は <a href="#tbl-list">Table&nbsp;1</a> のようにまとめられる。</p>
-<div id="tbl-list" class="anchored">
+<p><a href="../../qmds/臨床研究/リサーチクエスチョン.html">リサーチクエスチョン</a>と適切な研究デザインの対応は <a href="#tbl-list" class="quarto-xref">Table&nbsp;1</a> のようにまとめられる。</p>
+<div id="tbl-list" class="bordered striped anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-list-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: リサーチクエスチョンと研究デザインの対応
+</figcaption>
+<div aria-describedby="tbl-list-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-bordered table-striped table">
-<caption>Table&nbsp;1: リサーチクエスチョンと研究デザインの対応</caption>
 <colgroup>
 <col style="width: 25%">
 <col style="width: 14%">
@@ -633,11 +717,13 @@ case–cohort
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div>CC BY 4.0 DEED</div></div></section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -717,10 +803,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -730,8 +835,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -744,6 +858,120 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -787,6 +1015,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -812,8 +1041,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-      // Handle positioning of the toggle
-      window.addEventListener(
+        // Handle positioning of the toggle
+    window.addEventListener(
       "resize",
       throttle(() => {
         elRect = undefined;
@@ -821,23 +1050,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           selectCodeLines(selectedAnnoteEl);
         }
       }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
               fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
       for (let i=0; i<annoteTargets.length; i++) {
         const annoteTarget = annoteTargets[i];
@@ -882,7 +1111,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               options: {
                 flipVariations: false, // true by default
                 allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
               },
             },
             {
@@ -934,22 +1163,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
@@ -958,12 +1171,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2024, 優月</div>
+    <div class="nav-footer-center">
+<p>Copyright 2024, 優月</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 
