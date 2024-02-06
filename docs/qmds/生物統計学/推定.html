@@ -373,6 +373,12 @@ window.Quarto = {
  <span class="menu-text">推定</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmds/生物統計学/中心極限定理.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">中心極限定理</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -457,7 +463,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-02-04</p>
+      <p class="date-modified">2024-02-06</p>
     </div>
   </div>
     
@@ -620,7 +626,7 @@ s^{2} = \frac{1}{n - 1} \sum^{n}_{i = 1} (x_{i} - \bar{x})
 <h3 class="anchored" data-anchor-id="標本平均">標本平均</h3>
 <p>標本平均の平均値について、<span class="math inline">\(E(\bar{x}) = \mu\)</span>が成立する。これは、<span class="math inline">\(\bar{x}\)</span>が母集団分布の平均<span class="math inline">\(\mu\)</span>を正しく推定することを表している。<br>
 また、標本平均の分散について、<span class="math inline">\(V(\bar{x}) = \frac{\sigma^{2}}{n}\)</span>が成立する。これは、<span class="math inline">\(\bar{x}\)</span>が母集団分布の分散<span class="math inline">\(\sigma^{2}\)</span>をサンプルサイズ<span class="math inline">\(n\)</span>の分だけ過小評価することを表している。<br>
-これらを踏まえると、<span class="math inline">\(n \rightarrow \infty \Rightarrow E(\bar{x}) \rightarrow \mu, V(\bar{x}) \rightarrow 0\)</span>が成立する。これは、サンプルサイズが増えるほど標本平均の標本分布は母集団分布の平均値<span class="math inline">\(\mu\)</span>に集中して局在するような傾向があるということである(大数の法則)。</p>
+これらを踏まえると、<span class="math inline">\(n \rightarrow \infty \Rightarrow E(\bar{x}) \rightarrow \mu, V(\bar{x}) \rightarrow 0\)</span>が成立する。これは、サンプルサイズが増えるほど標本平均の標本分布は母集団分布の平均値<span class="math inline">\(\mu\)</span>に集中して局在するような傾向があるということである(<a href="../../qmds/生物統計学/中心極限定理.html#大数の(弱)法則">大数の法則</a>)。</p>
 </section>
 <section id="標本分散" class="level3">
 <h3 class="anchored" data-anchor-id="標本分散">標本分散</h3>
@@ -642,7 +648,7 @@ S^{2} = \frac{1}{n} \sum^{n}_{i = 1} (x_{i} - \bar{x})
 <p><span class="math inline">\(E(\bar{x}) = \mu, E(s^{2}) = \sigma^{2}\)</span>が成り立つことは既に述べた。これにより、標本平均および不偏分散はそれぞれ母集団分布の平均および分散の推定量である。これは、実際の観測から得られたデータで算出することができる。このようにして得られる値を<strong>推定値</strong>と呼ぶ。<br>
 次に、平均・分散以外のあらゆる母数について、推定値から真の母数に近い値を推定するために次の<strong>最尤法</strong>を導入する。</p>
 <p>母集団分布の確率密度関数<span class="math inline">\(f(x; \theta)\)</span>に対して、実際に得られた標本<span class="math inline">\(x_{1}, x_{2}, \cdots, x_{n}\)</span>を用いて<span class="math inline">\(n\)</span>個の確率関数<span class="math inline">\(f(x_{i}; \theta) \ (i = 1, 2, \cdots, n)\)</span>を生成する。このとき、<span class="math inline">\(x_{i}\)</span>は定数なので確率関数を母数<span class="math inline">\(\theta\)</span>は関数であることに注意する。また、母数がとりうる値の範囲<span class="math inline">\(\Theta\)</span>を<strong>母数空間</strong>と呼ぶ。<br>
-次に、確率関数の積 <a href="#eq-likehood" class="quarto-xref">Equation&nbsp;4</a> を導入する。この<span class="math inline">\(L(\theta)\)</span>を<strong>尤度</strong>という。最尤法では、母数空間の範囲でこの尤度関数を最大化する<strong>最尤推定量</strong><span class="math inline">\(\tilde{\theta}\)</span>を求めることである。</p>
+次に、確率関数の積 <a href="#eq-likehood" class="quarto-xref">Equation&nbsp;4</a> を導入する。この<span class="math inline">\(L(\theta)\)</span>を<strong>尤度</strong>という。最尤法は母数空間の範囲でこの尤度関数を最大化する<strong>最尤推定量</strong><span class="math inline">\(\tilde{\theta}\)</span>を求めることを目的とする。</p>
 <p><span id="eq-likehood"><span class="math display">\[
 L(\theta) = \prod^{n}_{i = 1} f(x_{i}; \theta)
 \tag{4}\]</span></span></p>
