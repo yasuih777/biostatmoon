@@ -598,6 +598,58 @@
     ]
   },
   {
+    "objectID": "qmds/データサイエンス/データエンジニアリング/整然データ.html",
+    "href": "qmds/データサイエンス/データエンジニアリング/整然データ.html",
+    "title": "整然データ",
+    "section": "",
+    "text": "整然データは、2014年にHadley Wickham氏がTidy dataとして提唱した、分析および可視化を容易にするためのフレームワークである。データ構造をこの整然データのルールに沿って作っていくことで、機械によるデータの操作を容易にし、プログラミングによるデータ処理・可視化・統計モデリングを決まった手順で行うことができる。\n整然データはリレーショナルデータベース(RDB)の原理に密接に関わっている。いわゆるRDBのトランザクションデータが整然データと互換性があるが、整然データはより統計家が慣れ親しんだ言葉で解釈される。\n\n\n整然データの条件として、以下の四つがある。\n\n個々の変数が一つの列をなす\n個々の観測が一つの行をなす\n個々の観測の構成単位の類型が一つの表をなす\n個々の値が一つのセルをなす\n\n\n\n\n\n\n\nExample\n\n\n\n次のような Table 1 が整然データである。ここでは、学期末に行われるテストの点数を例とした。\n\n\n\n\n\n\n\n名前\n学期\n点数\n\n\n\n\n佐藤\n一学期\n320\n\n\n佐藤\n二学期\n300\n\n\n佐藤\n三学期\n350\n\n\n田中\n一学期\n410\n\n\n田中\n二学期\n420\n\n\n田中\n三学期\n390\n\n\n鈴木\n一学期\n290\n\n\n鈴木\n二学期\n290\n\n\n鈴木\n三学期\n300\n\n\n\n\n\n\n\n\n\nTable 1: 整然データ\nTable 1 をみると整然データの条件を満たしていることが分かる。\n即ち、一つの列に同じ意味を持つデータが格納されており、一つの行が一回のテストの結果を表しており、テストの結果以外の観測は入っておらず、一つのセルに一つの値のみが入っている。",
+    "crumbs": [
+      "ホーム",
+      "データサイエンス",
+      "データエンジニアリング",
+      "整然データ"
+    ]
+  },
+  {
+    "objectID": "qmds/データサイエンス/データエンジニアリング/整然データ.html#整然データの条件",
+    "href": "qmds/データサイエンス/データエンジニアリング/整然データ.html#整然データの条件",
+    "title": "整然データ",
+    "section": "",
+    "text": "整然データの条件として、以下の四つがある。\n\n個々の変数が一つの列をなす\n個々の観測が一つの行をなす\n個々の観測の構成単位の類型が一つの表をなす\n個々の値が一つのセルをなす\n\n\n\n\n\n\n\nExample\n\n\n\n次のような Table 1 が整然データである。ここでは、学期末に行われるテストの点数を例とした。\n\n\n\n\n\n\n\n名前\n学期\n点数\n\n\n\n\n佐藤\n一学期\n320\n\n\n佐藤\n二学期\n300\n\n\n佐藤\n三学期\n350\n\n\n田中\n一学期\n410\n\n\n田中\n二学期\n420\n\n\n田中\n三学期\n390\n\n\n鈴木\n一学期\n290\n\n\n鈴木\n二学期\n290\n\n\n鈴木\n三学期\n300\n\n\n\n\n\n\n\n\n\nTable 1: 整然データ\nTable 1 をみると整然データの条件を満たしていることが分かる。\n即ち、一つの列に同じ意味を持つデータが格納されており、一つの行が一回のテストの結果を表しており、テストの結果以外の観測は入っておらず、一つのセルに一つの値のみが入っている。",
+    "crumbs": [
+      "ホーム",
+      "データサイエンス",
+      "データエンジニアリング",
+      "整然データ"
+    ]
+  },
+  {
+    "objectID": "qmds/データサイエンス/データエンジニアリング/整然データ.html#雑然データの条件",
+    "href": "qmds/データサイエンス/データエンジニアリング/整然データ.html#雑然データの条件",
+    "title": "整然データ",
+    "section": "雑然データの条件",
+    "text": "雑然データの条件\n雑然データは整然データでないものすべてが該当するため、整然データの条件で取り上げた四つの条件いずれかを満たさない。これがどのようなデータ構造となるか考えていく。\n\n個々の変数が一つの列をなす\n\nTable 2 がこれにあたる。これは、テストの結果が3列にまたがっているため整然データではない。\n\n個々の観測が一つの行をなす\n\nこれも Table 2 が例としてあたる。「佐藤」の行を取り出すことに三学期分のテスト結果全てを取り出すこととなり、個々のテストの結果となっていない。\n\n個々の観測の構成単位の類型が一つの表をなす\n\n\n\n\nTable 3: 複数の構成単位をもつ表構造\n\n\n\n\n\n名前\n学期\n点数\n\n\n\n\n佐藤\n一学期\n320\n\n\n佐藤\n二学期\n300\n\n\n佐藤\n三学期\n350\n\n\n佐藤\n三学期\nB\n\n\n田中\n一学期\n410\n\n\n田中\n二学期\n420\n\n\n田中\n三学期\n390\n\n\n佐藤\n三学期\nB\n\n\n鈴木\n一学期\n290\n\n\n鈴木\n二学期\n290\n\n\n鈴木\n三学期\n300\n\n\n佐藤\n三学期\nC\n\n\n\n\n\n\nTable 3 がこの例にあたる。構成単位の類型とは簡単に言うと観測の種類なので、これが複数あるとは種類の異なる観測が一つの表に含まれているということである。この例では、三学期のテストの結果の後に三段階の成績が観測として挿入されているため、雑然データである。\n\n個々の値が一つのセルをなす\n\n\n\n\nTable 4: 複数の値が一つのセルに入っている表構造\n\n\n\n\n\n名前\n学期\n点数\n\n\n\n\n佐藤\n一学期 二学期 三学期\n970\n\n\n田中\n一学期 二学期 三学期\n1220\n\n\n鈴木\n一学期 二学期 三学期\n880\n\n\n\n\n\n\nTable 4 がこの例にあたる。学期に三種類の値が入っているため整然データの条件を満たさない。神エクセルでよくみられる。",
+    "crumbs": [
+      "ホーム",
+      "データサイエンス",
+      "データエンジニアリング",
+      "整然データ"
+    ]
+  },
+  {
+    "objectID": "qmds/データサイエンス/データエンジニアリング/整然データ.html#整然化",
+    "href": "qmds/データサイエンス/データエンジニアリング/整然データ.html#整然化",
+    "title": "整然データ",
+    "section": "整然化",
+    "text": "整然化\n雑然データを整然データに変換することを整然化と呼ぶ。整然化の方法として融解・文字列操作・キャスティングなどがある。これらの操作はRのtibbleや、PythonのPolarsまたはPandasで関数化されている。",
+    "crumbs": [
+      "ホーム",
+      "データサイエンス",
+      "データエンジニアリング",
+      "整然データ"
+    ]
+  },
+  {
     "objectID": "qmds/管理者.html",
     "href": "qmds/管理者.html",
     "title": "管理者",
@@ -995,6 +1047,17 @@
     ]
   },
   {
+    "objectID": "qmds/記事一覧.html#データエンジニアリング",
+    "href": "qmds/記事一覧.html#データエンジニアリング",
+    "title": "記事一覧",
+    "section": "データエンジニアリング",
+    "text": "データエンジニアリング\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nabstract\n\n\nCategories\n\n\n\n\n\n\n2024-02-06\n\n\n整然データ\n\n\n分析や可視化に向いているデータ構造について\n\n\nデータサイエンス, データエンジニアリング\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "ホーム",
+      "記事一覧"
+    ]
+  },
+  {
     "objectID": "qmds/記事一覧.html#r",
     "href": "qmds/記事一覧.html#r",
     "title": "記事一覧",
@@ -1250,7 +1313,7 @@
     "href": "qmds/実行環境.html",
     "title": "実行環境",
     "section": "",
-    "text": "OS\nOS: Windows11 WSL, Ubuntu 22.4\n\n\nQuarto\nQuarto version: 1.3.450\n\n\nR\n\n\n setting  value\n version  R version 4.3.2 (2023-10-31)\n os       Ubuntu 22.04.3 LTS\n system   x86_64, linux-gnu\n ui       X11\n language (EN)\n collate  C.UTF-8\n ctype    C.UTF-8\n tz       Asia/Tokyo\n date     2024-02-04\n pandoc   3.1.11 @ /opt/quarto/bin/tools/ (via rmarkdown)\n\n\n\n\nPython\n\n\n3.10.13\n\n\n\n\n\n\n Back to topReuseCC BY 4.0",
+    "text": "OS\nOS: Windows11 WSL, Ubuntu 22.4\n\n\nQuarto\nQuarto version: 1.3.450\n\n\nR\n\n\n setting  value\n version  R version 4.3.2 (2023-10-31)\n os       Ubuntu 22.04.3 LTS\n system   x86_64, linux-gnu\n ui       X11\n language (EN)\n collate  C.UTF-8\n ctype    C.UTF-8\n tz       Asia/Tokyo\n date     2024-02-06\n pandoc   3.1.11 @ /opt/quarto/bin/tools/ (via rmarkdown)\n\n\n\n\nPython\n\n\n3.10.13\n\n\n\n\n\n\n Back to topReuseCC BY 4.0",
     "crumbs": [
       "ホーム",
       "実行環境"

@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-02-02">
+<meta name="dcterms.date" content="2024-02-06">
 
 <title>BiostatMoon - 整然データ</title>
 <style>
@@ -90,7 +90,7 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -377,10 +377,24 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#整然データ" id="toc-整然データ" class="nav-link active" data-scroll-target="#整然データ">整然データ</a>
+  <ul class="collapse">
+  <li><a href="#整然データの条件" id="toc-整然データの条件" class="nav-link" data-scroll-target="#整然データの条件">整然データの条件</a></li>
+  </ul></li>
+  <li><a href="#雑然データ" id="toc-雑然データ" class="nav-link" data-scroll-target="#雑然データ">雑然データ</a>
+  <ul class="collapse">
+  <li><a href="#雑然データの条件" id="toc-雑然データの条件" class="nav-link" data-scroll-target="#雑然データの条件">雑然データの条件</a></li>
+  <li><a href="#整然化" id="toc-整然化" class="nav-link" data-scroll-target="#整然化">整然化</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item">データサイエンス</li><li class="breadcrumb-item"><a href="../../../qmds/データサイエンス/データエンジニアリング/整然データ.html">データエンジニアリング</a></li><li class="breadcrumb-item"><a href="../../../qmds/データサイエンス/データエンジニアリング/整然データ.html">整然データ</a></li></ol></nav>
 <div class="quarto-title">
@@ -399,14 +413,14 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-02-02</p>
+      <p class="date">2024-02-06</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-02-03</p>
+      <p class="date-modified">2024-02-06</p>
     </div>
   </div>
     
@@ -423,8 +437,300 @@ gtag('config', 'G-VXJL26Y2P8', { 'anonymize_ip': true});
 </header>
 
 
+<section id="整然データ" class="level1 page-columns page-full">
+<h1>整然データ</h1>
+<p><strong>整然データ</strong>は、2014年にHadley Wickham氏が<a href="https://www.jstatsoft.org/article/view/v059i10">Tidy data</a>として提唱した、分析および可視化を容易にするためのフレームワークである。データ構造をこの整然データのルールに沿って作っていくことで、機械によるデータの操作を容易にし、プログラミングによるデータ処理・可視化・統計モデリングを決まった手順で行うことができる。<br>
+整然データはリレーショナルデータベース(RDB)の原理に密接に関わっている。いわゆるRDBのトランザクションデータが整然データと互換性があるが、整然データはより統計家が慣れ親しんだ言葉で解釈される。</p>
+<section id="整然データの条件" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="整然データの条件">整然データの条件</h2>
+<p>整然データの条件として、以下の四つがある。</p>
+<ol type="1">
+<li><strong>個々の変数が一つの列をなす</strong></li>
+<li><strong>個々の観測が一つの行をなす</strong></li>
+<li><strong>個々の観測の構成単位の類型が一つの表をなす</strong></li>
+<li><strong>個々の値が一つのセルをなす</strong></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>次のような <a href="#tbl-tidy" class="quarto-xref">Table&nbsp;1</a> が整然データである。ここでは、学期末に行われるテストの点数を例とした。</p>
+<div id="tbl-tidy" class="striped anchored">
+<figure class="quarto-float quarto-float-tbl figure" aria-labelledby="tbl-tidy-caption">
+
+<div aria-describedby="tbl-tidy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table">
+<thead>
+<tr class="header">
+<th>名前</th>
+<th>学期</th>
+<th>点数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>佐藤</td>
+<td>一学期</td>
+<td>320</td>
+</tr>
+<tr class="even">
+<td>佐藤</td>
+<td>二学期</td>
+<td>300</td>
+</tr>
+<tr class="odd">
+<td>佐藤</td>
+<td>三学期</td>
+<td>350</td>
+</tr>
+<tr class="even">
+<td>田中</td>
+<td>一学期</td>
+<td>410</td>
+</tr>
+<tr class="odd">
+<td>田中</td>
+<td>二学期</td>
+<td>420</td>
+</tr>
+<tr class="even">
+<td>田中</td>
+<td>三学期</td>
+<td>390</td>
+</tr>
+<tr class="odd">
+<td>鈴木</td>
+<td>一学期</td>
+<td>290</td>
+</tr>
+<tr class="even">
+<td>鈴木</td>
+<td>二学期</td>
+<td>290</td>
+</tr>
+<tr class="odd">
+<td>鈴木</td>
+<td>三学期</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<div id="tbl-tidy-caption" class="margin-figure-caption column-margin callout-margin-content">
+Table&nbsp;1: 整然データ
+</div><p><a href="#tbl-tidy" class="quarto-xref">Table&nbsp;1</a> をみると整然データの条件を満たしていることが分かる。<br>
+即ち、一つの列に同じ意味を持つデータが格納されており、一つの行が一回のテストの結果を表しており、テストの結果以外の観測は入っておらず、一つのセルに一つの値のみが入っている。</p>
+</section>
+</section>
+<section id="雑然データ" class="level1 page-columns page-full">
+<h1>雑然データ</h1>
+<p>整然データの条件を満たさないデータ構造を<strong>雑然データ</strong>と呼ぶ。我々人が見やすい表構造はほとんどがこの雑然データに該当する。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>次のような <a href="#tbl-messy" class="quarto-xref">Table&nbsp;2</a> が整然データである。これは、 <a href="#tbl-tidy" class="quarto-xref">Table&nbsp;1</a> と同じデータで構造を変えたものである。</p>
+<div id="tbl-messy" class="striped anchored">
+<figure class="quarto-float quarto-float-tbl figure" aria-labelledby="tbl-messy-caption">
+
+<div aria-describedby="tbl-messy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table">
+<thead>
+<tr class="header">
+<th>名前</th>
+<th>一学期</th>
+<th>二学期</th>
+<th>三学期</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>佐藤</td>
+<td>320</td>
+<td>300</td>
+<td>350</td>
+</tr>
+<tr class="even">
+<td>田中</td>
+<td>410</td>
+<td>420</td>
+<td>390</td>
+</tr>
+<tr class="odd">
+<td>鈴木</td>
+<td>290</td>
+<td>290</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<div id="tbl-messy-caption" class="margin-figure-caption column-margin callout-margin-content">
+Table&nbsp;2: 整然データ
+</div><p><a href="#tbl-messy" class="quarto-xref">Table&nbsp;2</a> は整然データではない、即ち雑然データである。<br>
+プログラミング言語は基本的にデータをベクトルとして扱うため、このように同じ意味を持つデータが複数列にまたがっている場合に一度にデータ全てを取り出すことができない。一方で、整然データは一つの列を取り出すことでデータを取り出すことができるので、以降のデータ処理も効率よく行うことができる。</p>
+<section id="雑然データの条件" class="level2">
+<h2 class="anchored" data-anchor-id="雑然データの条件">雑然データの条件</h2>
+<p>雑然データは整然データでないものすべてが該当するため、<a href="#整然データの条件">整然データの条件</a>で取り上げた四つの条件いずれかを満たさない。これがどのようなデータ構造となるか考えていく。</p>
+<ol type="1">
+<li><strong>個々の変数が一つの列をなす</strong></li>
+</ol>
+<p><a href="#tbl-messy" class="quarto-xref">Table&nbsp;2</a> がこれにあたる。これは、テストの結果が3列にまたがっているため整然データではない。</p>
+<ol start="2" type="1">
+<li><strong>個々の観測が一つの行をなす</strong></li>
+</ol>
+<p>これも <a href="#tbl-messy" class="quarto-xref">Table&nbsp;2</a> が例としてあたる。「佐藤」の行を取り出すことに三学期分のテスト結果全てを取り出すこととなり、個々のテストの結果となっていない。</p>
+<ol start="3" type="1">
+<li><strong>個々の観測の構成単位の類型が一つの表をなす</strong></li>
+</ol>
+<div id="tbl-multi" class="striped anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-multi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: 複数の構成単位をもつ表構造
+</figcaption>
+<div aria-describedby="tbl-multi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table">
+<thead>
+<tr class="header">
+<th>名前</th>
+<th>学期</th>
+<th>点数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>佐藤</td>
+<td>一学期</td>
+<td>320</td>
+</tr>
+<tr class="even">
+<td>佐藤</td>
+<td>二学期</td>
+<td>300</td>
+</tr>
+<tr class="odd">
+<td>佐藤</td>
+<td>三学期</td>
+<td>350</td>
+</tr>
+<tr class="even">
+<td>佐藤</td>
+<td>三学期</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td>田中</td>
+<td>一学期</td>
+<td>410</td>
+</tr>
+<tr class="even">
+<td>田中</td>
+<td>二学期</td>
+<td>420</td>
+</tr>
+<tr class="odd">
+<td>田中</td>
+<td>三学期</td>
+<td>390</td>
+</tr>
+<tr class="even">
+<td>佐藤</td>
+<td>三学期</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td>鈴木</td>
+<td>一学期</td>
+<td>290</td>
+</tr>
+<tr class="even">
+<td>鈴木</td>
+<td>二学期</td>
+<td>290</td>
+</tr>
+<tr class="odd">
+<td>鈴木</td>
+<td>三学期</td>
+<td>300</td>
+</tr>
+<tr class="even">
+<td>佐藤</td>
+<td>三学期</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-multi" class="quarto-xref">Table&nbsp;3</a> がこの例にあたる。構成単位の類型とは簡単に言うと観測の種類なので、これが複数あるとは種類の異なる観測が一つの表に含まれているということである。この例では、三学期のテストの結果の後に三段階の成績が観測として挿入されているため、雑然データである。</p>
+<ol start="4" type="1">
+<li><strong>個々の値が一つのセルをなす</strong></li>
+</ol>
+<div id="tbl-concat" class="striped anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-concat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: 複数の値が一つのセルに入っている表構造
+</figcaption>
+<div aria-describedby="tbl-concat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table">
+<thead>
+<tr class="header">
+<th>名前</th>
+<th>学期</th>
+<th>点数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>佐藤</td>
+<td>一学期 二学期 三学期</td>
+<td>970</td>
+</tr>
+<tr class="even">
+<td>田中</td>
+<td>一学期 二学期 三学期</td>
+<td>1220</td>
+</tr>
+<tr class="odd">
+<td>鈴木</td>
+<td>一学期 二学期 三学期</td>
+<td>880</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-concat" class="quarto-xref">Table&nbsp;4</a> がこの例にあたる。学期に三種類の値が入っているため整然データの条件を満たさない。神エクセルでよくみられる。</p>
+</section>
+<section id="整然化" class="level2">
+<h2 class="anchored" data-anchor-id="整然化">整然化</h2>
+<p>雑然データを整然データに変換することを<strong>整然化</strong>と呼ぶ。整然化の方法として融解・文字列操作・キャスティングなどがある。これらの操作はRの<code>tibble</code>や、Pythonの<code>Polars</code>または<code>Pandas</code>で関数化されている。</p>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

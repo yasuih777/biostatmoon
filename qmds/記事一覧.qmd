@@ -16,6 +16,12 @@ listing:
     categories: true
     fields: [date, title, abstract, categories]
     sort: "order"
+  - id: data-engineering
+    contents: データサイエンス/データエンジニアリング/*.qmd
+    type: table
+    categories: true
+    fields: [date, title, abstract, categories]
+    sort: "order"
   - id: r
     contents: プログラミング/R/*.qmd
     type: table
@@ -46,7 +52,9 @@ listing:
 
 # データサイエンス
 
-追加予定
+## データエンジニアリング
+::: {#data-engineering}
+:::
 
 # プログラミング
 
