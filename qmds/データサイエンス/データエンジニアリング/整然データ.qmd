@@ -1,8 +1,8 @@
 ---
 title: 整然データ
 abstract: 分析や可視化に向いているデータ構造について
-date: now
-date-modified: now
+date: 02-06-2024
+date-modified: 02-06-2024
 categories:
     - データサイエンス
     - データエンジニアリング
