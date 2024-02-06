@@ -128,6 +128,34 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-data-engineering .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-abstract','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-data-engineering'] = new List('listing-data-engineering', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-r .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -555,7 +583,10 @@ window.Quarto = {
   <ul>
   <li><a href="#臨床研究" id="toc-臨床研究" class="nav-link active" data-scroll-target="#臨床研究">臨床研究</a></li>
   <li><a href="#生物統計学" id="toc-生物統計学" class="nav-link" data-scroll-target="#生物統計学">生物統計学</a></li>
-  <li><a href="#データサイエンス" id="toc-データサイエンス" class="nav-link" data-scroll-target="#データサイエンス">データサイエンス</a></li>
+  <li><a href="#データサイエンス" id="toc-データサイエンス" class="nav-link" data-scroll-target="#データサイエンス">データサイエンス</a>
+  <ul class="collapse">
+  <li><a href="#データエンジニアリング" id="toc-データエンジニアリング" class="nav-link" data-scroll-target="#データエンジニアリング">データエンジニアリング</a></li>
+  </ul></li>
   <li><a href="#プログラミング" id="toc-プログラミング" class="nav-link" data-scroll-target="#プログラミング">プログラミング</a>
   <ul class="collapse">
   <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
@@ -564,7 +595,7 @@ window.Quarto = {
   </ul></li>
   </ul>
 </nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="DOT">DOT <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="グラフィックス">グラフィックス <span class="quarto-category-count">(1)</span></div><div class="category" data-category="確率統計">確率統計 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="臨床研究">臨床研究 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="開発環境">開発環境 <span class="quarto-category-count">(3)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(10)</span></div><div class="category" data-category="DOT">DOT <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="グラフィックス">グラフィックス <span class="quarto-category-count">(1)</span></div><div class="category" data-category="データエンジニアリング">データエンジニアリング <span class="quarto-category-count">(1)</span></div><div class="category" data-category="データサイエンス">データサイエンス <span class="quarto-category-count">(1)</span></div><div class="category" data-category="確率統計">確率統計 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="臨床研究">臨床研究 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="開発環境">開発環境 <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -588,7 +619,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-02-04</p>
+      <p class="date-modified">2024-02-06</p>
     </div>
   </div>
     
@@ -763,7 +794,70 @@ No matching items
 </section>
 <section id="データサイエンス" class="level1">
 <h1>データサイエンス</h1>
-<p>追加予定</p>
+<section id="データエンジニアリング" class="level2">
+<h2 class="anchored" data-anchor-id="データエンジニアリング">データエンジニアリング</h2>
+<div id="listing-data-engineering" class="quarto-listing quarto-listing-container-table">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-data-engineering-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-data-engineering'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-title-sort" data-direction="asc">
+          Title
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+</th>
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+</th>
+<th>
+abstract
+</th>
+<th>
+Categories
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="データサイエンス,データエンジニアリング" data-listing-date-sort="1707225436000" data-listing-file-modified-sort="1707225283359" data-listing-date-modified-sort="1707225436000" data-listing-reading-time-sort="2" data-listing-word-count-sort="275" data-listing-title-sort="整然データ" data-listing-filename-sort="整然データ.qmd">
+<td>
+<span class="listing-date">2024-02-06</span>
+</td>
+<td>
+<a href="../qmds/データサイエンス/データエンジニアリング/整然データ.html" class="title listing-title">整然データ</a>
+</td>
+<td>
+<span class="listing-abstract">分析や可視化に向いているデータ構造について</span>
+</td>
+<td>
+<span class="listing-categories">データサイエンス, データエンジニアリング</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
 </section>
 <section id="プログラミング" class="level1">
 <h1>プログラミング</h1>
