@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -119,7 +153,7 @@ window.Quarto = {
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -379,6 +413,12 @@ window.Quarto = {
  <span class="menu-text">中心極限定理</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmds/生物統計学/統計的仮説検定.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">統計的仮説検定</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -416,19 +456,28 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#大数の弱法則" id="toc-大数の弱法則" class="nav-link active" data-scroll-target="#大数の弱法則">大数の(弱)法則</a></li>
-  <li><a href="#中心極限定理" id="toc-中心極限定理" class="nav-link" data-scroll-target="#中心極限定理">中心極限定理</a></li>
+  <li><a href="#大数の弱法則" id="toc-大数の弱法則" class="nav-link active" data-scroll-target="#大数の弱法則">大数の(弱)法則</a>
+  <ul class="collapse">
+  <li><a href="#定理" id="toc-定理" class="nav-link" data-scroll-target="#定理">定理</a></li>
+  <li><a href="#シミュレーション" id="toc-シミュレーション" class="nav-link" data-scroll-target="#シミュレーション">シミュレーション</a></li>
+  </ul></li>
+  <li><a href="#中心極限定理" id="toc-中心極限定理" class="nav-link" data-scroll-target="#中心極限定理">中心極限定理</a>
+  <ul class="collapse">
+  <li><a href="#定理-1" id="toc-定理-1" class="nav-link" data-scroll-target="#定理-1">定理</a></li>
+  <li><a href="#シミュレーション-1" id="toc-シミュレーション-1" class="nav-link" data-scroll-target="#シミュレーション-1">シミュレーション</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmds/index.html">ホーム</a></li><li class="breadcrumb-item"><a href="../../qmds/生物統計学/確率論.html">生物統計学</a></li><li class="breadcrumb-item"><a href="../../qmds/生物統計学/中心極限定理.html">中心極限定理</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">中心極限定理</h1>
   <div class="quarto-categories">
     <div class="quarto-category">確率統計</div>
+    <div class="quarto-category">R</div>
   </div>
   </div>
 
@@ -447,7 +496,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-02-06</p>
+      <p class="date-modified">2024-02-08</p>
     </div>
   </div>
     
@@ -464,25 +513,172 @@ window.Quarto = {
 </header>
 
 
-<section id="大数の弱法則" class="level1">
+<div class="cell">
+
+</div>
+<section id="大数の弱法則" class="level1 page-columns page-full">
 <h1>大数の(弱)法則</h1>
+<section id="定理" class="level2">
+<h2 class="anchored" data-anchor-id="定理">定理</h2>
 <p>標本<span class="math inline">\(x_{1}, x_{2}, \cdots\)</span>が全て独立かつ同一の母集団分布に従うとし、<span class="math inline">\(E(x_{i}) = \mu \ (i = 1, 2, \cdots)\)</span>とする。このとき、 <a href="#eq-law" class="quarto-xref">Equation&nbsp;1</a> が成り立つことを<strong>大数の(弱)法則</strong>と呼ぶ(<span class="math inline">\(\bar{x}\)</span>は<span class="math inline">\(\mu\)</span>に<strong>確率収束</strong>する)。</p>
 <p><span id="eq-law"><span class="math display">\[
 \forall \epsilon &gt; 0, n \rightarrow \infty \Rightarrow P \{ |\bar{x} - \mu | &gt; \epsilon \}
 \tag{1}\]</span></span></p>
-<p>これは、<strong>試行回数<span class="math inline">\(n\)</span>を増やしていくことで標本平均は真の平均<span class="math inline">\(\mu\)</span>に近似する</strong>ということである。確率分布については仮定していないというのが重要な点で、正規分布はもちろん指数分布などの左右非対称なものでも大数の法則を適応することができる。</p>
+<p>これは、<strong>サンプルサイズ<span class="math inline">\(n\)</span>を増やしていくことで標本平均は真の平均<span class="math inline">\(\mu\)</span>に近似する</strong>ということである。確率分布については仮定していないというのが重要な点で、正規分布はもちろん指数分布などの左右非対称なものでも大数の法則を適応することができる。</p>
 </section>
-<section id="中心極限定理" class="level1">
+<section id="シミュレーション" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="シミュレーション">シミュレーション</h2>
+<p>大数の法則をRでシミュレーションする。サイコロを一回振り、2以下の目が出た場合は1、それ以外の目が出た場合は0とするベルヌーイ試行を考える。このとき、2以下の目が出る確率は<span class="math inline">\(\frac{1}{3}\)</span>であることが期待できるため、母集団分布を平均も<span class="math inline">\(\frac{1}{3}\)</span>となる。この試行をたくさん繰り返すときに実際の標本平均<span class="math inline">\(\bar{x}\)</span>はどこに収束するかを確認する。<br>
+この場合、シミュレーションを5回行った結果は <a href="#fig-law" class="quarto-xref">Figure&nbsp;1</a> になる。いずれのシミュレーションでも200回目までの試行はややばらつきがあるようにみえるが、それ以降は<span class="math inline">\(\frac{1}{3}\)</span>に収束しているとみてよいだろう。</p>
+<div class="cell page-columns page-full">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>dice_sample <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">seed =</span> <span class="dv">0</span>, <span class="at">iter =</span> <span class="dv">10000</span>) {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="fu">set.seed</span>(seed)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    logs <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="at">length =</span> iter)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iter){</span>
+<span id="cb1-6"><a href="#cb1-6"></a>        dices <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">runif</span>(i, <span class="dv">1</span>, <span class="dv">7</span>))</span>
+<span id="cb1-7"><a href="#cb1-7"></a>        logs[i] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(dices <span class="sc">&lt;=</span> <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>) <span class="sc">|&gt;</span> <span class="fu">mean</span>()</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    }</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a>    <span class="fu">return</span>(logs)</span>
+<span id="cb1-11"><a href="#cb1-11"></a>}</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a>iter <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>iter</span>
+<span id="cb1-15"><a href="#cb1-15"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>){</span>
+<span id="cb1-17"><a href="#cb1-17"></a>    sub_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-18"><a href="#cb1-18"></a>        <span class="at">x =</span> x,</span>
+<span id="cb1-19"><a href="#cb1-19"></a>        <span class="at">y =</span> <span class="fu">dice_sample</span>(<span class="at">seed =</span> i, <span class="at">iter =</span> iter),</span>
+<span id="cb1-20"><a href="#cb1-20"></a>        <span class="at">simulation =</span> <span class="fu">sprintf</span>(<span class="st">"%s"</span>, i)</span>
+<span id="cb1-21"><a href="#cb1-21"></a>    )</span>
+<span id="cb1-22"><a href="#cb1-22"></a>    data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, sub_data)</span>
+<span id="cb1-23"><a href="#cb1-23"></a>}</span>
+<span id="cb1-24"><a href="#cb1-24"></a></span>
+<span id="cb1-25"><a href="#cb1-25"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> simulation)) <span class="sc">+</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a>    <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a>    <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sample size"</span>, <span class="at">y =</span> <span class="st">"Sample mean"</span>)</span>
+<span id="cb1-30"><a href="#cb1-30"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="fu">plot</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div id="fig-law" class="quarto-figure quarto-figure-center anchored page-columns page-full" width="960">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-law-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="中心極限定理_files/figure-html/fig-law-1.png" class="img-fluid figure-img" width="960">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-law-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: 大数の法則のシミュレーション
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="中心極限定理" class="level1 page-columns page-full">
 <h1>中心極限定理</h1>
+<section id="定理-1" class="level2">
+<h2 class="anchored" data-anchor-id="定理-1">定理</h2>
 <p>大数の法則について、標本平均による母数<span class="math inline">\((\mu, \sigma^{2})\)</span>の点推定の考え方を適応する。<br>
 標本<span class="math inline">\(x_{1}, x_{2}, \cdots\)</span>が全て独立かつ同一の母集団分布に従うとし、<span class="math inline">\(E(x_{i}) = \mu, V(x_{i}) = \sigma^{2} \ (i = 1, 2, \cdots)\)</span>とする。このとき、 <a href="#eq-central" class="quarto-xref">Equation&nbsp;2</a> が成り立つことを<strong>中心極限定理</strong>と呼ぶ。</p>
 <p><span id="eq-central"><span class="math display">\[
 n \rightarrow \infty \Rightarrow P \left( \frac{x_{1} + \cdots + x_{n} - n \mu}{\sqrt{n} \sigma} \leqq x \right) \rightarrow \int^{x}_{- \infty} \frac{1}{\sqrt{2 \pi}} \exp \left( - \frac{x^{2}}{x} \right) dx
 \tag{2}\]</span></span></p>
-<p>即ち、<strong>試行回数<span class="math inline">\(n\)</span>を増やしていくことで確率変数<span class="math inline">\(\frac{X_{1} + \cdots + X_{n} - n \mu}{\sqrt{n}}\)</span>が従う確率分布は標準正規分布に近似する</strong>ということである。確率変数を標本平均とした場合は母数が<span class="math inline">\((\mu, \frac{\sigma^{2}}{n})\)</span>である正規分布に従う。これも大数の法則と同様に確率分布を仮定する必要がない。</p>
+<p>即ち、<strong>サンプルサイズ<span class="math inline">\(n\)</span>を増やしていくことで確率変数<span class="math inline">\(\frac{X_{1} + \cdots + X_{n} - n \mu}{\sqrt{n}}\)</span>が従う確率分布は標準正規分布に近似する</strong>ということである。確率変数を標本平均とした場合は母数が<span class="math inline">\((\mu, \frac{\sigma^{2}}{n})\)</span>である正規分布に従う。これも大数の法則と同様に確率分布を仮定する必要がない。</p>
 <p>これらの定理から、正規分布は確率分布の代表値の候補である平均値の点推定において必ず関わってくるものであるため確率統計学においてかなり重要な確率分布であることがいえる。</p>
+</section>
+<section id="シミュレーション-1" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="シミュレーション-1">シミュレーション</h2>
+<p>中心極限定理も同様にRでシミュレーションする。母集団分布を母数が<span class="math inline">\(\alpha = 2, \beta = 4\)</span>であるガンマ分布とする。そこからサンプルサイズ<span class="math inline">\(n\)</span>の標本を抽出し、標本平均を算出する。サンプル数を1,0000とするとき、そこから得られる標本平均の分布がどのようになるかを確認する。サンプルサイズは2, 5, 10, 30と増やしていく。上記の定理に則るなら、分布は<span class="math inline">\(N(8, \frac{32}{n})\)</span>に近似する。<br>
+結果は <strong>?@fig-fig-norm</strong> になる。サンプルサイズが2, 5のシミュレーションでは正規分布から外れているが、10, 30では正規分布に近似できているとみてよいだろう。</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>central_simulation <span class="ot">&lt;-</span> <span class="cf">function</span>(n){</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    iter <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>    alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>    beta <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a>    logs <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="at">length =</span> iter)</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iter){</span>
+<span id="cb2-10"><a href="#cb2-10"></a>        logs[i] <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(n, alpha, <span class="dv">1</span> <span class="sc">/</span> beta) <span class="sc">|&gt;</span> <span class="fu">mean</span>()</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    }</span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a>    m <span class="ot">&lt;-</span> alpha <span class="sc">*</span> beta</span>
+<span id="cb2-14"><a href="#cb2-14"></a>    v <span class="ot">&lt;-</span> alpha <span class="sc">*</span> beta <span class="sc">**</span> <span class="dv">2</span> <span class="sc">/</span> n</span>
+<span id="cb2-15"><a href="#cb2-15"></a></span>
+<span id="cb2-16"><a href="#cb2-16"></a>    x <span class="ot">&lt;-</span> <span class="fu">seq</span>(m <span class="sc">-</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fu">sqrt</span>(v), m <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fu">sqrt</span>(v), <span class="at">length =</span> <span class="dv">1000</span>)</span>
+<span id="cb2-17"><a href="#cb2-17"></a>    y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, m, <span class="fu">sqrt</span>(v))</span>
+<span id="cb2-18"><a href="#cb2-18"></a></span>
+<span id="cb2-19"><a href="#cb2-19"></a>    g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> logs)) <span class="sc">+</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a>        <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">40</span>) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a>        <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a>        <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(logs), <span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a>        <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">sprintf</span>(<span class="st">"sample size: %s"</span>, n), <span class="at">x =</span> <span class="st">"Sample mean"</span>, <span class="at">y =</span> <span class="st">"density"</span>)</span>
+<span id="cb2-24"><a href="#cb2-24"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a>    <span class="fu">plot</span>(g)</span>
+<span id="cb2-26"><a href="#cb2-26"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="fig-norm" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-norm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;display: flex;">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="中心極限定理_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;display: flex;">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="中心極限定理_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;display: flex;">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="中心極限定理_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;display: flex;">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="中心極限定理_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-norm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: 中心極限定理のシミュレーション: 縦線は<span class="math inline">\(E(\bar{x})\)</span>, 破線は母集団分布<span class="math inline">\(N(8, \frac{32}{n})\)</span>
+</figcaption>
+</figure>
+</div>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
