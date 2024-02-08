@@ -1,10 +1,12 @@
 ---
 title: 統計的仮説検定
-abstract: 統計学を扱う上での基礎となる確率論
-date: 01-24-2024
-date-modified: 01-26-2024
+abstract: 統計的に真偽を判断する方法
+date: 02-08-2024
+date-modified: 02-08-2024
 categories:
     - 確率統計
 order: 5
 draft: true
 ---
+
+# 検定
